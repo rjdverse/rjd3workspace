@@ -1,0 +1,41 @@
+Package: rjdemetra3
+Type: Package
+Title: Interface to 'JDemetra+ 3.0' Seasonal Adjustment Software
+Version: 3.0.0
+Authors@R: c(
+  person("Alain", "Quartier-la-Tente", role = c("aut", "cre"),
+                 email = "alain.quartier@yahoo.fr",
+                 comment = c(ORCID = "0000-0001-7890-3857")),
+  person("Anna", "Michalek", role = "aut",
+                email = "anna.michalek@ecb.int"),
+  person("Jean", "Palate", role = "aut",
+                email = "jean.palate@nbb.be"),
+  person("Raf", "Baeyens", role = "aut",
+                email = "raf.baeyens@nbb.be"))
+Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-app>), the seasonal adjustment software officially
+    recommended to the members of the European Statistical System (ESS) and the European System of Central Banks.
+    It offers full access to all options and outputs of 'JDemetra+', including the two leading seasonal adjustment methods
+    TRAMO/SEATS+ and X-12ARIMA/X-13ARIMA-SEATS.
+Depends:
+    R (>= 3.6.0),
+Imports:
+    rJava (>= 1.0-6),
+    rjd3toolkit (>= 3.0.0),
+    rjd3tramoseats (>= 3.0.0),
+    rjd3x13 (>= 3.0.0)
+SystemRequirements: Java (>= 17)
+License: EUPL
+URL: https://github.com/jdemetra/rjdemetra3
+LazyData: TRUE
+Suggests:
+    knitr,
+    rmarkdown,
+RoxygenNote: 7.2.3
+BugReports: https://github.com/jdemetra/rjdemetra3/issues
+Encoding: UTF-8
+Collate: 
+    'utils.R'
+    'saitem.R'
+    'multiprocessing.R'
+    'workspace.R'
+    'zzz.R'
