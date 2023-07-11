@@ -69,7 +69,7 @@ NULL
   jestimation<-.jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
   if (is.jnull(jestimation))
     return (NULL)
-  jrslt<-.jcall(jestimation, "Ldemetra/information/Explorable;", "getResults")
+  jrslt<-.jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
   if (is.null(items))
     items<-rjd3toolkit::.proc_dictionary2(jrslt)
   r<-lapply(items, function(t){rjd3toolkit::.proc_data(jrslt, t)})
