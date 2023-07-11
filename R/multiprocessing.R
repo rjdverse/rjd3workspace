@@ -24,7 +24,18 @@ NULL
   if (idx < 1) return (NULL)
   return (.jcall(jmp, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx-1)))
 }
-
+#' @name .jmp_name
+#' @export
+.jmp_sa_name <- function(jmp) {
+  n <- .jcall(jmp, "I", "size")
+  if (n == 0) {
+    return (NULL)
+  }
+  names_sa <- vapply(X = seq_len(n),
+                     FUN = function(i) {.jsa_name(.jmp_sa(jmp, i))},
+                     FUN.VALUE = character(1))
+  return(names_sa)
+}
 
 #' @name load_workspace
 #' @export
