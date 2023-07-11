@@ -106,6 +106,12 @@ replace_sa_item <- function(jmp, jsa, idx) {
 remove_sa_item <- function(jmp, idx) {
   .jcall(jmp, "V", "remove", as.integer(idx-1))
 }
+#' @name replace_sa_item
+#' @export
+remove_all_sa_item <- function(jmp) {
+  .jcall(jmp, "V", "removeAll")
+  return(invisible(TRUE))
+}
 
 #' Set Specification or Data of a SaItem
 #'
