@@ -1,6 +1,7 @@
 #' @include saitem.R
 NULL
 
+#' @name .jws_multiprocessing_count
 #' @export
 .jmp_sa_count<-function(jmp){
   return (.jcall(jmp, "I", "size"))
@@ -52,7 +53,7 @@ NULL
 #'
 #' @param jmp the multiprocessing.
 #' @param name the name of SAItem.
-#' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or [rjd3tramoseats::tramoseats()]) or a `"ts"` object.
+#' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or [rjd3tramoseats::tramoseats()]), a SaItem or a `"ts"` object.
 #' @param spec the specification to use when `x` is a `"ts"` object.
 #' @param ... other unused parameters.
 #'
@@ -105,8 +106,20 @@ add_sa_item.default <- function(jmp, name, x, spec, ...) {
               name = name,
               ...)
 }
+#'@export
+add_sa_item.jobjRef <- function(jmp, name, x, spec, ...) {
+  if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
+    .jcall(jmp, "V", "add", x)
+    if (!missing(name))
+      set_name(jmp, name = name, idx = .jmp_sa_count(jmp))
+  } else {
+    stop("x is not SaItem")
+  }
+  invisible(TRUE)
+}
 
 #' Replace or Remove a SaItem
+#'
 #' `replace_sa_item()` replaces a SaItem of a multiprocessing and `remove_sa_item()` removes a SaItem from a multiprocessing
 #'
 #' @param jmp the multiprocessing to modify.
@@ -114,7 +127,7 @@ add_sa_item.default <- function(jmp, name, x, spec, ...) {
 #' @param idx index of the target SaItem.
 #' @export
 replace_sa_item <- function(jmp, idx, jsa) {
-.jcall(jmp, "V", "set", as.integer(idx-1), jsa)
+  .jcall(jmp, "V", "set", as.integer(idx-1), jsa)
 }
 #' @name replace_sa_item
 #' @export
@@ -155,9 +168,9 @@ transfer_series <- function(jmp_from, jmp_to, selected_series,
     if (length(index_to) > 1) {
       stop("Several series from second SA Processing have the same name : ", serie_name)
     } else if (length(index_to) == 0) {
-      rjdemetra3::add_sa_item(jmp = jmp_to, name = serie_name, x = .jsa_read(jsa1))
+      add_sa_item(jmp = jmp_to, name = serie_name, x = .jsa_read(jsa1))
     } else {
-      rjdemetra3::replace_sa_item(jmp = jmp_to, jsa = jsa1, idx = index_to)
+      replace_sa_item(jmp = jmp_to, jsa = jsa1, idx = index_to)
     }
 
     if (print_indications) {
@@ -177,7 +190,6 @@ transfer_series <- function(jmp_from, jmp_to, selected_series,
 #'
 #' @inheritParams replace_sa_item
 #' @param spec the new specification.
-#' @param y the new data.
 #' @export
 set_specification <- function(jmp, idx, spec) {
   if (inherits(spec, "JD3_X13_SPEC")) {
@@ -222,7 +234,7 @@ get_raw_data <- function(jsa) {
 #' Get/Set SaItem Comment
 #'
 #' @inheritParams set_raw_data
-#' @param comment char containing the comment.
+#' @param comment character containing the comment.
 #' @export
 set_comment <- function(jmp, idx, comment) {
   jsa <- .jmp_sa(jmp, idx = idx)
@@ -241,7 +253,7 @@ get_comment <- function(jsa) {
 #' Set the name associated to a SaItem Comment
 #'
 #' @inheritParams set_raw_data
-#' @param name char containing the name of the SAItem.
+#' @param name character containing the name of the SAItem.
 #' @seealso [.jsa_name()]
 #' @export
 set_name <- function(jmp, idx, name) {
