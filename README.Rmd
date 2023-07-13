@@ -11,18 +11,14 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.align="center"
 )
+library(rjdemetra3)
 ```
 
 # RJDemetra3
 
 
-RJDemetra3 is an R interface to JDemetra+, the seasonal adjustment software [officially recommended](https://ec.europa.eu/eurostat/cros/system/files/Jdemetra_%20release.pdf) to the members of the European Statistical System (ESS) and the European System of Central Banks. JDemetra+ implements the two leading seasonal adjustment methods [TRAMO/SEATS+](http://gretl.sourceforge.net/tramo/tramo-seats.html) and [X-12ARIMA/X-13ARIMA-SEATS](https://www.census.gov/srd/www/x13as/).
-
-Besides seasonal adjustment, JDemetra+ bundles other time series models that are useful in the production or analysis of economic statistics, including for instance outlier detection, nowcasting, temporal disaggregation or benchmarking.
-
-For more details on the JDemetra+ software see <https://github.com/jdemetra/jdemetra-app>.
-
-RJDemetra3 offers full access to all options and outputs of JDemetra+.
+RJDemetra3 offers several functions to interact with JDemetra+ v3.0 workspaces.
+Seasonal adjustment with X-12ARIMA can be done with the package [rjd3x13](https://github.com/rjdemetra/rjd3x13) and with TRAMO-SEATS with the package [rjd3tramoseats](https://github.com/rjdemetra/rjd3tramoseats).
 
 ## Installation
 
@@ -38,5 +34,25 @@ remotes::install_github("rjdemetra/rjd3tramoseats")
 remotes::install_github("rjdemetra/rjdemetra3")
 ```
 
+## Usage
 
-If you have troubles with the installation, check the [installation manual](https://github.com/jdemetra/rjdemetra/wiki/Installation-manual).
+RJDemetra3 relies on the [rJava](https://CRAN.R-project.org/package=rJava) package and Java SE 17 or later version is required.
+
+
+```{r}
+library(rjdemetra3)
+dir <- tempdir()
+y <- rjd3toolkit::ABS$X0.2.09.10.M
+jws <- .jws_new()
+jmp1 <- .jws_multiprocessing_new(jws, "sa1")
+add_sa_item(jmp1, name = "x13", x = rjd3x13::x13(y))
+add_sa_item(jmp1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
+save_workspace(jws, file.path(dir, "wk.xml"))
+
+ws <- .jws_open(file = file.path(dir, "wk.xml"))
+.jws_compute(ws) # to compute the models
+jmp1 <- .jws_multiprocessing(ws, idx = 1) # first multiprocessing
+jsa1 <- .jmp_sa(jmp1, idx = 1) # first SaItem
+.jsa_name(jsa1)
+mod1 <- .jsa_read(jsa1)
+```
