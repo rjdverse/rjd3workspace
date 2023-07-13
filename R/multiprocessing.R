@@ -94,11 +94,11 @@ add_sa_item.default <- function(jmp, name, x, spec, ...) {
 #' Replace or Remove a SaItem
 #' `replace_sa_item()` replaces a SaItem of a multiprocessing and `remove_sa_item()` removes a SaItem from a multiprocessing
 #'
-#' @param jmp the multiprocessing.
+#' @param jmp the multiprocessing to modify.
 #' @param jsa the new SaItem.
 #' @param idx index of the target SaItem.
 #' @export
-replace_sa_item <- function(jmp, jsa, idx) {
+replace_sa_item <- function(jmp, idx, jsa) {
 .jcall(jmp, "V", "set", as.integer(idx-1), jsa)
 }
 #' @name replace_sa_item
@@ -113,7 +113,7 @@ remove_sa_item <- function(jmp, idx) {
 #' @param spec the new specification.
 #' @param y the new data.
 #' @export
-set_specification <- function(jmp, spec, idx) {
+set_specification <- function(jmp, idx, spec) {
   if (inherits(spec, "JD3_X13_SPEC")) {
     jspec <- rjd3x13::.r2jd_spec_x13(spec)
   } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -126,7 +126,7 @@ set_specification <- function(jmp, spec, idx) {
 }
 #' @name set_specification
 #' @export
-set_domain_specification <- function(jmp, spec, idx) {
+set_domain_specification <- function(jmp, idx, spec) {
   if (inherits(spec, "JD3_X13_SPEC")) {
     jspec <- rjd3x13::.r2jd_spec_x13(spec)
   } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -137,11 +137,108 @@ set_domain_specification <- function(jmp, spec, idx) {
   jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
   .jcall(jmp, "V", "setDomainSpecification", as.integer(idx-1), jspec)
 }
-#' @name set_specification
-#'@export
-set_data <- function(jmp, y, idx) {
+#' Get/Set the Raw Data of a SaItem
+#'
+#' @inheritParams replace_sa_item
+#' @param y the new raw time serie.
+#' @param jsa a SaItem.
+#' @export
+set_raw_data <- function(jmp, idx, y) {
   .jcall(jmp, "V", "setData", as.integer(idx-1), rjd3toolkit::.r2jd_ts(y))
 }
+#' @name set_raw_data
+#' @export
+get_raw_data <- function(jsa) {
+  jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+              , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+  rjd3toolkit::.jd2r_ts(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+}
+#' Get/Set SaItem Comment
+#'
+#' @inheritParams set_raw_data
+#' @param comment char containing the comment.
+#' @export
+set_comment <- function(jmp, idx, comment) {
+  jsa <- .jmp_sa(jmp, idx = idx)
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withComment",
+                comment)
+  replace_sa_item(jmp, jsa = jsa, idx = idx)
+}
+#' @name set_comment
+#' @export
+get_comment <- function(jsa) {
+  .jcall(jsa, "S", "getComment")
+}
 
+#' Set the name associated to a SaItem Comment
+#'
+#' @inheritParams set_raw_data
+#' @param name char containing the name of the SAItem.
+#' @seealso [.jsa_name()]
+#' @export
+set_name <- function(jmp, idx, name) {
+  jsa <- .jmp_sa(jmp, idx = idx)
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withName",
+                name)
+  replace_sa_item(jmp, jsa = jsa, idx = idx)
+}
+
+# set_metadata <- function(jmp, ref_jsa, idx) {
+#   jsa <- .jmp_sa(jmp, idx = idx)
+#   jsa <- jsa$withInformations(ref_jsa$getMeta())
+#   replace_sa_item(jmp, jsa = jsa, idx = idx)
+# }
+#' Set Time Series Metadata of a SaItem
+#'
+#' Function to set the time series metadata of a SaItem (provider, source of the data...)
+#'
+#' @inheritParams set_raw_data
+#' @param ref_jsa a reference SaItem containing the metadata.
+#'
+#' @export
+set_ts_metadata <- function(jmp, idx, ref_jsa) {
+  jsa <- .jmp_sa(jmp, idx = idx)
+  jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+              , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+  jts_ref<-.jcall(.jcall(ref_jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+              , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+  jtsbuilder <- .jcall(jts, "Ljdplus/toolkit/base/api/timeseries/Ts$Builder;",
+                       "toBuilder")
+  # jts_ref$getMeta()$getClass()$descriptorString()
+  # .jcall(jtsbuilder,  "Ljdplus/toolkit/base/api/timeseries/Ts$Builder;",
+  #        "meta",
+  #        .jcall(jts_ref, "Ljava/util/Map;", "getMeta"))
+  jts <- jtsbuilder$
+    meta(.jcall(jts_ref, "Ljava/util/Map;", "getMeta"))$
+    moniker(.jcall(jts_ref, "Ljdplus/toolkit/base/api/timeseries/TsMoniker;", "getMoniker"))$
+    build()
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTs",
+                jts)
+  replace_sa_item(jmp, jsa = jsa, idx = idx)
+}
+#' Get/Set SaItem Priority
+#'
+#' @inheritParams set_raw_data
+#' @param priority integer containing the priority.
+#' @export
+set_priority <- function(jmp, idx, priority = 0) {
+  jsa <- .jmp_sa(jmp, idx = idx)
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withPriority",
+                as.integer(priority))
+  replace_sa_item(jmp, jsa = jsa, idx = idx)
+}
+#' @name set_priority
+#' @export
+get_priority <- function(jsa) {
+  .jcall(jsa, "I", "getPriority")
+}
 
 
