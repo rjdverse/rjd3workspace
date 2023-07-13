@@ -24,7 +24,18 @@ NULL
   if (idx < 1) return (NULL)
   return (.jcall(jmp, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx-1)))
 }
-
+#' @name .jmp_name
+#' @export
+.jmp_sa_name <- function(jmp) {
+  n <- .jcall(jmp, "I", "size")
+  if (n == 0) {
+    return (NULL)
+  }
+  names_sa <- vapply(X = seq_len(n),
+                     FUN = function(i) {.jsa_name(.jmp_sa(jmp, i))},
+                     FUN.VALUE = character(1))
+  return(names_sa)
+}
 
 #' @name load_workspace
 #' @export
@@ -78,12 +89,16 @@ add_sa_item.ts <- function(jmp, name, x, spec, ...) {
 add_sa_item.default <- function(jmp, name, x, spec, ...) {
   if (inherits(x, "JD3_X13_OUTPUT")) {
     y <- x$result$preadjust$a1
+    spec <- x$estimation_spec
   } else if (inherits(x, "JD3_TRAMOSEATS_OUTPUT")) {
     y <- x$result$final$series$data
+    spec <- x$estimation_spec
+  } else if (inherits(x$estimationSpec, c("JD3_X13_SPEC", "JD3_TRAMOSEATS_SPEC"))) {
+    y <- x$ts
+    spec <- x$estimationSpec
   } else {
     stop("wrong type of spec")
   }
-  spec <- x$estimation_spec
   add_sa_item.ts(jmp = jmp,
               x = y,
               spec = spec,
@@ -106,6 +121,57 @@ replace_sa_item <- function(jmp, idx, jsa) {
 remove_sa_item <- function(jmp, idx) {
   .jcall(jmp, "V", "remove", as.integer(idx-1))
 }
+#' @name replace_sa_item
+#' @export
+remove_all_sa_item <- function(jmp) {
+  .jcall(jmp, "V", "removeAll")
+  return(invisible(TRUE))
+}
+#' @name replace_sa_item
+#' @export
+transfer_series <- function(jmp_from, jmp_to, selected_series,
+                            print_indications = TRUE)
+{
+  mp_from_sa_name <- .jmp_sa_name(jmp_from)
+  mp_to_sa_name <- .jmp_sa_name(jmp_to)
+
+  if (missing(selected_series) || is.null(selected_series)) {
+    selected_series <- mp_from_sa_name
+  }
+
+  if (!all(selected_series %in% mp_from_sa_name)) {
+    missing_series <- selected_series[!selected_series %in% mp_from_sa_name]
+    stop("The series ", paste0(missing_series, collapse = ", "), " are missing from the first SA Processing. The replacement wasn't performed.")
+  }
+
+  for (serie_name in selected_series) {
+    index_from <- which(serie_name == mp_from_sa_name)
+    if (length(index_from) > 1) {
+      stop("Several series from first SA Processing have the same name : ", serie_name)
+    }
+    jsa1 <- .jmp_sa(jmp_from, idx = index_from)
+
+    index_to <- which(serie_name == mp_to_sa_name)
+    if (length(index_to) > 1) {
+      stop("Several series from second SA Processing have the same name : ", serie_name)
+    } else if (length(index_to) == 0) {
+      rjdemetra3::add_sa_item(jmp = jmp_to, name = serie_name, x = .jsa_read(jsa1))
+    } else {
+      rjdemetra3::replace_sa_item(jmp = jmp_to, jsa = jsa1, idx = index_to)
+    }
+
+    if (print_indications) {
+      print(paste0("Serie ", serie_name, ": Transfered."))
+    }
+  }
+
+  if (print_indications) {
+    print(paste0("Done"))
+  }
+
+  return(invisible(NULL))
+}
+
 
 #' Set Specification or Data of a SaItem
 #'
