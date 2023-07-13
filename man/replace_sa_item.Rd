@@ -3,21 +3,25 @@
 \name{replace_sa_item}
 \alias{replace_sa_item}
 \alias{remove_sa_item}
-\title{Replace or Remove a SaItem
-`replace_sa_item()` replaces a SaItem of a multiprocessing and `remove_sa_item()` removes a SaItem from a multiprocessing}
+\alias{remove_all_sa_item}
+\alias{transfer_series}
+\title{Replace or Remove a SaItem}
 \usage{
-replace_sa_item(jmp, jsa, idx)
+replace_sa_item(jmp, idx, jsa)
 
 remove_sa_item(jmp, idx)
+
+remove_all_sa_item(jmp)
+
+transfer_series(jmp_from, jmp_to, selected_series, print_indications = TRUE)
 }
 \arguments{
-\item{jmp}{the multiprocessing.}
-
-\item{jsa}{the new SaItem.}
+\item{jmp}{the multiprocessing to modify.}
 
 \item{idx}{index of the target SaItem.}
+
+\item{jsa}{the new SaItem.}
 }
 \description{
-Replace or Remove a SaItem
-`replace_sa_item()` replaces a SaItem of a multiprocessing and `remove_sa_item()` removes a SaItem from a multiprocessing
+\code{replace_sa_item()} replaces a SaItem of a multiprocessing and \code{remove_sa_item()} removes a SaItem from a multiprocessing
 }

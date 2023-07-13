@@ -2,12 +2,15 @@
 % Please edit documentation in R/workspace.R
 \name{.jws_new}
 \alias{.jws_new}
+\alias{.jws_multiprocessing_new}
 \title{Create a workspace or a multi-processing}
 \usage{
 .jws_new(modelling_context = NULL)
+
+.jws_multiprocessing_new(jws, name)
 }
 \arguments{
-\item{modelling_context}{the context (from [rjd3toolkit::modelling_context()]).}
+\item{modelling_context}{the context (from \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}}).}
 
 \item{jws}{a workspace object.}
 

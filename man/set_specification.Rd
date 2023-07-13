@@ -3,23 +3,18 @@
 \name{set_specification}
 \alias{set_specification}
 \alias{set_domain_specification}
-\alias{set_data}
 \title{Set Specification or Data of a SaItem}
 \usage{
-set_specification(jmp, spec, idx)
+set_specification(jmp, idx, spec)
 
-set_domain_specification(jmp, spec, idx)
-
-set_data(jmp, y, idx)
+set_domain_specification(jmp, idx, spec)
 }
 \arguments{
-\item{jmp}{the multiprocessing.}
-
-\item{spec}{the new specification.}
+\item{jmp}{the multiprocessing to modify.}
 
 \item{idx}{index of the target SaItem.}
 
-\item{y}{the new data.}
+\item{spec}{the new specification.}
 }
 \description{
 Set Specification or Data of a SaItem

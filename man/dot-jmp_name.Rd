@@ -3,15 +3,18 @@
 \name{.jmp_name}
 \alias{.jmp_name}
 \alias{.jsa_name}
+\alias{.jmp_sa_name}
 \title{Get the name of a multiprocessing or a SaItem}
 \usage{
 .jsa_name(jsa)
 
 .jmp_name(jmp)
+
+.jmp_sa_name(jmp)
 }
 \arguments{
 \item{jmp, jsa}{the object to retrieve the name from.}
 }
 \description{
-Functions to retrieve the name of a multiprocessing (`.jmp_name()`) or SaItem (`.jsa_name()`).
+Functions to retrieve the name of a multiprocessing (\code{.jmp_name()}) or SaItem (\code{.jsa_name()}).
 }
