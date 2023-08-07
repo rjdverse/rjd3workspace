@@ -24,7 +24,7 @@ NULL
   }
   return (jws)
 }
-
+#' @name .jws_new
 #' @export
 .jws_multiprocessing_new<-function(jws, name){
   return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
@@ -84,7 +84,6 @@ get_context<-function(jws){
 #'
 #' @param file the path to the 'JDemetra+' workspace to load.
 #' By default a dialog box opens.
-#' @param jws the workspace.
 #'
 #' @seealso [load_workspace()] to directly load a workspace and import all the models.
 #'

@@ -16,6 +16,6 @@ load_workspace(file)
 By default a dialog box opens.}
 }
 \description{
-Functions to read all the SAItem of a multiprocessing (`jmp_load()`)
-or a workspace (`load_workspace()`).
+Functions to read all the SAItem of a multiprocessing (\code{jmp_load()})
+or a workspace (\code{load_workspace()}).
 }
