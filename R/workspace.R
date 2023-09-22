@@ -166,9 +166,15 @@ load_workspace<-function(file){
 save_workspace <- function(jws, file, replace = FALSE) {
   # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
   version <- "jd3"
-  .jcall(jws, "Z", "saveAs", file, version, !replace)
+  invisible(.jcall(jws, "Z", "saveAs", full_path(file), version, !replace))
 }
 
+full_path <- function(path) {
+  base::file.path(
+    base::normalizePath(dirname(path), mustWork = TRUE, winslash = "/"),
+    base::basename(path),
+    fsep = "/")
+}
 
 
 #' Add Calendar to Workspace
