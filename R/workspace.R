@@ -101,8 +101,8 @@ get_context<-function(jws){
   }
   if (!file.exists(file) | length(grep("\\.xml$",file)) == 0)
     stop("The file doesn't exist or isn't a .xml file !")
-
-  jws<-.jcall("jdplus/sa/base/workspace/Ws", "Ljdplus/sa/base/workspace/Ws;", "open", file)
+  full_file_name <- full_path(file)
+  jws<-.jcall("jdplus/sa/base/workspace/Ws", "Ljdplus/sa/base/workspace/Ws;", "open", full_file_name)
   return (jws)
 }
 
@@ -166,9 +166,15 @@ load_workspace<-function(file){
 save_workspace <- function(jws, file, replace = FALSE) {
   # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
   version <- "jd3"
-  .jcall(jws, "Z", "saveAs", file, version, !replace)
+  invisible(.jcall(jws, "Z", "saveAs", full_path(file), version, !replace))
 }
 
+full_path <- function(path) {
+  base::file.path(
+    base::normalizePath(dirname(path), mustWork = TRUE, winslash = "/"),
+    base::basename(path),
+    fsep = "/")
+}
 
 
 #' Add Calendar to Workspace

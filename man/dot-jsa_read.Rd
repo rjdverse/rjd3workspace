@@ -13,7 +13,7 @@
 \item{jsa}{Java SAItem object.}
 
 \item{items}{vector of characters containing the variables to extract.
-See \code{\link[rjd3x13:userdefined_variables_x13]{rjd3x13::userdefined_variables_x13()}} or \code{\link[rjd3tramoseats:userdefined_variables_tramoseats]{rjd3tramoseats::userdefined_variables_tramoseats()}}. By default, extracts all the possible variables.}
+See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}. By default, extracts all the possible variables.}
 }
 \description{
 \code{.jsa_results()} extracts specific variables of the model of the SAItem while
@@ -21,7 +21,7 @@ See \code{\link[rjd3x13:userdefined_variables_x13]{rjd3x13::userdefined_variable
 }
 \details{
 A SAItem contains more information than just the results of a model.
-All those informations are extracted with the \code{jsa.read()} function that returns a list with 5 objects:
+All those informations are extracted with the \code{.jsa_read()} function that returns a list with 5 objects:
 \itemize{
 \item \code{ts}: the raw time series.
 \item \code{domainSpec}: initial specification. Reference for any relaxing of some elements of the specification.

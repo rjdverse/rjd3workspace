@@ -8,10 +8,10 @@ NULL
 #'
 #' @param jsa Java SAItem object.
 #' @param items vector of characters containing the variables to extract.
-#' See [rjd3x13::userdefined_variables_x13()] or [rjd3tramoseats::userdefined_variables_tramoseats()]. By default, extracts all the possible variables.
+#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()]. By default, extracts all the possible variables.
 #'
 #' @details A SAItem contains more information than just the results of a model.
-#' All those informations are extracted with the `jsa.read()` function that returns a list with 5 objects:
+#' All those informations are extracted with the `.jsa_read()` function that returns a list with 5 objects:
 #'
 #' - `ts`: the raw time series.
 #' - `domainSpec`: initial specification. Reference for any relaxing of some elements of the specification.
