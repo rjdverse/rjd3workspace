@@ -32,7 +32,7 @@ NULL
   }
   # ts
   jts<-.jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rts<-rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+  rts<-rjd3toolkit::.jd2r_ts(jts)
 
   jdspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec")
   jspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "activeSpecification")

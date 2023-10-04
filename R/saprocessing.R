@@ -73,7 +73,7 @@ add_sa_item <- function(jsap, name, x, spec, ...){
 }
 #'@export
 add_sa_item.ts <- function(jsap, name, x, spec, ...) {
-  jts <- rjd3toolkit::.r2jd_ts(x)
+  jts <- rjd3toolkit::.r2jd_tsdata(x)
   if (inherits(spec, "JD3_X13_SPEC")) {
     jspec <- rjd3x13::.r2jd_spec_x13(spec)
   } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -106,6 +106,7 @@ add_sa_item.default <- function(jsap, name, x, spec, ...) {
               name = name,
               ...)
 }
+
 #'@export
 add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
   if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
@@ -222,14 +223,30 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @param jsa a SaItem.
 #' @export
 set_raw_data <- function(jsap, idx, y) {
-  .jcall(jsap, "V", "setData", as.integer(idx-1), rjd3toolkit::.r2jd_ts(y))
+  .jcall(jsap, "V", "setData", as.integer(idx-1), rjd3toolkit::.r2jd_tsdata(y))
 }
+
 #' @name set_raw_data
 #' @export
 get_raw_data <- function(jsa) {
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
               , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rjd3toolkit::.jd2r_ts(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+  rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+}
+
+#' @name set_ts
+#' @export
+set_ts<- function(jsap, idx, y) {
+  .jcall(jsap, "V", "setTs", as.integer(idx-1), rjd3toolkit::.r2jd_ts(y))
+}
+
+#' @name get_ts
+#' @export
+get_ts<-function(jsa){
+  jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+              , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+  rjd3toolkit::.jd2r_ts(jts)
+
 }
 #' Get/Set SaItem Comment
 #'
