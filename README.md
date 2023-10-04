@@ -35,16 +35,16 @@ library(rjdemetra3)
 dir <- tempdir()
 y <- rjd3toolkit::ABS$X0.2.09.10.M
 jws <- .jws_new()
-jmp1 <- .jws_multiprocessing_new(jws, "sa1")
-add_sa_item(jmp1, name = "x13", x = rjd3x13::x13(y))
-add_sa_item(jmp1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
+jsap1 <- .jws_sap_new(jws, "sa1")
+add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
+add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 save_workspace(jws, file.path(dir, "wk.xml"))
 #> [1] TRUE
 
 ws <- .jws_open(file = file.path(dir, "wk.xml"))
 .jws_compute(ws) # to compute the models
-jmp1 <- .jws_multiprocessing(ws, idx = 1) # first multiprocessing
-jsa1 <- .jmp_sa(jmp1, idx = 1) # first SaItem
+jsap1 <- .jws_sap(ws, idx = 1) # first multiprocessing
+jsa1 <- .jsap_sa(jsap1, idx = 1) # first SaItem
 .jsa_name(jsa1)
 #> [1] "x13"
 mod1 <- .jsa_read(jsa1)

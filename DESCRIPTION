@@ -33,8 +33,9 @@ RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Collate: 
+    'deprecated.R'
     'utils.R'
     'saitem.R'
-    'multiprocessing.R'
+    'saprocessing.R'
     'workspace.R'
     'zzz.R'

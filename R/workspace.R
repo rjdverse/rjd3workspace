@@ -1,19 +1,19 @@
-#' @include multiprocessing.R
+#' @include saprocessing.R
 NULL
 
 #' Create a workspace or a multi-processing
 #'
 #' Functions to create a 'JDemetra+' workspace (\code{.jws_new()}) and
-#' to add a new multi-processing (\code{.jws_multiprocessing_new()}).
+#' to add a new multi-processing (\code{.jws_sap_new()}).
 #'
-#' @param modelling_context the context (from [rjd3toolkit::modelling_context()]).
-#' @param jws a workspace object.
-#' @param name character name of the new multiprocessing.
+#' @param modelling_context The context (from [rjd3toolkit::modelling_context()]).
+#' @param jws A workspace object.
+#' @param name Character name of the new SAProcessing.
 #'
 #' @examples
 #' # To create an empty 'JDemetra+' workspace
-#' wk <- .jws_new()
-#' mp <- .jws_multiprocessing_new(wk, "sa1")
+#' jwk <- .jws_new()
+#' jsap <- .jws_sap_new(jwk, "sa1")
 #'
 #'
 #' @export
@@ -26,7 +26,7 @@ NULL
 }
 #' @name .jws_new
 #' @export
-.jws_multiprocessing_new<-function(jws, name){
+.jws_sap_new<-function(jws, name){
   return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
@@ -53,13 +53,13 @@ get_context<-function(jws){
 
 #' Count the number of objects inside a workspace or multiprocessing
 #'
-#' Functions to count the number of multiprocessing inside a workspace (`jws_multiprocessing_count`) or
-#' the number of SaItem inside a multiprocessing (`jmp_sa_count`).
+#' Functions to count the number of multiprocessing inside a workspace (`jws_sap_count`) or
+#' the number of SaItem inside a multiprocessing (`jsap_sa_count`).
 #'
-#' @param jws,jmp the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the multiprocessing.
 #'
 #' @export
-.jws_multiprocessing_count<-function(jws){
+.jws_sap_count<-function(jws){
   return (.jcall(jws, "I", "getMultiProcessingCount"))
 }
 
@@ -67,11 +67,11 @@ get_context<-function(jws){
 
 #' Extract a Multiprocessing or a SaItem
 #'
-#' @param jws,jmp the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the multiprocessing.
 #' @param idx index of the object to extract.
 #'
 #' @export
-.jws_multiprocessing<-function(jws, idx){
+.jws_sap<-function(jws, idx){
   return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "getMultiProcessing", as.integer(idx-1)))
 }
 
@@ -116,11 +116,11 @@ get_context<-function(jws){
 
 #' Read all SaItems
 #'
-#' Functions to read all the SAItem of a multiprocessing (`jmp_load()`)
+#' Functions to read all the SAItem of a multiprocessing (`jsap_load()`)
 #' or a workspace (`load_workspace()`).
 #'
 #' @inheritParams .jws_open
-#' @param jmp a multiprocessing.
+#' @param jsap a multiprocessing.
 #'
 #' @export
 load_workspace<-function(file){
@@ -139,13 +139,13 @@ load_workspace<-function(file){
 
   jws<-.jws_open(file)
   .jws_compute(jws)
-  n<-.jws_multiprocessing_count(jws)
-  jmps<-lapply(1:n, function(i){.jmp_load(.jws_multiprocessing(jws,i))})
-  names<-lapply(1:n, function(i){.jmp_name(.jws_multiprocessing(jws, i))})
-  names(jmps)<-names
+  n<-.jws_sap_count(jws)
+  jsaps<-lapply(1:n, function(i){.jsap_load(.jws_sap(jws,i))})
+  names<-lapply(1:n, function(i){.jsap_name(.jws_sap(jws, i))})
+  names(jsaps)<-names
   cntxt <- get_context(jws)
 
-  return (list(processing=jmps, context=cntxt))
+  return (list(processing=jsaps, context=cntxt))
 
 }
 
@@ -157,9 +157,9 @@ load_workspace<-function(file){
 #' @examples
 #' dir <- tempdir()
 #' jws <- .jws_new()
-#' jmp1 <- .jws_multiprocessing_new(jws, "sa1")
+#' jsap1 <- .jws_sap_new(jws, "sa1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' add_sa_item(jmp1, name = "x13", x = y, rjd3x13::spec_x13())
+#' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::spec_x13())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #'
 #' @export

@@ -2,28 +2,28 @@
 % Please edit documentation in R/workspace.R
 \name{.jws_new}
 \alias{.jws_new}
-\alias{.jws_multiprocessing_new}
+\alias{.jws_sap_new}
 \title{Create a workspace or a multi-processing}
 \usage{
 .jws_new(modelling_context = NULL)
 
-.jws_multiprocessing_new(jws, name)
+.jws_sap_new(jws, name)
 }
 \arguments{
-\item{modelling_context}{the context (from \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}}).}
+\item{modelling_context}{The context (from \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}}).}
 
-\item{jws}{a workspace object.}
+\item{jws}{A workspace object.}
 
-\item{name}{character name of the new multiprocessing.}
+\item{name}{Character name of the new SAProcessing.}
 }
 \description{
 Functions to create a 'JDemetra+' workspace (\code{.jws_new()}) and
-to add a new multi-processing (\code{.jws_multiprocessing_new()}).
+to add a new multi-processing (\code{.jws_sap_new()}).
 }
 \examples{
 # To create an empty 'JDemetra+' workspace
-wk <- .jws_new()
-mp <- .jws_multiprocessing_new(wk, "sa1")
+jwk <- .jws_new()
+jsap <- .jws_sap_new(jwk, "sa1")
 
 
 }
