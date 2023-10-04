@@ -41,9 +41,9 @@ add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 save_workspace(jws, file.path(dir, "wk.xml"))
 #> [1] TRUE
 
-ws <- .jws_open(file = file.path(dir, "wk.xml"))
-.jws_compute(ws) # to compute the models
-jsap1 <- .jws_sap(ws, idx = 1) # first multiprocessing
+jws <- .jws_open(file = file.path(dir, "wk.xml"))
+.jws_compute(jws) # to compute the models
+jsap1 <- .jws_sap(jws, idx = 1) # first multiprocessing
 jsa1 <- .jsap_sa(jsap1, idx = 1) # first SaItem
 .jsa_name(jsa1)
 #> [1] "x13"
