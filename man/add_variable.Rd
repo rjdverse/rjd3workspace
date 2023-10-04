@@ -7,7 +7,7 @@
 add_variable(jws, group, name, y)
 }
 \arguments{
-\item{jws}{a workspace object.}
+\item{jws}{A workspace object.}
 
 \item{group, name}{the group and the name of the variable to add.}
 

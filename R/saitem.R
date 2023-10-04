@@ -81,7 +81,7 @@ NULL
 }
 
 
-#' @name .jmp_name
+#' @name .jsap_name
 #' @export
 .jsa_name<-function(jsa){
   return (.jcall(jsa, "S", "getName"))
