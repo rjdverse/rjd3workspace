@@ -196,5 +196,5 @@ add_calendar <- function(jws, name, calendar) {
 #' @export
 add_variable <- function(jws, group, name, y) {
   .jcall(jws, "V", "addVariable", group,
-         name, rjd3toolkit::.r2jd_ts(y))
+         name, rjd3toolkit::.r2jd_tsdata(y))
 }

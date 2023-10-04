@@ -72,7 +72,7 @@ add_sa_item <- function(jmp, name, x, spec, ...){
 }
 #'@export
 add_sa_item.ts <- function(jmp, name, x, spec, ...) {
-  jts <- rjd3toolkit::.r2jd_ts(x)
+  jts <- rjd3toolkit::.r2jd_tsdata(x)
   if (inherits(spec, "JD3_X13_SPEC")) {
     jspec <- rjd3x13::.r2jd_spec_x13(spec)
   } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
