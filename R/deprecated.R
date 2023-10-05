@@ -33,8 +33,8 @@
 #' @name deprecated-rjdemetra3
 #' @export
 .jmp_load<-function(jmp){
-  .Deprecated(".jsap_load")
-  .jsap_load(jmp)
+  .Deprecated("read_sap")
+  read_sap(jmp)
 }
 #' @name deprecated-rjdemetra3
 #' @export

@@ -30,6 +30,28 @@ NULL
   return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
+#' @name .jws_add
+#' @export
+.jws_add<-function(jws, jsap){
+  .jcall(jws, "V", "add", jsap)
+}
+
+#' @name .jws_make_copy
+#' @export
+.jws_make_copy<-function(jws){
+  return (.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
+}
+
+#' @name .jws_refresh
+#' @export
+.jws_refresh<-function(jws, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
+                       info=c("All", "Data", "None")){
+  policy=match.arg(policy)
+  info=match.arg(info)
+  jdom<-rjd3toolkit::.jdomain(period, start, end)
+  return (.jcall(jws, "V", "refreshAll", policy, jdom, info))
+}
+
 #' Set Context of a Workspace
 #'
 #' @inheritParams .jws_new
@@ -111,19 +133,8 @@ get_context<-function(jws){
   .jcall(jws, "V", "computeAll")
 }
 
-
-
-
-#' Read all SaItems
-#'
-#' Functions to read all the SAItem of a multiprocessing (`jsap_load()`)
-#' or a workspace (`load_workspace()`).
-#'
-#' @inheritParams .jws_open
-#' @param jsap a multiprocessing.
-#'
 #' @export
-load_workspace<-function(file){
+.jws_load<-function(file){
   if (missing(file) || is.null(file)) {
     if (Sys.info()[['sysname']] == "Windows") {
       file <- utils::choose.files(caption = "Select a workspace",
@@ -138,15 +149,28 @@ load_workspace<-function(file){
     stop("The file doesn't exist or isn't a .xml file !")
 
   jws<-.jws_open(file)
-  .jws_compute(jws)
+
+  return (jws)
+}
+
+
+#' Read all SaItems
+#'
+#' Functions to read all the SAItem of a multiprocessing (`jsap_load()`)
+#' or a workspace (`load_workspace()`).
+#'
+#' @param jws Java workspace
+#' @param compute Compute the workspace
+#'
+#' @export
+read_workspace<-function(jws, compute=T){
+  if (compute) .jws_compute(jws)
   n<-.jws_sap_count(jws)
-  jsaps<-lapply(1:n, function(i){.jsap_load(.jws_sap(jws,i))})
+  jsaps<-lapply(1:n, function(i){read_sap(.jws_sap(jws,i))})
   names<-lapply(1:n, function(i){.jsap_name(.jws_sap(jws, i))})
   names(jsaps)<-names
   cntxt <- get_context(jws)
-
   return (list(processing=jsaps, context=cntxt))
-
 }
 
 #' Save Workspace
@@ -159,7 +183,7 @@ load_workspace<-function(file){
 #' jws <- .jws_new()
 #' jsap1 <- .jws_sap_new(jws, "sa1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::spec_x13())
+#' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #'
 #' @export
