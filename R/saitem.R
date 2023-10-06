@@ -88,3 +88,17 @@ NULL
   return (.jcall(jsa, "S", "getName"))
 }
 
+#' @name .jsap_metadata
+#' @export
+.jsa_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
+  return (val)
+}
+
+#' @name .jsap_metadata
+#' @export
+.jsa_ts_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
+  return (val)
+}
+

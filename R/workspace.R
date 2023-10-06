@@ -163,6 +163,11 @@ get_context<-function(jws){
 #' @param compute Compute the workspace
 #'
 #' @export
+#' @examples
+#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws<-.jws_load(file)
+#' # We don't compute the workspace
+#' rws<-read_workspace(jws, FALSE)
 read_workspace<-function(jws, compute=T){
   if (compute) .jws_compute(jws)
   n<-.jws_sap_count(jws)

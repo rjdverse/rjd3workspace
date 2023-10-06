@@ -256,7 +256,12 @@ get_raw_data <- function(jsa) {
 #' @param y a "full" time series (jd3-like).
 #' @export
 set_ts<- function(jsap, idx, y) {
-  .jcall(jsap, "V", "setTs", as.integer(idx-1), rjd3toolkit::.r2jd_ts(y))
+  jsa <- .jsap_sa(jsap, idx = idx)
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTs",
+                rjd3toolkit::.r2jd_ts(y))
+  replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 
 #' @name set_ts
@@ -264,8 +269,7 @@ set_ts<- function(jsap, idx, y) {
 get_ts<-function(jsa){
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
               , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rjd3toolkit::.jd2r_ts(jts)
-
+  return (rjd3toolkit::.jd2r_ts(jts))
 }
 #' Get/Set SaItem Comment
 #'
@@ -287,8 +291,23 @@ set_comment <- function(jsap, idx, comment) {
 #' @param key key of the metadata.
 #' @param value value of the metadata.
 #' @export
+#' @examples
+#' #Change the file of a given item
+#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws<-.jws_load(file)
+#' jsap<-.jws_sap(jws,1)
+#' jsa<-.jsap_sa(jsap,1)
+#' nid<-rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
+#' put_ts_metadata(jsap, 1, "@id", nid)
+#' jsa<-.jsap_sa(jsap,1)
+#' .jsa_ts_metadata(jsa, "@id")
 put_ts_metadata <- function(jsap, idx, key, value) {
-  .jcall(jsap, "V", "putTsMetaData", as.integer(idx-1), as.character(key), as.character(value))
+  jsa <- .jsap_sa(jsap, idx = idx)
+  jsa <- .jcall("jdplus/sa/base/workspace/Utility",
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTsMetaData",
+                jsa, key, value)
+  replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 
 #' @name set_comment
@@ -325,6 +344,12 @@ set_name <- function(jsap, idx, name) {
 #' @param ref_jsa a reference SaItem containing the metadata.
 #'
 #' @export
+#' @examples
+#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws<-.jws_load(file)
+#' jsap<-.jws_sap(jws,1)
+#' jsa<-.jsap_sa(jsap,1)
+
 set_ts_metadata <- function(jsap, idx, ref_jsa) {
   jsa <- .jsap_sa(jsap, idx = idx)
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")

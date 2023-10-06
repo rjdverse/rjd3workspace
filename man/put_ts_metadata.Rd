@@ -18,3 +18,14 @@ put_ts_metadata(jsap, idx, key, value)
 \description{
 Get/Set SaItem Comment
 }
+\examples{
+#Change the file of a given item
+file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+jws<-.jws_load(file)
+jsap<-.jws_sap(jws,1)
+jsa<-.jsap_sa(jsap,1)
+nid<-rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
+put_ts_metadata(jsap, 1, "@id", nid)
+jsa<-.jsap_sa(jsap,1)
+.jsa_ts_metadata(jsa, "@id")
+}

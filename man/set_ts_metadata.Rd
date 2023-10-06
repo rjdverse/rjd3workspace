@@ -16,3 +16,9 @@ set_ts_metadata(jsap, idx, ref_jsa)
 \description{
 Function to set the time series metadata of a SaItem (provider, source of the data...)
 }
+\examples{
+file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+jws<-.jws_load(file)
+jsap<-.jws_sap(jws,1)
+jsa<-.jsap_sa(jsap,1)
+}

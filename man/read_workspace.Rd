@@ -18,3 +18,9 @@ read_workspace(jws, compute = T)
 Functions to read all the SAItem of a multiprocessing (\code{jsap_load()})
 or a workspace (\code{load_workspace()}).
 }
+\examples{
+file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+jws<-.jws_load(file)
+# We don't compute the workspace
+rws<-read_workspace(jws, FALSE)
+}
