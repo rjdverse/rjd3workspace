@@ -20,8 +20,8 @@ NULL
 #' - `results`: the result of the model.
 #' @export
 .jsa_read<-function(jsa){
-  if(! .jcall(jsa, "Z", "isProcessed"))
-    stop("You must run 'jws_compute()' on your workspace.")
+#  if(! .jcall(jsa, "Z", "isProcessed"))
+#    stop("You must run '.jws_compute()' on your workspace.")
 
   jdef<-.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
 
@@ -32,11 +32,16 @@ NULL
   }
   # ts
   jts<-.jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rts<-rjd3toolkit::.jd2r_ts(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+  rts<-rjd3toolkit::.jd2r_ts(jts)
 
   jdspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec")
   jspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "activeSpecification")
-  if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")){
+  spec<-NULL
+  dspec<-NULL
+  pspec<-NULL
+  rslt<-NULL
+
+    if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")){
     spec<-rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
     dspec<-rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jdspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
     if (! is.jnull(jrslt)){
@@ -52,11 +57,7 @@ NULL
       jpspec<-.jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
       pspec<-rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
     }
-  }else{
-    rslt<-NULL
-    pspec<-NULL
   }
-
   return (list(
     ts=rts,
     domainSpec=dspec,
@@ -85,5 +86,19 @@ NULL
 #' @export
 .jsa_name<-function(jsa){
   return (.jcall(jsa, "S", "getName"))
+}
+
+#' @name .jsap_metadata
+#' @export
+.jsa_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
+  return (val)
+}
+
+#' @name .jsap_metadata
+#' @export
+.jsa_ts_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
+  return (val)
 }
 

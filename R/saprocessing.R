@@ -18,16 +18,23 @@ NULL
   return (.jcall(jsap, "S", "getName"))
 }
 
+#' @name .jsap_make_copy
+#' @export
+.jsap_make_copy<-function(jsap){
+  return (.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
+}
+
 
 #' @name .jws_sap
 #' @export
 .jsap_sa<-function(jsap, idx){
-  if (idx < 1) return (NULL)
+  if (is.jnull(jsap) || idx < 1) return (NULL)
   return (.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx-1)))
 }
 #' @name .jsap_name
 #' @export
 .jsap_sa_name <- function(jsap) {
+  if (is.jnull(jsap)) return (NULL)
   n <- .jcall(jsap, "I", "size")
   if (n == 0) {
     return (NULL)
@@ -38,9 +45,9 @@ NULL
   return(names_sa)
 }
 
-#' @name load_workspace
+#' @name read_workspace
 #' @export
-.jsap_load<-function(jsap){
+read_sap<-function(jsap){
   n<-.jcall(jsap, "I", "size")
   if (n == 0){ return (NULL)}
   all<-lapply(1:n, function(i){.jsa_read(.jsap_sa(jsap, i))})
@@ -48,6 +55,15 @@ NULL
   names(all)<-names
   return (all)
 }
+
+.jsap_refresh<-function(jsap, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
+                       info=c("All", "Data", "None")){
+  policy=match.arg(policy)
+  info=match.arg(info)
+  jdom<-rjd3toolkit::.jdomain(period, start, end)
+  return (.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "refresh", policy, jdom, info))
+}
+
 
 #' Add SAItem to SAProcessing
 #'
@@ -64,8 +80,8 @@ NULL
 #' jsap1 <- .jws_sap_new(jws, "sa1")
 #' add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 #' add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
-#' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::spec_x13())
-#' add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::spec_tramoseats())
+#' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
+#' add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #' @export
 add_sa_item <- function(jsap, name, x, spec, ...){
@@ -73,7 +89,7 @@ add_sa_item <- function(jsap, name, x, spec, ...){
 }
 #'@export
 add_sa_item.ts <- function(jsap, name, x, spec, ...) {
-  jts <- rjd3toolkit::.r2jd_ts(x)
+  jts <- rjd3toolkit::.r2jd_tsdata(x)
   if (inherits(spec, "JD3_X13_SPEC")) {
     jspec <- rjd3x13::.r2jd_spec_x13(spec)
   } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -106,6 +122,7 @@ add_sa_item.default <- function(jsap, name, x, spec, ...) {
               name = name,
               ...)
 }
+
 #'@export
 add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
   if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
@@ -222,14 +239,37 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @param jsa a SaItem.
 #' @export
 set_raw_data <- function(jsap, idx, y) {
-  .jcall(jsap, "V", "setData", as.integer(idx-1), rjd3toolkit::.r2jd_ts(y))
+  .jcall(jsap, "V", "setData", as.integer(idx-1), rjd3toolkit::.r2jd_tsdata(y))
 }
+
 #' @name set_raw_data
 #' @export
 get_raw_data <- function(jsa) {
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
               , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rjd3toolkit::.jd2r_ts(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+  rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+}
+
+#' Get/Set the time series of a SaItem
+#'
+#' @inheritParams set_raw_data
+#' @param y a "full" time series (jd3-like).
+#' @export
+set_ts<- function(jsap, idx, y) {
+  jsa <- .jsap_sa(jsap, idx = idx)
+  jsa <- .jcall(jsa,
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTs",
+                rjd3toolkit::.r2jd_ts(y))
+  replace_sa_item(jsap, jsa = jsa, idx = idx)
+}
+
+#' @name set_ts
+#' @export
+get_ts<-function(jsa){
+  jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+              , "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+  return (rjd3toolkit::.jd2r_ts(jts))
 }
 #' Get/Set SaItem Comment
 #'
@@ -244,6 +284,32 @@ set_comment <- function(jsap, idx, comment) {
                 comment)
   replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
+
+#' Get/Set SaItem Comment
+#'
+#' @inheritParams set_raw_data
+#' @param key key of the metadata.
+#' @param value value of the metadata.
+#' @export
+#' @examples
+#' #Change the file of a given item
+#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws<-.jws_load(file)
+#' jsap<-.jws_sap(jws,1)
+#' jsa<-.jsap_sa(jsap,1)
+#' nid<-rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
+#' put_ts_metadata(jsap, 1, "@id", nid)
+#' jsa<-.jsap_sa(jsap,1)
+#' .jsa_ts_metadata(jsa, "@id")
+put_ts_metadata <- function(jsap, idx, key, value) {
+  jsa <- .jsap_sa(jsap, idx = idx)
+  jsa <- .jcall("jdplus/sa/base/workspace/Utility",
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTsMetaData",
+                jsa, key, value)
+  replace_sa_item(jsap, jsa = jsa, idx = idx)
+}
+
 #' @name set_comment
 #' @export
 get_comment <- function(jsa) {
@@ -278,6 +344,12 @@ set_name <- function(jsap, idx, name) {
 #' @param ref_jsa a reference SaItem containing the metadata.
 #'
 #' @export
+#' @examples
+#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws<-.jws_load(file)
+#' jsap<-.jws_sap(jws,1)
+#' jsa<-.jsap_sa(jsap,1)
+
 set_ts_metadata <- function(jsap, idx, ref_jsa) {
   jsa <- .jsap_sa(jsap, idx = idx)
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
