@@ -88,14 +88,19 @@ NULL
   return (.jcall(jsa, "S", "getName"))
 }
 
-#' @name .jsap_metadata
+#' Extract Java Metadata
+#'
+#' Extract specific metadata or time series metadata of a SAItem.
+#'
+#' @inheritParams .jsa_read
+#' @param key key of the metadata.
 #' @export
 .jsa_metadata<-function(jsa, key){
   val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
   return (val)
 }
 
-#' @name .jsap_metadata
+#' @name .jsa_metadata
 #' @export
 .jsa_ts_metadata<-function(jsa, key){
   val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
