@@ -18,7 +18,8 @@ NULL
   return (.jcall(jsap, "S", "getName"))
 }
 
-#' @name .jsap_make_copy
+
+#' @name make_copy
 #' @export
 .jsap_make_copy<-function(jsap){
   return (.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
@@ -56,6 +57,8 @@ read_sap<-function(jsap){
   return (all)
 }
 
+#' @name refresh
+#' @export
 .jsap_refresh<-function(jsap, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
                        info=c("All", "Data", "None")){
   policy=match.arg(policy)
