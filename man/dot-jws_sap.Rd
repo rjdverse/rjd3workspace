@@ -3,7 +3,7 @@
 \name{.jws_sap}
 \alias{.jws_sap}
 \alias{.jsap_sa}
-\title{Extract a Multiprocessing or a SaItem}
+\title{Extract a SAProcessing or a SaItem}
 \usage{
 .jsap_sa(jsap, idx)
 
@@ -12,8 +12,8 @@
 \arguments{
 \item{idx}{index of the object to extract.}
 
-\item{jws, jsap}{the workspace or the multiprocessing.}
+\item{jws, jsap}{the workspace or the SAProcessing.}
 }
 \description{
-Extract a Multiprocessing or a SaItem
+Extract a SAProcessing or a SaItem
 }

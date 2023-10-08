@@ -21,6 +21,7 @@ or later version is required.
 remotes::install_github("rjdemetra/rjd3toolkit")
 remotes::install_github("rjdemetra/rjd3x13")
 remotes::install_github("rjdemetra/rjd3tramoseats")
+remotes::install_github("rjdemetra/rjd3providers")
 remotes::install_github("rjdemetra/rjdemetra3")
 ```
 
@@ -39,12 +40,11 @@ jsap1 <- .jws_sap_new(jws, "sa1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 save_workspace(jws, file.path(dir, "wk.xml"))
-#> [1] TRUE
 
 jws <- .jws_open(file = file.path(dir, "wk.xml"))
 .jws_compute(jws) # to compute the models
-jsap1 <- .jws_sap(jws, idx = 1) # first multiprocessing
-jsa1 <- .jsap_sa(jsap1, idx = 1) # first SaItem
+jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
+jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
 .jsa_name(jsa1)
 #> [1] "x13"
 mod1 <- .jsa_read(jsa1)
