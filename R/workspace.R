@@ -73,12 +73,12 @@ get_context<-function(jws){
   rjd3toolkit::.jd2r_modellingcontext(jcntxt)
 }
 
-#' Count the number of objects inside a workspace or multiprocessing
+#' Count the number of objects inside a workspace or SAProcessing
 #'
-#' Functions to count the number of multiprocessing inside a workspace (`jws_sap_count`) or
-#' the number of SaItem inside a multiprocessing (`jsap_sa_count`).
+#' Functions to count the number of SAProcessing inside a workspace (`jws_sap_count`) or
+#' the number of SaItem inside a SAProcessing (`jsap_sa_count`).
 #'
-#' @param jws,jsap the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the SAProcessing.
 #'
 #' @export
 .jws_sap_count<-function(jws){
@@ -87,9 +87,9 @@ get_context<-function(jws){
 
 
 
-#' Extract a Multiprocessing or a SaItem
+#' Extract a SAProcessing or a SaItem
 #'
-#' @param jws,jsap the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the SAProcessing.
 #' @param idx index of the object to extract.
 #'
 #' @export
@@ -107,7 +107,7 @@ get_context<-function(jws){
 #' @param file the path to the 'JDemetra+' workspace to load.
 #' By default a dialog box opens.
 #'
-#' @seealso [load_workspace()] to directly load a workspace and import all the models.
+#' @seealso [read_workspace()] to directly load a workspace and import all the models.
 #'
 #' @export
 .jws_open<-function(file){
@@ -156,11 +156,12 @@ get_context<-function(jws){
 
 #' Read all SaItems
 #'
-#' Functions to read all the SAItem of a multiprocessing (`jsap_load()`)
-#' or a workspace (`load_workspace()`).
+#' Functions to read all the SAItem of a SAProcessing (`read_sap()`)
+#' or a workspace (`read_workspace()`).
 #'
-#' @param jws Java workspace
-#' @param compute Compute the workspace
+#' @param jws Java workspace.
+#' @param jsap Java SAProcessing.
+#' @param compute Compute the workspace.
 #'
 #' @export
 #' @examples
