@@ -36,13 +36,46 @@ NULL
   .jcall(jws, "V", "add", jsap)
 }
 
-#' @name .jws_make_copy
+#' Copy Workspace or a SAProcessing
+#'
+#' @name make_copy
+#' @param jws,jsap Java Workspace or Multiprocessing
 #' @export
 .jws_make_copy<-function(jws){
   return (.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
 }
 
-#' @name .jws_refresh
+#' Refresh Workspace or SAProcessing
+#'
+#' @inheritParams make_copy
+#' @param policy the refresh policy to apply (see details).
+#' @param period,start,end to specify the span on which outliers will not be re-identified (i.e.: re-detected) when `policy = "Outliers"`
+#' or `policy = "Outliers_StochasticComponent"`.
+#' Span definition: \code{period}: numeric, number of observations in a year (12, 4...).
+#' \code{start} and \code{end}: first and last date from which outliers will not be re-identfied,
+#' defined as arrays of two elements: year and first period (for example, if `period = 12`, `c(1980, 1)` for January 1980).
+#' If they are not specified, the outliers will be re-identified on the whole series.
+#' @param info information to refresh.
+#' @details
+#'
+#' Available refresh policies are:
+#'
+#' \strong{Current}: applying the current pre-adjustment reg-arima model and adding the new raw data points as Additive Outliers (defined as new intervention variables)
+#'
+#' \strong{Fixed}: applying the current pre-adjustment reg-arima model and replacing forecasts by new raw data points.
+#'
+#' \strong{FixedParameters}: pre-adjustment reg-arima model is partially modified: regression coefficients will be re-estimated but regression variables, Arima orders
+#' and coefficients are unchanged.
+#'
+#' \strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR) coefficients are kept fixed.
+#'
+#' \strong{FreeParameters}: all regression and Arima model coefficients are re-estimated, regression variables and Arima orders are kept fixed.
+#'
+#' \strong{Outliers}: regression variables and Arima orders are kept fixed, but outliers will be re-detected on the defined span, thus all regression and Arima model coefficients are re-estimated
+#'
+#' \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model orders (p,d,q)(P,D,Q) can also be re-identified.
+#'
+#' @name refresh
 #' @export
 .jws_refresh<-function(jws, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
                        info=c("All", "Data", "None")){
@@ -73,12 +106,12 @@ get_context<-function(jws){
   rjd3toolkit::.jd2r_modellingcontext(jcntxt)
 }
 
-#' Count the number of objects inside a workspace or multiprocessing
+#' Count the number of objects inside a workspace or SAProcessing
 #'
-#' Functions to count the number of multiprocessing inside a workspace (`jws_sap_count`) or
-#' the number of SaItem inside a multiprocessing (`jsap_sa_count`).
+#' Functions to count the number of SAProcessing inside a workspace (`jws_sap_count`) or
+#' the number of SaItem inside a SAProcessing (`jsap_sa_count`).
 #'
-#' @param jws,jsap the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the SAProcessing.
 #'
 #' @export
 .jws_sap_count<-function(jws){
@@ -87,9 +120,9 @@ get_context<-function(jws){
 
 
 
-#' Extract a Multiprocessing or a SaItem
+#' Extract a SAProcessing or a SaItem
 #'
-#' @param jws,jsap the workspace or the multiprocessing.
+#' @param jws,jsap the workspace or the SAProcessing.
 #' @param idx index of the object to extract.
 #'
 #' @export
@@ -107,7 +140,7 @@ get_context<-function(jws){
 #' @param file the path to the 'JDemetra+' workspace to load.
 #' By default a dialog box opens.
 #'
-#' @seealso [load_workspace()] to directly load a workspace and import all the models.
+#' @seealso [read_workspace()] to import all the models of a workspace.
 #'
 #' @export
 .jws_open<-function(file){
@@ -133,6 +166,7 @@ get_context<-function(jws){
   .jcall(jws, "V", "computeAll")
 }
 
+#' @name .jws_open
 #' @export
 .jws_load<-function(file){
   if (missing(file) || is.null(file)) {
@@ -156,11 +190,12 @@ get_context<-function(jws){
 
 #' Read all SaItems
 #'
-#' Functions to read all the SAItem of a multiprocessing (`jsap_load()`)
-#' or a workspace (`load_workspace()`).
+#' Functions to read all the SAItem of a SAProcessing (`read_sap()`)
+#' or a workspace (`read_workspace()`).
 #'
-#' @param jws Java workspace
-#' @param compute Compute the workspace
+#' @param jws Java workspace.
+#' @param jsap Java SAProcessing.
+#' @param compute Compute the workspace.
 #'
 #' @export
 #' @examples

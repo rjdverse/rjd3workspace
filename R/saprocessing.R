@@ -18,7 +18,8 @@ NULL
   return (.jcall(jsap, "S", "getName"))
 }
 
-#' @name .jsap_make_copy
+
+#' @name make_copy
 #' @export
 .jsap_make_copy<-function(jsap){
   return (.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
@@ -56,6 +57,8 @@ read_sap<-function(jsap){
   return (all)
 }
 
+#' @name refresh
+#' @export
 .jsap_refresh<-function(jsap, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
                        info=c("All", "Data", "None")){
   policy=match.arg(policy)
@@ -285,30 +288,6 @@ set_comment <- function(jsap, idx, comment) {
   replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 
-#' Get/Set SaItem Comment
-#'
-#' @inheritParams set_raw_data
-#' @param key key of the metadata.
-#' @param value value of the metadata.
-#' @export
-#' @examples
-#' #Change the file of a given item
-#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
-#' jws<-.jws_load(file)
-#' jsap<-.jws_sap(jws,1)
-#' jsa<-.jsap_sa(jsap,1)
-#' nid<-rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
-#' put_ts_metadata(jsap, 1, "@id", nid)
-#' jsa<-.jsap_sa(jsap,1)
-#' .jsa_ts_metadata(jsa, "@id")
-put_ts_metadata <- function(jsap, idx, key, value) {
-  jsa <- .jsap_sa(jsap, idx = idx)
-  jsa <- .jcall("jdplus/sa/base/workspace/Utility",
-                "Ljdplus/sa/base/api/SaItem;",
-                "withTsMetaData",
-                jsa, key, value)
-  replace_sa_item(jsap, jsa = jsa, idx = idx)
-}
 
 #' @name set_comment
 #' @export
@@ -338,18 +317,26 @@ set_name <- function(jsap, idx, name) {
 # }
 #' Set Time Series Metadata of a SaItem
 #'
-#' Function to set the time series metadata of a SaItem (provider, source of the data...)
+#' Function to set the time series metadata of a SaItem (provider, source of the data...).
+#' `set_ts_metadata()` uses the metadata of another SaItem while `put_ts_metadata()`
+#' allows to update a specific key with a new information.
 #'
 #' @inheritParams set_raw_data
 #' @param ref_jsa a reference SaItem containing the metadata.
+#' @param key key of the metadata.
+#' @param value value of the metadata.
 #'
 #' @export
 #' @examples
-#' file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
-#' jws<-.jws_load(file)
-#' jsap<-.jws_sap(jws,1)
-#' jsa<-.jsap_sa(jsap,1)
-
+#' #Change the file of a given item
+#' file <- system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' jws <- .jws_load(file)
+#' jsap <- .jws_sap(jws, 1)
+#' jsa <- .jsap_sa(jsap, 1)
+#' nid <- rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
+#' put_ts_metadata(jsap, 1, "@id", nid)
+#' jsa <- .jsap_sa(jsap, 1)
+#' .jsa_ts_metadata(jsa, "@id")
 set_ts_metadata <- function(jsap, idx, ref_jsa) {
   jsa <- .jsap_sa(jsap, idx = idx)
   jts<-.jcall(.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
@@ -372,6 +359,19 @@ set_ts_metadata <- function(jsap, idx, ref_jsa) {
                 jts)
   replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
+
+#' @name set_ts_metadata
+#' @export
+put_ts_metadata <- function(jsap, idx, key, value) {
+  jsa <- .jsap_sa(jsap, idx = idx)
+  jsa <- .jcall("jdplus/sa/base/workspace/Utility",
+                "Ljdplus/sa/base/api/SaItem;",
+                "withTsMetaData",
+                jsa, key, value)
+  replace_sa_item(jsap, jsa = jsa, idx = idx)
+}
+
+
 #' Get/Set SaItem Priority
 #'
 #' @inheritParams set_raw_data

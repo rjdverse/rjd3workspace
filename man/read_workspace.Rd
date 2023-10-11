@@ -10,13 +10,15 @@ read_sap(jsap)
 read_workspace(jws, compute = T)
 }
 \arguments{
-\item{jws}{Java workspace}
+\item{jsap}{Java SAProcessing.}
 
-\item{compute}{Compute the workspace}
+\item{jws}{Java workspace.}
+
+\item{compute}{Compute the workspace.}
 }
 \description{
-Functions to read all the SAItem of a multiprocessing (\code{jsap_load()})
-or a workspace (\code{load_workspace()}).
+Functions to read all the SAItem of a SAProcessing (\code{read_sap()})
+or a workspace (\code{read_workspace()}).
 }
 \examples{
 file<-system.file("workspaces", "test.xml", package = "rjdemetra3")
