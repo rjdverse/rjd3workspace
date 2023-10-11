@@ -13,19 +13,20 @@
 \item{jsa}{Java SAItem object.}
 
 \item{items}{vector of characters containing the variables to extract.
-See [rjd3x13::userdefined_variables_x13()] or [rjd3tramoseats::userdefined_variables_tramoseats()]. By default, extracts all the possible variables.}
+See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}. By default, extracts all the possible variables.}
 }
 \description{
-`.jsa_results()` extracts specific variables of the model of the SAItem while
-`.jsa_read()` extracts all the informations of a SAItem (see details).
+\code{.jsa_results()} extracts specific variables of the model of the SAItem while
+\code{.jsa_read()} extracts all the informations of a SAItem (see details).
 }
 \details{
 A SAItem contains more information than just the results of a model.
-All those informations are extracted with the `jsa.read()` function that returns a list with 5 objects:
-
-- `ts`: the raw time series.
-- `domainSpec`: initial specification. Reference for any relaxing of some elements of the specification.
-- `estimationSpec`: specification used for the current estimation.
-- `pointSpec`: specification corresponding to the results of the current estimation (fully identified model).
-- `results`: the result of the model.
+All those informations are extracted with the \code{.jsa_read()} function that returns a list with 5 objects:
+\itemize{
+\item \code{ts}: the raw time series.
+\item \code{domainSpec}: initial specification. Reference for any relaxing of some elements of the specification.
+\item \code{estimationSpec}: specification used for the current estimation.
+\item \code{pointSpec}: specification corresponding to the results of the current estimation (fully identified model).
+\item \code{results}: the result of the model.
+}
 }

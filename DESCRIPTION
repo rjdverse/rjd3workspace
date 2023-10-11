@@ -1,7 +1,7 @@
 Package: rjdemetra3
 Type: Package
 Title: Interface to 'JDemetra+ 3.0' Seasonal Adjustment Software
-Version: 3.0.0
+Version: 3.1.0
 Authors@R: c(
   person("Alain", "Quartier-la-Tente", role = c("aut", "cre"),
                  email = "alain.quartier@yahoo.fr",
@@ -12,30 +12,36 @@ Authors@R: c(
                 email = "jean.palate@nbb.be"),
   person("Raf", "Baeyens", role = "aut",
                 email = "raf.baeyens@nbb.be"))
-Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-app>), the seasonal adjustment software officially
-    recommended to the members of the European Statistical System (ESS) and the European System of Central Banks.
-    It offers full access to all options and outputs of 'JDemetra+', including the two leading seasonal adjustment methods
-    TRAMO/SEATS+ and X-12ARIMA/X-13ARIMA-SEATS.
+Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-app>).
+    It offers several functions to manipulate 'JDemetra+' workspaces, which can be read by the software
+    and can store several seasonal adjusted series along with user-defined calendars or regression variables.
 Depends:
     R (>= 3.6.0),
 Imports:
     rJava (>= 1.0-6),
-    rjd3toolkit (>= 3.0.0),
-    rjd3tramoseats (>= 3.0.0),
-    rjd3x13 (>= 3.0.0)
+    rjd3toolkit (>= 3.1.0),
+    rjd3tramoseats (>= 3.1.0),
+    rjd3x13 (>= 3.1.0),
+    rjd3providers (>= 3.1.0)
+Remotes:
+  github::rjdemetra/rjd3toolkit, 
+  github::rjdemetra/rjd3tramoseats, 
+  github::rjdemetra/rjd3x13, 
+  github::rjdemetra/rjd3providers 
 SystemRequirements: Java (>= 17)
 License: EUPL
 URL: https://github.com/rjdemetra/rjdemetra3
-LazyData: TRUE
+BugReports: https://github.com/rjdemetra/rjdemetra3/issues
 Suggests:
     knitr,
     rmarkdown,
 RoxygenNote: 7.2.3
-BugReports: https://github.com/rjdemetra/rjdemetra3/issues
+Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Collate: 
+    'deprecated.R'
     'utils.R'
     'saitem.R'
-    'multiprocessing.R'
+    'saprocessing.R'
     'workspace.R'
     'zzz.R'

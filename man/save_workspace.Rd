@@ -19,9 +19,9 @@ Save Workspace
 \examples{
 dir <- tempdir()
 jws <- .jws_new()
-jmp1 <- .jws_multiprocessing_new(jws, "sa1")
+jsap1 <- .jws_sap_new(jws, "sa1")
 y <- rjd3toolkit::ABS$X0.2.09.10.M
-add_sa_item(jmp1, name = "x13", x = y, rjd3x13::spec_x13())
+add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
 save_workspace(jws, file.path(dir, "workspace.xml"))
 
 }

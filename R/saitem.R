@@ -8,10 +8,10 @@ NULL
 #'
 #' @param jsa Java SAItem object.
 #' @param items vector of characters containing the variables to extract.
-#' See [rjd3x13::userdefined_variables_x13()] or [rjd3tramoseats::userdefined_variables_tramoseats()]. By default, extracts all the possible variables.
+#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()]. By default, extracts all the possible variables.
 #'
 #' @details A SAItem contains more information than just the results of a model.
-#' All those informations are extracted with the `jsa.read()` function that returns a list with 5 objects:
+#' All those informations are extracted with the `.jsa_read()` function that returns a list with 5 objects:
 #'
 #' - `ts`: the raw time series.
 #' - `domainSpec`: initial specification. Reference for any relaxing of some elements of the specification.
@@ -20,6 +20,9 @@ NULL
 #' - `results`: the result of the model.
 #' @export
 .jsa_read<-function(jsa){
+#  if(! .jcall(jsa, "Z", "isProcessed"))
+#    stop("You must run '.jws_compute()' on your workspace.")
+
   jdef<-.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
 
   jestimation<-.jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -29,11 +32,16 @@ NULL
   }
   # ts
   jts<-.jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-  rts<-rjd3toolkit::.jd2r_ts(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
+  rts<-rjd3toolkit::.jd2r_ts(jts)
 
   jdspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec")
   jspec<-.jcall(jdef, "Ljdplus/sa/base/api/SaSpecification;", "activeSpecification")
-  if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")){
+  spec<-NULL
+  dspec<-NULL
+  pspec<-NULL
+  rslt<-NULL
+
+    if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")){
     spec<-rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
     dspec<-rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jdspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
     if (! is.jnull(jrslt)){
@@ -49,11 +57,7 @@ NULL
       jpspec<-.jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
       pspec<-rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
     }
-  }else{
-    rslt<-NULL
-    pspec<-NULL
   }
-
   return (list(
     ts=rts,
     domainSpec=dspec,
@@ -69,7 +73,7 @@ NULL
   jestimation<-.jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
   if (is.jnull(jestimation))
     return (NULL)
-  jrslt<-.jcall(jestimation, "Ldemetra/information/Explorable;", "getResults")
+  jrslt<-.jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
   if (is.null(items))
     items<-rjd3toolkit::.proc_dictionary2(jrslt)
   r<-lapply(items, function(t){rjd3toolkit::.proc_data(jrslt, t)})
@@ -78,9 +82,28 @@ NULL
 }
 
 
-#' @name .jmp_name
+#' @name .jsap_name
 #' @export
 .jsa_name<-function(jsa){
   return (.jcall(jsa, "S", "getName"))
+}
+
+#' Extract Java Metadata
+#'
+#' Extract specific metadata or time series metadata of a SAItem.
+#'
+#' @inheritParams .jsa_read
+#' @param key key of the metadata.
+#' @export
+.jsa_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
+  return (val)
+}
+
+#' @name .jsa_metadata
+#' @export
+.jsa_ts_metadata<-function(jsa, key){
+  val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
+  return (val)
 }
 
