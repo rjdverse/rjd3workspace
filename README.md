@@ -18,7 +18,11 @@ SE 17 or later version is required.
 To get the current stable version (from the latest release):
 
 ``` r
-# install.packages("remotes")
+# install.packages
+remotes::install_github("rjdemetra/rjd3toolkit@v3.1.0")
+remotes::install_github("rjdemetra/rjd3tramoseats@v3.1.0")
+remotes::install_github("rjdemetra/rjd3x13@v3.1.0")
+remotes::install_github("rjdemetra/rjd3providers@v3.1.0")
 remotes::install_github("rjdemetra/rjdemetra3@v3.1.0")
 ```
 
