@@ -1,39 +1,49 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# RJDemetra3
+# rjdemetra3
 
-RJDemetra3 offers several functions to interact with JDemetra+ v3.0
+**rjdemetra3** offers several functions to interact with JDemetra+ v3.0
 workspaces. Seasonal adjustment with X-12ARIMA can be done with the
-package [rjd3x13](https://github.com/rjdemetra/rjd3x13) and with
+package [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) and with
 TRAMO-SEATS with the package
-[rjd3tramoseats](https://github.com/rjdemetra/rjd3tramoseats).
+[**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats).
 
 ## Installation
 
-RJDemetra3 relies on the
-[rJava](https://CRAN.R-project.org/package=rJava) package and Java SE 17
-or later version is required.
+**rjdemetra3** relies on the
+[**rJava**](https://CRAN.R-project.org/package=rJava) package and Java
+SE 17 or later version is required.
+
+To get the current stable version (from the latest release):
 
 ``` r
-# Install development version from GitHub
+# install.packages
+remotes::install_github("rjdemetra/rjd3toolkit@*release")
+remotes::install_github("rjdemetra/rjd3tramoseats@*release")
+remotes::install_github("rjdemetra/rjd3x13@*release")
+remotes::install_github("rjdemetra/rjd3providers@*release")
+remotes::install_github("rjdemetra/rjdemetra3@*release")
+```
+
+To get the current development version from GitHub:
+
+``` r
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3toolkit")
-remotes::install_github("rjdemetra/rjd3x13")
-remotes::install_github("rjdemetra/rjd3tramoseats")
-remotes::install_github("rjdemetra/rjd3providers")
 remotes::install_github("rjdemetra/rjdemetra3")
 ```
 
 ## Usage
 
-RJDemetra3 relies on the
-[rJava](https://CRAN.R-project.org/package=rJava) package and Java SE 17
-or later version is required.
+**rjdemetra3** relies on the
+[**rJava**](https://CRAN.R-project.org/package=rJava) package and Java
+SE 17 or later version is required.
 
 ``` r
-library(rjdemetra3)
+library("rjdemetra3")
+
 dir <- tempdir()
+
 y <- rjd3toolkit::ABS$X0.2.09.10.M
 jws <- .jws_new()
 jsap1 <- .jws_sap_new(jws, "sa1")

@@ -26,8 +26,8 @@ Imports:
 Remotes:
   github::rjdemetra/rjd3toolkit, 
   github::rjdemetra/rjd3tramoseats, 
-  github::rjdemetra/rjd3x13, 
-  github::rjdemetra/rjd3providers 
+  github::rjdemetra/rjd3x13,  
+  github::rjdemetra/rjd3providers
 SystemRequirements: Java (>= 17)
 License: EUPL
 URL: https://github.com/rjdemetra/rjdemetra3
