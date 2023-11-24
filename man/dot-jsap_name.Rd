@@ -14,7 +14,34 @@
 }
 \arguments{
 \item{jsap, jsa}{the object to retrieve the name from.}
+
+\item{jsap}{the java object representing the \code{SA-Processing}}
+}
+\value{
+A vector \code{character}.
 }
 \description{
 Functions to retrieve the name of a SAProcessing (\code{.jsap_name()}) or SaItem (\code{.jsa_name()}).
+
+This function is used to retrieve the Java names of all the \code{sa_items} contained in a \code{SA-Processing}.
+}
+\examples{
+\donttest{
+
+y <- rjd3toolkit::ABS$X0.2.09.10.M
+
+jws <- .jws_new()
+jsap1 <- .jws_sap_new(jws, "sa1")
+
+add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
+add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
+add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
+add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
+
+print(.jsap_sa_name(jsap1))
+}
+
+}
+\seealso{
+Other functions to retrieve the name of JDemetra+ objects (\code{workspace}, \code{SA-Processing} or \code{sa-item}): \code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
 }

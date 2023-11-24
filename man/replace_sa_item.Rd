@@ -21,7 +21,26 @@ transfer_series(jsap_from, jsap_to, selected_series, print_indications = TRUE)
 \item{idx}{index of the target SaItem.}
 
 \item{jsa}{the new SaItem.}
+
+\item{jsap_from}{The SA-Processing from which to take the series}
+
+\item{jsap_to}{The SA-Processing in which to paste the series}
+
+\item{selected_series}{The vector containing the series-to-update's names.}
+
+\item{print_indications}{A boolean to print indications on the processing status (optional)}
+}
+\value{
+\code{NULL} returned invisibly
+
+\code{NULL} returned invisibly
 }
 \description{
 \code{replace_sa_item()} replaces a SaItem of a SAProcessing and \code{remove_sa_item()} removes a SaItem from a SAProcessing
+
+This functions clear a \code{SA-Processing} by removing all the sa-item contained.
+}
+\details{
+If \code{selected_series} is missing, all series from \code{jsap_from} will be copied.
+In this context, the word series refers to \code{sa-item}.
 }
