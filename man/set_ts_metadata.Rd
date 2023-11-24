@@ -26,7 +26,7 @@ Function to set the time series metadata of a SaItem (provider, source of the da
 allows to update a specific key with a new information.
 }
 \examples{
-#Change the file of a given item
+# Change the file of a given item
 file <- system.file("workspaces", "test.xml", package = "rjdemetra3")
 jws <- .jws_load(file)
 jsap <- .jws_sap(jws, 1)

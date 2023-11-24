@@ -11,49 +11,91 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.align="center"
 )
-library(rjdemetra3)
+library("rjdemetra3")
 ```
 
-# RJDemetra3
+# rjdemetra3
 
 
-RJDemetra3 offers several functions to interact with JDemetra+ v3.0 workspaces.
-Seasonal adjustment with X-12ARIMA can be done with the package [rjd3x13](https://github.com/rjdemetra/rjd3x13) and with TRAMO-SEATS with the package [rjd3tramoseats](https://github.com/rjdemetra/rjd3tramoseats).
+**rjdemetra3** offers several functions to interact with JDemetra+ v3.0 workspaces.
+Seasonal adjustment with X-12ARIMA can be done with the package [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) and with TRAMO-SEATS with the package [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats).
+
 
 ## Installation
 
-RJDemetra3 relies on the [rJava](https://CRAN.R-project.org/package=rJava) package and Java SE 17 or later version is required.
+**rjdemetra3** relies on the [**rJava**](https://CRAN.R-project.org/package=rJava) package and Java SE 17 or later version is required.
 
+To get the current stable version (from the latest release):
 
 ```{r, eval = FALSE}
-# Install development version from GitHub
+# install.packages
+remotes::install_github("rjdemetra/rjd3toolkit@*release")
+remotes::install_github("rjdemetra/rjd3tramoseats@*release")
+remotes::install_github("rjdemetra/rjd3x13@*release")
+remotes::install_github("rjdemetra/rjd3providers@*release")
+remotes::install_github("rjdemetra/rjdemetra3@*release")
+```
+
+To get the current development version from GitHub:
+
+```{r, eval = FALSE}
 # install.packages("remotes")
-remotes::install_github("rjdemetra/rjd3toolkit")
-remotes::install_github("rjdemetra/rjd3x13")
-remotes::install_github("rjdemetra/rjd3tramoseats")
-remotes::install_github("rjdemetra/rjd3providers")
 remotes::install_github("rjdemetra/rjdemetra3")
 ```
 
+
 ## Usage
 
-RJDemetra3 relies on the [rJava](https://CRAN.R-project.org/package=rJava) package and Java SE 17 or later version is required.
+**rjdemetra3** relies on the [**rJava**](https://CRAN.R-project.org/package=rJava) package and Java SE 17 or later version is required.
 
 
-```{r}
-library(rjdemetra3)
+```{r, echo = TRUE, eval = TRUE}
+library("rjdemetra3")
+
 dir <- tempdir()
+
 y <- rjd3toolkit::ABS$X0.2.09.10.M
 jws <- .jws_new()
 jsap1 <- .jws_sap_new(jws, "sa1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
-save_workspace(jws, file.path(dir, "wk.xml"))
+save_workspace(jws, file.path(dir, "ws.xml"))
 
-jws <- .jws_load(file = file.path(dir, "wk.xml"))
+jws <- .jws_load(file = file.path(dir, "ws.xml"))
 .jws_compute(jws) # to compute the models
 jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
 jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
 .jsa_name(jsa1)
 mod1 <- .jsa_read(jsa1)
 ```
+
+
+### Create SA-item with path
+
+``` {r create_sa_item_path, echo = TRUE, eval = TRUE}
+# install.packages("remotes")
+# remotes::install_github("rjdemetra/rjd3providers")
+
+dir <- tempdir()
+
+xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+ts1 <- rjd3providers::spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3L)
+
+y <- ts1$data
+jws <- .jws_new()
+jsap1 <- .jws_sap_new(jws, "sa1")
+add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
+rjdemetra3::set_ts(jsap = jsap1, idx = 1L, y = ts1)
+add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
+rjdemetra3::set_ts(jsap = jsap1, idx = 2L, y = ts1)
+
+save_workspace(jws, file.path(dir, "ws.xml"))
+
+jws <- .jws_load(file = file.path(dir, "ws.xml"))
+.jws_compute(jws) # to compute the models
+jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
+jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
+.jsa_name(jsa1)
+mod1 <- .jsa_read(jsa1)
+```
+
