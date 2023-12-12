@@ -3,15 +3,13 @@
 
 # rjdemetra3
 
-**rjdemetra3** offers several functions to interact with JDemetra+ v3.0
-workspaces. Seasonal adjustment with X-12ARIMA can be done with the
-package [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) and with
-TRAMO-SEATS with the package
-[**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats).
+**rjdemetra3** offers several functions to create, read and modify JDemetra+ v3.0
+workspaces, a specific data structure, indispensable to use the Graphical User Interface (GUI).
+A workspace can be created in GUI or direclty in R.
 
 ## Installation
 
-**rjdemetra3** relies on the
+**rjdemetra3** relies on
 [**rJava**](https://CRAN.R-project.org/package=rJava) package and Java
 SE 17 or later version is required.
 
