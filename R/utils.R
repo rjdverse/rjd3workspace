@@ -58,7 +58,7 @@ tramoseats_read_spec<-function(file){
 tramoseats_write_spec<-function(spec, file){
   .jcall("jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSeatsSpec",
          rjd3tramoseats::.r2jd_spec_tramoseats(spec),
-         file)
+        as.character(file))
 }
 
 #' Title
@@ -87,7 +87,7 @@ regarima_read_spec<-function(file){
 regarima_write_spec<-function(spec, file){
   .jcall("jdplus/x13/base/workspace/Utility", "V", "writeRegArimaSpec",
          rjd3x13::.r2jd_spec_regarima(spec),
-         as.character((file)))
+         as.character(file))
 }
 
 #' Title
@@ -116,13 +116,37 @@ x13_read_spec<-function(file){
 x13_write_spec<-function(spec, file){
   .jcall("jdplus/x13/base/workspace/Utility", "V", "writeX13Spec",
          rjd3x13::.r2jd_spec_x13(spec),
-         as.character((file)))
+         as.character(file))
 }
 
+#' Title
+#'
+#' @param file
+#'
+#' @return
+#' @export
+#'
+#' @examples
 read_calendars<-function(file){
   jspec<-.jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;", "readCalendars", file)
   if (is.jnull(jspec)) return (NULL)
-  return (rjd3toolkit::.jd2r_modellingcontext(jspec))
+  return (rjd3toolkit::.jd2r_calendars(jspec))
 }
 
+#' Title
+#'
+#' @param calendars
+#' @param file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+write_calendars<-function(calendars, file){
+  jcal<-rjd3toolkit::.r2jd_calendars(calendars)
+  .jcall("jdplus/toolkit/base/workspace/file/Utility", "V",
+                 "writeCalendars",
+                 jcal,
+                 as.character(file))
+}
 
