@@ -150,3 +150,34 @@ write_calendars<-function(calendars, file){
                  as.character(file))
 }
 
+#' Title
+#'
+#' @param file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+read_variables<-function(file){
+  jspec<-.jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;", "readData", file)
+  if (is.jnull(jspec)) return (NULL)
+  return (rjd3toolkit::.jd2r_variables(jspec))
+}
+
+#' Title
+#'
+#' @param vars
+#' @param file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+write_variables<-function(vars, file){
+  jvars<-rjd3toolkit::.r2jd_variables(vars)
+  .jcall("jdplus/toolkit/base/workspace/file/Utility", "V",
+         "writeData",
+         jvars,
+         as.character(file))
+}
+
