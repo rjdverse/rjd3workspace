@@ -265,7 +265,7 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
     if (length(index_to) > 1) {
       stop("Several series from second SA Processing have the same name : ", serie_name)
     } else if (length(index_to) == 0) {
-      add_sa_item(jsap = jsap_to, name = serie_name, x = .jsa_read(jsa1))
+      add_sa_item(jsap = jsap_to, name = serie_name, x = jsa1)
     } else {
       replace_sa_item(jsap = jsap_to, jsa = jsa1, idx = index_to)
     }

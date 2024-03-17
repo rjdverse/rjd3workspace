@@ -7,7 +7,7 @@
 \usage{
 read_sap(jsap)
 
-read_workspace(jws, compute = T)
+read_workspace(jws, compute = TRUE)
 }
 \arguments{
 \item{jsap}{Java SAProcessing.}
