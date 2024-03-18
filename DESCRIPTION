@@ -30,7 +30,7 @@ Remotes:
   github::rjdemetra/rjd3providers
 SystemRequirements: Java (>= 17)
 License: EUPL
-URL: https://github.com/rjdemetra/rjdemetra3
+URL: https://github.com/rjdemetra/rjdemetra3, https://rjdemetra.github.io/rjdemetra3/
 BugReports: https://github.com/rjdemetra/rjdemetra3/issues
 Suggests:
     knitr,
