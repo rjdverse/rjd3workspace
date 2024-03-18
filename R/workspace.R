@@ -79,8 +79,8 @@ NULL
 #' @export
 .jws_refresh<-function(jws, policy=c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period=0, start=NULL, end=NULL,
                        info=c("All", "Data", "None")){
-  policy=match.arg(policy)
-  info=match.arg(info)
+  policy <- match.arg(policy)
+  info <- match.arg(info)
   jdom<-rjd3toolkit::.jdomain(period, start, end)
   return (.jcall(jws, "V", "refreshAll", policy, jdom, info))
 }
@@ -203,7 +203,7 @@ get_context<-function(jws){
 #' jws<-.jws_load(file)
 #' # We don't compute the workspace
 #' rws<-read_workspace(jws, FALSE)
-read_workspace<-function(jws, compute=T){
+read_workspace<-function(jws, compute=TRUE){
   if (compute) .jws_compute(jws)
   n<-.jws_sap_count(jws)
   jsaps<-lapply(1:n, function(i){read_sap(.jws_sap(jws,i))})

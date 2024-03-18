@@ -106,4 +106,3 @@ NULL
   val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
   return (val)
 }
-
