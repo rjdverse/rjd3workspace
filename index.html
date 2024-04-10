@@ -42,6 +42,9 @@
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="news/index.html">Changelog</a>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -64,11 +67,11 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="rjdemetra3">rjdemetra3<a class="anchor" aria-label="anchor" href="#rjdemetra3"></a>
 </h1></div>
-<p><strong>rjdemetra3</strong> offers several functions to create, read and modify JDemetra+ v3.0 workspaces, a specific data structure, indispensable to use the Graphical User Interface (GUI). A workspace can be created in GUI or direclty in R.</p>
+<p><strong>rjdemetra3</strong> offers several functions to interact with JDemetra+ v3.0 workspaces. Seasonal adjustment with X-12ARIMA can be done with the package <a href="https://github.com/rjdemetra/rjd3x13" class="external-link"><strong>rjd3x13</strong></a> and with TRAMO-SEATS with the package <a href="https://github.com/rjdemetra/rjd3tramoseats" class="external-link"><strong>rjd3tramoseats</strong></a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p><strong>rjdemetra3</strong> relies on <a href="https://CRAN.R-project.org/package=rJava" class="external-link"><strong>rJava</strong></a> package and Java SE 17 or later version is required.</p>
+<p><strong>rjdemetra3</strong> relies on the <a href="https://CRAN.R-project.org/package=rJava" class="external-link"><strong>rJava</strong></a> package and Java SE 17 or later version is required.</p>
 <p>To get the current stable version (from the latest release):</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages</span></span>
@@ -115,7 +118,7 @@
 <span><span class="va">dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">xlsx_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, package<span class="op">=</span><span class="st">"rjd3providers"</span><span class="op">)</span>, <span class="st">"/Insee.xlsx"</span><span class="op">)</span></span>
-<span><span class="va">ts1</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjd3providers/man/spreadsheet_series.html" class="external-link">spreadsheet_series</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">xlsx_file</span>, sheet <span class="op">=</span> <span class="fl">1L</span>, series <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span></span>
+<span><span class="va">ts1</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rjdemetra.github.io/rjd3providers/reference/spreadsheet_series.html" class="external-link">spreadsheet_series</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">xlsx_file</span>, sheet <span class="op">=</span> <span class="fl">1L</span>, series <span class="op">=</span> <span class="fl">3L</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">ts1</span><span class="op">$</span><span class="va">data</span></span>
 <span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jws_new.html">.jws_new</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -135,6 +138,16 @@
 <span><span class="co">#&gt; [1] "x13"</span></span>
 <span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jsa_read.html">.jsa_read</a></span><span class="op">(</span><span class="va">jsa1</span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
+<div class="section level2">
+<h2 id="package-maintenance-and-contributing">Package Maintenance and contributing<a class="anchor" aria-label="anchor" href="#package-maintenance-and-contributing"></a>
+</h2>
+<p>Any contribution is welcome and should be done through pull requests and/or issues. pull requests should include <strong>updated tests</strong> and <strong>updated documentation</strong>. If functionality is changed, docstrings should be added or updated.</p>
+</div>
+<div class="section level2">
+<h2 id="licensing">Licensing<a class="anchor" aria-label="anchor" href="#licensing"></a>
+</h2>
+<p>The code of this project is licensed under the <a href="https://joinup.ec.europa.eu/page/eupl-text-11-12" class="external-link">European Union Public Licence (EUPL)</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

@@ -25,6 +25,9 @@ allows to update a specific key with a new information."><!-- mathjax --><script
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -89,7 +92,7 @@ allows to update a specific key with a new information.</p>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_open.html">.jws_load</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jsa</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jsap_sa</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">nid</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjd3providers/man/spreadsheet_change_file.html" class="external-link">spreadsheet_change_file</a></span><span class="op">(</span><span class="fu"><a href="dot-jsa_metadata.html">.jsa_ts_metadata</a></span><span class="op">(</span><span class="va">jsa</span>, <span class="st">"@id"</span><span class="op">)</span>, <span class="st">"test.xlsx"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nid</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rjdemetra.github.io/rjd3providers/reference/spreadsheet_change_file.html" class="external-link">spreadsheet_change_file</a></span><span class="op">(</span><span class="fu"><a href="dot-jsa_metadata.html">.jsa_ts_metadata</a></span><span class="op">(</span><span class="va">jsa</span>, <span class="st">"@id"</span><span class="op">)</span>, <span class="st">"test.xlsx"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">put_ts_metadata</span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span>, <span class="st">"@id"</span>, <span class="va">nid</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jsa</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jsap_sa</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="dot-jsa_metadata.html">.jsa_ts_metadata</a></span><span class="op">(</span><span class="va">jsa</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
