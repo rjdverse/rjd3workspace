@@ -148,7 +148,7 @@ get_context<-function(jws){
     if (Sys.info()[['sysname']] == "Windows") {
       file <- utils::choose.files(caption = "Select a workspace",
                                   filters = c("JDemetra+ workspace (.xml)", "*.xml"))
-    }else{
+    } else{
       file <- base::file.choose()
     }
     if (length(file) == 0)
@@ -173,7 +173,7 @@ get_context<-function(jws){
     if (Sys.info()[['sysname']] == "Windows") {
       file <- utils::choose.files(caption = "Select a workspace",
                                   filters = c("JDemetra+ workspace (.xml)", "*.xml"))
-    }else{
+    } else{
       file <- base::file.choose()
     }
     if (length(file) == 0)

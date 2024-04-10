@@ -49,7 +49,7 @@ NULL
       jpspec<-.jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
       pspec<-rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jpspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
     }
-  }else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")){
+  } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")){
     spec<-rjd3x13::.jd2r_spec_x13(.jcast(jspec, "jdplus/x13/base/api/x13/X13Spec"))
     dspec<-rjd3x13::.jd2r_spec_x13(.jcast(jdspec, "jdplus/x13/base/api/x13/X13Spec"))
     if (! is.jnull(jrslt)){
