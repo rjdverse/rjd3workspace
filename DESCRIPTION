@@ -1,22 +1,22 @@
-Package: rjdemetra3
+Package: rjd3workspace
 Type: Package
-Title: Interface to 'JDemetra+ 3.0' Seasonal Adjustment Software
+Title: Interface to 'JDemetra+ 3.x' time series analysis software.
 Version: 3.2.3
 Authors@R: c(
-  person("Alain", "Quartier-la-Tente", role = c("aut", "cre"),
+  person("Jean", "Palate", role = c("aut"),
+                email = "palatejean@gmail.com"),
+  person("Alain", "Quartier-la-Tente", role = c("aut"),
                  email = "alain.quartier@yahoo.fr",
                  comment = c(ORCID = "0000-0001-7890-3857")),
-  person("Anna", "Michalek", role = "aut",
-                email = "anna.michalek@ecb.int"),
-  person("Jean", "Palate", role = "aut",
-                email = "jean.palate@nbb.be"),
-  person("Raf", "Baeyens", role = "aut",
-                email = "raf.baeyens@nbb.be"))
-Description: Interface around 'JDemetra+ 3.x' (<https://github.com/jdemetra/jdemetra-app>).
+  person("Tanguy", "Barthelemy", role = c("aut","cre"),
+                 email ="tanguy.barthelemy@insee.fr"),
+  person("Anna", "Smyk", role = c("aut"),
+                 email ="anna.smyk@insee.fr"))
+Description: R Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>).
     It offers several functions to manipulate 'JDemetra+' workspaces, which can be read by the software
     and can store several seasonal adjusted series along with user-defined calendars or regression variables.
 Depends:
-    R (>= 3.6.0),
+    R (>= 4.1.0),
 Imports:
     rJava (>= 1.0-6),
     rjd3toolkit (>= 3.2.2),
@@ -24,14 +24,14 @@ Imports:
     rjd3x13 (>= 3.2.2),
     rjd3providers (>= 3.2.2)
 Remotes:
-  github::rjdemetra/rjd3toolkit, 
-  github::rjdemetra/rjd3tramoseats, 
-  github::rjdemetra/rjd3x13,  
-  github::rjdemetra/rjd3providers
+  github::rjdverse/rjd3toolkit, 
+  github::rjdverse/rjd3tramoseats, 
+  github::rjdverse/rjd3x13,  
+  github::rjdverse/rjd3providers
 SystemRequirements: Java (>= 17)
 License: EUPL
-URL: https://github.com/rjdemetra/rjdemetra3, https://rjdemetra.github.io/rjdemetra3/
-BugReports: https://github.com/rjdemetra/rjdemetra3/issues
+URL: https://github.com/rjdverse/rjd3workspace, https://rjdverse.github.io/rjd3workspace/
+BugReports: https://github.com/rjdverse/rjd3workspace/issues
 Suggests:
     knitr,
     rmarkdown,
