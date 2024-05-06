@@ -20,7 +20,7 @@ NULL
 #' - `results`: the result of the model.
 #' @export
 .jsa_read<-function(jsa){
-#  if(! .jcall(jsa, "Z", "isProcessed"))
+#  if (! .jcall(jsa, "Z", "isProcessed"))
 #    stop("You must run '.jws_compute()' on your workspace.")
 
   jdef<-.jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
