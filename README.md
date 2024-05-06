@@ -3,13 +3,17 @@
 
 # rjd3workspace
 
-**rjd3workspace** offers several functions to interact with JDemetra+ v3.0
-workspaces. Seasonal adjustment with X-12ARIMA can be done with the
+**rjd3workspace** offers several functions to interact with JDemetra+
+v3.0 workspaces. Seasonal adjustment with X-12ARIMA can be done with the
 package [**rjd3x13**](https://github.com/rjdverse/rjd3x13) and with
 TRAMO-SEATS with the package
 [**rjd3tramoseats**](https://github.com/rjdverse/rjd3tramoseats).
 
 ## Installation
+
+Running rjd3 packages requires Java 17 or higher. How to set up such a
+configuration in R is explained
+[here](https://jdemetra-new-documentation.netlify.app/#installing-the-software).
 
 **rjd3workspace** relies on the
 [**rJava**](https://CRAN.R-project.org/package=rJava) package and Java
@@ -100,4 +104,5 @@ should be added or updated.
 ## Licensing
 
 The code of this project is licensed under the [European Union Public
-Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+Licence
+(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
