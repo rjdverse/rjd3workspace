@@ -4,9 +4,11 @@
 # rjd3workspace
 
 **rjd3workspace** offers several functions to wrangle JDemetra+ v3.x
-workspaces. Seasonal adjustment with X-12ARIMA can be done with the
-package [**rjd3x13**](https://github.com/rjdverse/rjd3x13) and with
-TRAMO-SEATS with the package
+workspaces.
+
+Seasonal adjustment with X-12ARIMA can be done with the package
+[**rjd3x13**](https://github.com/rjdverse/rjd3x13) and with TRAMO-SEATS
+with the package
 [**rjd3tramoseats**](https://github.com/rjdverse/rjd3tramoseats).
 
 ## Installation
@@ -99,4 +101,5 @@ should be added or updated.
 ## Licensing
 
 The code of this project is licensed under the [European Union Public
-Licence (EUPL)](https://joinup.ec.europa.eu/page/eupl-text-11-12).
+Licence
+(EUPL)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
