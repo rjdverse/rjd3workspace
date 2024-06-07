@@ -22,12 +22,12 @@ NULL
   if (! is.null(modelling_context)){
     set_context(jws, modelling_context)
   }
-  return (jws)
+  return(jws)
 }
 #' @name .jws_new
 #' @export
 .jws_sap_new<-function(jws, name){
-  return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
+  return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
 #' @name .jws_add
@@ -42,7 +42,7 @@ NULL
 #' @param jws,jsap Java Workspace or Multiprocessing
 #' @export
 .jws_make_copy<-function(jws){
-  return (.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
+  return(.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
 }
 
 #' Refresh Workspace or SAProcessing
@@ -82,7 +82,7 @@ NULL
   policy <- match.arg(policy)
   info <- match.arg(info)
   jdom<-rjd3toolkit::.jdomain(period, start, end)
-  return (.jcall(jws, "V", "refreshAll", policy, jdom, info))
+  return(.jcall(jws, "V", "refreshAll", policy, jdom, info))
 }
 
 #' Set Context of a Workspace
@@ -115,7 +115,7 @@ get_context<-function(jws){
 #'
 #' @export
 .jws_sap_count<-function(jws){
-  return (.jcall(jws, "I", "getMultiProcessingCount"))
+  return(.jcall(jws, "I", "getMultiProcessingCount"))
 }
 
 
@@ -127,7 +127,7 @@ get_context<-function(jws){
 #'
 #' @export
 .jws_sap<-function(jws, idx){
-  return (.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "getMultiProcessing", as.integer(idx-1)))
+  return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "getMultiProcessing", as.integer(idx-1)))
 }
 
 
@@ -158,7 +158,7 @@ get_context<-function(jws){
     stop("The file doesn't exist or isn't a .xml file !")
   full_file_name <- full_path(file)
   jws<-.jcall("jdplus/sa/base/workspace/Ws", "Ljdplus/sa/base/workspace/Ws;", "open", full_file_name)
-  return (jws)
+  return(jws)
 }
 
 #' @export
@@ -184,7 +184,7 @@ get_context<-function(jws){
 
   jws<-.jws_open(file)
 
-  return (jws)
+  return(jws)
 }
 
 
@@ -210,7 +210,7 @@ read_workspace<-function(jws, compute=TRUE){
   names<-lapply(1:n, function(i){.jsap_name(.jws_sap(jws, i))})
   names(jsaps)<-names
   cntxt <- get_context(jws)
-  return (list(processing=jsaps, context=cntxt))
+  return(list(processing=jsaps, context=cntxt))
 }
 
 #' Save Workspace

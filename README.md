@@ -1,7 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rjd3workspace
+# `rjd3workspace` <a href="https://rjdverse.github.io/rjd3workspace/"><img src="man/figures/logo.png" align="right" height="150" style="float:right; height:150px;"/></a>
+
+<!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rjd3workspace)](https://CRAN.R-project.org/package=rjd3workspace)
+
+[![R-CMD-check](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml)
+[![lint](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml)
+
+[![GH Pages
+built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml)
+<!-- badges: end -->
 
 **rjd3workspace** offers several functions to wrangle JDemetra+ v3.x
 workspaces.
@@ -58,6 +70,9 @@ jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
 jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
 .jsa_name(jsa1)
 #> [1] "x13"
+```
+
+``` r
 mod1 <- .jsa_read(jsa1)
 ```
 
@@ -88,6 +103,9 @@ jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
 jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
 .jsa_name(jsa1)
 #> [1] "x13"
+```
+
+``` r
 mod1 <- .jsa_read(jsa1)
 ```
 
