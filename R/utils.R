@@ -180,4 +180,3 @@ write_variables<-function(vars, file){
          jvars,
          as.character(file))
 }
-
