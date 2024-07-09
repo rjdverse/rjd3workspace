@@ -154,7 +154,7 @@ get_context<-function(jws){
     if (length(file) == 0)
       stop("You have to choose a file !")
   }
-  if (!file.exists(file) | length(grep("\\.xml$",file)) == 0)
+  if (!file.exists(file) || length(grep("\\.xml$",file)) == 0)
     stop("The file doesn't exist or isn't a .xml file !")
   full_file_name <- full_path(file)
   jws<-.jcall("jdplus/sa/base/workspace/Ws", "Ljdplus/sa/base/workspace/Ws;", "open", full_file_name)
@@ -179,7 +179,7 @@ get_context<-function(jws){
     if (length(file) == 0)
       stop("You have to choose a file !")
   }
-  if (!file.exists(file) | length(grep("\\.xml$",file)) == 0)
+  if (!file.exists(file) || length(grep("\\.xml$",file)) == 0)
     stop("The file doesn't exist or isn't a .xml file !")
 
   jws<-.jws_open(file)
