@@ -265,7 +265,7 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
     if (length(index_to) > 1) {
       stop("Several series from second SA Processing have the same name : ", serie_name)
     } else if (length(index_to) == 0) {
-      add_sa_item(jsap = jsap_to, name = serie_name, x = .jsa_read(jsa1))
+      add_sa_item(jsap = jsap_to, name = serie_name, x = jsa1)
     } else {
       replace_sa_item(jsap = jsap_to, jsa = jsa1, idx = index_to)
     }
@@ -416,7 +416,7 @@ set_name <- function(jsap, idx, name) {
 #' @export
 #' @examples
 #' # Change the file of a given item
-#' file <- system.file("workspaces", "test.xml", package = "rjdemetra3")
+#' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
 #' jws <- .jws_load(file)
 #' jsap <- .jws_sap(jws, 1)
 #' jsa <- .jsap_sa(jsap, 1)

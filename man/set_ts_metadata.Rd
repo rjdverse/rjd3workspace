@@ -27,7 +27,7 @@ allows to update a specific key with a new information.
 }
 \examples{
 # Change the file of a given item
-file <- system.file("workspaces", "test.xml", package = "rjdemetra3")
+file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
 jws <- .jws_load(file)
 jsap <- .jws_sap(jws, 1)
 jsa <- .jsap_sa(jsap, 1)
