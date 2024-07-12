@@ -58,7 +58,7 @@ NULL
       pspec<-rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
     }
   }
-  return (list(
+  return(list(
     ts=rts,
     domainSpec=dspec,
     estimationSpec=spec,
@@ -72,20 +72,20 @@ NULL
 .jsa_results<-function(jsa, items = NULL){
   jestimation<-.jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
   if (is.jnull(jestimation))
-    return (NULL)
+    return(NULL)
   jrslt<-.jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
   if (is.null(items))
     items<-rjd3toolkit::.proc_dictionary2(jrslt)
   r<-lapply(items, function(t){rjd3toolkit::.proc_data(jrslt, t)})
   names(r)<-items
-  return (r)
+  return(r)
 }
 
 
 #' @name .jsap_name
 #' @export
 .jsa_name<-function(jsa){
-  return (.jcall(jsa, "S", "getName"))
+  return(.jcall(jsa, "S", "getName"))
 }
 
 #' Extract Java Metadata
@@ -97,12 +97,12 @@ NULL
 #' @export
 .jsa_metadata<-function(jsa, key){
   val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
-  return (val)
+  return(val)
 }
 
 #' @name .jsa_metadata
 #' @export
 .jsa_ts_metadata<-function(jsa, key){
   val<-.jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
-  return (val)
+  return(val)
 }
