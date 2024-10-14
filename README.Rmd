@@ -101,7 +101,7 @@ mod1 <- .jsa_read(jsa1)
 
 dir <- tempdir()
 
-xlsx_file <- paste0(system.file("examples", package="rjd3providers"), "/Insee.xlsx")
+xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
 ts1 <- rjd3providers::spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3L)
 
 y <- ts1$data

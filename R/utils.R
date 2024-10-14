@@ -11,11 +11,15 @@ NULL
 #' @export
 #'
 #' @examples
-tramo_read_spec<-function(file){
-  jspec<-.jcall("jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
-                "readTramoSpec", as.character((file)))
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3tramoseats::.jd2r_spec_tramo(jspec))
+tramo_read_spec <- function(file) {
+    jspec <- .jcall(
+        "jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
+        "readTramoSpec", as.character((file))
+    )
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3tramoseats::.jd2r_spec_tramo(jspec))
 }
 
 #' Title
@@ -27,10 +31,12 @@ tramo_read_spec<-function(file){
 #' @export
 #'
 #' @examples
-tramo_write_spec<-function(spec, file){
-  .jcall("jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSpec",
-         rjd3tramoseats::.r2jd_spec_tramo(spec),
-         as.character((file)))
+tramo_write_spec <- function(spec, file) {
+    .jcall(
+        "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSpec",
+        rjd3tramoseats::.r2jd_spec_tramo(spec),
+        as.character((file))
+    )
 }
 #' Title
 #'
@@ -40,25 +46,15 @@ tramo_write_spec<-function(spec, file){
 #' @export
 #'
 #' @examples
-tramoseats_read_spec<-function(file){
-  jspec<-.jcall("jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
-                "readTramoSeatsSpec", as.character(file))
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3tramoseats::.jd2r_spec_tramoseats(jspec))
-}
-
-#' Title
-#'
-#' @param file
-#'
-#' @return
-#' @export
-#'
-#' @examples
-tramoseats_write_spec<-function(spec, file){
-  .jcall("jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSeatsSpec",
-         rjd3tramoseats::.r2jd_spec_tramoseats(spec),
-        as.character(file))
+tramoseats_read_spec <- function(file) {
+    jspec <- .jcall(
+        "jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
+        "readTramoSeatsSpec", as.character(file)
+    )
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3tramoseats::.jd2r_spec_tramoseats(jspec))
 }
 
 #' Title
@@ -69,11 +65,12 @@ tramoseats_write_spec<-function(spec, file){
 #' @export
 #'
 #' @examples
-regarima_read_spec<-function(file){
-  jspec<-.jcall("jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
-                "readRegArimaSpec", as.character((file)))
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3x13::.jd2r_spec_regarima(jspec))
+tramoseats_write_spec <- function(spec, file) {
+    .jcall(
+        "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSeatsSpec",
+        rjd3tramoseats::.r2jd_spec_tramoseats(spec),
+        as.character(file)
+    )
 }
 
 #' Title
@@ -84,10 +81,15 @@ regarima_read_spec<-function(file){
 #' @export
 #'
 #' @examples
-regarima_write_spec<-function(spec, file){
-  .jcall("jdplus/x13/base/workspace/Utility", "V", "writeRegArimaSpec",
-         rjd3x13::.r2jd_spec_regarima(spec),
-         as.character(file))
+regarima_read_spec <- function(file) {
+    jspec <- .jcall(
+        "jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
+        "readRegArimaSpec", as.character((file))
+    )
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3x13::.jd2r_spec_regarima(jspec))
 }
 
 #' Title
@@ -98,10 +100,28 @@ regarima_write_spec<-function(spec, file){
 #' @export
 #'
 #' @examples
-x13_read_spec<-function(file){
-  jspec<-.jcall("jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/x13/X13Spec;", "readX13Spec", file)
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3x13::.jd2r_spec_x13(jspec))
+regarima_write_spec <- function(spec, file) {
+    .jcall(
+        "jdplus/x13/base/workspace/Utility", "V", "writeRegArimaSpec",
+        rjd3x13::.r2jd_spec_regarima(spec),
+        as.character(file)
+    )
+}
+
+#' Title
+#'
+#' @param file
+#'
+#' @return
+#' @export
+#'
+#' @examples
+x13_read_spec <- function(file) {
+    jspec <- .jcall("jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/x13/X13Spec;", "readX13Spec", file)
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3x13::.jd2r_spec_x13(jspec))
 }
 
 #' Title
@@ -113,10 +133,12 @@ x13_read_spec<-function(file){
 #' @export
 #'
 #' @examples
-x13_write_spec<-function(spec, file){
-  .jcall("jdplus/x13/base/workspace/Utility", "V", "writeX13Spec",
-         rjd3x13::.r2jd_spec_x13(spec),
-         as.character(file))
+x13_write_spec <- function(spec, file) {
+    .jcall(
+        "jdplus/x13/base/workspace/Utility", "V", "writeX13Spec",
+        rjd3x13::.r2jd_spec_x13(spec),
+        as.character(file)
+    )
 }
 
 #' Title
@@ -127,10 +149,12 @@ x13_write_spec<-function(spec, file){
 #' @export
 #'
 #' @examples
-read_calendars<-function(file){
-  jspec<-.jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;", "readCalendars", file)
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3toolkit::.jd2r_calendars(jspec))
+read_calendars <- function(file) {
+    jspec <- .jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;", "readCalendars", file)
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3toolkit::.jd2r_calendars(jspec))
 }
 
 #' Title
@@ -142,12 +166,14 @@ read_calendars<-function(file){
 #' @export
 #'
 #' @examples
-write_calendars<-function(calendars, file){
-  jcal<-rjd3toolkit::.r2jd_calendars(calendars)
-  .jcall("jdplus/toolkit/base/workspace/file/Utility", "V",
-                 "writeCalendars",
-                 jcal,
-                 as.character(file))
+write_calendars <- function(calendars, file) {
+    jcal <- rjd3toolkit::.r2jd_calendars(calendars)
+    .jcall(
+        "jdplus/toolkit/base/workspace/file/Utility", "V",
+        "writeCalendars",
+        jcal,
+        as.character(file)
+    )
 }
 
 #' Title
@@ -158,10 +184,12 @@ write_calendars<-function(calendars, file){
 #' @export
 #'
 #' @examples
-read_variables<-function(file){
-  jspec<-.jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;", "readData", file)
-  if (is.jnull(jspec)) return(NULL)
-  return(rjd3toolkit::.jd2r_variables(jspec))
+read_variables <- function(file) {
+    jspec <- .jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;", "readData", file)
+    if (is.jnull(jspec)) {
+        return(NULL)
+    }
+    return(rjd3toolkit::.jd2r_variables(jspec))
 }
 
 #' Title
@@ -173,10 +201,12 @@ read_variables<-function(file){
 #' @export
 #'
 #' @examples
-write_variables<-function(vars, file){
-  jvars<-rjd3toolkit::.r2jd_variables(vars)
-  .jcall("jdplus/toolkit/base/workspace/file/Utility", "V",
-         "writeData",
-         jvars,
-         as.character(file))
+write_variables <- function(vars, file) {
+    jvars <- rjd3toolkit::.r2jd_variables(vars)
+    .jcall(
+        "jdplus/toolkit/base/workspace/file/Utility", "V",
+        "writeData",
+        jvars,
+        as.character(file)
+    )
 }
