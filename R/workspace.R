@@ -76,7 +76,14 @@ NULL
 #'
 #' @name refresh
 #' @export
-.jws_refresh <- function(jws, policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers", "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"), period = 0, start = NULL, end = NULL,
+.jws_refresh <- function(jws,
+                         policy = c("FreeParameters", "Complete",
+                                    "Outliers_StochasticComponent",
+                                    "Outliers", "FixedParameters",
+                                    "FixedAutoRegressiveParameters", "Fixed"),
+                         period = 0,
+                         start = NULL,
+                         end = NULL,
                          info = c("All", "Data", "None")) {
     policy <- match.arg(policy)
     info <- match.arg(info)
