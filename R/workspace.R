@@ -163,7 +163,7 @@ get_context <- function(jws) {
             stop("You have to choose a file !")
         }
     }
-    if (!file.exists(file) || length(grep("\\.xml$", file)) == 0) {
+    if (!file.exists(file) || !any(grepl("\\.xml$", file))) {
         stop("The file doesn't exist or isn't a .xml file !")
     }
     full_file_name <- full_path(file)
@@ -192,7 +192,7 @@ get_context <- function(jws) {
             stop("You have to choose a file !")
         }
     }
-    if (!file.exists(file) || length(grep("\\.xml$", file)) == 0) {
+    if (!file.exists(file) || !any(grepl("\\.xml$", file))) {
         stop("The file doesn't exist or isn't a .xml file !")
     }
 
