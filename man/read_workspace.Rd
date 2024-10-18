@@ -21,8 +21,8 @@ Functions to read all the SAItem of a SAProcessing (\code{read_sap()})
 or a workspace (\code{read_workspace()}).
 }
 \examples{
-file<-system.file("workspaces", "test.xml", package = "rjd3workspace")
-jws<-.jws_load(file)
+file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+jws <- .jws_load(file)
 # We don't compute the workspace
-rws<-read_workspace(jws, FALSE)
+rws <- read_workspace(jws, FALSE)
 }

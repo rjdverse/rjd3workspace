@@ -25,5 +25,4 @@ to add a new multi-processing (\code{.jws_sap_new()}).
 jwk <- .jws_new()
 jsap <- .jws_sap_new(jwk, "sa1")
 
-
 }
