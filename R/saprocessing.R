@@ -307,7 +307,14 @@ set_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    .jcall(jsap, "V", "setSpecification", as.integer(idx - 1), jspec)
+    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jcall(
+        jsa,
+        "Ljdplus/sa/base/api/SaItem;",
+        "withSpecification",
+        jspec
+    )
+    replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 #' @name set_specification
 #' @export
@@ -320,7 +327,14 @@ set_domain_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    .jcall(jsap, "V", "setDomainSpecification", as.integer(idx - 1), jspec)
+    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jcall(
+        jsa,
+        "Ljdplus/sa/base/api/SaItem;",
+        "withDomainSpecification",
+        jspec
+    )
+    replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 #' Get/Set the Raw Data of a SaItem
 #'

@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+* fixed `set_specification()` and `set_domain_specification()`
+
 ## [3.2.3] - 2024-07-12
 
 
