@@ -29,12 +29,15 @@
 \arguments{
 \item{policy}{the refresh policy to apply (see details).}
 
-\item{period, start, end}{to specify the span on which outliers will not be re-identified (i.e.: re-detected) when \code{policy = "Outliers"}
-or \code{policy = "Outliers_StochasticComponent"}.
-Span definition: \code{period}: numeric, number of observations in a year (12, 4...).
-\code{start} and \code{end}: first and last date from which outliers will not be re-identfied,
-defined as arrays of two elements: year and first period (for example, if \code{period = 12}, \code{c(1980, 1)} for January 1980).
-If they are not specified, the outliers will be re-identified on the whole series.}
+\item{period, start, end}{to specify the span on which outliers will not be
+re-identified (i.e.: re-detected) when \code{policy = "Outliers"} or
+\code{policy = "Outliers_StochasticComponent"}.
+Span definition: \code{period}: numeric, number of observations in a year
+(12, 4...). \code{start} and \code{end}: first and last date from which
+outliers will not be re-identfied, defined as arrays of two elements: year
+and first period (for example, if \code{period = 12}, \code{c(1980, 1)} for January
+1980). If they are not specified, the outliers will be re-identified on the
+whole series.}
 
 \item{info}{information to refresh.}
 
@@ -46,18 +49,28 @@ Refresh Workspace or SAProcessing
 \details{
 Available refresh policies are:
 
-\strong{Current}: applying the current pre-adjustment reg-arima model and adding the new raw data points as Additive Outliers (defined as new intervention variables)
+\strong{Current}: applying the current pre-adjustment reg-arima model and
+adding the new raw data points as Additive Outliers (defined as new
+intervention variables)
 
-\strong{Fixed}: applying the current pre-adjustment reg-arima model and replacing forecasts by new raw data points.
+\strong{Fixed}: applying the current pre-adjustment reg-arima model and
+replacing forecasts by new raw data points.
 
-\strong{FixedParameters}: pre-adjustment reg-arima model is partially modified: regression coefficients will be re-estimated but regression variables, Arima orders
-and coefficients are unchanged.
+\strong{FixedParameters}: pre-adjustment reg-arima model is partially
+modified: regression coefficients will be re-estimated but regression
+variables, Arima orders and coefficients are unchanged.
 
-\strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR) coefficients are kept fixed.
+\strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima
+Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR)
+coefficients are kept fixed.
 
-\strong{FreeParameters}: all regression and Arima model coefficients are re-estimated, regression variables and Arima orders are kept fixed.
+\strong{FreeParameters}: all regression and Arima model coefficients are
+re-estimated, regression variables and Arima orders are kept fixed.
 
-\strong{Outliers}: regression variables and Arima orders are kept fixed, but outliers will be re-detected on the defined span, thus all regression and Arima model coefficients are re-estimated
+\strong{Outliers}: regression variables and Arima orders are kept fixed, but
+outliers will be re-detected on the defined span, thus all regression and
+Arima model coefficients are re-estimated
 
-\strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model orders (p,d,q)(P,D,Q) can also be re-identified.
+\strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
+orders (p,d,q)(P,D,Q) can also be re-identified.
 }

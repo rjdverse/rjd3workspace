@@ -11,7 +11,8 @@ add_sa_item(jsap, name, x, spec, ...)
 
 \item{name}{the name of SAItem.}
 
-\item{x}{either a seasonal adjustment model (from \code{\link[rjd3x13:x13]{rjd3x13::x13()}} or \code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SaItem or a \code{"ts"} object.}
+\item{x}{either a seasonal adjustment model (from \code{\link[rjd3x13:x13]{rjd3x13::x13()}} or
+\code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SaItem or a \code{"ts"} object.}
 
 \item{spec}{the specification to use when \code{x} is a \code{"ts"} object.}
 

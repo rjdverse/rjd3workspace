@@ -7,8 +7,9 @@ NULL
     return(.jcall(jsap, "I", "size"))
 }
 
-#' Get the name of a SAProcessing or a SaItem
+#' @title Get the name of a SAProcessing or a SaItem
 #'
+#' @description
 #' Functions to retrieve the name of a SAProcessing (`.jsap_name()`) or SaItem (`.jsa_name()`).
 #'
 #' @param jsap,jsa the object to retrieve the name from.
@@ -35,16 +36,19 @@ NULL
     return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1)))
 }
 
-#' Get the Java name of sa_items
+#' @title Get the Java name of sa_items
 #'
 #' @description
-#' This function is used to retrieve the Java names of all the \code{sa_items} contained in a \code{SA-Processing}.
+#' This function is used to retrieve the Java names of all the \code{sa_items}
+#' contained in a \code{SA-Processing}.
 #'
 #' @param jsap the java object representing the \code{SA-Processing}
 #'
 #' @return A vector \code{character}.
 #'
-#' @seealso Other functions to retrieve the name of JDemetra+ objects (\code{workspace}, \code{SA-Processing} or \code{sa-item}): \code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
+#' @seealso Other functions to retrieve the name of JDemetra+ objects
+#' (\code{workspace}, \code{SA-Processing} or \code{sa-item}):
+#' \code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
 #'
 #' @examples \donttest{
 #'
@@ -119,11 +123,12 @@ read_sap <- function(jsap) {
 }
 
 
-#' Add SAItem to SAProcessing
+#' @title Add SAItem to SAProcessing
 #'
 #' @param jsap the SAProcessing.
 #' @param name the name of SAItem.
-#' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or [rjd3tramoseats::tramoseats()]), a SaItem or a `"ts"` object.
+#' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or
+#' [rjd3tramoseats::tramoseats()]), a SaItem or a `"ts"` object.
 #' @param spec the specification to use when `x` is a `"ts"` object.
 #' @param ... other unused parameters.
 #'
@@ -194,8 +199,9 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
     invisible(TRUE)
 }
 
-#' Replace or Remove a SaItem
+#' @title Replace or Remove a SaItem
 #'
+#' @description
 #' `replace_sa_item()` replaces a SaItem of a SAProcessing and `remove_sa_item()` removes a SaItem from a SAProcessing
 #'
 #' @param jsap the SAProcessing to modify.
@@ -261,7 +267,10 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
 
     if (!all(selected_series %in% mp_from_sa_name)) {
         missing_series <- selected_series[!selected_series %in% mp_from_sa_name]
-        stop("The series ", paste0(missing_series, collapse = ", "), " are missing from the first SA Processing. The replacement wasn't performed.")
+        stop("The series ",
+             toString(missing_series),
+             " are missing from the first SA Processing. ",
+             "The replacement wasn't performed.")
     }
 
     for (serie_name in selected_series) {

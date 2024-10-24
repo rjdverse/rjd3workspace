@@ -150,7 +150,12 @@ x13_write_spec <- function(spec, file) {
 #'
 #' @examples
 read_calendars <- function(file) {
-    jspec <- .jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;", "readCalendars", file)
+    jspec <- .jcall(
+        obj = "jdplus/toolkit/base/workspace/file/Utility",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;",
+        method = "readCalendars",
+        file
+    )
     if (is.jnull(jspec)) {
         return(NULL)
     }
@@ -185,7 +190,12 @@ write_calendars <- function(calendars, file) {
 #'
 #' @examples
 read_variables <- function(file) {
-    jspec <- .jcall("jdplus/toolkit/base/workspace/file/Utility", "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;", "readData", file)
+    jspec <- .jcall(
+        obj = "jdplus/toolkit/base/workspace/file/Utility",
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;",
+        method = "readData",
+        file
+    )
     if (is.jnull(jspec)) {
         return(NULL)
     }
