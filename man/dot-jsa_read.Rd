@@ -3,11 +3,14 @@
 \name{.jsa_read}
 \alias{.jsa_read}
 \alias{.jsa_results}
+\alias{.jsa_jresults}
 \title{Read SAItem}
 \usage{
 .jsa_read(jsa)
 
 .jsa_results(jsa, items = NULL)
+
+.jsa_jresults(jsa)
 }
 \arguments{
 \item{jsa}{Java SAItem object.}
@@ -18,6 +21,7 @@ See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\li
 \description{
 \code{.jsa_results()} extracts specific variables of the model of the SAItem while
 \code{.jsa_read()} extracts all the informations of a SAItem (see details).
+\code{.jsa_jresults()} extracts the Java object of the results of a SAItem.
 }
 \details{
 A SAItem contains more information than just the results of a model.
