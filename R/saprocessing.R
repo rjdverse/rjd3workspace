@@ -101,6 +101,23 @@ read_sap <- function(jsap) {
     return(all)
 }
 
+#' @name read_workspace
+#' @export
+.jread_sap <- function(jsap) {
+    n <- .jcall(jsap, "I", "size")
+    if (n == 0) {
+        return(NULL)
+    }
+    all <- lapply(1:n, function(i) {
+        .jsa_jresults(.jsap_sa(jsap, i))
+    })
+    names <- lapply(1:n, function(i) {
+        .jsa_name(.jsap_sa(jsap, i))
+    })
+    names(all) <- names
+    return(all)
+}
+
 #' @name refresh
 #' @export
 .jsap_refresh <- function(jsap,
