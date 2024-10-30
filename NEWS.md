@@ -11,6 +11,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * new function `.jsa_jresults()`, `.jread_sap()` and `.jread_workspace()` to  extract the Java object of the results of a SAItem.
 
+* Correction of imports when the workspace contains no SAP.
+
 ## [3.2.3] - 2024-07-12
 
 

@@ -221,10 +221,10 @@ get_context <- function(jws) {
 read_workspace <- function(jws, compute = TRUE) {
     if (compute) .jws_compute(jws)
     n <- .jws_sap_count(jws)
-    jsaps <- lapply(1:n, function(i) {
+    jsaps <- lapply(seq_len(n), function(i) {
         read_sap(.jws_sap(jws, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
         .jsap_name(.jws_sap(jws, i))
     })
     names(jsaps) <- names
@@ -236,10 +236,10 @@ read_workspace <- function(jws, compute = TRUE) {
 .jread_workspace <- function(jws, compute = TRUE) {
     if (compute) .jws_compute(jws)
     n <- .jws_sap_count(jws)
-    jsaps <- lapply(1:n, function(i) {
+    jsaps <- lapply(seq_len(n), function(i) {
         .jread_sap(.jws_sap(jws, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
         .jsap_name(.jws_sap(jws, i))
     })
     names(jsaps) <- names
