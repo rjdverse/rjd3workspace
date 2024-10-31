@@ -91,10 +91,10 @@ read_sap <- function(jsap) {
     if (n == 0) {
         return(NULL)
     }
-    all <- lapply(1:n, function(i) {
+    all <- lapply(seq_len(n), function(i) {
         .jsa_read(.jsap_sa(jsap, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
         .jsa_name(.jsap_sa(jsap, i))
     })
     names(all) <- names
@@ -108,10 +108,10 @@ read_sap <- function(jsap) {
     if (n == 0) {
         return(NULL)
     }
-    all <- lapply(1:n, function(i) {
+    all <- lapply(seq_len(n), function(i) {
         .jsa_jresults(.jsap_sa(jsap, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
         .jsa_name(.jsap_sa(jsap, i))
     })
     names(all) <- names
