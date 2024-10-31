@@ -263,7 +263,14 @@ read_workspace <- function(jws, compute = TRUE) {
 save_workspace <- function(jws, file, replace = FALSE) {
     # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
     version <- "jd3"
-    invisible(.jcall(jws, "Z", "saveAs", full_path(file), version, !replace))
+    file <- full_path(file)
+    if (replace && file.exists(file)) {
+        base::file.remove(file)
+        base::unlink(
+            gsub("\\.xml$", "", file),
+            recursive = TRUE)
+    }
+    invisible(.jcall(jws, "Z", "saveAs", file, version, !replace))
 }
 
 full_path <- function(path) {

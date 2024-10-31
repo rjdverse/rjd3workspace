@@ -13,6 +13,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * Correction of imports when the workspace contains no SAP.
 
+* `replace` parameter of `save_workspace()` corrected in R (not in Java).
+
 ## [3.2.3] - 2024-07-12
 
 
