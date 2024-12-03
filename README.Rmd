@@ -19,6 +19,7 @@ library("rjd3workspace")
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/rjd3workspace)](https://CRAN.R-project.org/package=rjd3workspace)
+[![Mentioned in Awesome Official Statistics ](https://awesome.re/mentioned-badge.svg)](http://www.awesomeofficialstatistics.org)
 
 [![R-CMD-check](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml)
 [![lint](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml)
