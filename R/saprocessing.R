@@ -95,10 +95,27 @@ read_sap <- function(jsap) {
     if (n == 0) {
         return(NULL)
     }
-    all <- lapply(1:n, function(i) {
+    all <- lapply(seq_len(n), function(i) {
         .jsa_read(.jsap_sa(jsap, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
+        .jsa_name(.jsap_sa(jsap, i))
+    })
+    names(all) <- names
+    return(all)
+}
+
+#' @name read_workspace
+#' @export
+.jread_sap <- function(jsap) {
+    n <- .jcall(jsap, "I", "size")
+    if (n == 0) {
+        return(NULL)
+    }
+    all <- lapply(seq_len(n), function(i) {
+        .jsa_jresults(.jsap_sa(jsap, i))
+    })
+    names <- lapply(seq_len(n), function(i) {
         .jsa_name(.jsap_sa(jsap, i))
     })
     names(all) <- names
@@ -316,7 +333,14 @@ set_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    .jcall(jsap, "V", "setSpecification", as.integer(idx - 1), jspec)
+    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jcall(
+        jsa,
+        "Ljdplus/sa/base/api/SaItem;",
+        "withSpecification",
+        jspec
+    )
+    replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 #' @name set_specification
 #' @export
@@ -329,7 +353,14 @@ set_domain_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    .jcall(jsap, "V", "setDomainSpecification", as.integer(idx - 1), jspec)
+    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jcall(
+        jsa,
+        "Ljdplus/sa/base/api/SaItem;",
+        "withDomainSpecification",
+        jspec
+    )
+    replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
 #' Get/Set the Raw Data of a SaItem
 #'

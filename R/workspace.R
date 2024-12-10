@@ -219,6 +219,7 @@ get_context <- function(jws) {
 #'
 #' Functions to read all the SAItem of a SAProcessing (`read_sap()`)
 #' or a workspace (`read_workspace()`).
+#' The functions `.jread_sap()` and `.jread_workspace()` only returns the Java objects
 #'
 #' @param jws Java workspace.
 #' @param jsap Java SAProcessing.
@@ -233,15 +234,29 @@ get_context <- function(jws) {
 read_workspace <- function(jws, compute = TRUE) {
     if (compute) .jws_compute(jws)
     n <- .jws_sap_count(jws)
-    jsaps <- lapply(1:n, function(i) {
+    jsaps <- lapply(seq_len(n), function(i) {
         read_sap(.jws_sap(jws, i))
     })
-    names <- lapply(1:n, function(i) {
+    names <- lapply(seq_len(n), function(i) {
         .jsap_name(.jws_sap(jws, i))
     })
     names(jsaps) <- names
     cntxt <- get_context(jws)
     return(list(processing = jsaps, context = cntxt))
+}
+#' @name read_workspace
+#' @export
+.jread_workspace <- function(jws, compute = TRUE) {
+    if (compute) .jws_compute(jws)
+    n <- .jws_sap_count(jws)
+    jsaps <- lapply(seq_len(n), function(i) {
+        .jread_sap(.jws_sap(jws, i))
+    })
+    names <- lapply(seq_len(n), function(i) {
+        .jsap_name(.jws_sap(jws, i))
+    })
+    names(jsaps) <- names
+    return(jsaps)
 }
 
 #' Save Workspace
@@ -261,7 +276,14 @@ read_workspace <- function(jws, compute = TRUE) {
 save_workspace <- function(jws, file, replace = FALSE) {
     # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
     version <- "jd3"
-    invisible(.jcall(jws, "Z", "saveAs", full_path(file), version, !replace))
+    file <- full_path(file)
+    if (replace && file.exists(file)) {
+        base::file.remove(file)
+        base::unlink(
+            gsub("\\.xml$", "", file),
+            recursive = TRUE)
+    }
+    invisible(.jcall(jws, "Z", "saveAs", file, version, !replace))
 }
 
 full_path <- function(path) {
