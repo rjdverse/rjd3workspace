@@ -9,15 +9,19 @@ NULL
 #'
 #' @param jsa Java SAItem object.
 #' @param items vector of characters containing the variables to extract.
-#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()]. By default, extracts all the possible variables.
+#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
+#' By default, extracts all the possible variables.
 #'
 #' @details A SAItem contains more information than just the results of a model.
-#' All those informations are extracted with the `.jsa_read()` function that returns a list with 5 objects:
+#' All those informations are extracted with the `.jsa_read()` function that
+#' returns a list with 5 objects:
 #'
 #' - `ts`: the raw time series.
-#' - `domainSpec`: initial specification. Reference for any relaxing of some elements of the specification.
+#' - `domainSpec`: initial specification. Reference for any relaxing of some
+#' elements of the specification.
 #' - `estimationSpec`: specification used for the current estimation.
-#' - `pointSpec`: specification corresponding to the results of the current estimation (fully identified model).
+#' - `pointSpec`: specification corresponding to the results of the current
+#' estimation (fully identified model).
 #' - `results`: the result of the model.
 #' @export
 .jsa_read <- function(jsa) {
@@ -43,12 +47,28 @@ NULL
     rslt <- NULL
 
     if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
-        spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
-        dspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jdspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
+        spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+            jspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        ))
+        dspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+            jdspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        ))
         if (!is.jnull(jrslt)) {
-            rslt <- rjd3tramoseats::.tramoseats_rslts(.jcast(jrslt, "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"))
-            jpspec <- .jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
-            pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(jpspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"))
+            rslt <- rjd3tramoseats::.tramoseats_rslts(.jcast(
+                jrslt,
+                "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"
+            ))
+            jpspec <- .jcall(
+                obj = jestimation,
+                returnSig = "Ljdplus/sa/base/api/SaSpecification;",
+                method = "getPointSpec"
+            )
+            pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+                jpspec,
+                "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+            ))
         }
     } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
         spec <- rjd3x13::.jd2r_spec_x13(.jcast(jspec, "jdplus/x13/base/api/x13/X13Spec"))

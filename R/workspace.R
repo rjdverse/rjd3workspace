@@ -176,7 +176,7 @@ get_context <- function(jws) {
             stop("You have to choose a file !")
         }
     }
-    if (!file.exists(file) || tools::file_ext(file) != ".xml") {
+    if (!file.exists(file) || tools::file_ext(file) != "xml") {
         stop("The file doesn't exist or isn't a .xml file !")
     }
     full_file_name <- full_path(file)
@@ -205,7 +205,7 @@ get_context <- function(jws) {
             stop("You have to choose a file !")
         }
     }
-    if (!file.exists(file) || tools::file_ext(file) != ".xml") {
+    if (!file.exists(file) || tools::file_ext(file) != "xml") {
         stop("The file doesn't exist or isn't a .xml file !")
     }
 
@@ -281,7 +281,8 @@ save_workspace <- function(jws, file, replace = FALSE) {
         base::file.remove(file)
         base::unlink(
             gsub("\\.xml$", "", file),
-            recursive = TRUE)
+            recursive = TRUE
+        )
     }
     invisible(.jcall(jws, "Z", "saveAs", file, version, !replace))
 }

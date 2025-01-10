@@ -136,7 +136,12 @@ read_sap <- function(jsap) {
     policy <- match.arg(policy)
     info <- match.arg(info)
     jdom <- rjd3toolkit::.jdomain(period, start, end)
-    return(.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "refresh", policy, jdom, info))
+    output <- .jcall(
+        obj = jsap,
+        returnSig = "Ljdplus/sa/base/workspace/MultiProcessing;",
+        method = "refresh", policy, jdom, info
+    )
+    return(output)
 }
 
 
@@ -497,10 +502,9 @@ set_ts_metadata <- function(jsap, idx, ref_jsa) {
         moniker(.jcall(jts_ref, "Ljdplus/toolkit/base/api/timeseries/TsMoniker;", "getMoniker"))$
         build()
     jsa <- .jcall(
-        jsa,
-        "Ljdplus/sa/base/api/SaItem;",
-        "withTs",
-        jts
+        obj = jsa,
+        returnSig = "Ljdplus/sa/base/api/SaItem;",
+        method = "withTs", jts
     )
     replace_sa_item(jsap, jsa = jsa, idx = idx)
 }
