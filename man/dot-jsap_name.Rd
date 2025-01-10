@@ -23,7 +23,8 @@ A vector \code{character}.
 \description{
 Functions to retrieve the name of a SAProcessing (\code{.jsap_name()}) or SaItem (\code{.jsa_name()}).
 
-This function is used to retrieve the Java names of all the \code{sa_items} contained in a \code{SA-Processing}.
+This function is used to retrieve the Java names of all the \code{sa_items}
+contained in a \code{SA-Processing}.
 }
 \examples{
 \donttest{
@@ -43,5 +44,7 @@ print(.jsap_sa_name(jsap1))
 
 }
 \seealso{
-Other functions to retrieve the name of JDemetra+ objects (\code{workspace}, \code{SA-Processing} or \code{sa-item}): \code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
+Other functions to retrieve the name of JDemetra+ objects
+(\code{workspace}, \code{SA-Processing} or \code{sa-item}):
+\code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
 }
