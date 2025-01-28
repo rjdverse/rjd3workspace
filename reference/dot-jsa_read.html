@@ -61,16 +61,20 @@
 
 <dt id="arg-items">items<a class="anchor" aria-label="anchor" href="#arg-items"></a></dt>
 <dd><p>vector of characters containing the variables to extract.
-See <code><a href="https://rjdverse.github.io/rjd3x13/reference/x13_dictionary.html" class="external-link">rjd3x13::x13_dictionary()</a></code> or <code><a href="https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats_dictionary.html" class="external-link">rjd3tramoseats::tramoseats_dictionary()</a></code>. By default, extracts all the possible variables.</p></dd>
+See <code><a href="https://rjdverse.github.io/rjd3x13/reference/x13_dictionary.html" class="external-link">rjd3x13::x13_dictionary()</a></code> or <code><a href="https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats_dictionary.html" class="external-link">rjd3tramoseats::tramoseats_dictionary()</a></code>.
+By default, extracts all the possible variables.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>A SAItem contains more information than just the results of a model.
-All those informations are extracted with the <code>.jsa_read()</code> function that returns a list with 5 objects:</p><ul><li><p><code>ts</code>: the raw time series.</p></li>
-<li><p><code>domainSpec</code>: initial specification. Reference for any relaxing of some elements of the specification.</p></li>
+All those informations are extracted with the <code>.jsa_read()</code> function that
+returns a list with 5 objects:</p><ul><li><p><code>ts</code>: the raw time series.</p></li>
+<li><p><code>domainSpec</code>: initial specification. Reference for any relaxing of some
+elements of the specification.</p></li>
 <li><p><code>estimationSpec</code>: specification used for the current estimation.</p></li>
-<li><p><code>pointSpec</code>: specification corresponding to the results of the current estimation (fully identified model).</p></li>
+<li><p><code>pointSpec</code>: specification corresponding to the results of the current
+estimation (fully identified model).</p></li>
 <li><p><code>results</code>: the result of the model.</p></li>
 </ul></div>
 
