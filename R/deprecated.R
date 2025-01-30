@@ -84,3 +84,15 @@
     .Deprecated(".jsai_name")
     .jsai_name(jsa)
 }
+#' @name deprecated-rjd3workspace
+#' @export
+.jsa_metadata <- function(jsa, key) {
+    .Deprecated(".jsai_metadata")
+    .jsai_metadata(jsa, key)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+.jsa_ts_metadata <- function(jsa, key) {
+    .Deprecated(".jsai_ts_metadata")
+    .jsai_ts_metadata(jsa, key)
+}

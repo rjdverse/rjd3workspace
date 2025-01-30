@@ -132,14 +132,14 @@ read_sai <- function(jsa) {
 #' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
-.jsa_metadata <- function(jsa, key) {
+.jsai_metadata <- function(jsa, key) {
     val <- .jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
     return(val)
 }
 
-#' @name .jsa_metadata
+#' @name .jsai_metadata
 #' @export
-.jsa_ts_metadata <- function(jsa, key) {
+.jsai_ts_metadata <- function(jsa, key) {
     val <- .jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
     return(val)
 }

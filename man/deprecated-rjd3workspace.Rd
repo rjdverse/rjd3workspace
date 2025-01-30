@@ -15,6 +15,8 @@
 \alias{.jsa_results}
 \alias{.jsa_jresults}
 \alias{.jsa_name}
+\alias{.jsa_metadata}
+\alias{.jsa_ts_metadata}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
@@ -42,6 +44,10 @@
 .jsa_jresults(jsa)
 
 .jsa_name(jsa)
+
+.jsa_metadata(jsa, key)
+
+.jsa_ts_metadata(jsa, key)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}
