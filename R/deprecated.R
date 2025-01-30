@@ -54,11 +54,15 @@
     .Deprecated(".jws_sap_count")
     .jws_sap_count(jws)
 }
-
-
 #' @name deprecated-rjd3workspace
 #' @export
 .jsap_sa <- function(jsap, idx) {
     .Deprecated(".jsap_sai")
     .jsap_sai(jsap, idx)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+read_sai <- function(jsa) {
+    .Deprecated("read_sai")
+    read_sai(jsa)
 }

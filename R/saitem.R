@@ -4,7 +4,7 @@ NULL
 #' Read SAItem
 #'
 #' `.jsa_results()` extracts specific variables of the model of the SAItem while
-#' `.jsa_read()` extracts all the informations of a SAItem (see details).
+#' `read_sai()` extracts all the informations of a SAItem (see details).
 #'  `.jsa_jresults()` extracts the Java object of the results of a SAItem.
 #'
 #' @param jsa Java SAItem object.
@@ -13,7 +13,7 @@ NULL
 #' By default, extracts all the possible variables.
 #'
 #' @details A SAItem contains more information than just the results of a model.
-#' All those informations are extracted with the `.jsa_read()` function that
+#' All those informations are extracted with the `read_sai()` function that
 #' returns a list with 5 objects:
 #'
 #' - `ts`: the raw time series.
@@ -24,7 +24,7 @@ NULL
 #' estimation (fully identified model).
 #' - `results`: the result of the model.
 #' @export
-.jsa_read <- function(jsa) {
+read_sai <- function(jsa) {
     #  if (! .jcall(jsa, "Z", "isProcessed"))
     #    stop("You must run '.jws_compute()' on your workspace.")
 
@@ -88,7 +88,7 @@ NULL
     ))
 }
 
-#' @name .jsa_read
+#' @name read_sai
 #' @export
 .jsa_results <- function(jsa, items = NULL) {
     jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -106,7 +106,7 @@ NULL
     return(r)
 }
 
-#' @name .jsa_read
+#' @name read_sai
 #' @export
 .jsa_jresults <- function(jsa) {
     jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -129,7 +129,7 @@ NULL
 #'
 #' Extract specific metadata or time series metadata of a SAItem.
 #'
-#' @inheritParams .jsa_read
+#' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
 .jsa_metadata <- function(jsa, key) {
