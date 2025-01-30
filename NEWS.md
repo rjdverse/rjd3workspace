@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* Rename `.jsa_XXX` in `.jsai_XXX` for SA-Item
+* Rename `.jsap_sa` in `.jsap_sai`
+
 ### Fixed
 
 * fixed `set_specification()` and `set_domain_specification()`
