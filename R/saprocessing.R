@@ -10,7 +10,7 @@ NULL
 #' @title Get the name of a SAProcessing or a SaItem
 #'
 #' @description
-#' Functions to retrieve the name of a SAProcessing (`.jsap_name()`) or SaItem (`.jsa_name()`).
+#' Functions to retrieve the name of a SAProcessing (`.jsap_name()`) or SaItem (`.jsai_name()`).
 #'
 #' @param jsap,jsa the object to retrieve the name from.
 #'
@@ -48,7 +48,7 @@ NULL
 #'
 #' @seealso Other functions to retrieve the name of JDemetra+ objects
 #' (\code{workspace}, \code{SA-Processing} or \code{sa-item}):
-#' \code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
+#' \code{\link{.jsai_name}}, \code{\link{.jsap_name}}.
 #'
 #' @examples \donttest{
 #'
@@ -80,7 +80,7 @@ NULL
     names_sa <- vapply(
         X = seq_len(n),
         FUN = function(i) {
-            .jsa_name(.jsap_sai(jsap, i))
+            .jsai_name(.jsap_sai(jsap, i))
         },
         FUN.VALUE = character(1)
     )
@@ -99,7 +99,7 @@ read_sap <- function(jsap) {
         read_sai(.jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsa_name(.jsap_sai(jsap, i))
+        .jsai_name(.jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -116,7 +116,7 @@ read_sap <- function(jsap) {
         .jsa_jresults(.jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsa_name(.jsap_sai(jsap, i))
+        .jsai_name(.jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -439,7 +439,7 @@ get_comment <- function(jsa) {
 #'
 #' @inheritParams set_raw_data
 #' @param name character containing the name of the SAItem.
-#' @seealso [.jsa_name()]
+#' @seealso [.jsai_name()]
 #' @export
 set_name <- function(jsap, idx, name) {
     jsai <- .jsap_sai(jsap, idx = idx)

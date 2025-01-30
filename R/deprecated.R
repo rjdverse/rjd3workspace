@@ -62,7 +62,25 @@
 }
 #' @name deprecated-rjd3workspace
 #' @export
-read_sai <- function(jsa) {
+.jsa_read <- function(jsa) {
     .Deprecated("read_sai")
     read_sai(jsa)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+.jsa_results <- function(jsa, items = NULL) {
+    .Deprecated(".jsai_results")
+    .jsai_results(jsa, items)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+.jsa_jresults <- function(jsa) {
+    .Deprecated(".jsai_jresults")
+    .jsai_jresults(jsa)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+.jsa_name <- function(jsa) {
+    .Deprecated(".jsai_name")
+    .jsai_name(jsa)
 }

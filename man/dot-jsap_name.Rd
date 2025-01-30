@@ -2,11 +2,11 @@
 % Please edit documentation in R/saitem.R, R/saprocessing.R
 \name{.jsap_name}
 \alias{.jsap_name}
-\alias{.jsa_name}
+\alias{.jsai_name}
 \alias{.jsap_sa_name}
 \title{Get the name of a SAProcessing or a SaItem}
 \usage{
-.jsa_name(jsa)
+.jsai_name(jsa)
 
 .jsap_name(jsap)
 
@@ -21,7 +21,7 @@
 A vector \code{character}.
 }
 \description{
-Functions to retrieve the name of a SAProcessing (\code{.jsap_name()}) or SaItem (\code{.jsa_name()}).
+Functions to retrieve the name of a SAProcessing (\code{.jsap_name()}) or SaItem (\code{.jsai_name()}).
 
 This function is used to retrieve the Java names of all the \code{sa_items}
 contained in a \code{SA-Processing}.
@@ -46,5 +46,5 @@ print(.jsap_sa_name(jsap1))
 \seealso{
 Other functions to retrieve the name of JDemetra+ objects
 (\code{workspace}, \code{SA-Processing} or \code{sa-item}):
-\code{\link{.jsa_name}}, \code{\link{.jsap_name}}.
+\code{\link{.jsai_name}}, \code{\link{.jsap_name}}.
 }

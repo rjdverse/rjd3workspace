@@ -2,15 +2,15 @@
 % Please edit documentation in R/saitem.R
 \name{read_sai}
 \alias{read_sai}
-\alias{.jsa_results}
-\alias{.jsa_jresults}
+\alias{.jsai_results}
+\alias{.jsai_jresults}
 \title{Read SAItem}
 \usage{
 read_sai(jsa)
 
-.jsa_results(jsa, items = NULL)
+.jsai_results(jsa, items = NULL)
 
-.jsa_jresults(jsa)
+.jsai_jresults(jsa)
 }
 \arguments{
 \item{jsa}{Java SAItem object.}
@@ -20,9 +20,9 @@ See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\li
 By default, extracts all the possible variables.}
 }
 \description{
-\code{.jsa_results()} extracts specific variables of the model of the SAItem while
+\code{.jsai_results()} extracts specific variables of the model of the SAItem while
 \code{read_sai()} extracts all the informations of a SAItem (see details).
-\code{.jsa_jresults()} extracts the Java object of the results of a SAItem.
+\code{.jsai_jresults()} extracts the Java object of the results of a SAItem.
 }
 \details{
 A SAItem contains more information than just the results of a model.

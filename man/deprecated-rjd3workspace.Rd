@@ -11,7 +11,10 @@
 \alias{.jws_multiprocessing_new}
 \alias{.jws_multiprocessing_count}
 \alias{.jsap_sa}
-\alias{read_sai}
+\alias{.jsa_read}
+\alias{.jsa_results}
+\alias{.jsa_jresults}
+\alias{.jsa_name}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
@@ -32,7 +35,13 @@
 
 .jsap_sa(jsap, idx)
 
-read_sai(jsa)
+.jsa_read(jsa)
+
+.jsa_results(jsa, items = NULL)
+
+.jsa_jresults(jsa)
+
+.jsa_name(jsa)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}

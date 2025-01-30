@@ -3,9 +3,9 @@ NULL
 
 #' Read SAItem
 #'
-#' `.jsa_results()` extracts specific variables of the model of the SAItem while
+#' `.jsai_results()` extracts specific variables of the model of the SAItem while
 #' `read_sai()` extracts all the informations of a SAItem (see details).
-#'  `.jsa_jresults()` extracts the Java object of the results of a SAItem.
+#'  `.jsai_jresults()` extracts the Java object of the results of a SAItem.
 #'
 #' @param jsa Java SAItem object.
 #' @param items vector of characters containing the variables to extract.
@@ -90,7 +90,7 @@ read_sai <- function(jsa) {
 
 #' @name read_sai
 #' @export
-.jsa_results <- function(jsa, items = NULL) {
+.jsai_results <- function(jsa, items = NULL) {
     jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
         return(NULL)
@@ -108,7 +108,7 @@ read_sai <- function(jsa) {
 
 #' @name read_sai
 #' @export
-.jsa_jresults <- function(jsa) {
+.jsai_jresults <- function(jsa) {
     jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
         return(NULL)
@@ -121,7 +121,7 @@ read_sai <- function(jsa) {
 
 #' @name .jsap_name
 #' @export
-.jsa_name <- function(jsa) {
+.jsai_name <- function(jsa) {
     return(.jcall(jsa, "S", "getName"))
 }
 
