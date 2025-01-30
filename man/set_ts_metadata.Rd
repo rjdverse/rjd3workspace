@@ -30,9 +30,9 @@ allows to update a specific key with a new information.
 file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
 jws <- .jws_load(file)
 jsap <- .jws_sap(jws, 1)
-jsa <- .jsap_sa(jsap, 1)
+jsa <- .jsap_sai(jsap, 1)
 nid <- rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
 put_ts_metadata(jsap, 1, "@id", nid)
-jsa <- .jsap_sa(jsap, 1)
+jsa <- .jsap_sai(jsap, 1)
 .jsa_ts_metadata(jsa, "@id")
 }

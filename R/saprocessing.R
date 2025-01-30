@@ -29,7 +29,7 @@ NULL
 
 #' @name .jws_sap
 #' @export
-.jsap_sa <- function(jsap, idx) {
+.jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1) {
         return(NULL)
     }
@@ -80,7 +80,7 @@ NULL
     names_sa <- vapply(
         X = seq_len(n),
         FUN = function(i) {
-            .jsa_name(.jsap_sa(jsap, i))
+            .jsa_name(.jsap_sai(jsap, i))
         },
         FUN.VALUE = character(1)
     )
@@ -96,10 +96,10 @@ read_sap <- function(jsap) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
-        .jsa_read(.jsap_sa(jsap, i))
+        .jsa_read(.jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsa_name(.jsap_sa(jsap, i))
+        .jsa_name(.jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -113,10 +113,10 @@ read_sap <- function(jsap) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
-        .jsa_jresults(.jsap_sa(jsap, i))
+        .jsa_jresults(.jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsa_name(.jsap_sa(jsap, i))
+        .jsa_name(.jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -300,7 +300,7 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
         if (length(index_from) > 1) {
             stop("Several series from first SA Processing have the same name : ", serie_name)
         }
-        jsa1 <- .jsap_sa(jsap_from, idx = index_from)
+        jsa1 <- .jsap_sai(jsap_from, idx = index_from)
 
         index_to <- which(serie_name == mp_to_sa_name)
         if (length(index_to) > 1) {
@@ -338,7 +338,7 @@ set_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",
@@ -358,7 +358,7 @@ set_domain_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",
@@ -393,7 +393,7 @@ get_raw_data <- function(jsa) {
 #' @param y a "full" time series (jd3-like).
 #' @export
 set_ts <- function(jsap, idx, y) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",
@@ -418,7 +418,7 @@ get_ts <- function(jsa) {
 #' @param comment character containing the comment.
 #' @export
 set_comment <- function(jsap, idx, comment) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",
@@ -442,7 +442,7 @@ get_comment <- function(jsa) {
 #' @seealso [.jsa_name()]
 #' @export
 set_name <- function(jsap, idx, name) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",
@@ -453,7 +453,7 @@ set_name <- function(jsap, idx, name) {
 }
 
 # set_metadata <- function(jsap, ref_jsa, idx) {
-#   jsa <- .jsap_sa(jsap, idx = idx)
+#   jsa <- .jsap_sai(jsap, idx = idx)
 #   jsa <- jsa$withInformations(ref_jsa$getMeta())
 #   replace_sa_item(jsap, jsa = jsa, idx = idx)
 # }
@@ -474,13 +474,13 @@ set_name <- function(jsap, idx, name) {
 #' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
 #' jws <- .jws_load(file)
 #' jsap <- .jws_sap(jws, 1)
-#' jsa <- .jsap_sa(jsap, 1)
+#' jsa <- .jsap_sai(jsap, 1)
 #' nid <- rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
 #' put_ts_metadata(jsap, 1, "@id", nid)
-#' jsa <- .jsap_sa(jsap, 1)
+#' jsa <- .jsap_sai(jsap, 1)
 #' .jsa_ts_metadata(jsa, "@id")
 set_ts_metadata <- function(jsap, idx, ref_jsa) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jts <- .jcall(
         .jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition"),
         "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs"
@@ -512,7 +512,7 @@ set_ts_metadata <- function(jsap, idx, ref_jsa) {
 #' @name set_ts_metadata
 #' @export
 put_ts_metadata <- function(jsap, idx, key, value) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         "jdplus/sa/base/workspace/Utility",
         "Ljdplus/sa/base/api/SaItem;",
@@ -529,7 +529,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' @param priority integer containing the priority.
 #' @export
 set_priority <- function(jsap, idx, priority = 0) {
-    jsa <- .jsap_sa(jsap, idx = idx)
+    jsa <- .jsap_sai(jsap, idx = idx)
     jsa <- .jcall(
         jsa,
         "Ljdplus/sa/base/api/SaItem;",

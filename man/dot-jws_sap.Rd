@@ -2,10 +2,10 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{.jws_sap}
 \alias{.jws_sap}
-\alias{.jsap_sa}
+\alias{.jsap_sai}
 \title{Extract a SAProcessing or a SaItem}
 \usage{
-.jsap_sa(jsap, idx)
+.jsap_sai(jsap, idx)
 
 .jws_sap(jws, idx)
 }

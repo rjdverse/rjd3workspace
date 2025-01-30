@@ -7,16 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
 * fixed `set_specification()` and `set_domain_specification()`
+* Correction of imports when the workspace contains no SAP.
+* `replace` parameter of `save_workspace()` corrected in R (not in Java).
+
+### Added
 
 * new function `.jsa_jresults()`, `.jread_sap()` and `.jread_workspace()` to  extract the Java object of the results of a SAItem.
 
-* Correction of imports when the workspace contains no SAP.
-
-* `replace` parameter of `save_workspace()` corrected in R (not in Java).
 
 ## [3.2.3] - 2024-07-12
-
 
 ### Changed
 

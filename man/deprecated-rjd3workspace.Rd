@@ -10,6 +10,7 @@
 \alias{.jws_multiprocessing}
 \alias{.jws_multiprocessing_new}
 \alias{.jws_multiprocessing_count}
+\alias{.jsap_sa}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
@@ -27,6 +28,8 @@
 .jws_multiprocessing_new(jws, name)
 
 .jws_multiprocessing_count(jws)
+
+.jsap_sa(jsap, idx)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}
