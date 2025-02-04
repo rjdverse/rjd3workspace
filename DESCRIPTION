@@ -1,7 +1,7 @@
 Package: rjd3workspace
 Type: Package
 Title: Interface to 'JDemetra+ 3.x' time series analysis software.
-Version: 3.2.4
+Version: 3.2.4.9000
 Authors@R: c(
   person("Jean", "Palate", role = c("aut"),
                 email = "palatejean@gmail.com"),
@@ -26,10 +26,10 @@ Imports:
     tools, 
     utils
 Remotes: 
-    github::rjdverse/rjd3toolkit@*release,
-    github::rjdverse/rjd3tramoseats@*release,
-    github::rjdverse/rjd3x13@*release,
-    github::rjdverse/rjd3providers@*release
+    github::rjdverse/rjd3toolkit,
+    github::rjdverse/rjd3tramoseats,
+    github::rjdverse/rjd3x13,
+    github::rjdverse/rjd3providers
 SystemRequirements: Java (>= 17)
 License: EUPL
 URL: https://github.com/rjdverse/rjd3workspace, https://rjdverse.github.io/rjd3workspace/
