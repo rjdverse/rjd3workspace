@@ -46,6 +46,7 @@ Collate:
     'utils.R'
     'saitem.R'
     'saprocessing.R'
+    'update_path.R'
     'workspace.R'
     'zzz.R'
 VignetteBuilder: knitr
