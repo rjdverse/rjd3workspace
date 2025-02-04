@@ -1,7 +1,7 @@
 Package: rjd3workspace
 Type: Package
 Title: Interface to 'JDemetra+ 3.x' time series analysis software.
-Version: 3.2.3.9000
+Version: 3.2.4.9000
 Authors@R: c(
   person("Jean", "Palate", role = c("aut"),
                 email = "palatejean@gmail.com"),
