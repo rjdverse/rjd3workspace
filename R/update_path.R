@@ -43,7 +43,8 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         jsap_i <- .jws_sap(jws, idx = id_sap)
 
         if (!is.null(idx_sai) && max(idx_sai) > .jsap_sa_count(jsap_i)) {
-            stop("The SAI n\u00b0", max(idx_sai), " doesn't exist in the SAP n\u00b0", id_sap)
+            stop("The SAI n\u00b0", max(idx_sai),
+                 " doesn't exist in the SAP n\u00b0", id_sap)
         }
     }
 
