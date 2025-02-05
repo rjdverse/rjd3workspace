@@ -121,7 +121,11 @@ set_context <- function(jws, modelling_context = NULL) {
 #'
 #' @export
 get_context <- function(jws) {
-    jcntxt <- .jcall(jws, "Ljdplus/toolkit/base/api/timeseries/regression/ModellingContext;", "getContext")
+    jcntxt <- .jcall(
+        obj = jws,
+        returnSig = "Ljdplus/toolkit/base/api/timeseries/regression/ModellingContext;",
+        method = "getContext"
+    )
     rjd3toolkit::.jd2r_modellingcontext(jcntxt)
 }
 
@@ -146,15 +150,23 @@ get_context <- function(jws) {
 #'
 #' @export
 .jws_sap <- function(jws, idx) {
-    return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "getMultiProcessing", as.integer(idx - 1)))
+    jsap <- .jcall(
+        obj = jws,
+        returnSig = "Ljdplus/sa/base/workspace/MultiProcessing;",
+        method = "getMultiProcessing",
+        as.integer(idx - 1L)
+    )
+    return(jsap)
 }
 
 
 
 
-#' Load a 'JDemetra+' workpace
+#' @title Load a 'JDemetra+' workpace
 #'
-#' `.jws_open()` loads a workspace and `.jws_compute()` computes it (to be able to get all the models).
+#' @description
+#' `.jws_open()` loads a workspace and `.jws_compute()` computes it (to be able
+#' to get all the models).
 #'
 #' @param file the path to the 'JDemetra+' workspace to load.
 #' By default a dialog box opens.
@@ -172,7 +184,7 @@ get_context <- function(jws) {
         } else {
             file <- base::file.choose()
         }
-        if (length(file) == 0) {
+        if (length(file) == 0L) {
             stop("You have to choose a file !")
         }
     }
@@ -205,7 +217,7 @@ get_context <- function(jws) {
         } else {
             file <- base::file.choose()
         }
-        if (length(file) == 0) {
+        if (length(file) == 0L) {
             stop("You have to choose a file !")
         }
     }

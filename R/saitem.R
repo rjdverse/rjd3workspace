@@ -33,7 +33,11 @@ read_sai <- function(jsa) {
     jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     jrslt <- .jnull()
     if (!is.jnull(jestimation)) {
-        jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
+        jrslt <- .jcall(
+            obj = jestimation,
+            returnSig = "Ljdplus/toolkit/base/api/information/Explorable;",
+            method = "getResults"
+        )
     }
     # ts
     jts <- .jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
@@ -133,13 +137,23 @@ read_sai <- function(jsa) {
 #' @param key key of the metadata.
 #' @export
 .jsai_metadata <- function(jsa, key) {
-    val <- .jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleMetaData", jsa, as.character(key))
+    val <- .jcall(
+        obj = "jdplus/sa/base/workspace/Utility",
+        returnSig = "S",
+        method = "getSingleMetaData",
+        jsa, as.character(key)
+    )
     return(val)
 }
 
 #' @name .jsai_metadata
 #' @export
 .jsai_ts_metadata <- function(jsa, key) {
-    val <- .jcall("jdplus/sa/base/workspace/Utility", "S", "getSingleTsMetaData", jsa, as.character(key))
+    val <- .jcall(
+        obj = "jdplus/sa/base/workspace/Utility",
+        returnSig = "S",
+        method = "getSingleTsMetaData",
+        jsa, as.character(key)
+    )
     return(val)
 }

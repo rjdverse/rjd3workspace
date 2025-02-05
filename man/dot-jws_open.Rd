@@ -14,7 +14,8 @@
 By default a dialog box opens.}
 }
 \description{
-\code{.jws_open()} loads a workspace and \code{.jws_compute()} computes it (to be able to get all the models).
+\code{.jws_open()} loads a workspace and \code{.jws_compute()} computes it (to be able
+to get all the models).
 }
 \seealso{
 \code{\link[=read_workspace]{read_workspace()}} to import all the models of a workspace.

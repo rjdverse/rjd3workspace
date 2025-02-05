@@ -30,10 +30,10 @@ NULL
 #' @name .jws_sap
 #' @export
 .jsap_sai <- function(jsap, idx) {
-    if (is.jnull(jsap) || idx < 1) {
+    if (is.jnull(jsap) || idx < 1L) {
         return(NULL)
     }
-    return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1)))
+    return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L)))
 }
 
 #' @title Get the Java name of sa_items
@@ -73,7 +73,7 @@ NULL
     }
 
     n <- .jcall(obj = jsap, returnSig = "I", method = "size")
-    if (n == 0) {
+    if (n == 0L) {
         return(NULL)
     }
 
@@ -82,7 +82,7 @@ NULL
         FUN = function(i) {
             .jsai_name(.jsap_sai(jsap, i))
         },
-        FUN.VALUE = character(1)
+        FUN.VALUE = character(1L)
     )
 
     return(names_sa)
@@ -92,7 +92,7 @@ NULL
 #' @export
 read_sap <- function(jsap) {
     n <- .jcall(jsap, "I", "size")
-    if (n == 0) {
+    if (n == 0L) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
@@ -109,7 +109,7 @@ read_sap <- function(jsap) {
 #' @export
 .jread_sap <- function(jsap) {
     n <- .jcall(jsap, "I", "size")
-    if (n == 0) {
+    if (n == 0L) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
@@ -224,7 +224,8 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
 #' @title Replace or Remove a SaItem
 #'
 #' @description
-#' `replace_sa_item()` replaces a SaItem of a SAProcessing and `remove_sa_item()` removes a SaItem from a SAProcessing
+#' `replace_sa_item()` replaces a SaItem of a SAProcessing and
+#' `remove_sa_item()` removes a SaItem from a SAProcessing
 #'
 #' @param jsap the SAProcessing to modify.
 #' @param jsa the new SaItem.
@@ -233,7 +234,7 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
 replace_sa_item <- function(jsap, idx, jsa) {
     .jcall(
         obj = jsap, returnSig = "V", method = "set",
-        as.integer(idx - 1), jsa
+        as.integer(idx - 1L), jsa
     )
 }
 
@@ -242,7 +243,7 @@ replace_sa_item <- function(jsap, idx, jsa) {
 remove_sa_item <- function(jsap, idx) {
     .jcall(
         obj = jsap, returnSig = "V", method = "remove",
-        as.integer(idx - 1)
+        as.integer(idx - 1L)
     )
 }
 
@@ -297,15 +298,15 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
 
     for (serie_name in selected_series) {
         index_from <- which(serie_name == sap_from_sa_name)
-        if (length(index_from) > 1) {
+        if (length(index_from) > 1L) {
             stop("Several series from first SA Processing have the same name : ", serie_name)
         }
         jsa1 <- .jsap_sai(jsap_from, idx = index_from)
 
         index_to <- which(serie_name == sap_to_sa_name)
-        if (length(index_to) > 1) {
+        if (length(index_to) > 1L) {
             stop("Several series from second SA Processing have the same name : ", serie_name)
-        } else if (length(index_to) == 0) {
+        } else if (length(index_to) == 0L) {
             add_sa_item(jsap = jsap_to, name = serie_name, x = jsa1)
         } else {
             replace_sa_item(jsap = jsap_to, jsa = jsa1, idx = index_to)
@@ -374,7 +375,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @param jsa a SaItem.
 #' @export
 set_raw_data <- function(jsap, idx, y) {
-    .jcall(jsap, "V", "setData", as.integer(idx - 1), rjd3toolkit::.r2jd_tsdata(y))
+    .jcall(jsap, "V", "setData", as.integer(idx - 1L), rjd3toolkit::.r2jd_tsdata(y))
 }
 
 #' @name set_raw_data
@@ -530,7 +531,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' @inheritParams set_raw_data
 #' @param priority integer containing the priority.
 #' @export
-set_priority <- function(jsap, idx, priority = 0) {
+set_priority <- function(jsap, idx, priority = 0L) {
     jsai <- .jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,

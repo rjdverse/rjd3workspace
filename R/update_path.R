@@ -1,5 +1,5 @@
 
-#' Check existing JD+ object
+#' @title Check existing JD+ object
 #'
 #' @param jws the workspace object
 #' @param idx_sap the index (or the indices) of the SA-Processing (s) to check
@@ -11,26 +11,30 @@
 #'
 #' @details
 #'
-#' If the object idx_sai is NULL then the function will only check if the workspace contains a SA-Processing at the index idx_sap.
-#' If the object idx_sap is NULL then the function will check if every SA-Processing of the workspace contains a SA-Item at the index idx_sai.
-#' If the object idx_sap is NULL and idx_sai is NULL then the function will check nothing.
+#' If the object idx_sai is NULL then the function will only check if the
+#' workspace contains a SA-Processing at the index idx_sap.
+#' If the object idx_sap is NULL then the function will check if every
+#' SA-Processing of the workspace contains a SA-Item at the index idx_sai.
+#' If the object idx_sap is NULL and idx_sai is NULL then the function will
+#' check nothing.
 #'
-#' If the object idx_sap and / or idx_sai have a length > 1 then the checks are iterated over all the indices.
+#' If the object idx_sap and / or idx_sai have a length > 1 then the checks are
+#' iterated over all the indices.
 #'
 #' @examples
 #'
 #' # ws <- .jws_open(file = "ws_production.xml")
 #' #
-#' # # Check if the SA-Item n°3 in the SA-Processing n°1 exist
+#' # # Check if the SA-Item 3 in the SA-Processing 1 exist
 #' # check_information(jws = ws, idx_sap = 1, idx_sai = 3)
-#' #
-#' # # Check if the SA-Items 1, 2 and 5 in the SA-Processing n°1 exist
+#'
+#' # # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 #' # check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
     if (!is.null(idx_sap) && max(idx_sap) > .jws_sap_count(jws)) {
-        stop("The SAP n°", max(idx_sap), "doesn't exist")
+        stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
     } else if (is.null(idx_sap)) {
         idx_sap <- seq_len(.jws_sap_count(jws))
     }
@@ -39,14 +43,14 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         jsap_i <- .jws_sap(jws, idx = id_sap)
 
         if (!is.null(idx_sai) && max(idx_sai) > .jsap_sa_count(jsap_i)) {
-            stop("The SAI n°", max(idx_sai), " doesn't exist in the SAP n°", id_sap)
+            stop("The SAI n\u00b0", max(idx_sai), " doesn't exist in the SAP n\u00b0", id_sap)
         }
     }
 
     return(invisible(TRUE))
 }
 
-#' Update the path of a spreadsheet in a workspace
+#' @title Update the path of a spreadsheet in a workspace
 #' @inheritParams check_information
 #' @param new_path the new raw data path of the spreadsheet
 #'
