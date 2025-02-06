@@ -7,9 +7,9 @@
 <url><loc>/reference/add_calendar.html</loc></url>
 <url><loc>/reference/add_sa_item.html</loc></url>
 <url><loc>/reference/add_variable.html</loc></url>
+<url><loc>/reference/check_information.html</loc></url>
 <url><loc>/reference/deprecated-rjd3workspace.html</loc></url>
-<url><loc>/reference/dot-jsa_metadata.html</loc></url>
-<url><loc>/reference/dot-jsa_read.html</loc></url>
+<url><loc>/reference/dot-jsai_metadata.html</loc></url>
 <url><loc>/reference/dot-jsap_name.html</loc></url>
 <url><loc>/reference/dot-jws_new.html</loc></url>
 <url><loc>/reference/dot-jws_open.html</loc></url>
@@ -19,6 +19,7 @@
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/make_copy.html</loc></url>
 <url><loc>/reference/read_calendars.html</loc></url>
+<url><loc>/reference/read_sai.html</loc></url>
 <url><loc>/reference/read_variables.html</loc></url>
 <url><loc>/reference/read_workspace.html</loc></url>
 <url><loc>/reference/refresh.html</loc></url>
@@ -35,10 +36,12 @@
 <url><loc>/reference/set_specification.html</loc></url>
 <url><loc>/reference/set_ts.html</loc></url>
 <url><loc>/reference/set_ts_metadata.html</loc></url>
+<url><loc>/reference/spreadsheet_update_path.html</loc></url>
 <url><loc>/reference/tramo_read_spec.html</loc></url>
 <url><loc>/reference/tramo_write_spec.html</loc></url>
 <url><loc>/reference/tramoseats_read_spec.html</loc></url>
 <url><loc>/reference/tramoseats_write_spec.html</loc></url>
+<url><loc>/reference/txt_update_path.html</loc></url>
 <url><loc>/reference/write_calendars.html</loc></url>
 <url><loc>/reference/write_variables.html</loc></url>
 <url><loc>/reference/x13_read_spec.html</loc></url>
