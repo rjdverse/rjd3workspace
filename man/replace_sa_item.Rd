@@ -36,7 +36,8 @@ transfer_series(jsap_from, jsap_to, selected_series, print_indications = TRUE)
 \code{NULL} returned invisibly
 }
 \description{
-\code{replace_sa_item()} replaces a SaItem of a SAProcessing and \code{remove_sa_item()} removes a SaItem from a SAProcessing
+\code{replace_sa_item()} replaces a SaItem of a SAProcessing and
+\code{remove_sa_item()} removes a SaItem from a SAProcessing
 
 This functions clear a \code{SA-Processing} by removing all the sa-item contained.
 }

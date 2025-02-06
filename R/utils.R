@@ -48,8 +48,10 @@ tramo_write_spec <- function(spec, file) {
 #' @examples
 tramoseats_read_spec <- function(file) {
     jspec <- .jcall(
-        "jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
-        "readTramoSeatsSpec", as.character(file)
+        obj = "jdplus/tramoseats/base/workspace/Utility",
+        returnSig = "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
+        method = "readTramoSeatsSpec",
+        as.character(file)
     )
     if (is.jnull(jspec)) {
         return(NULL)
@@ -117,7 +119,12 @@ regarima_write_spec <- function(spec, file) {
 #'
 #' @examples
 x13_read_spec <- function(file) {
-    jspec <- .jcall("jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/x13/X13Spec;", "readX13Spec", file)
+    jspec <- .jcall(
+        obj = "jdplus/x13/base/workspace/Utility",
+        returnSig = "Ljdplus/x13/base/api/x13/X13Spec;",
+        method = "readX13Spec",
+        file
+    )
     if (is.jnull(jspec)) {
         return(NULL)
     }

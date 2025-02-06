@@ -1,6 +1,6 @@
 Package: rjd3workspace
 Type: Package
-Title: Interface to 'JDemetra+ 3.x' time series analysis software.
+Title: Interface to 'JDemetra+ 3.x' time series analysis software
 Version: 3.2.4.9000
 Authors@R: c(
   person("Jean", "Palate", role = c("aut"),
@@ -31,7 +31,7 @@ Remotes:
     github::rjdverse/rjd3x13,
     github::rjdverse/rjd3providers
 SystemRequirements: Java (>= 17)
-License: EUPL
+License: file LICENSE
 URL: https://github.com/rjdverse/rjd3workspace, https://rjdverse.github.io/rjd3workspace/
 BugReports: https://github.com/rjdverse/rjd3workspace/issues
 Suggests:
@@ -46,6 +46,7 @@ Collate:
     'utils.R'
     'saitem.R'
     'saprocessing.R'
+    'update_path.R'
     'workspace.R'
     'zzz.R'
 VignetteBuilder: knitr

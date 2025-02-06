@@ -5,7 +5,7 @@
 \alias{get_priority}
 \title{Get/Set SaItem Priority}
 \usage{
-set_priority(jsap, idx, priority = 0)
+set_priority(jsap, idx, priority = 0L)
 
 get_priority(jsa)
 }

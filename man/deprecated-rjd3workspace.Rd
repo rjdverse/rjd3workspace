@@ -10,6 +10,13 @@
 \alias{.jws_multiprocessing}
 \alias{.jws_multiprocessing_new}
 \alias{.jws_multiprocessing_count}
+\alias{.jsap_sa}
+\alias{.jsa_read}
+\alias{.jsa_results}
+\alias{.jsa_jresults}
+\alias{.jsa_name}
+\alias{.jsa_metadata}
+\alias{.jsa_ts_metadata}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
@@ -27,6 +34,20 @@
 .jws_multiprocessing_new(jws, name)
 
 .jws_multiprocessing_count(jws)
+
+.jsap_sa(jsap, idx)
+
+.jsa_read(jsa)
+
+.jsa_results(jsa, items = NULL)
+
+.jsa_jresults(jsa)
+
+.jsa_name(jsa)
+
+.jsa_metadata(jsa, key)
+
+.jsa_ts_metadata(jsa, key)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}
