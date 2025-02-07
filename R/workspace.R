@@ -3,8 +3,8 @@ NULL
 
 #' Create a workspace or a multi-processing
 #'
-#' Functions to create a 'JDemetra+' workspace (\code{.jws_new()}) and
-#' to add a new multi-processing (\code{.jws_sap_new()}).
+#' Functions for creating a 'JDemetra+' workspace (\code{.jws_new()}) and
+#' adding a new multi-processing (\code{.jws_sap_new()}).
 #'
 #' @param modelling_context The context (from [rjd3toolkit::modelling_context()]).
 #' @param jws A workspace object.
@@ -35,7 +35,7 @@ NULL
     .jcall(jws, "V", "add", jsap)
 }
 
-#' Copy Workspace or a SAProcessing
+#' Copy a Workspace or a SAProcessing
 #'
 #' @name make_copy
 #' @param jws,jsap Java Workspace or Multiprocessing
@@ -131,10 +131,10 @@ get_context <- function(jws) {
 
 #' Count the number of objects inside a workspace or SAProcessing
 #'
-#' Functions to count the number of SAProcessing inside a workspace (`jws_sap_count`) or
-#' the number of SaItem inside a SAProcessing (`jsap_sa_count`).
+#' Functions counting the number of SAProcessings in a workspace (`jws_sap_count`) or
+#' the number of SaItem in a SAProcessing (`jsap_sa_count`).
 #'
-#' @param jws,jsap the workspace or the SAProcessing.
+#' @param jws,jsap workspace or the SAProcessing.
 #'
 #' @export
 .jws_sap_count <- function(jws) {
@@ -145,7 +145,7 @@ get_context <- function(jws) {
 
 #' Extract a SAProcessing or a SaItem
 #'
-#' @param jws,jsap the workspace or the SAProcessing.
+#' @param jws,jsap workspace or SAProcessing.
 #' @param idx index of the object to extract.
 #'
 #' @export
@@ -162,13 +162,13 @@ get_context <- function(jws) {
 
 
 
-#' @title Load a 'JDemetra+' workpace
+#' @title Load a 'JDemetra+' workspace
 #'
 #' @description
-#' `.jws_open()` loads a workspace and `.jws_compute()` computes it (to be able
-#' to get all the models).
+#' `.jws_open()` loads a workspace and `.jws_compute()` computes it (allowing
+#' to extract all the SAitems).
 #'
-#' @param file the path to the 'JDemetra+' workspace to load.
+#' @param file path to the 'JDemetra+' workspace to load.
 #' By default a dialog box opens.
 #'
 #' @seealso [read_workspace()] to import all the models of a workspace.
@@ -233,9 +233,9 @@ get_context <- function(jws) {
 
 #' Read all SaItems
 #'
-#' Functions to read all the SAItem of a SAProcessing (`read_sap()`)
+#' Functions to read all the SAItems of a SAProcessings (`read_sap()`)
 #' or a workspace (`read_workspace()`).
-#' The functions `.jread_sap()` and `.jread_workspace()` only returns the Java objects
+#' The functions `.jread_sap()` and `.jread_workspace()` only return corresponding Java objects
 #'
 #' @param jws Java workspace.
 #' @param jsap Java SAProcessing.
@@ -277,8 +277,8 @@ read_workspace <- function(jws, compute = TRUE) {
 
 #' Save Workspace
 #'
-#' @param jws the workspace object to export.
-#' @param file the path where to export the 'JDemetra+' workspace (.xml file).
+#' @param jws workspace object to export.
+#' @param file path where to export the 'JDemetra+' workspace (.xml file).
 #' @param replace boolean indicating if the workspace should be replaced if it already exists.
 #' @examples
 #' dir <- tempdir()
@@ -312,7 +312,7 @@ full_path <- function(path) {
 }
 
 
-#' Add Calendar to Workspace
+#' Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
 #' @param name the name of the calendar to add.

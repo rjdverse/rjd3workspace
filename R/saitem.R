@@ -1,18 +1,18 @@
 #' @include utils.R
 NULL
 
-#' Read SAItem
+#' Read an SA-item
 #'
-#' `.jsai_results()` extracts specific variables of the model of the SAItem while
-#' `read_sai()` extracts all the informations of a SAItem (see details).
-#'  `.jsai_jresults()` extracts the Java object of the results of a SAItem.
+#' `.jsai_results()` extracts specific variables of the model of the SA-item while
+#' `read_sai()` extracts all the information of a SA-item (see details).
+#'  `.jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
-#' @param jsa Java SAItem object.
+#' @param jsa Java SA-item object.
 #' @param items vector of characters containing the variables to extract.
 #' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
 #' By default, extracts all the possible variables.
 #'
-#' @details A SAItem contains more information than just the results of a model.
+#' @details A SA-item contains more information than just the results of a model.
 #' All those informations are extracted with the `read_sai()` function that
 #' returns a list with 5 objects:
 #'
@@ -131,7 +131,7 @@ read_sai <- function(jsa) {
 
 #' Extract Java Metadata
 #'
-#' Extract specific metadata or time series metadata of a SAItem.
+#' Extract specific metadata or time series metadata of a SA-item.
 #'
 #' @inheritParams read_sai
 #' @param key key of the metadata.
