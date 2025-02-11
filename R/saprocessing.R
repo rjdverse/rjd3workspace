@@ -7,7 +7,7 @@ NULL
     return(.jcall(jsap, "I", "size"))
 }
 
-#' @title Get the name of a SAProcessing or a SaItem
+#' @title Get the name of a SAProcessing or a Sa-item
 #'
 #' @description
 #' Functions to retrieve the name of a SAProcessing (`.jsap_name()`) or SaItem (`.jsai_name()`).
@@ -47,7 +47,7 @@ NULL
 #' @return A vector \code{character}.
 #'
 #' @seealso Other functions to retrieve the name of JDemetra+ objects
-#' (\code{workspace}, \code{SA-Processing} or \code{sa-item}):
+#' (\code{workspace}, \code{SA-Processing} or \code{SA-item}):
 #' \code{\link{.jsai_name}}, \code{\link{.jsap_name}}.
 #'
 #' @examples \donttest{
@@ -145,13 +145,13 @@ read_sap <- function(jsap) {
 }
 
 
-#' @title Add SAItem to SAProcessing
+#' @title Add a SA-item to a SAProcessing
 #'
-#' @param jsap the SAProcessing.
-#' @param name the name of SAItem.
+#' @param jsap SAProcessing.
+#' @param name name of the SA-item to be added.
 #' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or
-#' [rjd3tramoseats::tramoseats()]), a SaItem or a `"ts"` object.
-#' @param spec the specification to use when `x` is a `"ts"` object.
+#' [rjd3tramoseats::tramoseats()]), a SA-item or a `"ts"` object.
+#' @param spec specification to use when `x` is a `"ts"` object.
 #' @param ... other unused parameters.
 #'
 #' @examples
@@ -221,15 +221,15 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
     invisible(TRUE)
 }
 
-#' @title Replace or Remove a SaItem
+#' @title Replace or Remove a SA-item
 #'
 #' @description
-#' `replace_sa_item()` replaces a SaItem of a SAProcessing and
-#' `remove_sa_item()` removes a SaItem from a SAProcessing
+#' `replace_sa_item()` replaces a SA-item in a SAProcessing and
+#' `remove_sa_item()` removes a SA-item from a SAProcessing
 #'
-#' @param jsap the SAProcessing to modify.
-#' @param jsa the new SaItem.
-#' @param idx index of the target SaItem.
+#' @param jsap SAProcessing to be modified.
+#' @param jsa new SA-item.
+#' @param idx index of the target SA-item.
 #' @export
 replace_sa_item <- function(jsap, idx, jsa) {
     .jcall(
@@ -247,12 +247,12 @@ remove_sa_item <- function(jsap, idx) {
     )
 }
 
-#' Remove all sa-item from a \code{SA-Processing}
+#' Remove all SA-item from a \code{SA-Processing}
 #'
 #' @description
-#' This functions clear a \code{SA-Processing} by removing all the sa-item contained.
+#' This functions clears a \code{SA-Processing} by removing all the SA-items contained.
 #'
-#' @param jsap the SAProcessing to modify.
+#' @param jsap SAProcessing to modify.
 #'
 #' @return \code{NULL} returned invisibly
 #'
@@ -264,18 +264,18 @@ remove_all_sa_item <- function(jsap) {
 }
 
 #'
-#' Copy & paste series from one \code{SA-Processing} to another
+#' Copy & paste SA-items from one \code{SA-Processing} to another
 #'
-#' @param jsap_from The SA-Processing from which to take the series
-#' @param jsap_to The SA-Processing in which to paste the series
-#' @param selected_series The vector containing the series-to-update's names.
+#' @param jsap_from SA-Processing from which take the SA-items
+#' @param jsap_to SA-Processing to which paste the SA-items
+#' @param selected_series vector containing the SA-items names to be updated.
 #' @param print_indications A boolean to print indications on the processing status (optional)
 #'
 #' @return \code{NULL} returned invisibly
 #'
 #' @details
 #' If \code{selected_series} is missing, all series from \code{jsap_from} will be copied.
-#' In this context, the word series refers to \code{sa-item}.
+#' In this context, the word series refers to \code{SA-item}.
 #'
 #' @name replace_sa_item
 #' @export
@@ -325,10 +325,10 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
 }
 
 
-#' Set Specification or Data of a SaItem
+#' Set Specification or Raw Data in a SaItem
 #'
 #' @inheritParams replace_sa_item
-#' @param spec the new specification.
+#' @param spec new specification.
 #' @export
 set_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
@@ -368,11 +368,11 @@ set_domain_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsa = jsai, idx = idx)
 }
-#' Get/Set the Raw Data of a SaItem
+#' Get/Set the Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
-#' @param y the new raw time serie.
-#' @param jsa a SaItem.
+#' @param y new raw time serieq.
+#' @param jsa a SA-item.
 #' @export
 set_raw_data <- function(jsap, idx, y) {
     .jcall(jsap, "V", "setData", as.integer(idx - 1L), rjd3toolkit::.r2jd_tsdata(y))
