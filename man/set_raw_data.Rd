@@ -3,21 +3,21 @@
 \name{set_raw_data}
 \alias{set_raw_data}
 \alias{get_raw_data}
-\title{Get/Set the Raw Data of a SaItem}
+\title{Get/Set the Raw Data in a SA-item}
 \usage{
 set_raw_data(jsap, idx, y)
 
 get_raw_data(jsa)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
-\item{y}{the new raw time serie.}
+\item{y}{new raw time series.}
 
-\item{jsa}{a SaItem.}
+\item{jsa}{a SA-item.}
 }
 \description{
-Get/Set the Raw Data of a SaItem
+Get/Set the Raw Data in a SA-item
 }

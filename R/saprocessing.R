@@ -371,7 +371,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' Get/Set the Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
-#' @param y new raw time serieq.
+#' @param y new raw time series.
 #' @param jsa a SA-item.
 #' @export
 set_raw_data <- function(jsap, idx, y) {

@@ -10,10 +10,10 @@
 .jsai_ts_metadata(jsa, key)
 }
 \arguments{
-\item{jsa}{Java SAItem object.}
+\item{jsa}{Java SA-item object.}
 
 \item{key}{key of the metadata.}
 }
 \description{
-Extract specific metadata or time series metadata of a SAItem.
+Extract specific metadata or time series metadata of a SA-item.
 }

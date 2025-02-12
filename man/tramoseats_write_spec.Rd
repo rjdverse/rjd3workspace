@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{tramoseats_write_spec}
 \alias{tramoseats_write_spec}
-\title{Title}
+\title{Write a Tramo-Seats specification file}
 \usage{
 tramoseats_write_spec(spec, file)
 }
@@ -10,5 +10,5 @@ tramoseats_write_spec(spec, file)
 \item{file}{}
 }
 \description{
-Title
+Write a Tramo-Seats specification file
 }

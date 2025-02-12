@@ -10,13 +10,13 @@ set_priority(jsap, idx, priority = 0L)
 get_priority(jsa)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
 \item{priority}{integer containing the priority.}
 
-\item{jsa}{a SaItem.}
+\item{jsa}{a SA-item.}
 }
 \description{
 Get/Set SaItem Priority

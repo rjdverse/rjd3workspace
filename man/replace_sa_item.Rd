@@ -5,7 +5,7 @@
 \alias{remove_sa_item}
 \alias{remove_all_sa_item}
 \alias{transfer_series}
-\title{Replace or Remove a SaItem}
+\title{Replace or Remove a SA-item}
 \usage{
 replace_sa_item(jsap, idx, jsa)
 
@@ -16,17 +16,17 @@ remove_all_sa_item(jsap)
 transfer_series(jsap_from, jsap_to, selected_series, print_indications = TRUE)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
-\item{jsa}{the new SaItem.}
+\item{jsa}{new SA-item.}
 
-\item{jsap_from}{The SA-Processing from which to take the series}
+\item{jsap_from}{SA-Processing from which take the SA-items}
 
-\item{jsap_to}{The SA-Processing in which to paste the series}
+\item{jsap_to}{SA-Processing to which paste the SA-items}
 
-\item{selected_series}{The vector containing the series-to-update's names.}
+\item{selected_series}{vector containing the SA-items names to be updated.}
 
 \item{print_indications}{A boolean to print indications on the processing status (optional)}
 }
@@ -36,12 +36,12 @@ transfer_series(jsap_from, jsap_to, selected_series, print_indications = TRUE)
 \code{NULL} returned invisibly
 }
 \description{
-\code{replace_sa_item()} replaces a SaItem of a SAProcessing and
-\code{remove_sa_item()} removes a SaItem from a SAProcessing
+\code{replace_sa_item()} replaces a SA-item in a SAProcessing and
+\code{remove_sa_item()} removes a SA-item from a SAProcessing
 
-This functions clear a \code{SA-Processing} by removing all the sa-item contained.
+This functions clears a \code{SA-Processing} by removing all the SA-items contained.
 }
 \details{
 If \code{selected_series} is missing, all series from \code{jsap_from} will be copied.
-In this context, the word series refers to \code{sa-item}.
+In this context, the word series refers to \code{SA-item}.
 }

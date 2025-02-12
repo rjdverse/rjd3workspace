@@ -4,15 +4,15 @@
 \alias{make_copy}
 \alias{.jsap_make_copy}
 \alias{.jws_make_copy}
-\title{Copy Workspace or a SAProcessing}
+\title{Copy a Workspace or SA-Processing}
 \usage{
 .jsap_make_copy(jsap)
 
 .jws_make_copy(jws)
 }
 \arguments{
-\item{jws, jsap}{Java Workspace or Multiprocessing}
+\item{jws, jsap}{Java Workspace or SA-Processing}
 }
 \description{
-Copy Workspace or a SAProcessing
+Copy a Workspace or SA-Processing
 }

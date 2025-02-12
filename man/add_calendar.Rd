@@ -2,17 +2,17 @@
 % Please edit documentation in R/workspace.R
 \name{add_calendar}
 \alias{add_calendar}
-\title{Add Calendar to Workspace}
+\title{Add a Calendar to a Workspace}
 \usage{
 add_calendar(jws, name, calendar)
 }
 \arguments{
-\item{jws}{A workspace object.}
+\item{jws}{Workspace object.}
 
-\item{name}{the name of the calendar to add.}
+\item{name}{name of  calendar to add.}
 
-\item{calendar}{the calendar to add.}
+\item{calendar}{calendar to add.}
 }
 \description{
-Add Calendar to Workspace
+Add a Calendar to a Workspace
 }

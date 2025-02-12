@@ -10,13 +10,13 @@ set_comment(jsap, idx, comment)
 get_comment(jsa)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
 \item{comment}{character containing the comment.}
 
-\item{jsa}{a SaItem.}
+\item{jsa}{a SA-item.}
 }
 \description{
 Get/Set SaItem Comment

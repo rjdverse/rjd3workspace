@@ -10,13 +10,13 @@ set_ts(jsap, idx, y)
 get_ts(jsa)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
 \item{y}{a "full" time series (jd3-like).}
 
-\item{jsa}{a SaItem.}
+\item{jsa}{a SA-item.}
 }
 \description{
 Get/Set the time series of a SaItem

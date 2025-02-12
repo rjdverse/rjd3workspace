@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{tramo_read_spec}
 \alias{tramo_read_spec}
-\title{Title}
+\title{Read a Tramo specification file}
 \usage{
 tramo_read_spec(file)
 }
@@ -10,5 +10,5 @@ tramo_read_spec(file)
 \item{file}{}
 }
 \description{
-Title
+Read a Tramo specification file
 }
