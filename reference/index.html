@@ -16,6 +16,10 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/workspace.html">workspace</a></li>
+  </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -46,13 +50,13 @@
           <code><a href="add_calendar.html">add_calendar()</a></code>
 
         </dt>
-        <dd>Add Calendar to Workspace</dd>
+        <dd>Add a Calendar to a Workspace</dd>
       </dl><dl><dt>
 
           <code><a href="add_sa_item.html">add_sa_item()</a></code>
 
         </dt>
-        <dd>Add SAItem to SAProcessing</dd>
+        <dd>Add a SA-item to a SAProcessing</dd>
       </dl><dl><dt>
 
           <code><a href="add_variable.html">add_variable()</a></code>
@@ -82,31 +86,31 @@
           <code><a href="dot-jsap_name.html">.jsai_name()</a></code> <code><a href="dot-jsap_name.html">.jsap_name()</a></code> <code><a href="dot-jsap_name.html">.jsap_sa_name()</a></code>
 
         </dt>
-        <dd>Get the name of a SAProcessing or a SaItem</dd>
+        <dd>Get the name of a SAProcessing or a Sa-item</dd>
       </dl><dl><dt>
 
           <code><a href="dot-jws_new.html">.jws_new()</a></code> <code><a href="dot-jws_new.html">.jws_sap_new()</a></code>
 
         </dt>
-        <dd>Create a workspace or a multi-processing</dd>
+        <dd>Create a Workspace or SA-Processing</dd>
       </dl><dl><dt>
 
           <code><a href="dot-jws_open.html">.jws_open()</a></code> <code><a href="dot-jws_open.html">.jws_load()</a></code>
 
         </dt>
-        <dd>Load a 'JDemetra+' workpace</dd>
+        <dd>Load a 'JDemetra+' Workspace</dd>
       </dl><dl><dt>
 
           <code><a href="dot-jws_sap.html">.jsap_sai()</a></code> <code><a href="dot-jws_sap.html">.jws_sap()</a></code>
 
         </dt>
-        <dd>Extract a SAProcessing or a SaItem</dd>
+        <dd>Extract a SA-Processing or a SA-Item</dd>
       </dl><dl><dt>
 
           <code><a href="dot-jws_sap_count.html">.jsap_sa_count()</a></code> <code><a href="dot-jws_sap_count.html">.jws_sap_count()</a></code>
 
         </dt>
-        <dd>Count the number of objects inside a workspace or SAProcessing</dd>
+        <dd>Count the number of objects inside a Workspace or SA-Processing</dd>
       </dl><dl><dt>
 
           <code><a href="get_context.html">get_context()</a></code>
@@ -118,55 +122,49 @@
           <code><a href="make_copy.html">.jsap_make_copy()</a></code> <code><a href="make_copy.html">.jws_make_copy()</a></code>
 
         </dt>
-        <dd>Copy Workspace or a SAProcessing</dd>
+        <dd>Copy a Workspace or SA-Processing</dd>
       </dl><dl><dt>
 
           <code><a href="read_calendars.html">read_calendars()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read a Calendar file</dd>
       </dl><dl><dt>
 
           <code><a href="read_sai.html">read_sai()</a></code> <code><a href="read_sai.html">.jsai_results()</a></code> <code><a href="read_sai.html">.jsai_jresults()</a></code>
 
         </dt>
-        <dd>Read SAItem</dd>
+        <dd>Read an SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="read_variables.html">read_variables()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read auxiliary variables (regressors) file</dd>
       </dl><dl><dt>
 
           <code><a href="read_workspace.html">read_sap()</a></code> <code><a href="read_workspace.html">.jread_sap()</a></code> <code><a href="read_workspace.html">read_workspace()</a></code> <code><a href="read_workspace.html">.jread_workspace()</a></code>
 
         </dt>
-        <dd>Read all SaItems</dd>
-      </dl><dl><dt>
-
-          <code><a href="refresh.html">.jsap_refresh()</a></code> <code><a href="refresh.html">.jws_refresh()</a></code>
-
-        </dt>
-        <dd>Refresh Workspace or SAProcessing</dd>
+        <dd>Read all SA-Items</dd>
       </dl><dl><dt>
 
           <code><a href="regarima_read_spec.html">regarima_read_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read a Reg-Arima specification file</dd>
       </dl><dl><dt>
 
           <code><a href="regarima_write_spec.html">regarima_write_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write a Reg-Arima specification file</dd>
       </dl><dl><dt>
 
           <code><a href="replace_sa_item.html">replace_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_all_sa_item()</a></code> <code><a href="replace_sa_item.html">transfer_series()</a></code>
 
         </dt>
-        <dd>Replace or Remove a SaItem</dd>
+        <dd>Replace or Remove a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="save_workspace.html">save_workspace()</a></code>
@@ -202,13 +200,13 @@
           <code><a href="set_raw_data.html">set_raw_data()</a></code> <code><a href="set_raw_data.html">get_raw_data()</a></code>
 
         </dt>
-        <dd>Get/Set the Raw Data of a SaItem</dd>
+        <dd>Get/Set the Raw Data in a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="set_specification.html">set_specification()</a></code> <code><a href="set_specification.html">set_domain_specification()</a></code>
 
         </dt>
-        <dd>Set Specification or Data of a SaItem</dd>
+        <dd>Set Specification or Raw Data in a SaItem</dd>
       </dl><dl><dt>
 
           <code><a href="set_ts.html">set_ts()</a></code> <code><a href="set_ts.html">get_ts()</a></code>
@@ -226,61 +224,61 @@
           <code><a href="spreadsheet_update_path.html">spreadsheet_update_path()</a></code>
 
         </dt>
-        <dd>Update the path of a spreadsheet in a workspace</dd>
+        <dd>Update the path to a spreadsheet specified in a workspace</dd>
       </dl><dl><dt>
 
           <code><a href="tramo_read_spec.html">tramo_read_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read a Tramo specification file</dd>
       </dl><dl><dt>
 
           <code><a href="tramo_write_spec.html">tramo_write_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write a Tramo specification file</dd>
       </dl><dl><dt>
 
           <code><a href="tramoseats_read_spec.html">tramoseats_read_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read a Tramo-Seats specification file</dd>
       </dl><dl><dt>
 
           <code><a href="tramoseats_write_spec.html">tramoseats_write_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write a Tramo-Seats specification file</dd>
       </dl><dl><dt>
 
           <code><a href="txt_update_path.html">txt_update_path()</a></code>
 
         </dt>
-        <dd>Update the path of a txt/csv file in a workspace</dd>
+        <dd>Update the path to a csv/txt file specified in a workspace</dd>
       </dl><dl><dt>
 
           <code><a href="write_calendars.html">write_calendars()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write a Calendar file</dd>
       </dl><dl><dt>
 
           <code><a href="write_variables.html">write_variables()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write auxiliary variables (regressors) file</dd>
       </dl><dl><dt>
 
           <code><a href="x13_read_spec.html">x13_read_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Read a X13 specification file</dd>
       </dl><dl><dt>
 
           <code><a href="x13_write_spec.html">x13_write_spec()</a></code>
 
         </dt>
-        <dd>Title</dd>
+        <dd>Write a X13 specification file</dd>
       </dl></div>
   </main></div>
 

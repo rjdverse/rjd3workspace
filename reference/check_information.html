@@ -16,6 +16,10 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/workspace.html">workspace</a></li>
+  </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -46,20 +50,20 @@
 
 
 <dl><dt id="arg-jws">jws<a class="anchor" aria-label="anchor" href="#arg-jws"></a></dt>
-<dd><p>the workspace object</p></dd>
+<dd><p>workspace object</p></dd>
 
 
 <dt id="arg-idx-sap">idx_sap<a class="anchor" aria-label="anchor" href="#arg-idx-sap"></a></dt>
-<dd><p>the index (or the indices) of the SA-Processing (s) to check</p></dd>
+<dd><p>index (or indices) of the SA-Processing (s) to check</p></dd>
 
 
 <dt id="arg-idx-sai">idx_sai<a class="anchor" aria-label="anchor" href="#arg-idx-sai"></a></dt>
-<dd><p>the index (or the indices) of the SA-Item(s) to check.</p></dd>
+<dd><p>index (or indices) of the SA-Item(s) to check.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>This function return either a boolean (TRUE) if the SAI and the SAP exist in
+    <p>This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 the WS, or an error specifying the not found object.</p>
     </div>
     <div class="section level2">
@@ -68,8 +72,7 @@ the WS, or an error specifying the not found object.</p>
 workspace contains a SA-Processing at the index idx_sap.
 If the object idx_sap is NULL then the function will check if every
 SA-Processing of the workspace contains a SA-Item at the index idx_sai.
-If the object idx_sap is NULL and idx_sai is NULL then the function will
-check nothing.</p>
+If the object idx_sap is NULL and idx_sai is NULL then the function won't do any check.</p>
 <p>If the object idx_sap and / or idx_sai have a length &gt; 1 then the checks are
 iterated over all the indices.</p>
     </div>
@@ -79,7 +82,7 @@ iterated over all the indices.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ws &lt;- .jws_open(file = "ws_production.xml")</span></span></span>
 <span class="r-in"><span><span class="co">#</span></span></span>
-<span class="r-in"><span><span class="co"># # Check if the SA-Item 3 in the SA-Processing 1 exist</span></span></span>
+<span class="r-in"><span><span class="co"># # Check if the SA-Item 3 in the SA-Processing 1 exists</span></span></span>
 <span class="r-in"><span><span class="co"># check_information(jws = ws, idx_sap = 1, idx_sai = 3)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist</span></span></span>

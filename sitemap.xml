@@ -1,6 +1,8 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>/404.html</loc></url>
 <url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/workspace.html</loc></url>
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
@@ -22,7 +24,6 @@
 <url><loc>/reference/read_sai.html</loc></url>
 <url><loc>/reference/read_variables.html</loc></url>
 <url><loc>/reference/read_workspace.html</loc></url>
-<url><loc>/reference/refresh.html</loc></url>
 <url><loc>/reference/regarima_read_spec.html</loc></url>
 <url><loc>/reference/regarima_write_spec.html</loc></url>
 <url><loc>/reference/replace_sa_item.html</loc></url>
