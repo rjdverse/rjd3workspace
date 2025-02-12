@@ -4,7 +4,7 @@
 \alias{.jsap_name}
 \alias{.jsai_name}
 \alias{.jsap_sa_name}
-\title{Get the name of a SAProcessing or a SaItem}
+\title{Get the name of a SAProcessing or a Sa-item}
 \usage{
 .jsai_name(jsa)
 
@@ -45,6 +45,6 @@ print(.jsap_sa_name(jsap1))
 }
 \seealso{
 Other functions to retrieve the name of JDemetra+ objects
-(\code{workspace}, \code{SA-Processing} or \code{sa-item}):
+(\code{workspace}, \code{SA-Processing} or \code{SA-item}):
 \code{\link{.jsai_name}}, \code{\link{.jsap_name}}.
 }

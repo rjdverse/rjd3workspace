@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{read_variables}
 \alias{read_variables}
-\title{Title}
+\title{Read auxiliary variables (regressors) file}
 \usage{
 read_variables(file)
 }
@@ -10,5 +10,5 @@ read_variables(file)
 \item{file}{}
 }
 \description{
-Title
+Read auxiliary variables (regressors) file
 }

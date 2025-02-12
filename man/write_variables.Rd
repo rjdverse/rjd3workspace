@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{write_variables}
 \alias{write_variables}
-\title{Title}
+\title{Write auxiliary variables (regressors) file}
 \usage{
 write_variables(vars, file)
 }
@@ -10,5 +10,5 @@ write_variables(vars, file)
 \item{file}{}
 }
 \description{
-Title
+Write auxiliary variables (regressors) file
 }

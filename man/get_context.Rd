@@ -7,7 +7,7 @@
 get_context(jws)
 }
 \arguments{
-\item{jws}{the workspace.}
+\item{jws}{the Workspace.}
 }
 \description{
 Get Context from Workspace

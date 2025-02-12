@@ -3,16 +3,16 @@
 \name{.jws_sap_count}
 \alias{.jws_sap_count}
 \alias{.jsap_sa_count}
-\title{Count the number of objects inside a workspace or SAProcessing}
+\title{Count the number of objects inside a Workspace or SA-Processing}
 \usage{
 .jsap_sa_count(jsap)
 
 .jws_sap_count(jws)
 }
 \arguments{
-\item{jws, jsap}{the workspace or the SAProcessing.}
+\item{jws, jsap}{Workspace or SA-Processing.}
 }
 \description{
-Functions to count the number of SAProcessing inside a workspace (\code{jws_sap_count}) or
-the number of SaItem inside a SAProcessing (\code{jsap_sa_count}).
+Functions counting the number of SA-Processings in a Workspace (\code{jws_sap_count}) or
+the number of SA-Items in a SA-Processing (\code{jsap_sa_count}).
 }

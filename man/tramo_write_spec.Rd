@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{tramo_write_spec}
 \alias{tramo_write_spec}
-\title{Title}
+\title{Write a Tramo specification file}
 \usage{
 tramo_write_spec(spec, file)
 }
@@ -10,5 +10,5 @@ tramo_write_spec(spec, file)
 \item{file}{}
 }
 \description{
-Title
+Write a Tramo specification file
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{regarima_write_spec}
 \alias{regarima_write_spec}
-\title{Title}
+\title{Write a Reg-Arima specification file}
 \usage{
 regarima_write_spec(spec, file)
 }
@@ -10,5 +10,5 @@ regarima_write_spec(spec, file)
 \item{file}{}
 }
 \description{
-Title
+Write a Reg-Arima specification file
 }

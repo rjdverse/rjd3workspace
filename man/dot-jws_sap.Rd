@@ -3,7 +3,7 @@
 \name{.jws_sap}
 \alias{.jws_sap}
 \alias{.jsap_sai}
-\title{Extract a SAProcessing or a SaItem}
+\title{Extract a SA-Processing or a SA-Item}
 \usage{
 .jsap_sai(jsap, idx)
 
@@ -12,8 +12,8 @@
 \arguments{
 \item{idx}{index of the object to extract.}
 
-\item{jws, jsap}{the workspace or the SAProcessing.}
+\item{jws, jsap}{Workspace or SA-Processing.}
 }
 \description{
-Extract a SAProcessing or a SaItem
+Extract a SA-Processing or a SA-Item
 }

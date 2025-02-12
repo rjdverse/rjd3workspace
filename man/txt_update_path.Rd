@@ -2,33 +2,33 @@
 % Please edit documentation in R/update_path.R
 \name{txt_update_path}
 \alias{txt_update_path}
-\title{Update the path of a txt/csv file in a workspace}
+\title{Update the path to a csv/txt file specified in a workspace}
 \usage{
 txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 }
 \arguments{
-\item{jws}{the workspace object}
+\item{jws}{workspace object}
 
-\item{new_path}{the new raw data path of the text data}
+\item{new_path}{new path to the csv/txt file containing raw data}
 
-\item{idx_sap}{the index (or the indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
 
-\item{idx_sai}{the index (or the indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
 }
 \value{
-This function return either NULL if the updating were successfull, or an
-error.
+This function returns either NULL if the update was successful, or an
+error
 }
 \description{
-Update the path of a txt/csv file in a workspace
+Update the path to a csv/txt file specified in a workspace
 }
 \examples{
 
 # ws <- .jws_open(file = "ws_production.xml")
 #
-# # Update all the second SA-Processing with a new path
+# # Update the entire second SA-Processing of the `ws` workspace with a new path
 # txt_update_path(
-#     jws = jws_object,
+#     jws = ws,
 #     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
 #     idx_sap = 1L
 # )

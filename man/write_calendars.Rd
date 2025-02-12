@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{write_calendars}
 \alias{write_calendars}
-\title{Title}
+\title{Write a Calendar file}
 \usage{
 write_calendars(calendars, file)
 }
@@ -10,5 +10,5 @@ write_calendars(calendars, file)
 \item{file}{}
 }
 \description{
-Title
+Write a Calendar file
 }

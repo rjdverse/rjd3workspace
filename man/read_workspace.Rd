@@ -5,7 +5,7 @@
 \alias{read_sap}
 \alias{.jread_sap}
 \alias{.jread_workspace}
-\title{Read all SaItems}
+\title{Read all SA-Items}
 \usage{
 read_sap(jsap)
 
@@ -16,20 +16,20 @@ read_workspace(jws, compute = TRUE)
 .jread_workspace(jws, compute = TRUE)
 }
 \arguments{
-\item{jsap}{Java SAProcessing.}
+\item{jsap}{Java SA-Processing.}
 
-\item{jws}{Java workspace.}
+\item{jws}{Java Workspace.}
 
-\item{compute}{Compute the workspace.}
+\item{compute}{Compute the Workspace.}
 }
 \description{
-Functions to read all the SAItem of a SAProcessing (\code{read_sap()})
-or a workspace (\code{read_workspace()}).
-The functions \code{.jread_sap()} and \code{.jread_workspace()} only returns the Java objects
+Functions to read all SA-Items of a SA-Processing (\code{read_sap()})
+or a Workspace (\code{read_workspace()}).
+The functions \code{.jread_sap()} and \code{.jread_workspace()} only return corresponding Java objects
 }
 \examples{
 file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
 jws <- .jws_load(file)
-# We don't compute the workspace
+# We don't compute the Workspace
 rws <- read_workspace(jws, FALSE)
 }

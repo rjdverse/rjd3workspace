@@ -3,26 +3,44 @@
 \name{.jws_new}
 \alias{.jws_new}
 \alias{.jws_sap_new}
-\title{Create a workspace or a multi-processing}
+\title{Create a Workspace or SA-Processing}
 \usage{
 .jws_new(modelling_context = NULL)
 
 .jws_sap_new(jws, name)
 }
 \arguments{
-\item{modelling_context}{The context (from \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}}).}
+\item{modelling_context}{a list of variables and calendars}
 
-\item{jws}{A workspace object.}
+\item{jws}{Workspace object.}
 
-\item{name}{Character name of the new SAProcessing.}
+\item{name}{name of the new SA-Processing (character).}
+}
+\value{
+Returns a java object workspace or SA-Processing.
 }
 \description{
-Functions to create a 'JDemetra+' workspace (\code{.jws_new()}) and
-to add a new multi-processing (\code{.jws_sap_new()}).
+Functions for creating a 'JDemetra+' Workspace (\code{.jws_new()}) and
+adding a new SA-Processing (\code{.jws_sap_new()}). A modelling context can be
+added to a workspace, it will be valid for all its SA6processings.
+}
+\details{
+A modelling context is a list of variables to be used as external regressors
+in modelling processes (Reg-Arima or Tramo) or calendars to be used to generate calendar regressors.
+It can be created with \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}} function or retrieved from another
+workspace (\code{(set_context)})
 }
 \examples{
-# To create an empty 'JDemetra+' workspace
-jwk <- .jws_new()
-jsap <- .jws_sap_new(jwk, "sa1")
+# Create an empty 'JDemetra+' Workspace
+jws <- .jws_new()
+# Add an empty SA-Processing
+jsap <- .jws_sap_new(jws, "sap1")
 
+}
+\references{
+More information on workspaces in JDemetra+ Graphical User Interface:
+\url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
+}
+\seealso{
+\code{\link{read_workspace}}, \code{\link{read_sap}}
 }
