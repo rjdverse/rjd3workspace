@@ -20,9 +20,9 @@
 Returns a java object workspace or SA-Processing.
 }
 \description{
-Functions for creating a 'JDemetra+' Workspace (\code{.jws_new()}) and
+Functions creating a 'JDemetra+' Workspace (\code{.jws_new()}) and
 adding a new SA-Processing (\code{.jws_sap_new()}). A modelling context can be
-added to a workspace, it will be valid for all its SA6processings.
+added to a workspace, it will be valid for all its SA-Processings.
 }
 \details{
 A modelling context is a list of variables to be used as external regressors

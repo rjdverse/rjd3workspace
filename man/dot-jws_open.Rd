@@ -10,13 +10,20 @@
 .jws_load(file)
 }
 \arguments{
-\item{file}{path to the 'JDemetra+' Workspace to load.
+\item{file}{path to Workspace xml master file
 By default a dialog box opens.}
 }
 \description{
-\code{.jws_open()} loads a Workspace and \code{.jws_compute()} computes it (allowing
-to extract all the SAitems).
+\code{.jws_open()} or \code{.jws_open()} load an existing Workspace and \code{.jws_compute()} computes it (allowing
+to extract all the SA-Items as java objects).
+}
+\examples{
+# Load a Workspace
+# jws <- .jws_load(file= my_workspace.xml)
+# Compute the workspace to enable access to its components
+# .jws_compute(jws)
+
 }
 \seealso{
-\code{\link[=read_workspace]{read_workspace()}} to import all the models of a Workspace.
+\code{\link[=read_workspace]{read_workspace()}} to transform the workspace in a R list.
 }

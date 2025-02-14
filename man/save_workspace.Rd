@@ -14,7 +14,8 @@ save_workspace(jws, file, replace = FALSE)
 \item{replace}{boolean indicating if the Workspace should be replaced if it already exists.}
 }
 \description{
-Save Workspace
+Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
+user interface.
 }
 \examples{
 dir <- tempdir()

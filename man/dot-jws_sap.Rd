@@ -14,6 +14,22 @@
 
 \item{jws, jsap}{Workspace or SA-Processing.}
 }
+\value{
+Returns a java object SA-Processing or SA-Item.
+}
 \description{
-Extract a SA-Processing or a SA-Item
+Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a
+SA-Processing its order number (index). The original object is unaltered.
+}
+\examples{
+# Load a Workspace
+# jws <- .jws_load(file= my_workspace.xml)
+# Compute the workspace to enable access to its components
+# .jws_compute(jws)
+# Extract 2nd SA-Processing
+#jsap_2 <- .jws_sap(jws_ref,2)
+# Extract 9th SA-item
+#jsai_9 <- .jsap_sai(jsap_2,9)
+
+
 }
