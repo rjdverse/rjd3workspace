@@ -3,7 +3,7 @@
 \name{.jws_sap_count}
 \alias{.jws_sap_count}
 \alias{.jsap_sa_count}
-\title{Count the number of objects inside a Workspace or SA-Processing}
+\title{Count SA-Processings or SA-Items}
 \usage{
 .jsap_sa_count(jsap)
 
@@ -12,7 +12,20 @@
 \arguments{
 \item{jws, jsap}{Workspace or SA-Processing.}
 }
+\value{
+Returns an integer.
+}
 \description{
-Functions counting the number of SA-Processings in a Workspace (\code{jws_sap_count}) or
-the number of SA-Items in a SA-Processing (\code{jsap_sa_count}).
+Functions counting the SA-Processings in a Workspace (\code{jws_sap_count}) or
+the SA-Items in a SA-Processing (\code{jsap_sa_count}).
+}
+\examples{
+#' # Create a Workspace
+jws <- .jws_new()
+# Add an 2 SA-Processings
+jsap1 <- .jws_sap_new(jws, "sap1")
+jsap2 <- .jws_sap_new(jws, "sap2")
+# Count the SA-Processings
+.jws_sap_count(jws)
+
 }
