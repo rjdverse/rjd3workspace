@@ -6,14 +6,14 @@
 \alias{.jsai_jresults}
 \title{Read an SA-item}
 \usage{
-read_sai(jsa)
+read_sai(jsai)
 
-.jsai_results(jsa, items = NULL)
+.jsai_results(jsai, items = NULL)
 
-.jsai_jresults(jsa)
+.jsai_jresults(jsai)
 }
 \arguments{
-\item{jsa}{Java SA-item object.}
+\item{jsai}{Java SA-item object.}
 
 \item{items}{vector of characters containing the variables to extract.
 See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}.

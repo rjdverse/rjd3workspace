@@ -5,7 +5,7 @@
 \alias{put_ts_metadata}
 \title{Set Time Series Metadata of a SaItem}
 \usage{
-set_ts_metadata(jsap, idx, ref_jsa)
+set_ts_metadata(jsap, idx, ref_jsai)
 
 put_ts_metadata(jsap, idx, key, value)
 }
@@ -14,7 +14,7 @@ put_ts_metadata(jsap, idx, key, value)
 
 \item{idx}{index of the target SA-item.}
 
-\item{ref_jsa}{a reference SaItem containing the metadata.}
+\item{ref_jsai}{a reference SaItem containing the metadata.}
 
 \item{key}{key of the metadata.}
 

@@ -13,8 +13,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* Rename `.jsa_XXX` in `.jsai_XXX` for SA-Item
-* Rename `.jsap_sa` in `.jsap_sai`
+* Rename `.jsa_XXX()` in `.jsai_XXX()` for SA-Item
+* Rename `.jsap_sa()` in `.jsap_sai()`
+* Rename `.jsap_sa_name()` in `.jsa_sai_names()`
+* Rename `.jsap_sa_count()` in `.jsa_sai_count()`
+* Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
+* Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
 
 
 ## [3.2.4] - 2025-02-04
@@ -38,6 +42,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
 ## [3.2.2] - 2024-03-15
+
 
 [Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...HEAD
 [3.2.4]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4

@@ -7,7 +7,7 @@
 \usage{
 set_ts(jsap, idx, y)
 
-get_ts(jsa)
+get_ts(jsai)
 }
 \arguments{
 \item{jsap}{SAProcessing to modify.}
@@ -16,7 +16,7 @@ get_ts(jsa)
 
 \item{y}{a "full" time series (jd3-like).}
 
-\item{jsa}{a SA-item.}
+\item{jsai}{a SA-item.}
 }
 \description{
 Get/Set the time series of a SaItem

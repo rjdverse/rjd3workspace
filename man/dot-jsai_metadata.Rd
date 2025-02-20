@@ -5,12 +5,12 @@
 \alias{.jsai_ts_metadata}
 \title{Extract Java Metadata}
 \usage{
-.jsai_metadata(jsa, key)
+.jsai_metadata(jsai, key)
 
-.jsai_ts_metadata(jsa, key)
+.jsai_ts_metadata(jsai, key)
 }
 \arguments{
-\item{jsa}{Java SA-item object.}
+\item{jsai}{Java SA-item object.}
 
 \item{key}{key of the metadata.}
 }

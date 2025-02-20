@@ -7,7 +7,7 @@
 \usage{
 set_priority(jsap, idx, priority = 0L)
 
-get_priority(jsa)
+get_priority(jsai)
 }
 \arguments{
 \item{jsap}{SAProcessing to modify.}
@@ -16,7 +16,7 @@ get_priority(jsa)
 
 \item{priority}{integer containing the priority.}
 
-\item{jsa}{a SA-item.}
+\item{jsai}{a SA-item.}
 }
 \description{
 Get/Set SaItem Priority

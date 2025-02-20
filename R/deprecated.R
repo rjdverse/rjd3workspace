@@ -5,10 +5,16 @@
 #' @name deprecated-rjd3workspace
 #' @export
 .jmp_sa_count <- function(jmp) {
-    .Deprecated(".jsap_sa_count")
-    .jsap_sa_count(jmp)
+    .Deprecated(".jsap_sai_count")
+    .jsap_sai_count(jmp)
 }
 
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sa_count <- function(jmp) {
+    .Deprecated(".jsap_sai_count")
+    .jsap_sai_count(jmp)
+}
 
 #' @name deprecated-rjd3workspace
 #' @export
@@ -23,11 +29,19 @@
     .Deprecated(".jsap_sa")
     .jsap_sai(jmp, idx)
 }
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jmp_sa_name <- function(jmp) {
-    .Deprecated(".jsap_sa_name")
+    .Deprecated(".jsap_sai_names")
     .jsap_sa_name(jmp)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sa_name <- function(jsap) {
+    .Deprecated(".jsap_sai_names")
+    .jsap_sa_name(jsap)
 }
 
 #' @name deprecated-rjd3workspace

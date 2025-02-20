@@ -7,7 +7,7 @@ NULL
 #' `read_sai()` extracts all the information of a SA-item (see details).
 #'  `.jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
-#' @param jsa Java SA-item object.
+#' @param jsai Java SA-item object.
 #' @param items vector of characters containing the variables to extract.
 #' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
 #' By default, extracts all the possible variables.
@@ -24,13 +24,14 @@ NULL
 #' estimation (fully identified model).
 #' - `results`: the result of the model.
 #' @export
-read_sai <- function(jsa) {
-    #  if (! .jcall(jsa, "Z", "isProcessed"))
+read_sai <- function(jsai) {
+
+    #  if (! .jcall(jsai, "Z", "isProcessed"))
     #    stop("You must run '.jws_compute()' on your workspace.")
 
-    jdef <- .jcall(jsa, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+    jdef <- .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
 
-    jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     jrslt <- .jnull()
     if (!is.jnull(jestimation)) {
         jrslt <- .jcall(
@@ -94,8 +95,8 @@ read_sai <- function(jsa) {
 
 #' @name read_sai
 #' @export
-.jsai_results <- function(jsa, items = NULL) {
-    jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+.jsai_results <- function(jsai, items = NULL) {
+    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
         return(NULL)
     }
@@ -112,8 +113,8 @@ read_sai <- function(jsa) {
 
 #' @name read_sai
 #' @export
-.jsai_jresults <- function(jsa) {
-    jestimation <- .jcall(jsa, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+.jsai_jresults <- function(jsai) {
+    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
         return(NULL)
     }
@@ -125,8 +126,8 @@ read_sai <- function(jsa) {
 
 #' @name .jsap_name
 #' @export
-.jsai_name <- function(jsa) {
-    return(.jcall(jsa, "S", "getName"))
+.jsai_name <- function(jsai) {
+    return(.jcall(jsai, "S", "getName"))
 }
 
 #' Extract Java Metadata
@@ -136,24 +137,24 @@ read_sai <- function(jsa) {
 #' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
-.jsai_metadata <- function(jsa, key) {
+.jsai_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
         method = "getSingleMetaData",
-        jsa, as.character(key)
+        jsai, as.character(key)
     )
     return(val)
 }
 
 #' @name .jsai_metadata
 #' @export
-.jsai_ts_metadata <- function(jsa, key) {
+.jsai_ts_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
         method = "getSingleTsMetaData",
-        jsa, as.character(key)
+        jsai, as.character(key)
     )
     return(val)
 }

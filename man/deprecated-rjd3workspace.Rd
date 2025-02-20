@@ -3,9 +3,11 @@
 \name{deprecated-rjd3workspace}
 \alias{deprecated-rjd3workspace}
 \alias{.jmp_sa_count}
+\alias{.jsap_sa_count}
 \alias{.jmp_name}
 \alias{.jmp_sa}
 \alias{.jmp_sa_name}
+\alias{.jsap_sa_name}
 \alias{.jmp_load}
 \alias{.jws_multiprocessing}
 \alias{.jws_multiprocessing_new}
@@ -21,11 +23,15 @@
 \usage{
 .jmp_sa_count(jmp)
 
+.jsap_sa_count(jmp)
+
 .jmp_name(jmp)
 
 .jmp_sa(jmp, idx)
 
 .jmp_sa_name(jmp)
+
+.jsap_sa_name(jsap)
 
 .jmp_load(jmp)
 
