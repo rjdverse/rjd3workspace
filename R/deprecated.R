@@ -110,3 +110,9 @@
     .Deprecated(".jsai_ts_metadata")
     .jsai_ts_metadata(jsa, key)
 }
+#' @name deprecated-rjd3workspace
+#' @export
+.jws_load <- function(file) {
+    .Deprecated(".jws_open")
+    .jws_open(file)
+}

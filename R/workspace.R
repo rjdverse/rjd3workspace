@@ -211,7 +211,7 @@ get_context <- function(jws) {
 #'
 #' @examples
 #' # Load a Workspace
-#' # jws <- .jws_load(file= my_workspace.xml)
+#' # jws <- .jws_open(file= my_workspace.xml)
 #' # Compute the workspace to enable access to its components
 #' # .jws_compute(jws)
 #' # Extract 2nd SA-Processing
@@ -234,14 +234,14 @@ get_context <- function(jws) {
 #' @title Load a 'JDemetra+' Workspace
 #'
 #' @description
-#' `.jws_open()` or `.jws_open()` load an existing Workspace and `.jws_compute()` computes it (allowing
+#' `.jws_open()` opens an existing Workspace (as a Java pointer) and `.jws_compute()` computes it (allowing
 #' to extract all the SA-Items as java objects).
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
 #' @examples
 #' # Load a Workspace
-#' # jws <- .jws_load(file= my_workspace.xml)
+#' # jws <- .jws_open(file= my_workspace.xml)
 #' # Compute the workspace to enable access to its components
 #' # .jws_compute(jws)
 #'
@@ -279,32 +279,6 @@ get_context <- function(jws) {
     .jcall(jws, "V", "computeAll")
 }
 
-#' @name .jws_open
-#' @export
-.jws_load <- function(file) {
-    if (missing(file) || is.null(file)) {
-        if (Sys.info()[["sysname"]] == "Windows") {
-            file <- utils::choose.files(
-                caption = "Select a workspace",
-                filters = c("JDemetra+ workspace (.xml)", "*.xml")
-            )
-        } else {
-            file <- base::file.choose()
-        }
-        if (length(file) == 0L) {
-            stop("You have to choose a file !")
-        }
-    }
-    if (!file.exists(file) || tools::file_ext(file) != "xml") {
-        stop("The file doesn't exist or isn't a .xml file !")
-    }
-
-    jws <- .jws_open(file)
-
-    return(jws)
-}
-
-
 #' Read all SA-Items from a Workspace or SA-Processing
 #'
 #' Functions reading all SA-Items of a SA-Processing (`read_sap()`)
@@ -321,7 +295,7 @@ get_context <- function(jws) {
 #'
 #' @examples
 #' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-#' jws <- .jws_load(file)
+#' jws <- .jws_open(file)
 #' rws <- read_workspace(jws, FALSE)
 #' # rws$Sap_3$SA-Item_43
 #' @export

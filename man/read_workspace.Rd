@@ -29,7 +29,7 @@ Whereas functions \code{.jread_sap()} and \code{.jread_workspace()} only return 
 }
 \examples{
 file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-jws <- .jws_load(file)
+jws <- .jws_open(file)
 rws <- read_workspace(jws, FALSE)
 # rws$Sap_3$SA-Item_43
 }

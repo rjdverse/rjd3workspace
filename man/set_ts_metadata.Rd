@@ -28,7 +28,7 @@ allows to update a specific key with a new information.
 \examples{
 # Change the file of a given item
 file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-jws <- .jws_load(file)
+jws <- .jws_open(file)
 jsap <- .jws_sap(jws, 1)
 jsai <- .jsap_sai(jsap, 1)
 nid <- rjd3providers::spreadsheet_change_file(.jsai_ts_metadata(jsai, "@id"), "test.xlsx")
