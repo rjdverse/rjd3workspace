@@ -16,10 +16,6 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/workspace.html">workspace</a></li>
-  </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
@@ -35,7 +31,68 @@
       <small>Source: <a href="https://github.com/rjdverse/rjd3workspace/blob/develop/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
-  </main></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="3.2.4.9000" id="rjd3workspace-3249000">rjd3workspace 3.2.4.9000<a class="anchor" aria-label="anchor" href="#rjd3workspace-3249000"></a></h2>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/" class="external-link">Keep a Changelog</a>, and this project adheres to <a href="https://semver.org/spec/v2.0.0.html" class="external-link">Semantic Versioning</a>.</p>
+<div class="section level3">
+<h3 id="unreleased-3-2-4-9000"><a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...HEAD" class="external-link">Unreleased</a><a class="anchor" aria-label="anchor" href="#unreleased-3-2-4-9000"></a></h3>
+<div class="section level4">
+<h4 id="added-3-2-4-9000">Added<a class="anchor" aria-label="anchor" href="#added-3-2-4-9000"></a></h4>
+<ul><li>New functions to update the raw data path</li>
+</ul></div>
+<div class="section level4">
+<h4 id="changed-3-2-4-9000">Changed<a class="anchor" aria-label="anchor" href="#changed-3-2-4-9000"></a></h4>
+<ul><li>Rename <code>.jsa_XXX()</code> in <code>.jsai_XXX()</code> for SA-Item</li>
+<li>Rename <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_sa()</a></code> in <code><a href="../reference/dot-jws_sap.html">.jsap_sai()</a></code>
+</li>
+<li>Rename <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_sa_name()</a></code> in <code>.jsa_sai_names()</code>
+</li>
+<li>Rename <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_sa_count()</a></code> in <code>.jsa_sai_count()</code>
+</li>
+<li>Rename the argument <code>jsa</code> in <code>jsai</code> in <code><a href="../reference/read_sai.html">read_sai()</a></code>, <code><a href="../reference/read_sai.html">.jsai_results()</a></code>, <code><a href="../reference/read_sai.html">.jsai_jresults()</a></code>, <code><a href="../reference/dot-jsap_name.html">.jsai_name()</a></code>, <code><a href="../reference/dot-jsai_metadata.html">.jsai_metadata()</a></code>, <code><a href="../reference/dot-jsai_metadata.html">.jsai_ts_metadata()</a></code>, <code><a href="../reference/replace_sa_item.html">replace_sa_item()</a></code>, <code><a href="../reference/set_raw_data.html">get_raw_data()</a></code>, <code><a href="../reference/set_ts.html">get_ts()</a></code>, <code><a href="../reference/set_comment.html">get_comment()</a></code> and <code><a href="../reference/set_priority.html">get_priority()</a></code>
+</li>
+<li>Rename the argument <code>ref_jsa</code> in <code>ref_jsai</code> in <code><a href="../reference/set_ts_metadata.html">set_ts_metadata()</a></code>
+</li>
+</ul></div>
+<div class="section level4">
+<h4 id="deprecated-3-2-4-9000">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-2-4-9000"></a></h4>
+<ul><li>
+<code><a href="../reference/deprecated-rjd3workspace.html">.jws_load()</a></code> in favour of <code><a href="../reference/dot-jws_open.html">.jws_open()</a></code>
+</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="id_324---3-2-4-9000">
+<a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4" class="external-link">3.2.4</a> - 2025-02-04<a class="anchor" aria-label="anchor" href="#id_324---3-2-4-9000"></a></h3>
+<div class="section level4">
+<h4 id="fixed-3-2-4-9000">Fixed<a class="anchor" aria-label="anchor" href="#fixed-3-2-4-9000"></a></h4>
+<ul><li>fixed <code><a href="../reference/set_specification.html">set_specification()</a></code> and <code><a href="../reference/set_specification.html">set_domain_specification()</a></code>
+</li>
+<li>Correction of imports when the workspace contains no SAP.</li>
+<li>
+<code>replace</code> parameter of <code><a href="../reference/save_workspace.html">save_workspace()</a></code> corrected in R (not in Java).</li>
+</ul></div>
+<div class="section level4">
+<h4 id="added-3-2-4-9000-1">Added<a class="anchor" aria-label="anchor" href="#added-3-2-4-9000-1"></a></h4>
+<ul><li>new function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_jresults()</a></code>, <code><a href="../reference/read_workspace.html">.jread_sap()</a></code> and <code><a href="../reference/read_workspace.html">.jread_workspace()</a></code> to extract the Java object of the results of a SAItem.</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="id_323---3-2-4-9000">
+<a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.2...v3.2.3" class="external-link">3.2.3</a> - 2024-07-12<a class="anchor" aria-label="anchor" href="#id_323---3-2-4-9000"></a></h3>
+<div class="section level4">
+<h4 id="changed-3-2-4-9000-1">Changed<a class="anchor" aria-label="anchor" href="#changed-3-2-4-9000-1"></a></h4>
+<ul><li>new jars</li>
+</ul></div>
+</div>
+<div class="section level3">
+<h3 id="id_322---3-2-4-9000">
+<a href="https://github.com/rjdverse/rjd3workspace/releases/tag/v3.2.2" class="external-link">3.2.2</a> - 2024-03-15<a class="anchor" aria-label="anchor" href="#id_322---3-2-4-9000"></a></h3>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

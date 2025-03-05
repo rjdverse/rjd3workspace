@@ -39,12 +39,6 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/workspace.html">workspace</a></li>
-  </ul>
-</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -116,7 +110,7 @@
 <span><span class="fu"><a href="reference/add_sa_item.html">add_sa_item</a></span><span class="op">(</span><span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"tramo"</span>, x <span class="op">=</span> <span class="fu">rjd3tramoseats</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats.html" class="external-link">tramoseats</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/save_workspace.html">save_workspace</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jws_open.html">.jws_load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deprecated-rjd3workspace.html">.jws_load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">.jws_compute</span><span class="op">(</span><span class="va">jws</span><span class="op">)</span> <span class="co"># to compute the models</span></span>
 <span><span class="va">jsap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jws_sap.html">.jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, idx <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># first SAProcessing</span></span>
 <span><span class="va">jsa1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deprecated-rjd3workspace.html">.jsap_sa</a></span><span class="op">(</span><span class="va">jsap1</span>, idx <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># first SAItem</span></span>
@@ -145,7 +139,7 @@
 <span></span>
 <span><span class="fu"><a href="reference/save_workspace.html">save_workspace</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jws_open.html">.jws_load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deprecated-rjd3workspace.html">.jws_load</a></span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"ws.xml"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">.jws_compute</span><span class="op">(</span><span class="va">jws</span><span class="op">)</span> <span class="co"># to compute the models</span></span>
 <span><span class="va">jsap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/dot-jws_sap.html">.jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, idx <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># first SAProcessing</span></span>
 <span><span class="va">jsa1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/deprecated-rjd3workspace.html">.jsap_sa</a></span><span class="op">(</span><span class="va">jsap1</span>, idx <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># first SAItem</span></span>
@@ -187,7 +181,7 @@
 <div class="section level2">
 <h2 id="licensing">Licensing<a class="anchor" aria-label="anchor" href="#licensing"></a>
 </h2>
-<p>The code of this project is licensed under the <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" class="external-link">European Union Public Licence (EUPL)</a>.</p>
+<p>The code of this project is licensed under the <a href="https://interoperable-europe.ec.europa.eu:443/collection/eupl/eupl-text-eupl-12" class="external-link">European Union Public Licence (EUPL)</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
