@@ -2,10 +2,10 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{.jws_sap_count}
 \alias{.jws_sap_count}
-\alias{.jsap_sa_count}
+\alias{.jsap_sai_count}
 \title{Count SA-Processings or SA-Items}
 \usage{
-.jsap_sa_count(jsap)
+.jsap_sai_count(jsap)
 
 .jws_sap_count(jws)
 }
@@ -17,7 +17,7 @@ Returns an integer.
 }
 \description{
 Functions counting the SA-Processings in a Workspace (\code{jws_sap_count}) or
-the SA-Items in a SA-Processing (\code{jsap_sa_count}).
+the SA-Items in a SA-Processing (\code{jsap_sai_count}).
 }
 \examples{
 #' # Create a Workspace

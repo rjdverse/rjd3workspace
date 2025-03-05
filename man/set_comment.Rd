@@ -7,7 +7,7 @@
 \usage{
 set_comment(jsap, idx, comment)
 
-get_comment(jsa)
+get_comment(jsai)
 }
 \arguments{
 \item{jsap}{SAProcessing to modify.}
@@ -16,7 +16,7 @@ get_comment(jsa)
 
 \item{comment}{character containing the comment.}
 
-\item{jsa}{a SA-item.}
+\item{jsai}{a SA-item.}
 }
 \description{
 Get/Set SaItem Comment

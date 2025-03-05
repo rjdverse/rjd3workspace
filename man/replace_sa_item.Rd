@@ -7,7 +7,7 @@
 \alias{transfer_series}
 \title{Replace or Remove a SA-item}
 \usage{
-replace_sa_item(jsap, idx, jsa)
+replace_sa_item(jsap, idx, jsai)
 
 remove_sa_item(jsap, idx)
 
@@ -20,7 +20,7 @@ transfer_series(jsap_from, jsap_to, selected_series, print_indications = TRUE)
 
 \item{idx}{index of the target SA-item.}
 
-\item{jsa}{new SA-item.}
+\item{jsai}{new SA-item.}
 
 \item{jsap_from}{SA-Processing from which take the SA-items}
 

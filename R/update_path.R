@@ -41,7 +41,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
     for (id_sap in idx_sap) {
         jsap_i <- .jws_sap(jws, idx = id_sap)
 
-        if (!is.null(idx_sai) && max(idx_sai) > .jsap_sa_count(jsap_i)) {
+        if (!is.null(idx_sai) && max(idx_sai) > .jsap_sai_count(jsap_i)) {
             stop("The SAI n\u00b0", max(idx_sai),
                  " doesn't exist in the SAP n\u00b0", id_sap)
         }
@@ -91,7 +91,7 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 
         idx_sai_tmp <- idx_sai
         if (is.null(idx_sai)) {
-            idx_sai_tmp <- seq_len(.jsap_sa_count(jsap))
+            idx_sai_tmp <- seq_len(.jsap_sai_count(jsap))
         }
 
         for (id_sai in idx_sai_tmp) {
@@ -151,7 +151,7 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
         idx_sai_tmp <- idx_sai
         if (is.null(idx_sai)) {
-            idx_sai_tmp <- seq_len(.jsap_sa_count(jsap))
+            idx_sai_tmp <- seq_len(.jsap_sai_count(jsap))
         }
 
         for (id_sai in idx_sai_tmp) {

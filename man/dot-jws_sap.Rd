@@ -23,7 +23,7 @@ SA-Processing its order number (index). The original object is unaltered.
 }
 \examples{
 # Load a Workspace
-# jws <- .jws_load(file= my_workspace.xml)
+# jws <- .jws_open(file= my_workspace.xml)
 # Compute the workspace to enable access to its components
 # .jws_compute(jws)
 # Extract 2nd SA-Processing

@@ -7,7 +7,7 @@
 \usage{
 set_raw_data(jsap, idx, y)
 
-get_raw_data(jsa)
+get_raw_data(jsai)
 }
 \arguments{
 \item{jsap}{SAProcessing to modify.}
@@ -16,7 +16,7 @@ get_raw_data(jsa)
 
 \item{y}{new raw time series.}
 
-\item{jsa}{a SA-item.}
+\item{jsai}{a SA-item.}
 }
 \description{
 Get/Set the Raw Data in a SA-item

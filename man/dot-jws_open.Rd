@@ -2,24 +2,21 @@
 % Please edit documentation in R/workspace.R
 \name{.jws_open}
 \alias{.jws_open}
-\alias{.jws_load}
 \title{Load a 'JDemetra+' Workspace}
 \usage{
 .jws_open(file)
-
-.jws_load(file)
 }
 \arguments{
 \item{file}{path to Workspace xml master file
 By default a dialog box opens.}
 }
 \description{
-\code{.jws_open()} or \code{.jws_open()} load an existing Workspace and \code{.jws_compute()} computes it (allowing
+\code{.jws_open()} opens an existing Workspace (as a Java pointer) and \code{.jws_compute()} computes it (allowing
 to extract all the SA-Items as java objects).
 }
 \examples{
 # Load a Workspace
-# jws <- .jws_load(file= my_workspace.xml)
+# jws <- .jws_open(file= my_workspace.xml)
 # Compute the workspace to enable access to its components
 # .jws_compute(jws)
 
