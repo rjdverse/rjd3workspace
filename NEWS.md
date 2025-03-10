@@ -48,7 +48,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [3.2.2] - 2024-03-15
 
 
+## [3.2.1] - 2023-12-12
+
+
+## [3.2.0] - 2023-11-24
+
+
+## [3.1.0] - 2023-08-11
+
+
 [Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...HEAD
 [3.2.4]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4
 [3.2.3]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.2...v3.2.3
-[3.2.2]: https://github.com/rjdverse/rjd3workspace/releases/tag/v3.2.2
+[3.2.2]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.1...v3.2.2
+[3.2.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/rjdverse/rjd3workspace/releases/tag/v3.1.0

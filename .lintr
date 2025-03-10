@@ -6,7 +6,6 @@ linters: lintr::all_linters(
         commented_code_linter = NULL,
         nonportable_path_linter = NULL,
         implicit_integer_linter = NULL,
-        extraction_operator_linter = NULL,
         object_usage_linter = NULL,
         namespace_linter = NULL,
         return_linter = NULL,
