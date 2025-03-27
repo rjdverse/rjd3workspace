@@ -2,10 +2,10 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{.jws_sap_count}
 \alias{.jws_sap_count}
-\alias{.jsap_sai_count}
+\alias{sap_sai_count}
 \title{Count SA-Processings or SA-Items}
 \usage{
-.jsap_sai_count(jsap)
+sap_sai_count(jsap)
 
 .jws_sap_count(jws)
 }

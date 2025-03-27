@@ -19,10 +19,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Rename `.jsap_sa_count()` in `.jsa_sai_count()`
 * Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
 * Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
+* Rename `.jsap_sai_count` in `sap_sai_count`
 
 ### Deprecated 
 
 * `.jws_load()` in favour of `.jws_open()`
+* `.jsap_sai_count` is now deprecated
 
 
 ## [3.2.4] - 2025-02-04

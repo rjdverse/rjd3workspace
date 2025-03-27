@@ -3,7 +3,7 @@ NULL
 
 #' @name .jws_sap_count
 #' @export
-.jsap_sai_count <- function(jsap) {
+sap_sai_count <- function(jsap) {
     return(.jcall(jsap, "I", "size"))
 }
 
@@ -213,7 +213,7 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
     if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
         .jcall(jsap, "V", "add", x)
         if (!missing(name)) {
-            set_name(jsap, name = name, idx = .jsap_sai_count(jsap))
+            set_name(jsap, name = name, idx = sap_sai_count(jsap))
         }
     } else {
         stop("x is not SaItem")

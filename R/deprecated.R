@@ -5,8 +5,8 @@
 #' @name deprecated-rjd3workspace
 #' @export
 .jmp_sa_count <- function(jmp) {
-    .Deprecated(".jsap_sai_count")
-    .jsap_sai_count(jmp)
+    .Deprecated("sap_sai_count")
+    sap_sai_count(jmp)
 }
 
 #' @name deprecated-rjd3workspace
@@ -115,4 +115,11 @@
 .jws_load <- function(file) {
     .Deprecated(".jws_open")
     .jws_open(file)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sai_count <- function(jsap) {
+    .Deprecated("sap_sai_count")
+    sap_sai_count(jsap)
 }
