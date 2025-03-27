@@ -7,9 +7,9 @@
 set_context(jws, modelling_context = NULL)
 }
 \arguments{
-\item{jws}{A workspace object.}
+\item{jws}{Workspace object.}
 
-\item{modelling_context}{The context (from \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}}).}
+\item{modelling_context}{a list of variables and calendars}
 }
 \description{
 Set Context of a Workspace

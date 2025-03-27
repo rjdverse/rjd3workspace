@@ -7,14 +7,14 @@
 check_information(jws, idx_sap = NULL, idx_sai = NULL)
 }
 \arguments{
-\item{jws}{the workspace object}
+\item{jws}{workspace object}
 
-\item{idx_sap}{the index (or the indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
 
-\item{idx_sai}{the index (or the indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
 }
 \value{
-This function return either a boolean (TRUE) if the SAI and the SAP exist in
+This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 the WS, or an error specifying the not found object.
 }
 \description{
@@ -25,8 +25,7 @@ If the object idx_sai is NULL then the function will only check if the
 workspace contains a SA-Processing at the index idx_sap.
 If the object idx_sap is NULL then the function will check if every
 SA-Processing of the workspace contains a SA-Item at the index idx_sai.
-If the object idx_sap is NULL and idx_sai is NULL then the function will
-check nothing.
+If the object idx_sap is NULL and idx_sai is NULL then the function won't do any check.
 
 If the object idx_sap and / or idx_sai have a length > 1 then the checks are
 iterated over all the indices.
@@ -35,7 +34,7 @@ iterated over all the indices.
 
 # ws <- .jws_open(file = "ws_production.xml")
 #
-# # Check if the SA-Item 3 in the SA-Processing 1 exist
+# # Check if the SA-Item 3 in the SA-Processing 1 exists
 # check_information(jws = ws, idx_sap = 1, idx_sai = 3)
 
 # # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist

@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{read_calendars}
 \alias{read_calendars}
-\title{Title}
+\title{Read a Calendar file}
 \usage{
 read_calendars(file)
 }
@@ -10,5 +10,5 @@ read_calendars(file)
 \item{file}{}
 }
 \description{
-Title
+Read a Calendar file
 }

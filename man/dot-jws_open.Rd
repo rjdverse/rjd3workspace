@@ -2,21 +2,25 @@
 % Please edit documentation in R/workspace.R
 \name{.jws_open}
 \alias{.jws_open}
-\alias{.jws_load}
-\title{Load a 'JDemetra+' workpace}
+\title{Load a 'JDemetra+' Workspace}
 \usage{
 .jws_open(file)
-
-.jws_load(file)
 }
 \arguments{
-\item{file}{the path to the 'JDemetra+' workspace to load.
+\item{file}{path to Workspace xml master file
 By default a dialog box opens.}
 }
 \description{
-\code{.jws_open()} loads a workspace and \code{.jws_compute()} computes it (to be able
-to get all the models).
+\code{.jws_open()} opens an existing Workspace (as a Java pointer) and \code{.jws_compute()} computes it (allowing
+to extract all the SA-Items as java objects).
+}
+\examples{
+# Load a Workspace
+# jws <- .jws_open(file= my_workspace.xml)
+# Compute the workspace to enable access to its components
+# .jws_compute(jws)
+
 }
 \seealso{
-\code{\link[=read_workspace]{read_workspace()}} to import all the models of a workspace.
+\code{\link[=read_workspace]{read_workspace()}} to transform the workspace in a R list.
 }

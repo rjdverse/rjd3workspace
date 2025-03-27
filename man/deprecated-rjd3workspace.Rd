@@ -3,9 +3,11 @@
 \name{deprecated-rjd3workspace}
 \alias{deprecated-rjd3workspace}
 \alias{.jmp_sa_count}
+\alias{.jsap_sa_count}
 \alias{.jmp_name}
 \alias{.jmp_sa}
 \alias{.jmp_sa_name}
+\alias{.jsap_sa_name}
 \alias{.jmp_load}
 \alias{.jws_multiprocessing}
 \alias{.jws_multiprocessing_new}
@@ -17,15 +19,20 @@
 \alias{.jsa_name}
 \alias{.jsa_metadata}
 \alias{.jsa_ts_metadata}
+\alias{.jws_load}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
+
+.jsap_sa_count(jmp)
 
 .jmp_name(jmp)
 
 .jmp_sa(jmp, idx)
 
 .jmp_sa_name(jmp)
+
+.jsap_sa_name(jsap)
 
 .jmp_load(jmp)
 
@@ -48,6 +55,8 @@
 .jsa_metadata(jsa, key)
 
 .jsa_ts_metadata(jsa, key)
+
+.jws_load(file)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}

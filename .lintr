@@ -8,6 +8,13 @@ linters: lintr::all_linters(
         implicit_integer_linter = NULL,
         extraction_operator_linter = NULL,
         object_usage_linter = NULL,
-        namespace_linter = NULL
+        namespace_linter = NULL,
+        return_linter = NULL,
+        object_overwrite_linter = NULL,
+        condition_call_linter = NULL,
+        rep_len_linter = NULL,
+        if_switch_linter = NULL,
+        unnecessary_nesting_linter = NULL,
+        print_linter = NULL
     )
 encoding: "UTF-8"

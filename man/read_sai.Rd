@@ -4,28 +4,28 @@
 \alias{read_sai}
 \alias{.jsai_results}
 \alias{.jsai_jresults}
-\title{Read SAItem}
+\title{Read an SA-item}
 \usage{
-read_sai(jsa)
+read_sai(jsai)
 
-.jsai_results(jsa, items = NULL)
+.jsai_results(jsai, items = NULL)
 
-.jsai_jresults(jsa)
+.jsai_jresults(jsai)
 }
 \arguments{
-\item{jsa}{Java SAItem object.}
+\item{jsai}{Java SA-item object.}
 
 \item{items}{vector of characters containing the variables to extract.
 See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}.
 By default, extracts all the possible variables.}
 }
 \description{
-\code{.jsai_results()} extracts specific variables of the model of the SAItem while
-\code{read_sai()} extracts all the informations of a SAItem (see details).
-\code{.jsai_jresults()} extracts the Java object of the results of a SAItem.
+\code{.jsai_results()} extracts specific variables of the model of the SA-item while
+\code{read_sai()} extracts all the information of a SA-item (see details).
+\code{.jsai_jresults()} extracts the Java object of the results of a SA-item.
 }
 \details{
-A SAItem contains more information than just the results of a model.
+A SA-item contains more information than just the results of a model.
 All those informations are extracted with the \code{read_sai()} function that
 returns a list with 5 objects:
 \itemize{

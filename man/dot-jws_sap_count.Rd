@@ -2,17 +2,30 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{.jws_sap_count}
 \alias{.jws_sap_count}
-\alias{.jsap_sa_count}
-\title{Count the number of objects inside a workspace or SAProcessing}
+\alias{.jsap_sai_count}
+\title{Count SA-Processings or SA-Items}
 \usage{
-.jsap_sa_count(jsap)
+.jsap_sai_count(jsap)
 
 .jws_sap_count(jws)
 }
 \arguments{
-\item{jws, jsap}{the workspace or the SAProcessing.}
+\item{jws, jsap}{Workspace or SA-Processing.}
+}
+\value{
+Returns an integer.
 }
 \description{
-Functions to count the number of SAProcessing inside a workspace (\code{jws_sap_count}) or
-the number of SaItem inside a SAProcessing (\code{jsap_sa_count}).
+Functions counting the SA-Processings in a Workspace (\code{jws_sap_count}) or
+the SA-Items in a SA-Processing (\code{jsap_sai_count}).
+}
+\examples{
+#' # Create a Workspace
+jws <- .jws_new()
+# Add an 2 SA-Processings
+jsap1 <- .jws_sap_new(jws, "sap1")
+jsap2 <- .jws_sap_new(jws, "sap2")
+# Count the SA-Processings
+.jws_sap_count(jws)
+
 }
