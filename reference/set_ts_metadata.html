@@ -3,7 +3,7 @@
 set_ts_metadata() uses the metadata of another SaItem while put_ts_metadata()
 allows to update a specific key with a new information."><meta property="og:description" content="Function to set the time series metadata of a SaItem (provider, source of the data...).
 set_ts_metadata() uses the metadata of another SaItem while put_ts_metadata()
-allows to update a specific key with a new information."><meta property="og:image" content="/logo.svg"></head><body>
+allows to update a specific key with a new information."><meta property="og:image" content="https://rjdverse.github.io/rjd3workspace/logo.svg"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -78,13 +78,13 @@ allows to update a specific key with a new information.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Change the file of a given item</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_open.html">.jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">nid</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3providers/reference/spreadsheet_change_file.html" class="external-link">spreadsheet_change_file</a></span><span class="op">(</span><span class="fu"><a href="dot-jsai_metadata.html">.jsai_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span>, <span class="st">"test.xlsx"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">put_ts_metadata</span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span>, <span class="st">"@id"</span>, <span class="va">nid</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="dot-jws_sap.html">.jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="dot-jsai_metadata.html">.jsai_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=test.xlsx#seriesName=European+Union&amp;sheetName=Exports"</span>
 </code></pre></div>
