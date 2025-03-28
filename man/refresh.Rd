@@ -2,11 +2,11 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{refresh}
 \alias{refresh}
-\alias{.jsap_refresh}
-\alias{.jws_refresh}
+\alias{jsap_refresh}
+\alias{jws_refresh}
 \title{Refresh a Workspace or SA-Processing}
 \usage{
-.jsap_refresh(
+jsap_refresh(
   jsap,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
     "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
@@ -16,7 +16,7 @@
   info = c("All", "Data", "None")
 )
 
-.jws_refresh(
+jws_refresh(
   jws,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
     "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
