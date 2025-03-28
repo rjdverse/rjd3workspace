@@ -2,13 +2,13 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{make_copy}
 \alias{make_copy}
-\alias{.jsap_make_copy}
-\alias{.jws_make_copy}
+\alias{jsap_make_copy}
+\alias{jws_make_copy}
 \title{Copy a Workspace or SA-Processing}
 \usage{
-.jsap_make_copy(jsap)
+jsap_make_copy(jsap)
 
-.jws_make_copy(jws)
+jws_make_copy(jws)
 }
 \arguments{
 \item{jws, jsap}{Java Workspace or SA-Processing}
@@ -25,13 +25,14 @@ workspace is also copied.
 }
 \examples{
 # Create an empty 'JDemetra+' Workspace
-jws <- .jws_new()
+jws <- jws_new()
 # Add an empty SA-Processing
-jsap <- .jws_sap_new(jws, "sap1")
-# Make a copy a the workspace
-#jws2 <- .jws_make_copy(jws)
+jsap <- jws_sap_new(jws, "sap1")
+# Make a copy of the workspace
+#jws2 <- jws_make_copy(jws)
 # Make a copy of sap1 in jws2
-#jsap2 <- .jws_make_copy(jsap)
+#jsap2 <- jsap_make_copy(jsap)
+
 
 }
 \references{

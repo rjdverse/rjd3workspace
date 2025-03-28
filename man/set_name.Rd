@@ -17,5 +17,5 @@ set_name(jsap, idx, name)
 Set the name associated to a SaItem Comment
 }
 \seealso{
-\code{\link[=.jsai_name]{.jsai_name()}}
+\code{\link[=sai_name]{sai_name()}}
 }

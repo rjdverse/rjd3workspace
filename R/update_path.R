@@ -32,16 +32,16 @@
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
-    if (!is.null(idx_sap) && max(idx_sap) > .jws_sap_count(jws)) {
+    if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
         stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
     } else if (is.null(idx_sap)) {
-        idx_sap <- seq_len(.jws_sap_count(jws))
+        idx_sap <- seq_len(ws_sap_count(jws))
     }
 
     for (id_sap in idx_sap) {
-        jsap_i <- .jws_sap(jws, idx = id_sap)
+        jsap_i <- jws_sap(jws, idx = id_sap)
 
-        if (!is.null(idx_sai) && max(idx_sai) > .jsap_sai_count(jsap_i)) {
+        if (!is.null(idx_sai) && max(idx_sai) > sap_sai_count(jsap_i)) {
             stop("The SAI n\u00b0", max(idx_sai),
                  " doesn't exist in the SAP n\u00b0", id_sap)
         }
@@ -65,7 +65,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #'
 #' @examples
 #'
-#' # ws <- .jws_open(file = "ws_production.xml")
+#' # ws <- jws_open(file = "ws_production.xml")
 #' #
 #' # # Update the entire second SA-Processing of the `ws` workspace with a new path
 #' # spreadsheet_update_path(
@@ -83,19 +83,19 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
     idx_sai <- unique(idx_sai)
 
     if (is.null(idx_sap)) {
-        idx_sap <- seq_len(.jws_sap_count(jws))
+        idx_sap <- seq_len(ws_sap_count(jws))
     }
 
     for (id_sap in idx_sap) {
-        jsap <- .jws_sap(jws, idx = id_sap)
+        jsap <- jws_sap(jws, idx = id_sap)
 
         idx_sai_tmp <- idx_sai
         if (is.null(idx_sai)) {
-            idx_sai_tmp <- seq_len(.jsap_sai_count(jsap))
+            idx_sai_tmp <- seq_len(sap_sai_count(jsap))
         }
 
         for (id_sai in idx_sai_tmp) {
-            jsai <- .jsap_sai(jsap, idx = id_sai)
+            jsai <- jsap_sai(jsap, idx = id_sai)
 
             old_jd3_ts <- get_ts(jsai)
             properties <- rjd3providers::spreadsheet_id_properties(old_jd3_ts$metadata$`@id`)
@@ -125,7 +125,7 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #'
 #' @examples
 #'
-#' # ws <- .jws_open(file = "ws_production.xml")
+#' # ws <- jws_open(file = "ws_production.xml")
 #' #
 #' # # Update the entire second SA-Processing of the `ws` workspace with a new path
 #' # txt_update_path(
@@ -143,19 +143,19 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
     idx_sai <- unique(idx_sai)
 
     if (is.null(idx_sap)) {
-        idx_sap <- seq_len(.jws_sap_count(jws))
+        idx_sap <- seq_len(ws_sap_count(jws))
     }
 
     for (id_sap in idx_sap) {
-        jsap <- .jws_sap(jws, idx = id_sap)
+        jsap <- jws_sap(jws, idx = id_sap)
 
         idx_sai_tmp <- idx_sai
         if (is.null(idx_sai)) {
-            idx_sai_tmp <- seq_len(.jsap_sai_count(jsap))
+            idx_sai_tmp <- seq_len(sap_sai_count(jsap))
         }
 
         for (id_sai in idx_sai_tmp) {
-            jsai <- .jsap_sai(jsap, idx = id_sai)
+            jsai <- jsap_sai(jsap, idx = id_sai)
 
             old_jd3_ts <- get_ts(jsai)
             properties <- rjd3providers::txt_id_properties(old_jd3_ts$metadata$`@id`)

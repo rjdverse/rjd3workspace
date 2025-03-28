@@ -24,8 +24,8 @@ Add a SA-item to a SAProcessing
 \examples{
 dir <- tempdir()
 y <- rjd3toolkit::ABS$X0.2.09.10.M
-jws <- .jws_new()
-jsap1 <- .jws_sap_new(jws, "sap1")
+jws <- jws_new()
+jsap1 <- jws_sap_new(jws, "sap1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
