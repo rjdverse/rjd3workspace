@@ -36,7 +36,7 @@ read_sai <- function(jsai) {
     if (!is.jnull(jestimation)) {
         jrslt <- .jcall(
             obj = jestimation,
-            returnSig = "Ljdplus/toolkit/base/api/information/Explorable;",
+            returnSig = "Ljdplus/toolkit/base/api/information/GenericExplorable;",
             method = "getResults"
         )
     }
@@ -100,7 +100,7 @@ read_sai <- function(jsai) {
     if (is.jnull(jestimation)) {
         return(NULL)
     }
-    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
+    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/GenericExplorable;", "getResults")
     if (is.null(items)) {
         items <- rjd3toolkit::.proc_dictionary2(jrslt)
     }
@@ -118,7 +118,7 @@ read_sai <- function(jsai) {
     if (is.jnull(jestimation)) {
         return(NULL)
     }
-    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/Explorable;", "getResults")
+    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/GenericExplorable;", "getResults")
     res <- rjd3toolkit::.jd3_object(jrslt, result = TRUE)
     return(res)
 }
