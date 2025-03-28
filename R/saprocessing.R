@@ -1,35 +1,35 @@
 #' @include saitem.R
 NULL
 
-#' @name .jws_sap_count
+#' @name ws_sap_count
 #' @export
-.jsap_sai_count <- function(jsap) {
+sap_sai_count <- function(jsap) {
     return(.jcall(jsap, "I", "size"))
 }
 
 #' @title Get the name of a SAProcessing or a Sa-item
 #'
 #' @description
-#' Functions to retrieve the name of a SAProcessing (`.jsap_name()`) or SaItem (`.jsai_name()`).
+#' Functions to retrieve the name of a SAProcessing (`sap_name()`) or SaItem (`sai_name()`).
 #'
 #' @param jsap,jsai the object to retrieve the name from.
 #'
 #' @export
-.jsap_name <- function(jsap) {
+sap_name <- function(jsap) {
     return(.jcall(jsap, "S", "getName"))
 }
 
 
 #' @name make_copy
 #' @export
-.jsap_make_copy <- function(jsap) {
+jsap_make_copy <- function(jsap) {
     return(.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
 }
 
 
-#' @name .jws_sap
+#' @name jws_sap
 #' @export
-.jsap_sai <- function(jsap, idx) {
+jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1L) {
         return(NULL)
     }
@@ -48,26 +48,26 @@ NULL
 #'
 #' @seealso Other functions to retrieve the name of JDemetra+ objects
 #' (\code{workspace}, \code{SA-Processing} or \code{SA-item}):
-#' \code{\link{.jsai_name}}, \code{\link{.jsap_name}}.
+#' \code{\link{sai_name}}, \code{\link{sap_name}}.
 #'
 #' @examples \donttest{
 #'
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
 #'
-#' jws <- .jws_new()
-#' jsap1 <- .jws_sap_new(jws, "sap1")
+#' jws <- jws_new()
+#' jsap1 <- jws_sap_new(jws, "sap1")
 #'
 #' add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 #' add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 #' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
 #' add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
 #'
-#' print(.jsap_sai_names(jsap1))
+#' print(sap_sai_names(jsap1))
 #' }
 #'
-#' @name .jsap_name
+#' @name sap_name
 #' @export
-.jsap_sai_names <- function(jsap) {
+sap_sai_names <- function(jsap) {
     if (is.jnull(jsap)) {
         return(NULL)
     }
@@ -80,7 +80,7 @@ NULL
     sai_names <- vapply(
         X = seq_len(n),
         FUN = function(i) {
-            .jsai_name(.jsap_sai(jsap, i))
+            sai_name(jsap_sai(jsap, i))
         },
         FUN.VALUE = character(1L)
     )
@@ -96,10 +96,10 @@ read_sap <- function(jsap) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
-        read_sai(.jsap_sai(jsap, i))
+        read_sai(jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsai_name(.jsap_sai(jsap, i))
+        sai_name(jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -107,16 +107,16 @@ read_sap <- function(jsap) {
 
 #' @name read_workspace
 #' @export
-.jread_sap <- function(jsap) {
+jread_sap <- function(jsap) {
     n <- .jcall(jsap, "I", "size")
     if (n == 0L) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
-        .jsai_jresults(.jsap_sai(jsap, i))
+        .jsai_jresults(jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsai_name(.jsap_sai(jsap, i))
+        sai_name(jsap_sai(jsap, i))
     })
     names(all) <- names
     return(all)
@@ -124,7 +124,7 @@ read_sap <- function(jsap) {
 
 #' @name refresh
 #' @export
-.jsap_refresh <- function(jsap,
+jsap_refresh <- function(jsap,
                           policy = c("FreeParameters", "Complete",
                                      "Outliers_StochasticComponent",
                                      "Outliers", "FixedParameters",
@@ -157,8 +157,8 @@ read_sap <- function(jsap) {
 #' @examples
 #' dir <- tempdir()
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' jws <- .jws_new()
-#' jsap1 <- .jws_sap_new(jws, "sap1")
+#' jws <- jws_new()
+#' jsap1 <- jws_sap_new(jws, "sap1")
 #' add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 #' add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 #' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
@@ -213,7 +213,7 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
     if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
         .jcall(jsap, "V", "add", x)
         if (!missing(name)) {
-            set_name(jsap, name = name, idx = .jsap_sai_count(jsap))
+            set_name(jsap, name = name, idx = sap_sai_count(jsap))
         }
     } else {
         stop("x is not SaItem")
@@ -281,8 +281,8 @@ remove_all_sa_item <- function(jsap) {
 #' @export
 transfer_series <- function(jsap_from, jsap_to, selected_series,
                             print_indications = TRUE) {
-    sap_from_sai_name <- .jsap_sai_names(jsap_from)
-    sap_to_sai_name <- .jsap_sai_names(jsap_to)
+    sap_from_sai_name <- sap_sai_names(jsap_from)
+    sap_to_sai_name <- sap_sai_names(jsap_to)
 
     if (missing(selected_series) || is.null(selected_series)) {
         selected_series <- sap_from_sai_name
@@ -301,7 +301,7 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
         if (length(index_from) > 1L) {
             stop("Several series from first SA Processing have the same name : ", serie_name)
         }
-        jsai1 <- .jsap_sai(jsap_from, idx = index_from)
+        jsai1 <- jsap_sai(jsap_from, idx = index_from)
 
         index_to <- which(serie_name == sap_to_sai_name)
         if (length(index_to) > 1L) {
@@ -339,7 +339,7 @@ set_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",
@@ -359,7 +359,7 @@ set_domain_specification <- function(jsap, idx, spec) {
         stop("wrong type of spec")
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",
@@ -394,7 +394,7 @@ get_raw_data <- function(jsai) {
 #' @param y a "full" time series (jd3-like).
 #' @export
 set_ts <- function(jsap, idx, y) {
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",
@@ -419,7 +419,7 @@ get_ts <- function(jsai) {
 #' @param comment character containing the comment.
 #' @export
 set_comment <- function(jsap, idx, comment) {
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",
@@ -440,10 +440,10 @@ get_comment <- function(jsai) {
 #'
 #' @inheritParams set_raw_data
 #' @param name character containing the name of the SAItem.
-#' @seealso [.jsai_name()]
+#' @seealso [sai_name()]
 #' @export
 set_name <- function(jsap, idx, name) {
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",
@@ -454,7 +454,7 @@ set_name <- function(jsap, idx, name) {
 }
 
 # set_metadata <- function(jsap, ref_jsai, idx) {
-#   jsai <- .jsap_sai(jsap, idx = idx)
+#   jsai <- jsap_sai(jsap, idx = idx)
 #   jsai <- jsa$withInformations(ref_jsai$getMeta())
 #   replace_sa_item(jsap, jsai = jsai, idx = idx)
 # }
@@ -474,17 +474,17 @@ set_name <- function(jsap, idx, name) {
 #' @examples
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-#' jws <- .jws_open(file)
-#' jsap <- .jws_sap(jws, 1)
-#' jsai <- .jsap_sai(jsap, 1)
+#' jws <- jws_open(file)
+#' jsap <- jws_sap(jws, 1)
+#' jsai <- jsap_sai(jsap, 1)
 #' nid <- rjd3providers::spreadsheet_change_file(.jsai_ts_metadata(jsai, "@id"), "test.xlsx")
 #' put_ts_metadata(jsap, 1, "@id", nid)
 #'
-#' jsai <- .jsap_sai(jsap, 1)
+#' jsai <- jsap_sai(jsap, 1)
 #' .jsai_ts_metadata(jsai, "@id")
 set_ts_metadata <- function(jsap, idx, ref_jsai) {
 
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jts <- .jcall(
         .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition"),
         "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs"
@@ -516,7 +516,7 @@ set_ts_metadata <- function(jsap, idx, ref_jsai) {
 #' @name set_ts_metadata
 #' @export
 put_ts_metadata <- function(jsap, idx, key, value) {
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         "jdplus/sa/base/workspace/Utility",
         "Ljdplus/sa/base/api/SaItem;",
@@ -533,7 +533,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' @param priority integer containing the priority.
 #' @export
 set_priority <- function(jsap, idx, priority = 0L) {
-    jsai <- .jsap_sai(jsap, idx = idx)
+    jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaItem;",

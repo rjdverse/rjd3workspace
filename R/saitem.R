@@ -27,7 +27,7 @@ NULL
 read_sai <- function(jsai) {
 
     #  if (! .jcall(jsai, "Z", "isProcessed"))
-    #    stop("You must run '.jws_compute()' on your workspace.")
+    #    stop("You must run 'jws_compute()' on your workspace.")
 
     jdef <- .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
 
@@ -124,9 +124,9 @@ read_sai <- function(jsai) {
 }
 
 
-#' @name .jsap_name
+#' @name jsap_name
 #' @export
-.jsai_name <- function(jsai) {
+sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
 }
 

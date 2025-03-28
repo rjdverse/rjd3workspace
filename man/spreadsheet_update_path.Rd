@@ -27,7 +27,7 @@ The spreadsheet file must be a .xlsx file. .xls file are not accepted in JDemetr
 }
 \examples{
 
-# ws <- .jws_open(file = "ws_production.xml")
+# ws <- jws_open(file = "ws_production.xml")
 #
 # # Update the entire second SA-Processing of the `ws` workspace with a new path
 # spreadsheet_update_path(
