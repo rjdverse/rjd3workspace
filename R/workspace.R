@@ -3,8 +3,8 @@ NULL
 
 #' Create a Workspace or SA-Processing
 #'
-#' Functions creating a 'JDemetra+' Workspace (\code{.jws_new()}) and
-#' adding a new SA-Processing (\code{.jws_sap_new()}). A modelling context can be
+#' Functions creating a 'JDemetra+' Workspace (\code{jws_new()}) and
+#' adding a new SA-Processing (\code{jws_sap_new()}). A modelling context can be
 #' added to a workspace, it will be valid for all its SA-Processings.
 #'
 #' @details
@@ -23,9 +23,9 @@ NULL
 #'
 #' @examples
 #' # Create an empty 'JDemetra+' Workspace
-#' jws <- .jws_new()
+#' jws <- jws_new()
 #' # Add an empty SA-Processing
-#' jsap <- .jws_sap_new(jws, "sap1")
+#' jsap <- jws_sap_new(jws, "sap1")
 #'
 #' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
 #' @references
@@ -34,16 +34,16 @@ NULL
 #'
 #'
 #' @export
-.jws_new <- function(modelling_context = NULL) {
+jws_new <- function(modelling_context = NULL) {
     jws <- .jnew("jdplus/sa/base/workspace/Ws")
     if (!is.null(modelling_context)) {
         set_context(jws, modelling_context)
     }
     return(jws)
 }
-#' @name .jws_new
+#' @name jws_new
 #' @export
-.jws_sap_new <- function(jws, name) {
+jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
@@ -67,13 +67,14 @@ NULL
 #'
 #' @examples
 #' # Create an empty 'JDemetra+' Workspace
-#' jws <- .jws_new()
+#' jws <- jws_new()
 #' # Add an empty SA-Processing
-#' jsap <- .jws_sap_new(jws, "sap1")
-#' # Make a copy a the workspace
-#' #jws2 <- .jws_make_copy(jws)
+#' jsap <- jws_sap_new(jws, "sap1")
+#' # Make a copy of the workspace
+#' #jws2 <- jws_make_copy(jws)
 #' # Make a copy of sap1 in jws2
-#' #jsap2 <- .jws_make_copy(jsap)
+#' #jsap2 <- jsap_make_copy(jsap)
+#'
 #'
 #' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
 #' @references
@@ -82,7 +83,7 @@ NULL
 #'
 
 #' @export
-.jws_make_copy <- function(jws) {
+jws_make_copy <- function(jws) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
 }
 
@@ -131,7 +132,7 @@ NULL
 #'
 #' @name refresh
 #' @export
-.jws_refresh <- function(jws,
+jws_refresh <- function(jws,
                          policy = c("FreeParameters", "Complete",
                                     "Outliers_StochasticComponent",
                                     "Outliers", "FixedParameters",
@@ -148,8 +149,8 @@ NULL
 
 #' Set Context of a Workspace
 #'
-#' @inheritParams .jws_new
-#' @inheritParams .jws_open
+#' @inheritParams jws_new
+#' @inheritParams jws_open
 #' @export
 set_context <- function(jws, modelling_context = NULL) {
     if (!is.null(set_context)) {
@@ -173,8 +174,8 @@ get_context <- function(jws) {
 
 #' Count SA-Processings or SA-Items
 #'
-#' Functions counting the SA-Processings in a Workspace (`jws_sap_count`) or
-#' the SA-Items in a SA-Processing (`jsap_sai_count`).
+#' Functions counting the SA-Processings in a Workspace (`ws_sap_count`) or
+#' the SA-Items in a SA-Processing (`sap_sai_count`).
 #'
 #' @param jws,jsap Workspace or SA-Processing.
 #'
@@ -182,15 +183,15 @@ get_context <- function(jws) {
 #' Returns an integer.
 #' @examples
 #' #' # Create a Workspace
-#' jws <- .jws_new()
+#' jws <- jws_new()
 #' # Add an 2 SA-Processings
-#' jsap1 <- .jws_sap_new(jws, "sap1")
-#' jsap2 <- .jws_sap_new(jws, "sap2")
+#' jsap1 <- jws_sap_new(jws, "sap1")
+#' jsap2 <- jws_sap_new(jws, "sap2")
 #' # Count the SA-Processings
-#' .jws_sap_count(jws)
+#' ws_sap_count(jws)
 #'
 #' @export
-.jws_sap_count <- function(jws) {
+ws_sap_count <- function(jws) {
     return(.jcall(jws, "I", "getMultiProcessingCount"))
 }
 
@@ -211,17 +212,17 @@ get_context <- function(jws) {
 #'
 #' @examples
 #' # Load a Workspace
-#' # jws <- .jws_open(file= my_workspace.xml)
-#' # Compute the workspace to enable access to its components
-#' # .jws_compute(jws)
+#' # jws <- jws_open(file= my_workspace.xml)
+#' # Compute the workspace to enable access its components
+#' # jws_compute(jws)
 #' # Extract 2nd SA-Processing
-#' #jsap_2 <- .jws_sap(jws_ref,2)
+#' #jsap_2 <- jws_sap(jws_ref,2)
 #' # Extract 9th SA-item
-#' #jsai_9 <- .jsap_sai(jsap_2,9)
+#' #jsai_9 <- jsap_sai(jsap_2,9)
 #'
 #'
 #' @export
-.jws_sap <- function(jws, idx) {
+jws_sap <- function(jws, idx) {
     jsap <- .jcall(
         obj = jws,
         returnSig = "Ljdplus/sa/base/workspace/MultiProcessing;",
@@ -231,24 +232,24 @@ get_context <- function(jws) {
     return(jsap)
 }
 
-#' @title Load a 'JDemetra+' Workspace
+#' @title Open an existing 'JDemetra+' Workspace
 #'
 #' @description
-#' `.jws_open()` opens an existing Workspace (as a Java pointer) and `.jws_compute()` computes it (allowing
+#' `jws_open()` opens an existing Workspace (as a Java pointer) and `jws_compute()` computes it (allowing
 #' to extract all the SA-Items as java objects).
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
 #' @examples
 #' # Load a Workspace
-#' # jws <- .jws_open(file= my_workspace.xml)
-#' # Compute the workspace to enable access to its components
-#' # .jws_compute(jws)
+#' # jws <- jws_open(file= my_workspace.xml)
+#' # Compute the workspace to enable access its components
+#' # jws_compute(jws)
 #'
 #' @seealso [read_workspace()] to transform the workspace in a R list.
 #'
 #' @export
-.jws_open <- function(file) {
+jws_open <- function(file) {
     if (missing(file) || is.null(file)) {
         if (Sys.info()[["sysname"]] == "Windows") {
             file <- utils::choose.files(
@@ -274,8 +275,22 @@ get_context <- function(jws) {
     return(jws)
 }
 
+
+#' @title Compute a Workspace
+#'
+#' @description
+#' `jws_compute()` allows to extract all the SA-Items as java object.
+#'
+#' @param jws a workspace
+
+#' @examples
+#' # Load a Workspace
+#'file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+#'jws <- jws_open(file)
+#' # Compute the workspace to access its components
+#' jws_compute(jws)
 #' @export
-.jws_compute <- function(jws) {
+jws_compute <- function(jws) {
     .jcall(jws, "V", "computeAll")
 }
 
@@ -283,7 +298,7 @@ get_context <- function(jws) {
 #'
 #' Functions reading all SA-Items of a SA-Processing (`read_sap()`)
 #' or a Workspace (`read_workspace()`) and allowing to access them as R lists.
-#' Whereas functions `.jread_sap()` and `.jread_workspace()` only return corresponding Java objects
+#' Whereas functions `jread_sap()` and `jread_workspace()` only return corresponding Java objects
 #'
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
@@ -295,18 +310,18 @@ get_context <- function(jws) {
 #'
 #' @examples
 #' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-#' jws <- .jws_open(file)
+#' jws <- jws_open(file)
 #' rws <- read_workspace(jws, FALSE)
 #' # rws$Sap_3$SA-Item_43
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
-    if (compute) .jws_compute(jws)
-    n <- .jws_sap_count(jws)
+    if (compute) jws_compute(jws)
+    n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
-        read_sap(.jws_sap(jws, i))
+        read_sap(jws_sap(jws, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsap_name(.jws_sap(jws, i))
+        sap_name(jws_sap(jws, i))
     })
     names(jsaps) <- names
     cntxt <- get_context(jws)
@@ -314,14 +329,14 @@ read_workspace <- function(jws, compute = TRUE) {
 }
 #' @name read_workspace
 #' @export
-.jread_workspace <- function(jws, compute = TRUE) {
-    if (compute) .jws_compute(jws)
-    n <- .jws_sap_count(jws)
+jread_workspace <- function(jws, compute = TRUE) {
+    if (compute) jws_compute(jws)
+    n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
-        .jread_sap(.jws_sap(jws, i))
+        jread_sap(jws_sap(jws, i))
     })
     names <- lapply(seq_len(n), function(i) {
-        .jsap_name(.jws_sap(jws, i))
+        sap_name(jws_sap(jws, i))
     })
     names(jsaps) <- names
     return(jsaps)
@@ -337,8 +352,8 @@ read_workspace <- function(jws, compute = TRUE) {
 #' @param replace boolean indicating if the Workspace should be replaced if it already exists.
 #' @examples
 #' dir <- tempdir()
-#' jws <- .jws_new()
-#' jsap1 <- .jws_sap_new(jws, "sap1")
+#' jws <- jws_new()
+#' jsap1 <- jws_sap_new(jws, "sap1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
 #' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))

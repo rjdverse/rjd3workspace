@@ -24,7 +24,7 @@ Update the path to a csv/txt file specified in a workspace
 }
 \examples{
 
-# ws <- .jws_open(file = "ws_production.xml")
+# ws <- jws_open(file = "ws_production.xml")
 #
 # # Update the entire second SA-Processing of the `ws` workspace with a new path
 # txt_update_path(
