@@ -12,9 +12,9 @@ jws_sap_new(jws, name)
 \arguments{
 \item{modelling_context}{a list of variables and calendars}
 
-\item{jws}{Workspace object.}
+\item{jws}{a java workspace object.}
 
-\item{name}{name of the new SA-Processing (character).}
+\item{name}{name of the new SA-Processing to be added (character).}
 }
 \value{
 Returns a java object workspace or SA-Processing.

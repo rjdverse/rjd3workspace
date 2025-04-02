@@ -15,8 +15,8 @@ NULL
 #'
 #'
 #' @param modelling_context a list of variables and calendars
-#' @param jws Workspace object.
-#' @param name name of the new SA-Processing (character).
+#' @param jws a java workspace object.
+#' @param name name of the new SA-Processing to be added (character).
 #'
 #' @return
 #' Returns a java object workspace or SA-Processing.
@@ -240,12 +240,14 @@ jws_sap <- function(jws, idx) {
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
+#' @return a java workspace
 #' @examples
 #' # Load a Workspace
-#' # jws <- jws_open(file= my_workspace.xml)
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' # Compute the workspace to enable access its components
-#' # jws_compute(jws)
-#'
+#' jws_compute(jws)
 #' @seealso [read_workspace()] to transform the workspace in a R list.
 #'
 #' @export
@@ -304,15 +306,20 @@ jws_compute <- function(jws) {
 #' @param jsap java SA-Processing.
 #' @param compute compute or not the workspace.
 #'
-#' @value
-#' Returns a list of lists
-#' workspace$SA-Processing$SA-Item or SA-Processing$SA-Item
+#' @return list or java object
+
 #'
 #' @examples
-#' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+#' #Load workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#' #Read workspace
+#' jread_workspace(jws,FALSE)
 #' rws <- read_workspace(jws, FALSE)
-#' # rws$Sap_3$SA-Item_43
+#' #Read sap
+#' sap<-jws_sap(jws,1)
+#' jread_sap(sap)
+#' read_sap(sap)
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
     if (compute) jws_compute(jws)

@@ -10,6 +10,9 @@ jws_open(file)
 \item{file}{path to Workspace xml master file
 By default a dialog box opens.}
 }
+\value{
+a java workspace
+}
 \description{
 \code{jws_open()} opens an existing Workspace (as a Java pointer) and \code{jws_compute()} computes it (allowing
 to extract all the SA-Items as java objects).
