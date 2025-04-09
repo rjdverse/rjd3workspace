@@ -204,12 +204,8 @@ ws_sap_count <- function(jws) {
 #'
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
-#'
-#'
-#'
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
-#'
 #' @examples
 #' # Load a Workspace
 #' # jws <- jws_open(file= my_workspace.xml)
@@ -305,7 +301,6 @@ jws_compute <- function(jws) {
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
 #' @param compute compute or not the workspace.
-#'
 #' @return list or java object
 
 #'
@@ -320,6 +315,7 @@ jws_compute <- function(jws) {
 #' sap<-jws_sap(jws,1)
 #' jread_sap(sap)
 #' read_sap(sap)
+#'
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
     if (compute) jws_compute(jws)
