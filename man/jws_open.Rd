@@ -19,10 +19,11 @@ to extract all the SA-Items as java objects).
 }
 \examples{
 # Load a Workspace
-# jws <- jws_open(file= my_workspace.xml)
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
 # Compute the workspace to enable access its components
-# jws_compute(jws)
-
+jws_compute(jws)
 }
 \seealso{
 \code{\link[=read_workspace]{read_workspace()}} to transform the workspace in a R list.
