@@ -7,7 +7,7 @@
 add_calendar(jws, name, calendar)
 }
 \arguments{
-\item{jws}{Workspace object.}
+\item{jws}{a java workspace object.}
 
 \item{name}{name of calendar to add.}
 
