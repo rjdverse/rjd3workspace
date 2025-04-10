@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3workspace
 Title: Interface to 'JDemetra+ 3.x' time series analysis software
-Version: 3.5.0
+Version: 3.5.0.9000
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
     person("Alain", "Quartier-la-Tente", , "alain.quartier@yahoo.fr", role = "aut",
@@ -34,10 +34,10 @@ Suggests:
 VignetteBuilder: 
     knitr
 Remotes: 
-    github::rjdverse/rjd3providers@*release,
-    github::rjdverse/rjd3toolkit@*release,
-    github::rjdverse/rjd3tramoseats@*release,
-    github::rjdverse/rjd3x13@*release
+    github::rjdverse/rjd3providers,
+    github::rjdverse/rjd3toolkit,
+    github::rjdverse/rjd3tramoseats,
+    github::rjdverse/rjd3x13
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
