@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{x13_read_spec}
 \alias{x13_read_spec}
-\title{Title}
+\title{Read a X13 specification file}
 \usage{
 x13_read_spec(file)
 }
@@ -10,5 +10,5 @@ x13_read_spec(file)
 \item{file}{}
 }
 \description{
-Title
+Read a X13 specification file
 }

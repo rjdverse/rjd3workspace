@@ -3,19 +3,19 @@
 \name{set_specification}
 \alias{set_specification}
 \alias{set_domain_specification}
-\title{Set Specification or Data of a SaItem}
+\title{Set Specification or Raw Data in a SaItem}
 \usage{
 set_specification(jsap, idx, spec)
 
 set_domain_specification(jsap, idx, spec)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
-\item{spec}{the new specification.}
+\item{spec}{new specification.}
 }
 \description{
-Set Specification or Data of a SaItem
+Set Specification or Raw Data in a SaItem
 }

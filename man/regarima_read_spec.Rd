@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{regarima_read_spec}
 \alias{regarima_read_spec}
-\title{Title}
+\title{Read a Reg-Arima specification file}
 \usage{
 regarima_read_spec(file)
 }
@@ -10,5 +10,5 @@ regarima_read_spec(file)
 \item{file}{}
 }
 \description{
-Title
+Read a Reg-Arima specification file
 }

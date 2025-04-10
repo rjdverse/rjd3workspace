@@ -7,9 +7,9 @@
 set_name(jsap, idx, name)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
 \item{name}{character containing the name of the SAItem.}
 }
@@ -17,5 +17,5 @@ set_name(jsap, idx, name)
 Set the name associated to a SaItem Comment
 }
 \seealso{
-\code{\link[=.jsa_name]{.jsa_name()}}
+\code{\link[=sai_name]{sai_name()}}
 }

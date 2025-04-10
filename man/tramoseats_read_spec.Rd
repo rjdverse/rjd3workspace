@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{tramoseats_read_spec}
 \alias{tramoseats_read_spec}
-\title{Title}
+\title{Read a Tramo-Seats specification file}
 \usage{
 tramoseats_read_spec(file)
 }
@@ -10,5 +10,5 @@ tramoseats_read_spec(file)
 \item{file}{}
 }
 \description{
-Title
+Read a Tramo-Seats specification file
 }

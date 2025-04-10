@@ -3,7 +3,7 @@
 NULL
 
 
-#' Title
+#' Read a Tramo specification file
 #'
 #' @param file
 #'
@@ -22,7 +22,7 @@ tramo_read_spec <- function(file) {
     return(rjd3tramoseats::.jd2r_spec_tramo(jspec))
 }
 
-#' Title
+#' Write a Tramo specification file
 #'
 #' @param spec
 #' @param file
@@ -38,7 +38,7 @@ tramo_write_spec <- function(spec, file) {
         as.character((file))
     )
 }
-#' Title
+#' Read a Tramo-Seats specification file
 #'
 #' @param file
 #'
@@ -48,8 +48,10 @@ tramo_write_spec <- function(spec, file) {
 #' @examples
 tramoseats_read_spec <- function(file) {
     jspec <- .jcall(
-        "jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
-        "readTramoSeatsSpec", as.character(file)
+        obj = "jdplus/tramoseats/base/workspace/Utility",
+        returnSig = "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
+        method = "readTramoSeatsSpec",
+        as.character(file)
     )
     if (is.jnull(jspec)) {
         return(NULL)
@@ -57,7 +59,7 @@ tramoseats_read_spec <- function(file) {
     return(rjd3tramoseats::.jd2r_spec_tramoseats(jspec))
 }
 
-#' Title
+#' Write a Tramo-Seats specification file
 #'
 #' @param file
 #'
@@ -73,7 +75,7 @@ tramoseats_write_spec <- function(spec, file) {
     )
 }
 
-#' Title
+#' Read a Reg-Arima specification file
 #'
 #' @param file
 #'
@@ -92,7 +94,7 @@ regarima_read_spec <- function(file) {
     return(rjd3x13::.jd2r_spec_regarima(jspec))
 }
 
-#' Title
+#' Write a Reg-Arima specification file
 #'
 #' @param file
 #'
@@ -108,7 +110,7 @@ regarima_write_spec <- function(spec, file) {
     )
 }
 
-#' Title
+#' Read a X13 specification file
 #'
 #' @param file
 #'
@@ -117,14 +119,19 @@ regarima_write_spec <- function(spec, file) {
 #'
 #' @examples
 x13_read_spec <- function(file) {
-    jspec <- .jcall("jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/x13/X13Spec;", "readX13Spec", file)
+    jspec <- .jcall(
+        obj = "jdplus/x13/base/workspace/Utility",
+        returnSig = "Ljdplus/x13/base/api/x13/X13Spec;",
+        method = "readX13Spec",
+        file
+    )
     if (is.jnull(jspec)) {
         return(NULL)
     }
     return(rjd3x13::.jd2r_spec_x13(jspec))
 }
 
-#' Title
+#' Write a X13 specification file
 #'
 #' @param spec
 #' @param file
@@ -141,7 +148,7 @@ x13_write_spec <- function(spec, file) {
     )
 }
 
-#' Title
+#' Read a Calendar file
 #'
 #' @param file
 #'
@@ -162,7 +169,7 @@ read_calendars <- function(file) {
     return(rjd3toolkit::.jd2r_calendars(jspec))
 }
 
-#' Title
+#' Write a Calendar file
 #'
 #' @param calendars
 #' @param file
@@ -181,7 +188,7 @@ write_calendars <- function(calendars, file) {
     )
 }
 
-#' Title
+#' Read auxiliary variables (regressors) file
 #'
 #' @param file
 #'
@@ -202,7 +209,7 @@ read_variables <- function(file) {
     return(rjd3toolkit::.jd2r_variables(jspec))
 }
 
-#' Title
+#' Write auxiliary variables (regressors) file
 #'
 #' @param vars
 #' @param file

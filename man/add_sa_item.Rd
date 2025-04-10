@@ -2,30 +2,30 @@
 % Please edit documentation in R/saprocessing.R
 \name{add_sa_item}
 \alias{add_sa_item}
-\title{Add SAItem to SAProcessing}
+\title{Add a SA-item to a SAProcessing}
 \usage{
 add_sa_item(jsap, name, x, spec, ...)
 }
 \arguments{
-\item{jsap}{the SAProcessing.}
+\item{jsap}{SAProcessing.}
 
-\item{name}{the name of SAItem.}
+\item{name}{name of the SA-item to be added.}
 
 \item{x}{either a seasonal adjustment model (from \code{\link[rjd3x13:x13]{rjd3x13::x13()}} or
-\code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SaItem or a \code{"ts"} object.}
+\code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SA-item or a \code{"ts"} object.}
 
-\item{spec}{the specification to use when \code{x} is a \code{"ts"} object.}
+\item{spec}{specification to use when \code{x} is a \code{"ts"} object.}
 
 \item{...}{other unused parameters.}
 }
 \description{
-Add SAItem to SAProcessing
+Add a SA-item to a SAProcessing
 }
 \examples{
 dir <- tempdir()
 y <- rjd3toolkit::ABS$X0.2.09.10.M
-jws <- .jws_new()
-jsap1 <- .jws_sap_new(jws, "sa1")
+jws <- jws_new()
+jsap1 <- jws_sap_new(jws, "sap1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())

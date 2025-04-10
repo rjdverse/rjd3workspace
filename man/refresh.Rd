@@ -2,11 +2,11 @@
 % Please edit documentation in R/saprocessing.R, R/workspace.R
 \name{refresh}
 \alias{refresh}
-\alias{.jsap_refresh}
-\alias{.jws_refresh}
-\title{Refresh Workspace or SAProcessing}
+\alias{jsap_refresh}
+\alias{jws_refresh}
+\title{Refresh a Workspace or SA-Processing}
 \usage{
-.jsap_refresh(
+jsap_refresh(
   jsap,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
     "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
@@ -16,7 +16,7 @@
   info = c("All", "Data", "None")
 )
 
-.jws_refresh(
+jws_refresh(
   jws,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
     "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
@@ -27,24 +27,24 @@
 )
 }
 \arguments{
-\item{policy}{the refresh policy to apply (see details).}
+\item{policy}{refresh policy to apply (see details).}
 
 \item{period, start, end}{to specify the span on which outliers will not be
 re-identified (i.e.: re-detected) when \code{policy = "Outliers"} or
 \code{policy = "Outliers_StochasticComponent"}.
 Span definition: \code{period}: numeric, number of observations in a year
 (12, 4...). \code{start} and \code{end}: first and last date from which
-outliers will not be re-identfied, defined as arrays of two elements: year
+outliers will not be re-identified, defined as arrays of two elements: year
 and first period (for example, if \code{period = 12}, \code{c(1980, 1)} for January
 1980). If they are not specified, the outliers will be re-identified on the
 whole series.}
 
 \item{info}{information to refresh.}
 
-\item{jws, jsap}{Java Workspace or Multiprocessing}
+\item{jws, jsap}{Java Workspace or SA-Processing}
 }
 \description{
-Refresh Workspace or SAProcessing
+Refresh a Workspace or SA-Processing
 }
 \details{
 Available refresh policies are:

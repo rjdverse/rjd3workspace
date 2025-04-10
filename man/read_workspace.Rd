@@ -3,33 +3,43 @@
 \name{read_workspace}
 \alias{read_workspace}
 \alias{read_sap}
-\alias{.jread_sap}
-\alias{.jread_workspace}
-\title{Read all SaItems}
+\alias{jread_sap}
+\alias{jread_workspace}
+\title{Read all SA-Items from a Workspace or SA-Processing}
 \usage{
 read_sap(jsap)
 
-.jread_sap(jsap)
+jread_sap(jsap)
 
 read_workspace(jws, compute = TRUE)
 
-.jread_workspace(jws, compute = TRUE)
+jread_workspace(jws, compute = TRUE)
 }
 \arguments{
-\item{jsap}{Java SAProcessing.}
+\item{jsap}{java SA-Processing.}
 
-\item{jws}{Java workspace.}
+\item{jws}{java Workspace.}
 
-\item{compute}{Compute the workspace.}
+\item{compute}{compute or not the workspace.}
+}
+\value{
+list or java object
 }
 \description{
-Functions to read all the SAItem of a SAProcessing (\code{read_sap()})
-or a workspace (\code{read_workspace()}).
-The functions \code{.jread_sap()} and \code{.jread_workspace()} only returns the Java objects
+Functions reading all SA-Items of a SA-Processing (\code{read_sap()})
+or a Workspace (\code{read_workspace()}) and allowing to access them as R lists.
+Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return corresponding Java objects
 }
 \examples{
-file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-jws <- .jws_load(file)
-# We don't compute the workspace
+#Load workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+#Read workspace
+jread_workspace(jws,FALSE)
 rws <- read_workspace(jws, FALSE)
+#Read sap
+sap<-jws_sap(jws,1)
+jread_sap(sap)
+read_sap(sap)
+
 }

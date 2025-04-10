@@ -7,19 +7,20 @@
 save_workspace(jws, file, replace = FALSE)
 }
 \arguments{
-\item{jws}{the workspace object to export.}
+\item{jws}{Workspace object to export.}
 
-\item{file}{the path where to export the 'JDemetra+' workspace (.xml file).}
+\item{file}{path where to export the 'JDemetra+' Workspace (.xml file).}
 
-\item{replace}{boolean indicating if the workspace should be replaced if it already exists.}
+\item{replace}{boolean indicating if the Workspace should be replaced if it already exists.}
 }
 \description{
-Save Workspace
+Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
+user interface.
 }
 \examples{
 dir <- tempdir()
-jws <- .jws_new()
-jsap1 <- .jws_sap_new(jws, "sa1")
+jws <- jws_new()
+jsap1 <- jws_sap_new(jws, "sap1")
 y <- rjd3toolkit::ABS$X0.2.09.10.M
 add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
 save_workspace(jws, file.path(dir, "workspace.xml"))

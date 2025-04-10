@@ -2,34 +2,92 @@
 % Please edit documentation in R/deprecated.R
 \name{deprecated-rjd3workspace}
 \alias{deprecated-rjd3workspace}
-\alias{.jmp_sa_count}
-\alias{.jmp_name}
-\alias{.jmp_sa}
-\alias{.jmp_sa_name}
 \alias{.jmp_load}
-\alias{.jws_multiprocessing}
-\alias{.jws_multiprocessing_new}
-\alias{.jws_multiprocessing_count}
+\alias{.jsa_read}
+\alias{.jsa_results}
+\alias{.jsa_jresults}
+\alias{.jsa_metadata}
+\alias{.jsa_ts_metadata}
+\alias{.jsap_sai_count}
+\alias{.jws_sap_count}
+\alias{.jws_open}
+\alias{.jread_workspace}
+\alias{.jread_sap}
+\alias{.jws_new}
+\alias{.jws_sap_new}
+\alias{.jws_make_copy}
+\alias{.jsap_make_copy}
+\alias{.jws_compute}
+\alias{.jsap_sai}
+\alias{.jws_sap}
+\alias{.jsai_name}
+\alias{.jsap_name}
+\alias{.jsap_sai_names}
+\alias{.jsap_refresh}
+\alias{.jws_refresh}
 \title{Deprecated functions}
 \usage{
-.jmp_sa_count(jmp)
-
-.jmp_name(jmp)
-
-.jmp_sa(jmp, idx)
-
-.jmp_sa_name(jmp)
-
 .jmp_load(jmp)
 
-.jws_multiprocessing(jws, idx)
+.jsa_read(jsa)
 
-.jws_multiprocessing_new(jws, name)
+.jsa_results(jsa, items = NULL)
 
-.jws_multiprocessing_count(jws)
-}
-\arguments{
-\item{jmp, idx, jws, name}{Parameters.}
+.jsa_jresults(jsa)
+
+.jsa_metadata(jsa, key)
+
+.jsa_ts_metadata(jsa, key)
+
+.jsap_sai_count(jsap)
+
+.jws_sap_count(jws)
+
+.jws_open(file)
+
+.jread_workspace(jws, compute = TRUE)
+
+.jread_sap(jsap)
+
+.jws_new(modelling_context = NULL)
+
+.jws_sap_new(jws, name)
+
+.jws_make_copy(jws)
+
+.jsap_make_copy(jsap)
+
+.jws_compute(jws)
+
+.jsap_sai(jsap, idx)
+
+.jws_sap(jws, idx)
+
+.jsai_name(jsai)
+
+.jsap_name(jsap)
+
+.jsap_sai_names(jsap)
+
+.jsap_refresh(
+  jsap,
+  policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+  period = 0,
+  start = NULL,
+  end = NULL,
+  info = c("All", "Data", "None")
+)
+
+.jws_refresh(
+  jws,
+  policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+  period = 0,
+  start = NULL,
+  end = NULL,
+  info = c("All", "Data", "None")
+)
 }
 \description{
 Deprecated functions

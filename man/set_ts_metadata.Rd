@@ -5,16 +5,16 @@
 \alias{put_ts_metadata}
 \title{Set Time Series Metadata of a SaItem}
 \usage{
-set_ts_metadata(jsap, idx, ref_jsa)
+set_ts_metadata(jsap, idx, ref_jsai)
 
 put_ts_metadata(jsap, idx, key, value)
 }
 \arguments{
-\item{jsap}{the SAProcessing to modify.}
+\item{jsap}{SAProcessing to modify.}
 
-\item{idx}{index of the target SaItem.}
+\item{idx}{index of the target SA-item.}
 
-\item{ref_jsa}{a reference SaItem containing the metadata.}
+\item{ref_jsai}{a reference SaItem containing the metadata.}
 
 \item{key}{key of the metadata.}
 
@@ -28,11 +28,12 @@ allows to update a specific key with a new information.
 \examples{
 # Change the file of a given item
 file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
-jws <- .jws_load(file)
-jsap <- .jws_sap(jws, 1)
-jsa <- .jsap_sa(jsap, 1)
-nid <- rjd3providers::spreadsheet_change_file(.jsa_ts_metadata(jsa, "@id"), "test.xlsx")
+jws <- jws_open(file)
+jsap <- jws_sap(jws, 1)
+jsai <- jsap_sai(jsap, 1)
+nid <- rjd3providers::spreadsheet_change_file(.jsai_ts_metadata(jsai, "@id"), "test.xlsx")
 put_ts_metadata(jsap, 1, "@id", nid)
-jsa <- .jsap_sa(jsap, 1)
-.jsa_ts_metadata(jsa, "@id")
+
+jsai <- jsap_sai(jsap, 1)
+.jsai_ts_metadata(jsai, "@id")
 }

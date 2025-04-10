@@ -4,7 +4,7 @@
 \name{rjd3workspace-package}
 \alias{rjd3workspace}
 \alias{rjd3workspace-package}
-\title{rjd3workspace: Interface to 'JDemetra+ 3.x' time series analysis software.}
+\title{rjd3workspace: Interface to 'JDemetra+ 3.x' time series analysis software}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
