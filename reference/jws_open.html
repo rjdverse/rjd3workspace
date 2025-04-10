@@ -9,7 +9,7 @@ to extract all the SA-Items as java objects)."><meta property="og:image" content
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.2.4.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.5.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,6 +67,10 @@ By default a dialog box opens.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p>a java workspace</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="read_workspace.html">read_workspace()</a></code> to transform the workspace in a R list.</p></div>
     </div>
@@ -74,10 +78,11 @@ By default a dialog box opens.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
-<span class="r-in"><span><span class="co"># jws &lt;- jws_open(file= my_workspace.xml)</span></span></span>
+<span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu">jws_open</span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Compute the workspace to enable access its components</span></span></span>
-<span class="r-in"><span><span class="co"># jws_compute(jws)</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="jws_compute.html">jws_compute</a></span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
