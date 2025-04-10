@@ -7,6 +7,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [3.5.0] - 2025-04-10
+
+
 ### Added
 
 * New functions to update the raw data path
@@ -65,7 +68,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [3.2.2] - 2024-03-15
 
 
-[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.0...HEAD
+[3.5.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...v3.5.0
 [3.2.4]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4
 [3.2.3]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/rjdverse/rjd3workspace/releases/tag/v3.2.2
