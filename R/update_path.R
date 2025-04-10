@@ -1,5 +1,5 @@
 
-#' @title Check existing JD+ object
+#' @title Check if JD+ object exists
 #'
 #' @param jws workspace object
 #' @param idx_sap index (or indices) of the SA-Processing (s) to check
@@ -22,14 +22,14 @@
 #'
 #' @examples
 #'
-#' # ws <- .jws_open(file = "ws_production.xml")
-#' #
-#' # # Check if the SA-Item 3 in the SA-Processing 1 exists
-#' # check_information(jws = ws, idx_sap = 1, idx_sai = 3)
+#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#'jws <- jws_open(file)
+#' # Check if the SA-Item 3 in the SA-Processing 1 exists
+#' check_information(jws = jws, idx_sap = 1, idx_sai = 3)
+#' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
+#' check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 5))
 #'
-#' # # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
-#' # check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
-#'
+#' @export
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
@@ -47,7 +47,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         }
     }
 
-    return(invisible(TRUE))
+    return(TRUE)
 }
 
 #' @title Update the path to a spreadsheet specified in a workspace

@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_path.R
 \name{check_information}
 \alias{check_information}
-\title{Check existing JD+ object}
+\title{Check if JD+ object exists}
 \usage{
 check_information(jws, idx_sap = NULL, idx_sai = NULL)
 }
@@ -18,7 +18,7 @@ This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 the WS, or an error specifying the not found object.
 }
 \description{
-Check existing JD+ object
+Check if JD+ object exists
 }
 \details{
 If the object idx_sai is NULL then the function will only check if the

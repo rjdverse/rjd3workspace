@@ -71,9 +71,9 @@ jws_sap_new <- function(jws, name) {
 #' # Add an empty SA-Processing
 #' jsap <- jws_sap_new(jws, "sap1")
 #' # Make a copy of the workspace
-#' #jws2 <- jws_make_copy(jws)
+#' jws2 <- jws_make_copy(jws)
 #' # Make a copy of sap1 in jws2
-#' #jsap2 <- jsap_make_copy(jsap)
+#' jsap2 <- jsap_make_copy(jsap)
 #'
 #'
 #' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
@@ -182,14 +182,15 @@ get_context <- function(jws) {
 #' @return
 #' Returns an integer.
 #' @examples
-#' #' # Create a Workspace
-#' jws <- jws_new()
-#' # Add an 2 SA-Processings
-#' jsap1 <- jws_sap_new(jws, "sap1")
-#' jsap2 <- jws_sap_new(jws, "sap2")
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' # Count the SA-Processings
 #' ws_sap_count(jws)
-#'
+#' # Count the SA-Items
+#' # In SAP 1
+#' sap1<-jws_sap(jws,1)
+#' sap_sai_count(sap1)
 #' @export
 ws_sap_count <- function(jws) {
     return(.jcall(jws, "I", "getMultiProcessingCount"))
@@ -200,21 +201,20 @@ ws_sap_count <- function(jws) {
 #' @description
 #' Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a
 #' SA-Processing its order number (index). The original object is unaltered.
-#'
-#'
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
 #' @examples
 #' # Load a Workspace
-#' # jws <- jws_open(file= my_workspace.xml)
-#' # Compute the workspace to enable access its components
-#' # jws_compute(jws)
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Compute the workspace to enable accessing its components
+#' jws_compute(jws)
 #' # Extract 2nd SA-Processing
-#' #jsap_2 <- jws_sap(jws_ref,2)
-#' # Extract 9th SA-item
-#' #jsai_9 <- jsap_sai(jsap_2,9)
+#' jsap2 <- jws_sap(jws,2)
+#' # Extract 3rd SA-item
+#' jsai3 <- jsap_sai(jsap2,3)
 #'
 #'
 #' @export
@@ -238,7 +238,6 @@ jws_sap <- function(jws, idx) {
 #' By default a dialog box opens.
 #' @return a java workspace
 #' @examples
-#' # Load a Workspace
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
@@ -283,7 +282,7 @@ jws_open <- function(file) {
 
 #' @examples
 #' # Load a Workspace
-#'file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #'jws <- jws_open(file)
 #' # Compute the workspace to access its components
 #' jws_compute(jws)
@@ -294,23 +293,22 @@ jws_compute <- function(jws) {
 
 #' Read all SA-Items from a Workspace or SA-Processing
 #'
-#' Functions reading all SA-Items of a SA-Processing (`read_sap()`)
-#' or a Workspace (`read_workspace()`) and allowing to access them as R lists.
+#' Functions reading all SA-Items from a Workspace (`read_workspace()`) or a SA-Processing (`read_sap()`)
+#' and allowing to access them as R lists.
 #' Whereas functions `jread_sap()` and `jread_workspace()` only return corresponding Java objects
 #'
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
-#' @param compute compute or not the workspace.
+#' @param compute compute or not the workspace (to get the estimation results).
 #' @return list or java object
 
-#'
 #' @examples
 #' #Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' #Read workspace
 #' jread_workspace(jws,FALSE)
-#' rws <- read_workspace(jws, FALSE)
+#' rws <- read_workspace(jws)
 #' #Read sap
 #' sap<-jws_sap(jws,1)
 #' jread_sap(sap)
@@ -348,7 +346,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' Save Workspace
 #'
 #' Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
-#' user interface.
+#' User Interface.
 #'
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
@@ -358,7 +356,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
+#' add_sa_item(jsap1, name = "serie_1", x = y, rjd3x13::x13_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #'
 #' @export
