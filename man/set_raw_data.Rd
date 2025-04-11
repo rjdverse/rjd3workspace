@@ -10,7 +10,7 @@ set_raw_data(jsap, idx, y)
 get_raw_data(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 

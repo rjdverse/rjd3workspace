@@ -124,7 +124,7 @@ read_sai <- function(jsai) {
 }
 
 
-#' @name jsap_name
+#' @name sap_name
 #' @export
 sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))

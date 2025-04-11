@@ -7,25 +7,34 @@ sap_sai_count <- function(jsap) {
     return(.jcall(jsap, "I", "size"))
 }
 
-#' @title Get the name of a SAProcessing or a Sa-item
+#' @title Get the name of a SAProcessing or one (or all) Sa-item
 #'
 #' @description
-#' Functions to retrieve the name of a SAProcessing (`sap_name()`) or SaItem (`sai_name()`).
+#' Functions to retrieve the name of a SAProcessing (`sap_name()`) or Sa-item (`sai_name()`) or all SA-item (`sap_sai_names()`) .
 #'
 #' @param jsap,jsai the object to retrieve the name from.
+#' @return A vector \code{character}.
 #'
+#' @examples
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Extract 2nd SA-Processing
+#' jsap_2 <- jws_sap(jws,2)
+#' # Retrieve the name
+#' sap_name(jsap_2)
+#' # Retrieve all the SA-items names
+#' sap_sai_names(jsap_2)
 #' @export
 sap_name <- function(jsap) {
     return(.jcall(jsap, "S", "getName"))
 }
-
 
 #' @name make_copy
 #' @export
 jsap_make_copy <- function(jsap) {
     return(.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
 }
-
 
 #' @name jws_sap
 #' @export
@@ -35,36 +44,6 @@ jsap_sai <- function(jsap, idx) {
     }
     return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L)))
 }
-
-#' @title Get the Java name of \code{SA-items}
-#'
-#' @description
-#' This function is used to retrieve the Java names of all the \code{SA-items}
-#' contained in a \code{SA-Processing}.
-#'
-#' @param jsap the java object representing the \code{SA-Processing}
-#'
-#' @return A vector \code{character}.
-#'
-#' @seealso Other functions to retrieve the name of JDemetra+ objects
-#' (\code{workspace}, \code{SA-Processing} or \code{SA-item}):
-#' \code{\link{sai_name}}, \code{\link{sap_name}}.
-#'
-#' @examples \donttest{
-#'
-#' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#'
-#' jws <- jws_new()
-#' jsap1 <- jws_sap_new(jws, "sap1")
-#'
-#' add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
-#' add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
-#' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
-#' add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
-#'
-#' print(sap_sai_names(jsap1))
-#' }
-#'
 #' @name sap_name
 #' @export
 sap_sai_names <- function(jsap) {
@@ -150,19 +129,29 @@ jsap_refresh <- function(jsap,
 #' @param jsap SAProcessing.
 #' @param name name of the SA-item to be added.
 #' @param x either a seasonal adjustment model (from [rjd3x13::x13()] or
-#' [rjd3tramoseats::tramoseats()]), a SA-item or a `"ts"` object.
+#' [rjd3tramoseats::tramoseats()]), a SA-item object, `"ts"` object.
 #' @param spec specification to use when `x` is a `"ts"` object.
-#' @param ... other unused parameters.
+#'
+#' @return \code{NULL} returned invisibly
 #'
 #' @examples
 #' dir <- tempdir()
+#' # raw series
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
+#' # creating an empty workspace and SAProcessing
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
-#' add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
-#' add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
-#' add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
-#' add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
+#' # adding SA-item as estimation result
+#' # estimation with rjd313
+#' add_sa_item(jsap1, name = "series_1", x = rjd3x13::x13(y))
+#' # estimation with rjd3tramoseats
+#' add_sa_item(jsap1, name = "series_2", x = rjd3tramoseats::tramoseats(y))
+#' # adding SA-item as raw series + specification
+#' add_sa_item(jsap1, name = "series_3", x = y, rjd3x13::x13_spec("RSA3"))
+#' add_sa_item(jsap1, name = "series_4", x = y, rjd3tramoseats::tramoseats_spec("RSAFull"))
+#' rws<-read_workspace(jws)
+#' rws$processing$sap1$series_4
+#' # Writing the workspace
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #' @export
 add_sa_item <- function(jsap, name, x, spec, ...) {
@@ -226,10 +215,12 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
 #' @description
 #' `replace_sa_item()` replaces a SA-item in a SAProcessing and
 #' `remove_sa_item()` removes a SA-item from a SAProcessing
+#' `remove_all_sa_item()` removes all SA-item from a SAProcessing
 #'
 #' @param jsap SAProcessing to be modified.
-#' @param jsai new SA-item.
+#' @param jsai new SA-item (for replacement).
 #' @param idx index of the target SA-item.
+#' @return \code{NULL} returned invisibly
 #' @export
 replace_sa_item <- function(jsap, idx, jsai) {
     .jcall(
@@ -237,7 +228,6 @@ replace_sa_item <- function(jsap, idx, jsai) {
         as.integer(idx - 1L), jsai
     )
 }
-
 #' @name replace_sa_item
 #' @export
 remove_sa_item <- function(jsap, idx) {
@@ -246,16 +236,6 @@ remove_sa_item <- function(jsap, idx) {
         as.integer(idx - 1L)
     )
 }
-
-#' Remove all SA-item from a \code{SA-Processing}
-#'
-#' @description
-#' This functions clears a \code{SA-Processing} by removing all the SA-items contained.
-#'
-#' @param jsap SAProcessing to modify.
-#'
-#' @return \code{NULL} returned invisibly
-#'
 #' @name replace_sa_item
 #' @export
 remove_all_sa_item <- function(jsap) {
@@ -263,49 +243,45 @@ remove_all_sa_item <- function(jsap) {
     return(invisible(TRUE))
 }
 
-#'
 #' Copy & paste SA-items from one \code{SA-Processing} to another
 #'
-#' @param jsap_from SA-Processing from which take the SA-items
+#' @param jsap_from SA-Processing from which to take the SA-items
 #' @param jsap_to SA-Processing to which paste the SA-items
-#' @param selected_series vector containing the SA-items names to be updated.
+#' @param selected_sa_items vector containing the SA-items names to be updated.
 #' @param print_indications A boolean to print indications on the processing status (optional)
 #'
 #' @return \code{NULL} returned invisibly
 #'
 #' @details
-#' If \code{selected_series} is missing, all series from \code{jsap_from} will be copied.
-#' In this context, the word series refers to \code{SA-item}.
-#'
-#' @name replace_sa_item
+#' If \code{selected_sa_items} is missing, all SA-items from \code{jsap_from} will be copied.
 #' @export
-transfer_series <- function(jsap_from, jsap_to, selected_series,
+transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
                             print_indications = TRUE) {
     sap_from_sai_name <- sap_sai_names(jsap_from)
     sap_to_sai_name <- sap_sai_names(jsap_to)
 
-    if (missing(selected_series) || is.null(selected_series)) {
-        selected_series <- sap_from_sai_name
+    if (missing(selected_sa_items) || is.null(selected_sa_items)) {
+        selected_sa_items <- sap_from_sai_name
     }
 
-    if (!all(selected_series %in% sap_from_sai_name)) {
-        missing_series <- selected_series[!selected_series %in% sap_from_sai_name]
-        stop("The series ",
+    if (!all(selected_sa_items %in% sap_from_sai_name)) {
+        missing_series <- selected_sa_items[!selected_sa_items %in% sap_from_sai_name]
+        stop("The SA-items ",
              toString(missing_series),
              " are missing from the first SA Processing. ",
              "The replacement wasn't performed.")
     }
 
-    for (serie_name in selected_series) {
+    for (serie_name in selected_sa_items) {
         index_from <- which(serie_name == sap_from_sai_name)
         if (length(index_from) > 1L) {
-            stop("Several series from first SA Processing have the same name : ", serie_name)
+            stop("Several SA-items from first SAProcessing have the same name : ", serie_name)
         }
         jsai1 <- jsap_sai(jsap_from, idx = index_from)
 
         index_to <- which(serie_name == sap_to_sai_name)
         if (length(index_to) > 1L) {
-            stop("Several series from second SA Processing have the same name : ", serie_name)
+            stop("Several SA-items from second SA Processing have the same name : ", serie_name)
         } else if (length(index_to) == 0L) {
             add_sa_item(jsap = jsap_to, name = serie_name, x = jsai1)
         } else {
@@ -323,9 +299,7 @@ transfer_series <- function(jsap_from, jsap_to, selected_series,
 
     return(invisible(NULL))
 }
-
-
-#' Set Specification or Raw Data in a SaItem
+#' Set Specification or Raw Data in a Sa-Item
 #'
 #' @inheritParams replace_sa_item
 #' @param spec new specification.

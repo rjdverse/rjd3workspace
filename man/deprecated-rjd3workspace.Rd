@@ -25,6 +25,7 @@
 \alias{.jsap_sai_names}
 \alias{.jsap_refresh}
 \alias{.jws_refresh}
+\alias{transfer_series}
 \title{Deprecated functions}
 \usage{
 .jmp_load(jmp)
@@ -87,6 +88,13 @@
   start = NULL,
   end = NULL,
   info = c("All", "Data", "None")
+)
+
+transfer_series(
+  jsap_from,
+  jsap_to,
+  selected_sa_items,
+  print_indications = TRUE
 )
 }
 \description{

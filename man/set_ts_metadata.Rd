@@ -10,7 +10,7 @@ set_ts_metadata(jsap, idx, ref_jsai)
 put_ts_metadata(jsap, idx, key, value)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 

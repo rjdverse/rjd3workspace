@@ -10,7 +10,7 @@ set_comment(jsap, idx, comment)
 get_comment(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 

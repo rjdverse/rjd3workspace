@@ -10,7 +10,7 @@ set_priority(jsap, idx, priority = 0L)
 get_priority(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 

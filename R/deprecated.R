@@ -172,3 +172,11 @@
                  info = c("All", "Data", "None"))
 }
 
+#' @name deprecated-rjd3workspace
+#' @export
+transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
+                              print_indications = TRUE) {
+    .Deprecated("transfer_sa_item")
+    transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
+                     print_indications = TRUE)
+}
