@@ -3,14 +3,14 @@
 \name{set_priority}
 \alias{set_priority}
 \alias{get_priority}
-\title{Get/Set SaItem Priority}
+\title{Get/Set SA-item Priority}
 \usage{
 set_priority(jsap, idx, priority = 0L)
 
 get_priority(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
@@ -19,5 +19,5 @@ get_priority(jsai)
 \item{jsai}{a SA-item.}
 }
 \description{
-Get/Set SaItem Priority
+Get/Set SA-item Priority
 }

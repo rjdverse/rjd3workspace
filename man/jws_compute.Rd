@@ -14,7 +14,7 @@ jws_compute(jws)
 }
 \examples{
 # Load a Workspace
-file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
 # Compute the workspace to access its components
 jws_compute(jws)

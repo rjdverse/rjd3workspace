@@ -21,7 +21,45 @@
             <validityperiod start="1982-01-01"/>
         </specialDayEvent>
         <specialDayEvent>
-            <easterRelatedDay/>
+            <specialCalendarDay>
+                <event>EasterMonday</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>Ascension</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>WhitMonday</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>Assumption</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>AllSaintsDay</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>Armistice</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>Christmas</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <fixedDay>
+                <month>JULY</month>
+                <day>14</day>
+            </fixedDay>
         </specialDayEvent>
     </nationalCalendar>
 </calendars>

@@ -3,14 +3,14 @@
 \name{set_ts}
 \alias{set_ts}
 \alias{get_ts}
-\title{Get/Set the time series of a SaItem}
+\title{Get/Set the (JDemetra+) time series of a SA-item}
 \usage{
 set_ts(jsap, idx, y)
 
 get_ts(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
@@ -19,5 +19,6 @@ get_ts(jsai)
 \item{jsai}{a SA-item.}
 }
 \description{
-Get/Set the time series of a SaItem
+(JDemetra+) time series contains more information than raw data,
+which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
 }

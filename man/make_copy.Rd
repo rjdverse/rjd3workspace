@@ -29,9 +29,9 @@ jws <- jws_new()
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
 # Make a copy of the workspace
-#jws2 <- jws_make_copy(jws)
+jws2 <- jws_make_copy(jws)
 # Make a copy of sap1 in jws2
-#jsap2 <- jsap_make_copy(jsap)
+jsap2 <- jsap_make_copy(jsap)
 
 
 }

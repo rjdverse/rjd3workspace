@@ -25,6 +25,10 @@
 \alias{.jsap_sai_names}
 \alias{.jsap_refresh}
 \alias{.jws_refresh}
+\alias{transfer_series}
+\alias{add_variable}
+\alias{read_variables}
+\alias{write_variables}
 \title{Deprecated functions}
 \usage{
 .jmp_load(jmp)
@@ -88,6 +92,19 @@
   end = NULL,
   info = c("All", "Data", "None")
 )
+
+transfer_series(
+  jsap_from,
+  jsap_to,
+  selected_sa_items,
+  print_indications = TRUE
+)
+
+add_variable(jws, group, name, y)
+
+read_variables(file)
+
+write_variables(vars, file)
 }
 \description{
 Deprecated functions

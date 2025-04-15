@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_path.R
 \name{check_information}
 \alias{check_information}
-\title{Check existing JD+ object}
+\title{Check if JD+ object exists}
 \usage{
 check_information(jws, idx_sap = NULL, idx_sai = NULL)
 }
@@ -18,7 +18,7 @@ This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 the WS, or an error specifying the not found object.
 }
 \description{
-Check existing JD+ object
+Check if JD+ object exists
 }
 \details{
 If the object idx_sai is NULL then the function will only check if the
@@ -32,12 +32,11 @@ iterated over all the indices.
 }
 \examples{
 
-# ws <- .jws_open(file = "ws_production.xml")
-#
-# # Check if the SA-Item 3 in the SA-Processing 1 exists
-# check_information(jws = ws, idx_sap = 1, idx_sai = 3)
-
-# # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
-# check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+# Check if the SA-Item 3 in the SA-Processing 1 exists
+check_information(jws = jws, idx_sap = 1, idx_sai = 3)
+# Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
+check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 5))
 
 }
