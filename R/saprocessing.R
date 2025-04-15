@@ -302,9 +302,22 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 #' Set Specification in a Sa-Item
 #'
 #' @inheritParams replace_sa_item
-#' @param spec new specification.
-#' @return description
+#' @param spec new specification generated with [rjd3x13::x13_spec()] or [rjd3tramoseats::tramoseats_spec()]
+#' @return \code{NULL} returned invisibly
 #' @examples
+#' # Create a (customized) spec) spec
+#' library(rjd3x13)
+#' spec <- rjd3x13::x13_spec("rsa3") |>
+#'  rjd3toolkit::set_basic(type = "From", d0 = "2012-01-01")
+#'  # Load a Workspace to modify
+#'  file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#'  jws <- jws_open(file)
+#'  # Select SAProcessing with the target SA-item
+#'  sap1<- jws_sap(jws,1)
+#'  # Set specification in targeted SA-item
+#'  set_specification(sap1, 2, spec)
+#'  # Set domain specification in selected SA-item
+#'  set_domain_specification(sap1, 3, spec)
 #' @export
 set_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {

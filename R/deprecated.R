@@ -101,7 +101,7 @@
 #' @export
 .jsap_sai <- function(jsap, idx) {
     .Deprecated("jsap_sai")
-    jws_sap_sai(jsap, idx)
+    jsap_sai(jsap, idx)
 }
 #' @name deprecated-rjd3workspace
 #' @export
