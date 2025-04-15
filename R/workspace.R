@@ -386,8 +386,32 @@ full_path <- function(path) {
 #' Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
-#' @param name  name of calendar to add.
-#' @param calendar  calendar to add.
+#' @param name  character name of the calendar to add.
+#' @param calendar  JDemetra+ calendar to add.
+#' @return \code{NULL} returned invisibly
+#' @examples
+#' # French calendar
+#' # french_calendar <- rjd3toolkit::national_calendar(
+#' #   days = list(
+#' #       fixed_day(7, 14), # Bastille Day
+#' #       fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#' #       special_day("NEWYEAR"),
+#' #       special_day("CHRISTMAS"),
+#' #       special_day("MAYDAY"),
+#' #       special_day("EASTERMONDAY"),
+#' #       special_day("ASCENSION"),
+#' #       special_day("WHITMONDAY"),
+#' #       special_day("ASSUMPTION"),
+#' #       special_day("ALLSAINTSDAY"),
+#' #       special_day("ARMISTICE")
+#' #   )
+#' #   )
+#'# Load a Workspace
+#' # file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' # jws <- jws_open(file)
+#' # add calendar to the workspace
+#' # add_calendar(jws, "French Calendar", french_calendar)
+#' # get_context(jws)
 #' @export
 add_calendar <- function(jws, name, calendar) {
     pcal <- rjd3toolkit::.r2p_calendar(calendar)
@@ -401,13 +425,15 @@ add_calendar <- function(jws, name, calendar) {
     )
 }
 
-#' Add Variable to Workspace
+#' Add Regressor to a Workspace
 #'
 #' @inheritParams set_context
 #' @param group,name group and name of the variable to add.
-#' @param y variable to add (a `ts` object).
+#' @param y regressor to add (a `ts` object).
+#' @return \code{NULL} returned invisibly
+#' @examples
 #' @export
-add_variable <- function(jws, group, name, y) {
+add_regressor <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

@@ -2,39 +2,38 @@
 % Please edit documentation in R/saitem.R
 \name{read_sai}
 \alias{read_sai}
-\alias{.jsai_results}
-\alias{.jsai_jresults}
 \title{Read an SA-item}
 \usage{
 read_sai(jsai)
-
-.jsai_results(jsai, items = NULL)
-
-.jsai_jresults(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}
-
-\item{items}{vector of characters containing the variables to extract.
-See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}.
-By default, extracts all the possible variables.}
+}
+\value{
+a list
 }
 \description{
-\code{.jsai_results()} extracts specific variables of the model of the SA-item while
 \code{read_sai()} extracts all the information of a SA-item (see details).
-\code{.jsai_jresults()} extracts the Java object of the results of a SA-item.
 }
 \details{
-A SA-item contains more information than just the results of a model.
-All those informations are extracted with the \code{read_sai()} function that
-returns a list with 5 objects:
+A SA-item contains more information than just the results of an estimation.
+Full information is extracted with the \code{read_sai()} function that
+returns a list of 5 objects:
 \itemize{
-\item \code{ts}: the raw time series.
-\item \code{domainSpec}: initial specification. Reference for any relaxing of some
-elements of the specification.
+\item \code{ts}: raw time series.
+\item \code{domainSpec}: initial specification. Reference when refreshing and relaxing constraints.
 \item \code{estimationSpec}: specification used for the current estimation.
 \item \code{pointSpec}: specification corresponding to the results of the current
 estimation (fully identified model).
-\item \code{results}: the result of the model.
+\item \code{results}: results of the estimation.
 }
+}
+\examples{
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+# Select SAProcessing
+sap1<- jws_sap(jws,1)
+# Select SA-item (as java object)
+sai1 <-jsap_sai(sap1,3)
 }

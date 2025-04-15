@@ -9,10 +9,37 @@ add_calendar(jws, name, calendar)
 \arguments{
 \item{jws}{a java workspace object.}
 
-\item{name}{name of calendar to add.}
+\item{name}{character name of the calendar to add.}
 
-\item{calendar}{calendar to add.}
+\item{calendar}{JDemetra+ calendar to add.}
+}
+\value{
+\code{NULL} returned invisibly
 }
 \description{
 Add a Calendar to a Workspace
+}
+\examples{
+# French calendar
+# french_calendar <- rjd3toolkit::national_calendar(
+#   days = list(
+#       fixed_day(7, 14), # Bastille Day
+#       fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#       special_day("NEWYEAR"),
+#       special_day("CHRISTMAS"),
+#       special_day("MAYDAY"),
+#       special_day("EASTERMONDAY"),
+#       special_day("ASCENSION"),
+#       special_day("WHITMONDAY"),
+#       special_day("ASSUMPTION"),
+#       special_day("ALLSAINTSDAY"),
+#       special_day("ARMISTICE")
+#   )
+#   )
+# Load a Workspace
+# file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# jws <- jws_open(file)
+# add calendar to the workspace
+# add_calendar(jws, "French Calendar", french_calendar)
+# get_context(jws)
 }

@@ -3,7 +3,7 @@
 \name{set_priority}
 \alias{set_priority}
 \alias{get_priority}
-\title{Get/Set SaItem Priority}
+\title{Get/Set SA-item Priority}
 \usage{
 set_priority(jsap, idx, priority = 0L)
 
@@ -19,5 +19,5 @@ get_priority(jsai)
 \item{jsai}{a SA-item.}
 }
 \description{
-Get/Set SaItem Priority
+Get/Set SA-item Priority
 }

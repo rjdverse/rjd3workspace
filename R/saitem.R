@@ -3,29 +3,30 @@ NULL
 
 #' Read an SA-item
 #'
-#' `.jsai_results()` extracts specific variables of the model of the SA-item while
+#' @description
 #' `read_sai()` extracts all the information of a SA-item (see details).
-#'  `.jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
 #' @param jsai Java SA-item object.
-#' @param items vector of characters containing the variables to extract.
-#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
-#' By default, extracts all the possible variables.
-#'
-#' @details A SA-item contains more information than just the results of a model.
-#' All those informations are extracted with the `read_sai()` function that
-#' returns a list with 5 objects:
-#'
-#' - `ts`: the raw time series.
-#' - `domainSpec`: initial specification. Reference for any relaxing of some
-#' elements of the specification.
+#' @return a list
+#' @examples
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Select SAProcessing
+#' sap1<- jws_sap(jws,1)
+#' # Select SA-item (as java object)
+#' sai1 <-jsap_sai(sap1,3)
+#' @details A SA-item contains more information than just the results of an estimation.
+#' Full information is extracted with the `read_sai()` function that
+#' returns a list of 5 objects:
+#' - `ts`: raw time series.
+#' - `domainSpec`: initial specification. Reference when refreshing and relaxing constraints.
 #' - `estimationSpec`: specification used for the current estimation.
 #' - `pointSpec`: specification corresponding to the results of the current
 #' estimation (fully identified model).
-#' - `results`: the result of the model.
+#' - `results`: results of the estimation.
 #' @export
 read_sai <- function(jsai) {
-
     #  if (! .jcall(jsai, "Z", "isProcessed"))
     #    stop("You must run 'jws_compute()' on your workspace.")
 
@@ -93,7 +94,15 @@ read_sai <- function(jsai) {
     ))
 }
 
-#' @name read_sai
+#' Extract results from a SA-item
+#'
+#' `.jsai_results()` extracts specific variables of the model of the SA-item while
+#' `.jsai_jresults()` extracts the Java object of the results of a SA-item.
+#' @param jsai Java SA-item object.
+#' @param items vector of characters containing the variables to extract.
+#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
+#' By default, extracts all the possible variables.
+#'
 #' @export
 .jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -111,7 +120,7 @@ read_sai <- function(jsai) {
     return(r)
 }
 
-#' @name read_sai
+#' @name .jsai_results
 #' @export
 .jsai_jresults <- function(jsai) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")

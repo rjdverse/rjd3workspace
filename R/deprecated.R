@@ -125,7 +125,7 @@
 #' @export
 .jsap_sai_names <- function(jsap) {
     .Deprecated("sap_sai_names")
-    sap_name(jsap)
+    sap_sai_names(jsap)
 }
 #' @name deprecated-rjd3workspace
 #' @export
@@ -179,4 +179,24 @@ transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
     .Deprecated("transfer_sa_item")
     transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
                      print_indications = TRUE)
+}
+#' @name deprecated-rjd3workspace
+#' @export
+add_variable <- function(jws, group, name, y) {
+    .Deprecated("add_regressor")
+    add_regressor(jws, group, name, y)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+read_variables <- function(file) {
+    .Deprecated("read_regressors")
+    read_regressors(file)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+write_variables <- function(vars,file) {
+    .Deprecated("write_regressors")
+    write_regressors(vars,file)
 }

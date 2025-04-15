@@ -299,10 +299,12 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 
     return(invisible(NULL))
 }
-#' Set Specification or Raw Data in a Sa-Item
+#' Set Specification in a Sa-Item
 #'
 #' @inheritParams replace_sa_item
 #' @param spec new specification.
+#' @return description
+#' @examples
 #' @export
 set_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
@@ -342,11 +344,26 @@ set_domain_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
-#' Get/Set the Raw Data in a SA-item
+#' Get/Set Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
 #' @param y new raw time series.
 #' @param jsai a SA-item.
+#' @return \code{NULL} returned invisibly (set) or TS object (get)
+#' @examples
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Select SAProcessing
+#' sap1<- jws_sap(jws,1)
+#' # Select SA-item
+#' sai1<-jsap_sai(sap1,3) # java object sai
+#' tail(get_raw_data(sai1))
+#' new_raw_data <-rjd3toolkit::ABS$X0.2.15.10.M
+#' tail(new_raw_data)
+#' set_raw_data(sap1,3,new_raw_data)
+#' sai1<-jsap_sai(sap1,3) # reload SA-item
+#' tail(get_raw_data(sai1)) # get raw data
 #' @export
 set_raw_data <- function(jsap, idx, y) {
     .jcall(jsap, "V", "setData", as.integer(idx - 1L), rjd3toolkit::.r2jd_tsdata(y))
@@ -362,7 +379,11 @@ get_raw_data <- function(jsai) {
     rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
 }
 
-#' Get/Set the time series of a SaItem
+#' Get/Set the (JDemetra+) time series of a SA-item
+#'
+#' @description
+#' (JDemetra+) time series contains more information than raw data,
+#' which can be manipulated with `set_raw_data()` and `get_raw_data()`
 #'
 #' @inheritParams set_raw_data
 #' @param y a "full" time series (jd3-like).
@@ -387,10 +408,22 @@ get_ts <- function(jsai) {
     )
     return(rjd3toolkit::.jd2r_ts(jts))
 }
-#' Get/Set SaItem Comment
+#' Get/Set Comment from a SA-item
 #'
 #' @inheritParams set_raw_data
 #' @param comment character containing the comment.
+#' @return \code{NULL} returned invisibly
+#' @examples
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Select SAProcessing
+#' sap1<- jws_sap(jws,1)
+#' # Select SA-item
+#' sai1<-jsap_sai(sap1,3)
+#' set_comment(sap1,2,"data collection changed in 2012")
+#' sai1<-jsap_sai(sap1,2) # reload sai
+#' get_comment(sai1)
 #' @export
 set_comment <- function(jsap, idx, comment) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -410,11 +443,25 @@ get_comment <- function(jsai) {
     .jcall(jsai, "S", "getComment")
 }
 
-#' Set the name associated to a SaItem Comment
+#' Set the name of a SA-item
 #'
 #' @inheritParams set_raw_data
-#' @param name character containing the name of the SAItem.
+#' @param name character corresponding to the new name
+#' @return \code{NULL} returned invisibly
 #' @seealso [sai_name()]
+#' @examples
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Select SAProcessing
+#' sap1<- jws_sap(jws,1)
+#' # Select SA-item
+#' sai1<-jsap_sai(sap1,3) # java object sai
+#' #set name
+#' set_name(sap1,3,"RF1011_1")
+#' # check
+#' sai1<-jsap_sai(sap1,3) # reload sai
+#' sai_name(sai1) #get name
 #' @export
 set_name <- function(jsap, idx, name) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -433,14 +480,14 @@ set_name <- function(jsap, idx, name) {
 #   replace_sa_item(jsap, jsai = jsai, idx = idx)
 # }
 
-#' Set Time Series Metadata of a SaItem
+#' Set (JDemetra+) Time Series Metadata of a SA-item
 #'
-#' Function to set the time series metadata of a SaItem (provider, source of the data...).
-#' `set_ts_metadata()` uses the metadata of another SaItem while `put_ts_metadata()`
+#' Function to set the time series metadata of a SA-item (provider, source of the data...).
+#' `set_ts_metadata()` uses the metadata of another SA-item while `put_ts_metadata()`
 #' allows to update a specific key with a new information.
 #'
 #' @inheritParams set_raw_data
-#' @param ref_jsai a reference SaItem containing the metadata.
+#' @param ref_jsai a reference SA-item containing the metadata.
 #' @param key key of the metadata.
 #' @param value value of the metadata.
 #'
@@ -501,7 +548,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 }
 
 
-#' Get/Set SaItem Priority
+#' Get/Set SA-item Priority
 #'
 #' @inheritParams set_raw_data
 #' @param priority integer containing the priority.
