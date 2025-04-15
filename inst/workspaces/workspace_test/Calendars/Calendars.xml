@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <calendars xmlns="ec/tss.core">
-    <nationalCalendar meancorrection="true" name="France">
+    <nationalCalendar meancorrection="true" name="Test_Calendar">
         <specialDayEvent>
             <fixedDay>
                 <month>JANUARY</month>
@@ -12,13 +12,6 @@
                 <month>MAY</month>
                 <day>1</day>
             </fixedDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <fixedDay>
-                <month>MAY</month>
-                <day>8</day>
-            </fixedDay>
-            <validityperiod start="1982-01-01"/>
         </specialDayEvent>
         <specialDayEvent>
             <specialCalendarDay>
@@ -34,32 +27,6 @@
             <specialCalendarDay>
                 <event>WhitMonday</event>
             </specialCalendarDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <specialCalendarDay>
-                <event>Assumption</event>
-            </specialCalendarDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <specialCalendarDay>
-                <event>AllSaintsDay</event>
-            </specialCalendarDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <specialCalendarDay>
-                <event>Armistice</event>
-            </specialCalendarDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <specialCalendarDay>
-                <event>Christmas</event>
-            </specialCalendarDay>
-        </specialDayEvent>
-        <specialDayEvent>
-            <fixedDay>
-                <month>JULY</month>
-                <day>14</day>
-            </fixedDay>
         </specialDayEvent>
     </nationalCalendar>
 </calendars>
