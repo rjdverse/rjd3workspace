@@ -71,9 +71,9 @@ jws_sap_new <- function(jws, name) {
 #' # Add an empty SA-Processing
 #' jsap <- jws_sap_new(jws, "sap1")
 #' # Make a copy of the workspace
-#' #jws2 <- jws_make_copy(jws)
+#' jws2 <- jws_make_copy(jws)
 #' # Make a copy of sap1 in jws2
-#' #jsap2 <- jsap_make_copy(jsap)
+#' jsap2 <- jsap_make_copy(jsap)
 #'
 #'
 #' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
@@ -182,14 +182,15 @@ get_context <- function(jws) {
 #' @return
 #' Returns an integer.
 #' @examples
-#' #' # Create a Workspace
-#' jws <- jws_new()
-#' # Add an 2 SA-Processings
-#' jsap1 <- jws_sap_new(jws, "sap1")
-#' jsap2 <- jws_sap_new(jws, "sap2")
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' # Count the SA-Processings
 #' ws_sap_count(jws)
-#'
+#' # Count the SA-Items
+#' # In SAP 1
+#' sap1<-jws_sap(jws,1)
+#' sap_sai_count(sap1)
 #' @export
 ws_sap_count <- function(jws) {
     return(.jcall(jws, "I", "getMultiProcessingCount"))
@@ -200,21 +201,20 @@ ws_sap_count <- function(jws) {
 #' @description
 #' Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a
 #' SA-Processing its order number (index). The original object is unaltered.
-#'
-#'
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
 #' @examples
 #' # Load a Workspace
-#' # jws <- jws_open(file= my_workspace.xml)
-#' # Compute the workspace to enable access its components
-#' # jws_compute(jws)
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' # Compute the workspace to enable accessing its components
+#' jws_compute(jws)
 #' # Extract 2nd SA-Processing
-#' #jsap_2 <- jws_sap(jws_ref,2)
-#' # Extract 9th SA-item
-#' #jsai_9 <- jsap_sai(jsap_2,9)
+#' jsap2 <- jws_sap(jws,2)
+#' # Extract 3rd SA-item
+#' jsai3 <- jsap_sai(jsap2,3)
 #'
 #'
 #' @export
@@ -238,7 +238,6 @@ jws_sap <- function(jws, idx) {
 #' By default a dialog box opens.
 #' @return a java workspace
 #' @examples
-#' # Load a Workspace
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
@@ -283,7 +282,7 @@ jws_open <- function(file) {
 
 #' @examples
 #' # Load a Workspace
-#'file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #'jws <- jws_open(file)
 #' # Compute the workspace to access its components
 #' jws_compute(jws)
@@ -294,23 +293,22 @@ jws_compute <- function(jws) {
 
 #' Read all SA-Items from a Workspace or SA-Processing
 #'
-#' Functions reading all SA-Items of a SA-Processing (`read_sap()`)
-#' or a Workspace (`read_workspace()`) and allowing to access them as R lists.
+#' Functions reading all SA-Items from a Workspace (`read_workspace()`) or a SA-Processing (`read_sap()`)
+#' and allowing to access them as R lists.
 #' Whereas functions `jread_sap()` and `jread_workspace()` only return corresponding Java objects
 #'
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
-#' @param compute compute or not the workspace.
+#' @param compute compute or not the workspace (to get the estimation results).
 #' @return list or java object
 
-#'
 #' @examples
 #' #Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' #Read workspace
 #' jread_workspace(jws,FALSE)
-#' rws <- read_workspace(jws, FALSE)
+#' rws <- read_workspace(jws)
 #' #Read sap
 #' sap<-jws_sap(jws,1)
 #' jread_sap(sap)
@@ -348,7 +346,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' Save Workspace
 #'
 #' Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
-#' user interface.
+#' User Interface.
 #'
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
@@ -358,7 +356,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' add_sa_item(jsap1, name = "x13", x = y, rjd3x13::x13_spec())
+#' add_sa_item(jsap1, name = "serie_1", x = y, rjd3x13::x13_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #'
 #' @export
@@ -388,8 +386,32 @@ full_path <- function(path) {
 #' Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
-#' @param name  name of calendar to add.
-#' @param calendar  calendar to add.
+#' @param name  character name of the calendar to add.
+#' @param calendar  JDemetra+ calendar to add.
+#' @return \code{NULL} returned invisibly
+#' @examples
+#' # French calendar
+#'  french_calendar <- rjd3toolkit::national_calendar(
+#'    days = list(
+#'        fixed_day(7, 14), # Bastille Day
+#'        fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'        special_day("NEWYEAR"),
+#'        special_day("CHRISTMAS"),
+#'        special_day("MAYDAY"),
+#'        special_day("EASTERMONDAY"),
+#'        special_day("ASCENSION"),
+#'        special_day("WHITMONDAY"),
+#'        special_day("ASSUMPTION"),
+#'        special_day("ALLSAINTSDAY"),
+#'        special_day("ARMISTICE")
+#'    )
+#'    )
+#'# Load a Workspace
+#'  file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#'  jws <- jws_open(file)
+#' # add calendar to the workspace
+#' add_calendar(jws, "French Calendar", french_calendar)
+#' get_context(jws) # The workspace already contained a Test Calendar
 #' @export
 add_calendar <- function(jws, name, calendar) {
     pcal <- rjd3toolkit::.r2p_calendar(calendar)
@@ -403,13 +425,15 @@ add_calendar <- function(jws, name, calendar) {
     )
 }
 
-#' Add Variable to Workspace
+#' Add Regressor to a Workspace
 #'
 #' @inheritParams set_context
 #' @param group,name group and name of the variable to add.
-#' @param y variable to add (a `ts` object).
+#' @param y regressor to add (a `ts` object).
+#' @return \code{NULL} returned invisibly
+#' @examples
 #' @export
-add_variable <- function(jws, group, name, y) {
+add_regressor <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

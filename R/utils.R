@@ -188,7 +188,7 @@ write_calendars <- function(calendars, file) {
     )
 }
 
-#' Read auxiliary variables (regressors) file
+#' Read auxiliary regressors file
 #'
 #' @param file
 #'
@@ -196,7 +196,7 @@ write_calendars <- function(calendars, file) {
 #' @export
 #'
 #' @examples
-read_variables <- function(file) {
+read_regressors <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/toolkit/base/workspace/file/Utility",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;",
@@ -209,7 +209,7 @@ read_variables <- function(file) {
     return(rjd3toolkit::.jd2r_variables(jspec))
 }
 
-#' Write auxiliary variables (regressors) file
+#' Write regressors file
 #'
 #' @param vars
 #' @param file
@@ -218,7 +218,7 @@ read_variables <- function(file) {
 #' @export
 #'
 #' @examples
-write_variables <- function(vars, file) {
+write_regressors <- function(vars, file) {
     jvars <- rjd3toolkit::.r2jd_variables(vars)
     .jcall(
         "jdplus/toolkit/base/workspace/file/Utility", "V",

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<informationSet xmlns="ec/tss.core">
+    <item name="algorithm">
+        <method version="3.0.0">
+            <name>x13</name>
+            <family>Seasonal adjustment</family>
+        </method>
+    </item>
+    <item name="regarima">
+        <subset>
+            <item name="algorithm">
+                <method version="3.0.0">
+                    <name>regarima</name>
+                    <family>Modelling</family>
+                </method>
+            </item>
+            <item name="transform">
+                <subset>
+                    <item name="function">
+                        <string>Auto</string>
+                    </item>
+                </subset>
+            </item>
+            <item name="automdl">
+                <subset/>
+            </item>
+        </subset>
+    </item>
+</informationSet>

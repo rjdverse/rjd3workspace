@@ -1,9 +1,9 @@
 
-#' @title Check existing JD+ object
+#' @title Check if JD+ object exists
 #'
 #' @param jws workspace object
-#' @param idx_sap index (or indices) of the SA-Processing (s) to check
-#' @param idx_sai index (or indices) of the SA-Item(s) to check.
+#' @param idx_sap index (or indices) of the SAProcessing(s)
+#' @param idx_sai index (or indices) of the SA-item(s).
 #'
 #' @return
 #' This function returns either a boolean (TRUE) if the SAI and the SAP exist in
@@ -22,14 +22,14 @@
 #'
 #' @examples
 #'
-#' # ws <- .jws_open(file = "ws_production.xml")
-#' #
-#' # # Check if the SA-Item 3 in the SA-Processing 1 exists
-#' # check_information(jws = ws, idx_sap = 1, idx_sai = 3)
+#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#'jws <- jws_open(file)
+#' # Check if the SA-Item 3 in the SA-Processing 1 exists
+#' check_information(jws = jws, idx_sap = 1, idx_sai = 3)
+#' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
+#' check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 5))
 #'
-#' # # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
-#' # check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
-#'
+#' @export
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
@@ -47,33 +47,39 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         }
     }
 
-    return(invisible(TRUE))
+    return(TRUE)
 }
 
-#' @title Update the path to a spreadsheet specified in a workspace
+#' @title Update the path to raw data in a workspace (spreadsheet)
+#'
 #' @inheritParams check_information
+#'
 #' @param new_path new path to the spreadsheet containing raw data
 #'
 #' @return
 #' This function returns either NULL if the update was successful, or an
 #' error.
-#'
-#' @export
-#'
+
 #' @details
-#' The spreadsheet file must be a .xlsx file. .xls file are not accepted in JDemetra+ v3.x.
+#' The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 #'
 #' @examples
-#'
-#' # ws <- jws_open(file = "ws_production.xml")
-#' #
-#' # # Update the entire second SA-Processing of the `ws` workspace with a new path
-#' # spreadsheet_update_path(
-#' #     jws = ws,
-#' #     new_path = normalizePath("./data/IPI_nace4.xlsx", mustWork = TRUE),
-#' #     idx_sap = 2L
-#' # )
-#'
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_ws <- jws_open(file)
+#' ws_sap_count(my_ws)
+#' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
+#' txt_update_path(
+#'  jws = my_ws,
+#'  new_path = system.file("data", "IPI_nace4.xlsx", package = "rjd3workspace"),
+#'  idx_sap = 2)
+#'  # select one (the 2nd) SA-item from second SA-Processing
+#'  sap2<- jws_sap(my_ws,2)
+#'  sai2<-jsap_sai(sap2,2)
+#'  # check path
+#'  sai2_list<-read_sai(sai2)
+#'  sai2_list$ts$metadata$`@id`
+#' @export
 spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
     new_path <- normalizePath(new_path, mustWork = TRUE)
@@ -113,27 +119,32 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
     return(invisible(NULL))
 }
 
-#' Update the path to a csv/txt file specified in a workspace
+#' Update the path to raw data in a workspace (txt/csv file)
+#'
 #' @inheritParams check_information
+#'
 #' @param new_path new path to the csv/txt file containing raw data
 #'
 #' @return
 #' This function returns either NULL if the update was successful, or an
 #' error
-#'
-#' @export
-#'
 #' @examples
-#'
-#' # ws <- jws_open(file = "ws_production.xml")
-#' #
-#' # # Update the entire second SA-Processing of the `ws` workspace with a new path
-#' # txt_update_path(
-#' #     jws = ws,
-#' #     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
-#' #     idx_sap = 1L
-#' # )
-#'
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_ws <- jws_open(file)
+#' ws_sap_count(my_ws)
+#' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
+#' txt_update_path(
+#'  jws = my_ws,
+#'  new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+#'  idx_sap = 2)
+#'  # select one (the 2nd) SA-item from second SA-Processing
+#'  sap2<- jws_sap(my_ws,2)
+#'  sai2<-jsap_sai(sap2,2)
+#'  # check path
+#'  sai2_list<-read_sai(sai2)
+#'  sai2_list$ts$metadata$`@id`
+#' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
     new_path <- normalizePath(new_path, mustWork = TRUE)

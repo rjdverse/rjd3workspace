@@ -12,23 +12,33 @@ add_sa_item(jsap, name, x, spec, ...)
 \item{name}{name of the SA-item to be added.}
 
 \item{x}{either a seasonal adjustment model (from \code{\link[rjd3x13:x13]{rjd3x13::x13()}} or
-\code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SA-item or a \code{"ts"} object.}
+\code{\link[rjd3tramoseats:tramoseats]{rjd3tramoseats::tramoseats()}}), a SA-item object, \code{"ts"} object.}
 
 \item{spec}{specification to use when \code{x} is a \code{"ts"} object.}
-
-\item{...}{other unused parameters.}
+}
+\value{
+\code{NULL} returned invisibly
 }
 \description{
 Add a SA-item to a SAProcessing
 }
 \examples{
 dir <- tempdir()
+# raw series
 y <- rjd3toolkit::ABS$X0.2.09.10.M
+# creating an empty workspace and SAProcessing
 jws <- jws_new()
 jsap1 <- jws_sap_new(jws, "sap1")
-add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
-add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
-add_sa_item(jsap1, name = "x13-2", x = y, rjd3x13::x13_spec())
-add_sa_item(jsap1, name = "tramo-2", x = y, rjd3tramoseats::tramoseats_spec())
+# adding SA-item as estimation result
+# estimation with rjd313
+add_sa_item(jsap1, name = "series_1", x = rjd3x13::x13(y))
+# estimation with rjd3tramoseats
+add_sa_item(jsap1, name = "series_2", x = rjd3tramoseats::tramoseats(y))
+# adding SA-item as raw series + specification
+add_sa_item(jsap1, name = "series_3", x = y, rjd3x13::x13_spec("RSA3"))
+add_sa_item(jsap1, name = "series_4", x = y, rjd3tramoseats::tramoseats_spec("RSAFull"))
+rws<-read_workspace(jws)
+rws$processing$sap1$series_4
+# Writing the workspace
 save_workspace(jws, file.path(dir, "workspace.xml"))
 }

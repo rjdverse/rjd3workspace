@@ -20,14 +20,14 @@ jread_workspace(jws, compute = TRUE)
 
 \item{jws}{java Workspace.}
 
-\item{compute}{compute or not the workspace.}
+\item{compute}{compute or not the workspace (to get the estimation results).}
 }
 \value{
 list or java object
 }
 \description{
-Functions reading all SA-Items of a SA-Processing (\code{read_sap()})
-or a Workspace (\code{read_workspace()}) and allowing to access them as R lists.
+Functions reading all SA-Items from a Workspace (\code{read_workspace()}) or a SA-Processing (\code{read_sap()})
+and allowing to access them as R lists.
 Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return corresponding Java objects
 }
 \examples{
@@ -36,7 +36,7 @@ file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace
 jws <- jws_open(file)
 #Read workspace
 jread_workspace(jws,FALSE)
-rws <- read_workspace(jws, FALSE)
+rws <- read_workspace(jws)
 #Read sap
 sap<-jws_sap(jws,1)
 jread_sap(sap)

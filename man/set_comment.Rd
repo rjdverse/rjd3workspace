@@ -3,14 +3,14 @@
 \name{set_comment}
 \alias{set_comment}
 \alias{get_comment}
-\title{Get/Set SaItem Comment}
+\title{Get/Set Comment from a SA-item}
 \usage{
 set_comment(jsap, idx, comment)
 
 get_comment(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
@@ -18,6 +18,21 @@ get_comment(jsai)
 
 \item{jsai}{a SA-item.}
 }
+\value{
+\code{NULL} returned invisibly
+}
 \description{
-Get/Set SaItem Comment
+Get/Set Comment from a SA-item
+}
+\examples{
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+# Select SAProcessing
+sap1<- jws_sap(jws,1)
+# Select SA-item
+sai1<-jsap_sai(sap1,3)
+set_comment(sap1,2,"data collection changed in 2012")
+sai1<-jsap_sai(sap1,2) # reload sai
+get_comment(sai1)
 }

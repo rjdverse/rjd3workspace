@@ -3,26 +3,26 @@
 \name{set_ts_metadata}
 \alias{set_ts_metadata}
 \alias{put_ts_metadata}
-\title{Set Time Series Metadata of a SaItem}
+\title{Set (JDemetra+) Time Series Metadata of a SA-item}
 \usage{
 set_ts_metadata(jsap, idx, ref_jsai)
 
 put_ts_metadata(jsap, idx, key, value)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
-\item{ref_jsai}{a reference SaItem containing the metadata.}
+\item{ref_jsai}{a reference SA-item containing the metadata.}
 
 \item{key}{key of the metadata.}
 
 \item{value}{value of the metadata.}
 }
 \description{
-Function to set the time series metadata of a SaItem (provider, source of the data...).
-\code{set_ts_metadata()} uses the metadata of another SaItem while \code{put_ts_metadata()}
+Function to set the time series metadata of a SA-item (provider, source of the data...).
+\code{set_ts_metadata()} uses the metadata of another SA-item while \code{put_ts_metadata()}
 allows to update a specific key with a new information.
 }
 \examples{
