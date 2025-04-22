@@ -150,12 +150,18 @@ x13_write_spec <- function(spec, file) {
 
 #' Read a Calendar file
 #'
-#' @param file
+#' @param calendar a xml file
+#' @description
+#' The calendar file is an xml file like the one JDemetra+ would write when defining a calendar in the
+#' Graphical User Interface.
 #'
-#' @return
-#' @export
+#' @return a list
 #'
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","Calendars","Calendars.xml",package = "rjd3workspace")
+#' my_calendar<-read_calendars(file)
+#' my_calendar
+#' @export
 read_calendars <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/toolkit/base/workspace/file/Utility",
@@ -191,6 +197,7 @@ write_calendars <- function(calendars, file) {
 #' Read auxiliary regressors file
 #'
 #' @param file
+#' @description
 #'
 #' @return
 #' @export

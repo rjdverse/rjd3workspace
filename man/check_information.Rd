@@ -9,9 +9,9 @@ check_information(jws, idx_sap = NULL, idx_sai = NULL)
 \arguments{
 \item{jws}{workspace object}
 
-\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SAProcessing(s)}
 
-\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-item(s).}
 }
 \value{
 This function returns either a boolean (TRUE) if the SAI and the SAP exist in
