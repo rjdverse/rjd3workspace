@@ -19,7 +19,7 @@ allows to update a specific key with a new information."><meta property="og:imag
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home fa-lg"></span></a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home"><span class="fa fa-home fa-lg"></span></a></li>
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
 <li class="nav-item dropdown">
@@ -36,7 +36,7 @@ allows to update a specific key with a new information."><meta property="og:imag
   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-jdemetra-"><li><a class="external-link dropdown-item" href="https://github.com/jdemetra/jdemetra-app/releases">Download JDemetra+</a></li>
     <li><a class="external-link dropdown-item" href="https://jdemetra-new-documentation.netlify.app/">JDemetra+ documentation</a></li>
   </ul></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/rjdverse/rjd3workspace"><span class="fa fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/rjdverse/rjd3workspace" aria-label="View on GitHub"><span class="fa fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -90,22 +90,16 @@ allows to update a specific key with a new information.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Change the file of a given item</span></span></span>
-<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in jws_open(file):</span> The file doesn't exist or isn't a .xml file !</span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 <span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jsap' not found</span>
-<span class="r-in"><span><span class="va">nid</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3providers/reference/spreadsheet_change_file.html" class="external-link">spreadsheet_change_file</a></span><span class="op">(</span><span class="fu"><a href="dot-jsai_metadata.html">.jsai_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span>, <span class="st">"test.xlsx"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jsai' not found</span>
+<span class="r-in"><span><span class="va">nid</span> <span class="op">&lt;-</span> <span class="fu">rjd3providers</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3providers/reference/txt_change_file.html" class="external-link">txt_change_file</a></span><span class="op">(</span><span class="fu"><a href="dot-jsai_metadata.html">.jsai_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span>, <span class="st">"test.csv"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">put_ts_metadata</span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span>, <span class="st">"@id"</span>, <span class="va">nid</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jsap' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jsap' not found</span>
 <span class="r-in"><span><span class="fu"><a href="dot-jsai_metadata.html">.jsai_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jsai' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&amp;delimiter=SEMICOLON&amp;file=test.csv#seriesIndex=4"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
