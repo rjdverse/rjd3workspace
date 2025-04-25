@@ -118,7 +118,7 @@
           <code><a href="check_information.html">check_information()</a></code>
 
         </dt>
-        <dd>Check existing JD+ object</dd>
+        <dd>Check if JD+ object exists</dd>
       </dl><dl><dt>
 
           <code><a href="ws_sap_count.html">sap_sai_count()</a></code> <code><a href="ws_sap_count.html">ws_sap_count()</a></code>
@@ -147,13 +147,13 @@
           <code><a href="spreadsheet_update_path.html">spreadsheet_update_path()</a></code>
 
         </dt>
-        <dd>Update the path to a spreadsheet specified in a workspace</dd>
+        <dd>Update the path to raw data in a workspace (spreadsheet)</dd>
       </dl><dl><dt>
 
           <code><a href="txt_update_path.html">txt_update_path()</a></code>
 
         </dt>
-        <dd>Update the path to a csv/txt file specified in a workspace</dd>
+        <dd>Update the path to raw data in a workspace (txt/csv file)</dd>
       </dl></div><div class="section level2">
       <h2 id="sa-processings">SA-Processings<a class="anchor" aria-label="anchor" href="#sa-processings"></a></h2>
 
@@ -191,16 +191,22 @@
         <dd>Add a SA-item to a SAProcessing</dd>
       </dl><dl><dt>
 
-          <code><a href="replace_sa_item.html">replace_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_all_sa_item()</a></code> <code><a href="replace_sa_item.html">transfer_series()</a></code>
+          <code><a href="replace_sa_item.html">replace_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_sa_item()</a></code> <code><a href="replace_sa_item.html">remove_all_sa_item()</a></code>
 
         </dt>
         <dd>Replace or Remove a SA-item</dd>
       </dl><dl><dt>
 
-          <code><a href="sap_name.html">sap_name()</a></code> <code><a href="sap_name.html">sap_sai_names()</a></code>
+          <code><a href="transfer_sa_item.html">transfer_sa_item()</a></code>
 
         </dt>
-        <dd>Get the name of a SAProcessing or a Sa-item</dd>
+        <dd>Copy &amp; paste SA-items from one <code>SA-Processing</code> to another</dd>
+      </dl><dl><dt>
+
+          <code><a href="sap_name.html">sai_name()</a></code> <code><a href="sap_name.html">sap_name()</a></code> <code><a href="sap_name.html">sap_sai_names()</a></code>
+
+        </dt>
+        <dd>Get the name of a SAProcessing or one (or all) Sa-item</dd>
       </dl><dl><dt>
 
           <code><a href="read_workspace.html">read_sap()</a></code> <code><a href="read_workspace.html">jread_sap()</a></code> <code><a href="read_workspace.html">read_workspace()</a></code> <code><a href="read_workspace.html">jread_workspace()</a></code>
@@ -238,16 +244,22 @@
         <dd>Extract a SA-Processing or a SA-Item</dd>
       </dl><dl><dt>
 
-          <code><a href="read_sai.html">read_sai()</a></code> <code><a href="read_sai.html">.jsai_results()</a></code> <code><a href="read_sai.html">.jsai_jresults()</a></code>
+          <code><a href="read_sai.html">read_sai()</a></code>
 
         </dt>
         <dd>Read an SA-item</dd>
       </dl><dl><dt>
 
+          <code><a href="dot-jsai_results.html">.jsai_results()</a></code> <code><a href="dot-jsai_results.html">.jsai_jresults()</a></code>
+
+        </dt>
+        <dd>Extract results from a SA-item</dd>
+      </dl><dl><dt>
+
           <code><a href="set_specification.html">set_specification()</a></code> <code><a href="set_specification.html">set_domain_specification()</a></code>
 
         </dt>
-        <dd>Set Specification or Raw Data in a SaItem</dd>
+        <dd>Set Specification in a Sa-Item</dd>
       </dl></div><div class="section level2">
       <h2 id="sa-items-metadata">SA-Items…metadata<a class="anchor" aria-label="anchor" href="#sa-items-metadata"></a></h2>
 
@@ -270,37 +282,37 @@
           <code><a href="set_comment.html">set_comment()</a></code> <code><a href="set_comment.html">get_comment()</a></code>
 
         </dt>
-        <dd>Get/Set SaItem Comment</dd>
+        <dd>Get/Set Comment from a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="set_name.html">set_name()</a></code>
 
         </dt>
-        <dd>Set the name associated to a SaItem Comment</dd>
+        <dd>Set the name of a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="set_priority.html">set_priority()</a></code> <code><a href="set_priority.html">get_priority()</a></code>
 
         </dt>
-        <dd>Get/Set SaItem Priority</dd>
+        <dd>Get/Set SA-item Priority</dd>
       </dl><dl><dt>
 
           <code><a href="set_raw_data.html">set_raw_data()</a></code> <code><a href="set_raw_data.html">get_raw_data()</a></code>
 
         </dt>
-        <dd>Get/Set the Raw Data in a SA-item</dd>
+        <dd>Get/Set Raw Data in a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="set_ts.html">set_ts()</a></code> <code><a href="set_ts.html">get_ts()</a></code>
 
         </dt>
-        <dd>Get/Set the time series of a SaItem</dd>
+        <dd>Get/Set the (JDemetra+) time series of a SA-item</dd>
       </dl><dl><dt>
 
           <code><a href="set_ts_metadata.html">set_ts_metadata()</a></code> <code><a href="set_ts_metadata.html">put_ts_metadata()</a></code>
 
         </dt>
-        <dd>Set Time Series Metadata of a SaItem</dd>
+        <dd>Set (JDemetra+) Time Series Metadata of a SA-item</dd>
       </dl></div><div class="section level2">
       <h2 id="calendars-and-regressors">Calendars and regressors<a class="anchor" aria-label="anchor" href="#calendars-and-regressors"></a></h2>
 
@@ -320,10 +332,10 @@
         <dd>Add a Calendar to a Workspace</dd>
       </dl><dl><dt>
 
-          <code><a href="add_variable.html">add_variable()</a></code>
+          <code><a href="add_regressors.html">add_regressors()</a></code>
 
         </dt>
-        <dd>Add Variable to Workspace</dd>
+        <dd>Add Regressor to a Workspace</dd>
       </dl><dl><dt>
 
           <code><a href="read_calendars.html">read_calendars()</a></code>
@@ -332,10 +344,10 @@
         <dd>Read a Calendar file</dd>
       </dl><dl><dt>
 
-          <code><a href="read_variables.html">read_variables()</a></code>
+          <code><a href="read_regressors.html">read_regressors()</a></code>
 
         </dt>
-        <dd>Read auxiliary variables (regressors) file</dd>
+        <dd>Read auxiliary regressors file</dd>
       </dl><dl><dt>
 
           <code><a href="write_calendars.html">write_calendars()</a></code>
@@ -344,10 +356,10 @@
         <dd>Write a Calendar file</dd>
       </dl><dl><dt>
 
-          <code><a href="write_variables.html">write_variables()</a></code>
+          <code><a href="write_regressors.html">write_regressors()</a></code>
 
         </dt>
-        <dd>Write auxiliary variables (regressors) file</dd>
+        <dd>Write regressors file</dd>
       </dl></div><div class="section level2">
       <h2 id="specification-files">Specification Files<a class="anchor" aria-label="anchor" href="#specification-files"></a></h2>
 
@@ -420,7 +432,7 @@
 
       <dl><dt>
 
-          <code><a href="deprecated-rjd3workspace.html">.jmp_load()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_read()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_results()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_jresults()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_metadata()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_ts_metadata()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai_count()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap_count()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_open()</a></code> <code><a href="deprecated-rjd3workspace.html">.jread_workspace()</a></code> <code><a href="deprecated-rjd3workspace.html">.jread_sap()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_new()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap_new()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_make_copy()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_make_copy()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_compute()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsai_name()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_name()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai_names()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_refresh()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_refresh()</a></code>
+          <code><a href="deprecated-rjd3workspace.html">.jmp_load()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_read()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_results()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_jresults()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_metadata()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsa_ts_metadata()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai_count()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap_count()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_open()</a></code> <code><a href="deprecated-rjd3workspace.html">.jread_workspace()</a></code> <code><a href="deprecated-rjd3workspace.html">.jread_sap()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_new()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap_new()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_make_copy()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_make_copy()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_compute()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_sap()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsai_name()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_name()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_sai_names()</a></code> <code><a href="deprecated-rjd3workspace.html">.jsap_refresh()</a></code> <code><a href="deprecated-rjd3workspace.html">.jws_refresh()</a></code> <code><a href="deprecated-rjd3workspace.html">transfer_series()</a></code> <code><a href="deprecated-rjd3workspace.html">add_variable()</a></code> <code><a href="deprecated-rjd3workspace.html">read_variables()</a></code> <code><a href="deprecated-rjd3workspace.html">write_variables()</a></code>
 
         </dt>
         <dd>Deprecated functions</dd>

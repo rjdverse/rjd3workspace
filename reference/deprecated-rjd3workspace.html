@@ -111,7 +111,20 @@
 <span>  start <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  info <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"All"</span>, <span class="st">"Data"</span>, <span class="st">"None"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">transfer_series</span><span class="op">(</span></span>
+<span>  <span class="va">jsap_from</span>,</span>
+<span>  <span class="va">jsap_to</span>,</span>
+<span>  <span class="va">selected_sa_items</span>,</span>
+<span>  print_indications <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">add_variable</span><span class="op">(</span><span class="va">jws</span>, <span class="va">group</span>, <span class="va">name</span>, <span class="va">y</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_variables</span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">write_variables</span><span class="op">(</span><span class="va">vars</span>, <span class="va">file</span><span class="op">)</span></span></code></pre></div>
     </div>
 
 

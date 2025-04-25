@@ -5,11 +5,12 @@
 <url><loc>https://rjdverse.github.io/rjd3workspace/index.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/news/index.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/add_calendar.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3workspace/reference/add_regressors.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/add_sa_item.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3workspace/reference/add_variable.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/check_information.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/dot-jsai_metadata.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3workspace/reference/dot-jsai_results.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/get_context.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/index.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/jws_compute.html</loc></url>
@@ -18,8 +19,8 @@
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/jws_sap.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/make_copy.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/read_calendars.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3workspace/reference/read_regressors.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/read_sai.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3workspace/reference/read_variables.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/read_workspace.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/refresh.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/regarima_read_spec.html</loc></url>
@@ -41,9 +42,10 @@
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/tramo_write_spec.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/tramoseats_read_spec.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/tramoseats_write_spec.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3workspace/reference/transfer_sa_item.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/txt_update_path.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/write_calendars.html</loc></url>
-<url><loc>https://rjdverse.github.io/rjd3workspace/reference/write_variables.html</loc></url>
+<url><loc>https://rjdverse.github.io/rjd3workspace/reference/write_regressors.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/ws_sap_count.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/x13_read_spec.html</loc></url>
 <url><loc>https://rjdverse.github.io/rjd3workspace/reference/x13_write_spec.html</loc></url>

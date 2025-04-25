@@ -79,13 +79,14 @@ SA-Processing its order number (index). The original object is unaltered.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
-<span class="r-in"><span><span class="co"># jws &lt;- jws_open(file= my_workspace.xml)</span></span></span>
-<span class="r-in"><span><span class="co"># Compute the workspace to enable access its components</span></span></span>
-<span class="r-in"><span><span class="co"># jws_compute(jws)</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Compute the workspace to enable accessing its components</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="jws_compute.html">jws_compute</a></span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Extract 2nd SA-Processing</span></span></span>
-<span class="r-in"><span><span class="co">#jsap_2 &lt;- jws_sap(jws_ref,2)</span></span></span>
-<span class="r-in"><span><span class="co"># Extract 9th SA-item</span></span></span>
-<span class="r-in"><span><span class="co">#jsai_9 &lt;- jsap_sai(jsap_2,9)</span></span></span>
+<span class="r-in"><span><span class="va">jsap2</span> <span class="op">&lt;-</span> <span class="fu">jws_sap</span><span class="op">(</span><span class="va">jws</span>,<span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Extract 3rd SA-item</span></span></span>
+<span class="r-in"><span><span class="va">jsai3</span> <span class="op">&lt;-</span> <span class="fu">jsap_sai</span><span class="op">(</span><span class="va">jsap2</span>,<span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
