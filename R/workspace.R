@@ -393,17 +393,17 @@ full_path <- function(path) {
 #' # French calendar
 #'  french_calendar <- rjd3toolkit::national_calendar(
 #'    days = list(
-#'        fixed_day(7, 14), # Bastille Day
-#'        fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
-#'        special_day("NEWYEAR"),
-#'        special_day("CHRISTMAS"),
-#'        special_day("MAYDAY"),
-#'        special_day("EASTERMONDAY"),
-#'        special_day("ASCENSION"),
-#'        special_day("WHITMONDAY"),
-#'        special_day("ASSUMPTION"),
-#'        special_day("ALLSAINTSDAY"),
-#'        special_day("ARMISTICE")
+#'        rjd3toolkit::fixed_day(7, 14), # Bastille Day
+#'        rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'        rjd3toolkit::special_day("NEWYEAR"),
+#'        rjd3toolkit::special_day("CHRISTMAS"),
+#'        rjd3toolkit::special_day("MAYDAY"),
+#'        rjd3toolkit::special_day("EASTERMONDAY"),
+#'        rjd3toolkit::special_day("ASCENSION"),
+#'        rjd3toolkit::special_day("WHITMONDAY"),
+#'        rjd3toolkit::special_day("ASSUMPTION"),
+#'        rjd3toolkit::special_day("ALLSAINTSDAY"),
+#'        rjd3toolkit::special_day("ARMISTICE")
 #'    )
 #'    )
 #'# Load a Workspace
@@ -433,7 +433,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @return \code{NULL} returned invisibly
 #' @examples
 #' @export
-add_regressor <- function(jws, group, name, y) {
+add_regressors <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

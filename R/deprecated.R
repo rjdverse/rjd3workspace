@@ -233,8 +233,8 @@ transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
 #' @name deprecated-rjd3workspace
 #' @export
 add_variable <- function(jws, group, name, y) {
-    .Deprecated("add_regressor")
-    add_regressor(jws, group, name, y)
+    .Deprecated("add_regressors")
+    add_regressors(jws, group, name, y)
 }
 
 #' @name deprecated-rjd3workspace
