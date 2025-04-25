@@ -85,7 +85,7 @@ reference:
     - '`replace_sa_item`'
     - '`remove_sa_item`'
     - '`remove_all_sa_item`'
-    - '`transfer_series`'
+    - '`transfer_sa_item`'
     - '`sap_name`'
     - '`sap_sai_names`'
     - '`read_sap`'
@@ -121,11 +121,11 @@ reference:
   desc: Functions to add calendars and regressors (variables) to a workspace
   contents:
     - '`add_calendar`'
-    - '`add_variable`'
+    - '`add_regressors`'
     - '`read_calendars`'
-    - '`read_variables`'
+    - '`read_regressors`'
     - '`write_calendars`'
-    - '`write_variables`'
+    - '`write_regressors`'
 - title: Specification Files
   desc: Functions to read/write specification files
   contents:
@@ -163,3 +163,7 @@ reference:
     - '`.jsap_sai_names`'
     - '`.jsap_refresh`'
     - '`.jws_refresh`'
+    - '`transfer_series`'
+    - '`add_variable`'
+    - '`write_variables`'
+    - '`read_variables`'

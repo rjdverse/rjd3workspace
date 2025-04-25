@@ -6,9 +6,6 @@
 \usage{
 read_regressors(file)
 }
-\arguments{
-\item{file}{}
-}
 \description{
 Read auxiliary regressors file
 }

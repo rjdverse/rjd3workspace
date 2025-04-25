@@ -11,9 +11,9 @@ txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 
 \item{new_path}{new path to the csv/txt file containing raw data}
 
-\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SAProcessing(s)}
 
-\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-item(s).}
 }
 \value{
 This function returns either NULL if the update was successful, or an

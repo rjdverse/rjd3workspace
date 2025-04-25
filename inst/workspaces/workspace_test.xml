@@ -16,5 +16,25 @@
             <ns2:name>X13_No_Outliers</ns2:name>
             <ns2:file>X13Spec-1</ns2:file>
         </ns2:item>
+        <ns2:item readOnly="false">
+            <ns2:family>Utilities@Variables</ns2:family>
+            <ns2:name>UD_regs_m</ns2:name>
+            <ns2:file>Vars-1</ns2:file>
+        </ns2:item>
+        <ns2:item readOnly="false">
+            <ns2:family>Utilities@Variables</ns2:family>
+            <ns2:name>UD_regs_t</ns2:name>
+            <ns2:file>Vars-2</ns2:file>
+        </ns2:item>
+        <ns2:item readOnly="false">
+            <ns2:family>Utilities@Variables</ns2:family>
+            <ns2:name>TD_regs_m</ns2:name>
+            <ns2:file>Vars-3</ns2:file>
+        </ns2:item>
+        <ns2:item readOnly="false">
+            <ns2:family>Utilities@Variables</ns2:family>
+            <ns2:name>TD_regs_t</ns2:name>
+            <ns2:file>Vars-4</ns2:file>
+        </ns2:item>
     </ns2:items>
 </ns2:demetraGenericWorkspace>
