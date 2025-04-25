@@ -27,11 +27,11 @@ allows to update a specific key with a new information.
 }
 \examples{
 # Change the file of a given item
-file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
 jsap <- jws_sap(jws, 1)
 jsai <- jsap_sai(jsap, 1)
-nid <- rjd3providers::spreadsheet_change_file(.jsai_ts_metadata(jsai, "@id"), "test.xlsx")
+nid <- rjd3providers::txt_change_file(.jsai_ts_metadata(jsai, "@id"), "test.csv")
 put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)

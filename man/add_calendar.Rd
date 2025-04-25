@@ -21,25 +21,26 @@ Add a Calendar to a Workspace
 }
 \examples{
 # French calendar
- french_calendar <- rjd3toolkit::national_calendar(
-   days = list(
-       rjd3toolkit::fixed_day(7, 14), # Bastille Day
-       rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
-       rjd3toolkit::special_day("NEWYEAR"),
-       rjd3toolkit::special_day("CHRISTMAS"),
-       rjd3toolkit::special_day("MAYDAY"),
-       rjd3toolkit::special_day("EASTERMONDAY"),
-       rjd3toolkit::special_day("ASCENSION"),
-       rjd3toolkit::special_day("WHITMONDAY"),
-       rjd3toolkit::special_day("ASSUMPTION"),
-       rjd3toolkit::special_day("ALLSAINTSDAY"),
-       rjd3toolkit::special_day("ARMISTICE")
-   )
-   )
+french_calendar <- rjd3toolkit::national_calendar(
+    days = list(
+        rjd3toolkit::fixed_day(7, 14), # Bastille Day
+        rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+        rjd3toolkit::special_day("NEWYEAR"),
+        rjd3toolkit::special_day("CHRISTMAS"),
+        rjd3toolkit::special_day("MAYDAY"),
+        rjd3toolkit::special_day("EASTERMONDAY"),
+        rjd3toolkit::special_day("ASCENSION"),
+        rjd3toolkit::special_day("WHITMONDAY"),
+        rjd3toolkit::special_day("ASSUMPTION"),
+        rjd3toolkit::special_day("ALLSAINTSDAY"),
+        rjd3toolkit::special_day("ARMISTICE")
+    )
+)
 # Load a Workspace
- file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
- jws <- jws_open(file)
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
 # add calendar to the workspace
 add_calendar(jws, "French Calendar", french_calendar)
 get_context(jws) # The workspace already contained a Test Calendar
+
 }
