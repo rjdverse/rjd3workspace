@@ -133,14 +133,14 @@ jws_make_copy <- function(jws) {
 #' @name refresh
 #' @export
 jws_refresh <- function(jws,
-                         policy = c("FreeParameters", "Complete",
-                                    "Outliers_StochasticComponent",
-                                    "Outliers", "FixedParameters",
-                                    "FixedAutoRegressiveParameters", "Fixed"),
-                         period = 0,
-                         start = NULL,
-                         end = NULL,
-                         info = c("All", "Data", "None")) {
+                        policy = c("FreeParameters", "Complete",
+                                   "Outliers_StochasticComponent",
+                                   "Outliers", "FixedParameters",
+                                   "FixedAutoRegressiveParameters", "Fixed"),
+                        period = 0,
+                        start = NULL,
+                        end = NULL,
+                        info = c("All", "Data", "None")) {
     policy <- match.arg(policy)
     info <- match.arg(info)
     jdom <- rjd3toolkit::.jdomain(period, start, end)
@@ -391,28 +391,30 @@ full_path <- function(path) {
 #' @return \code{NULL} returned invisibly
 #' @examples
 #' # French calendar
-#'  french_calendar <- rjd3toolkit::national_calendar(
-#'    days = list(
-#'        rjd3toolkit::fixed_day(7, 14), # Bastille Day
-#'        rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
-#'        rjd3toolkit::special_day("NEWYEAR"),
-#'        rjd3toolkit::special_day("CHRISTMAS"),
-#'        rjd3toolkit::special_day("MAYDAY"),
-#'        rjd3toolkit::special_day("EASTERMONDAY"),
-#'        rjd3toolkit::special_day("ASCENSION"),
-#'        rjd3toolkit::special_day("WHITMONDAY"),
-#'        rjd3toolkit::special_day("ASSUMPTION"),
-#'        rjd3toolkit::special_day("ALLSAINTSDAY"),
-#'        rjd3toolkit::special_day("ARMISTICE")
-#'    )
-#'    )
-#'# Load a Workspace
-#'  file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
-#'  jws <- jws_open(file)
+#' french_calendar <- rjd3toolkit::national_calendar(
+#'     days = list(
+#'         rjd3toolkit::fixed_day(7, 14), # Bastille Day
+#'         rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'         rjd3toolkit::special_day("NEWYEAR"),
+#'         rjd3toolkit::special_day("CHRISTMAS"),
+#'         rjd3toolkit::special_day("MAYDAY"),
+#'         rjd3toolkit::special_day("EASTERMONDAY"),
+#'         rjd3toolkit::special_day("ASCENSION"),
+#'         rjd3toolkit::special_day("WHITMONDAY"),
+#'         rjd3toolkit::special_day("ASSUMPTION"),
+#'         rjd3toolkit::special_day("ALLSAINTSDAY"),
+#'         rjd3toolkit::special_day("ARMISTICE")
+#'     )
+#' )
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' # add calendar to the workspace
 #' add_calendar(jws, "French Calendar", french_calendar)
 #' get_context(jws) # The workspace already contained a Test Calendar
+#'
 #' @export
+#'
 add_calendar <- function(jws, name, calendar) {
     pcal <- rjd3toolkit::.r2p_calendar(calendar)
     jcal <- rjd3toolkit::.p2jd_calendar(pcal)
@@ -425,7 +427,7 @@ add_calendar <- function(jws, name, calendar) {
     )
 }
 
-#' Add Regressor to a Workspace
+#' @title Add Regressor to a Workspace
 #'
 #' @inheritParams set_context
 #' @param group,name group and name of the variable to add.
