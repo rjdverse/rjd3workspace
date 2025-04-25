@@ -10,14 +10,16 @@ sap_sai_count <- function(jsap) {
 #' @title Get the name of a SAProcessing or one (or all) Sa-item
 #'
 #' @description
-#' Functions to retrieve the name of a SAProcessing (`sap_name()`) or Sa-item (`sai_name()`) or all SA-item (`sap_sai_names()`) .
+#' Functions to retrieve the name of a SAProcessing (`sap_name()`) or Sa-item
+#' (`sai_name()`) or all SA-item (`sap_sai_names()`) .
 #'
 #' @param jsap,jsai the object to retrieve the name from.
 #' @return A vector \code{character}.
 #'
 #' @examples
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' # Extract 2nd SA-Processing
 #' jsap_2 <- jws_sap(jws,2)
@@ -104,14 +106,14 @@ jread_sap <- function(jsap) {
 #' @name refresh
 #' @export
 jsap_refresh <- function(jsap,
-                          policy = c("FreeParameters", "Complete",
-                                     "Outliers_StochasticComponent",
-                                     "Outliers", "FixedParameters",
-                                     "FixedAutoRegressiveParameters", "Fixed"),
-                          period = 0,
-                          start = NULL,
-                          end = NULL,
-                          info = c("All", "Data", "None")) {
+                         policy = c("FreeParameters", "Complete",
+                                    "Outliers_StochasticComponent",
+                                    "Outliers", "FixedParameters",
+                                    "FixedAutoRegressiveParameters", "Fixed"),
+                         period = 0,
+                         start = NULL,
+                         end = NULL,
+                         info = c("All", "Data", "None")) {
     policy <- match.arg(policy)
     info <- match.arg(info)
     jdom <- rjd3toolkit::.jdomain(period, start, end)
@@ -256,7 +258,7 @@ remove_all_sa_item <- function(jsap) {
 #' If \code{selected_sa_items} is missing, all SA-items from \code{jsap_from} will be copied.
 #' @export
 transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
-                            print_indications = TRUE) {
+                             print_indications = TRUE) {
     sap_from_sai_name <- sap_sai_names(jsap_from)
     sap_to_sai_name <- sap_sai_names(jsap_to)
 
@@ -289,12 +291,12 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
         }
 
         if (print_indications) {
-            print(paste0("Serie ", serie_name, ": Transfered."))
+             cat("Serie ", serie_name, ": Transfered.\n")
         }
     }
 
     if (print_indications) {
-        print(paste0("Done"))
+        cat("Done.\n")
     }
 
     return(invisible(NULL))
@@ -507,11 +509,11 @@ set_name <- function(jsap, idx, name) {
 #' @export
 #' @examples
 #' # Change the file of a given item
-#' file <- system.file("workspaces", "test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' jsap <- jws_sap(jws, 1)
 #' jsai <- jsap_sai(jsap, 1)
-#' nid <- rjd3providers::spreadsheet_change_file(.jsai_ts_metadata(jsai, "@id"), "test.xlsx")
+#' nid <- rjd3providers::txt_change_file(.jsai_ts_metadata(jsai, "@id"), "test.csv")
 #' put_ts_metadata(jsap, 1, "@id", nid)
 #'
 #' jsai <- jsap_sai(jsap, 1)

@@ -2,6 +2,12 @@
 % Please edit documentation in R/deprecated.R
 \name{deprecated-rjd3workspace}
 \alias{deprecated-rjd3workspace}
+\alias{.jmp_sa_count}
+\alias{.jsap_sa_count}
+\alias{.jmp_name}
+\alias{.jmp_sa}
+\alias{.jmp_sa_name}
+\alias{.jsap_sa_name}
 \alias{.jmp_load}
 \alias{.jsa_read}
 \alias{.jsa_results}
@@ -31,6 +37,18 @@
 \alias{write_variables}
 \title{Deprecated functions}
 \usage{
+.jmp_sa_count(jmp)
+
+.jsap_sa_count(jmp)
+
+.jmp_name(jmp)
+
+.jmp_sa(jmp, idx)
+
+.jmp_sa_name(jmp)
+
+.jsap_sa_name(jsap)
+
 .jmp_load(jmp)
 
 .jsa_read(jsa)
@@ -42,6 +60,8 @@
 .jsa_metadata(jsa, key)
 
 .jsa_ts_metadata(jsa, key)
+
+.jsap_sai_count(jsap)
 
 .jsap_sai_count(jsap)
 
@@ -105,6 +125,9 @@ add_variable(jws, group, name, y)
 read_variables(file)
 
 write_variables(vars, file)
+}
+\arguments{
+\item{jmp, idx, jws, name}{Parameters.}
 }
 \description{
 Deprecated functions

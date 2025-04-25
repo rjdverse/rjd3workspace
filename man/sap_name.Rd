@@ -19,11 +19,13 @@ sap_sai_names(jsap)
 A vector \code{character}.
 }
 \description{
-Functions to retrieve the name of a SAProcessing (\code{sap_name()}) or Sa-item (\code{sai_name()}) or all SA-item (\code{sap_sai_names()}) .
+Functions to retrieve the name of a SAProcessing (\code{sap_name()}) or Sa-item
+(\code{sai_name()}) or all SA-item (\code{sap_sai_names()}) .
 }
 \examples{
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 jws <- jws_open(file)
 # Extract 2nd SA-Processing
 jsap_2 <- jws_sap(jws,2)

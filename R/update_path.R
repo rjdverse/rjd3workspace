@@ -22,12 +22,12 @@
 #'
 #' @examples
 #'
-#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
-#'jws <- jws_open(file)
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' # Check if the SA-Item 3 in the SA-Processing 1 exists
 #' check_information(jws = jws, idx_sap = 1, idx_sai = 3)
 #' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
-#' check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 5))
+#' check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #'
 #' @export
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {

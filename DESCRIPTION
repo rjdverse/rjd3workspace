@@ -28,11 +28,10 @@ Imports:
     rjd3x13 (>= 3.5.0),
     tools,
     utils
-Suggests:
+Suggests: 
     knitr,
-    rmarkdown
-VignetteBuilder: 
-    knitr
+    rmarkdown,
+    testthat (>= 3.0.0)
 Remotes: 
     github::rjdverse/rjd3providers,
     github::rjdverse/rjd3toolkit,
@@ -51,3 +50,4 @@ Collate:
     'update_path.R'
     'workspace.R'
     'zzz.R'
+Config/testthat/edition: 3

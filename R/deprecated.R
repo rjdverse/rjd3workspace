@@ -1,6 +1,48 @@
-#' Deprecated functions
+#' @title Deprecated functions
 #'
-#'
+#' @param jmp,idx,jws,name Parameters.
+#' @name deprecated-rjd3workspace
+#' @export
+.jmp_sa_count <- function(jmp) {
+    .Deprecated("sap_sai_count")
+    sap_sai_count(jmp)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sa_count <- function(jmp) {
+    .Deprecated(".jsap_sai_count")
+    .jsap_sai_count(jmp)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jmp_name <- function(jmp) {
+    .Deprecated(".jsap_name")
+    .jsap_name(jmp)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jmp_sa <- function(jmp, idx) {
+    .Deprecated(".jsap_sa")
+    .jsap_sai(jmp, idx)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jmp_sa_name <- function(jmp) {
+    .Deprecated(".jsap_sai_names")
+    .jsap_sa_name(jmp)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sa_name <- function(jsap) {
+    .Deprecated(".jsap_sai_names")
+    .jsap_sa_name(jsap)
+}
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jmp_load <- function(jmp) {
@@ -43,6 +85,14 @@
     .Deprecated("sap_sai_count")
     sap_sai_count(jsap)
 }
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsap_sai_count <- function(jsap) {
+    .Deprecated("sap_sai_count")
+    sap_sai_count(jsap)
+}
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jws_sap_count <- function(jws) {
@@ -152,30 +202,30 @@
 #' @name deprecated-rjd3workspace
 #' @export
 .jws_refresh <- function(jws,
-                          policy = c("FreeParameters", "Complete",
-                                     "Outliers_StochasticComponent",
-                                     "Outliers", "FixedParameters",
-                                     "FixedAutoRegressiveParameters", "Fixed"),
-                          period = 0,
-                          start = NULL,
-                          end = NULL,
-                          info = c("All", "Data", "None")) {
+                         policy = c("FreeParameters", "Complete",
+                                    "Outliers_StochasticComponent",
+                                    "Outliers", "FixedParameters",
+                                    "FixedAutoRegressiveParameters", "Fixed"),
+                         period = 0,
+                         start = NULL,
+                         end = NULL,
+                         info = c("All", "Data", "None")) {
     .Deprecated("jws_refresh")
     jws_refresh(jws,
-                 policy = c("FreeParameters", "Complete",
-                            "Outliers_StochasticComponent",
-                            "Outliers", "FixedParameters",
-                            "FixedAutoRegressiveParameters", "Fixed"),
-                 period = 0,
-                 start = NULL,
-                 end = NULL,
-                 info = c("All", "Data", "None"))
+                policy = c("FreeParameters", "Complete",
+                           "Outliers_StochasticComponent",
+                           "Outliers", "FixedParameters",
+                           "FixedAutoRegressiveParameters", "Fixed"),
+                period = 0,
+                start = NULL,
+                end = NULL,
+                info = c("All", "Data", "None"))
 }
 
 #' @name deprecated-rjd3workspace
 #' @export
 transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
-                              print_indications = TRUE) {
+                            print_indications = TRUE) {
     .Deprecated("transfer_sa_item")
     transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
                      print_indications = TRUE)
@@ -196,7 +246,7 @@ read_variables <- function(file) {
 
 #' @name deprecated-rjd3workspace
 #' @export
-write_variables <- function(vars,file) {
+write_variables <- function(vars, file) {
     .Deprecated("write_regressors")
-    write_regressors(vars,file)
+    write_regressors(vars, file)
 }
