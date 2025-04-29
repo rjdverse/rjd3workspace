@@ -29,7 +29,6 @@
 #' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 #' check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #'
-#' @export
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {

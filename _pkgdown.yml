@@ -123,11 +123,11 @@ reference:
   desc: Functions to add calendars and regressors (variables) to a workspace
   contents:
     - '`add_calendar`'
-    - '`add_regressors`'
+    - '`add_variables`'
     - '`read_calendars`'
-    - '`read_regressors`'
+    - '`read_variables`'
     - '`write_calendars`'
-    - '`write_regressors`'
+    - '`write_variables`'
 - title: Specification Files
   desc: Functions to read/write specification files
   contents:

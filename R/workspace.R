@@ -435,7 +435,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @return \code{NULL} returned invisibly
 #' @examples
 #' @export
-add_regressors <- function(jws, group, name, y) {
+add_variables <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)
