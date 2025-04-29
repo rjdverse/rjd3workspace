@@ -9,13 +9,17 @@ NULL
 #' @param jsai Java SA-item object.
 #' @return a list
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Select SAProcessing
-#' sap1<- jws_sap(jws,1)
+#' sap1 <- jws_sap(jws, 1)
+#'
 #' # Select SA-item (as java object)
-#' sai1 <-jsap_sai(sap1,3)
+#' sai1 <- jsap_sai(sap1, 3)
+#'
 #' @details A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
 #' returns a list of 5 objects:

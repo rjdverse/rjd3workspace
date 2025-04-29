@@ -158,9 +158,11 @@ x13_write_spec <- function(spec, file) {
 #' @return a list
 #'
 #' @examples
-#' file <- system.file("workspaces", "workspace_test","Calendars","Calendars.xml",package = "rjd3workspace")
-#' my_calendar<-read_calendars(file)
+#'
+#' file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
+#' my_calendar <- read_calendars(file)
 #' my_calendar
+#'
 #' @export
 read_calendars <- function(file) {
     jspec <- .jcall(

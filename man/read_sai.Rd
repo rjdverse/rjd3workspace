@@ -29,11 +29,15 @@ estimation (fully identified model).
 }
 }
 \examples{
+
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
+
 # Select SAProcessing
-sap1<- jws_sap(jws,1)
+sap1 <- jws_sap(jws, 1)
+
 # Select SA-item (as java object)
-sai1 <-jsap_sai(sap1,3)
+sai1 <- jsap_sai(sap1, 3)
+
 }

@@ -23,19 +23,23 @@ error
 Update the path to raw data in a workspace (txt/csv file)
 }
 \examples{
+
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 my_ws <- jws_open(file)
-ws_sap_count(my_ws)
+
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 txt_update_path(
- jws = my_ws,
- new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
- idx_sap = 2)
- # select one (the 2nd) SA-item from second SA-Processing
- sap2<- jws_sap(my_ws,2)
- sai2<-jsap_sai(sap2,2)
- # check path
- sai2_list<-read_sai(sai2)
- sai2_list$ts$metadata$`@id`
+    jws = my_ws,
+    new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+    idx_sap = 1
+)
+
+# Select one (the 2nd) SA-item from first SA-Processing
+sap1 <- jws_sap(my_ws, 1)
+sai2 <- jsap_sai(sap1, 2)
+
+# Check path
+.jsai_ts_metadata(sai2, "@id")
+
 }

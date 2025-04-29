@@ -26,6 +26,7 @@ Function to set the time series metadata of a SA-item (provider, source of the d
 allows to update a specific key with a new information.
 }
 \examples{
+
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
@@ -36,4 +37,5 @@ put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)
 .jsai_ts_metadata(jsai, "@id")
+
 }

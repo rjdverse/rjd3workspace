@@ -24,8 +24,10 @@
 #'
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Check if the SA-Item 3 in the SA-Processing 1 exists
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = 3)
+#'
 #' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #'
@@ -63,21 +65,25 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 #'
 #' @examples
+#'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_ws <- jws_open(file)
-#' ws_sap_count(my_ws)
+#'
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
-#' txt_update_path(
-#'  jws = my_ws,
-#'  new_path = system.file("data", "IPI_nace4.xlsx", package = "rjd3workspace"),
-#'  idx_sap = 2)
-#'  # select one (the 2nd) SA-item from second SA-Processing
-#'  sap2<- jws_sap(my_ws,2)
-#'  sai2<-jsap_sai(sap2,2)
-#'  # check path
-#'  sai2_list<-read_sai(sai2)
-#'  sai2_list$ts$metadata$`@id`
+#' spreadsheet_update_path(
+#'     jws = my_ws,
+#'     new_path = system.file("data", "IPI_nace4.xlsx", package = "rjd3workspace"),
+#'     idx_sap = 2
+#' )
+#'
+#' # Select one (the 2nd) SA-item from second SA-Processing
+#' sap2 <- jws_sap(my_ws, 2)
+#' sai2 <- jsap_sai(sap2, 2)
+#'
+#' # Check path
+#' .jsai_ts_metadata(sai2, "@id")
+#'
 #' @export
 spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
@@ -101,24 +107,16 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
-
-            old_jd3_ts <- get_ts(jsai)
-            properties <- rjd3providers::spreadsheet_id_properties(old_jd3_ts$metadata$`@id`)
-            properties$file <- new_path
-            new_id <- rjd3providers::spreadsheet_to_id(properties)
-
-            new_jd3_ts <- old_jd3_ts
-            new_jd3_ts$metadata$`@id` <- new_id
-            new_jd3_ts$moniker$id <- new_id
-            new_jd3_ts$moniker$source <- new_jd3_ts$metadata$`@source`
-            set_ts(jsap = jsap, idx = id_sai, y = new_jd3_ts)
+            jsai_id <- .jsai_ts_metadata(jsai, "@id")
+            nid <- rjd3providers::spreadsheet_change_file(id = jsai_id, nfile = new_path)
+            put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }
 
     return(invisible(NULL))
 }
 
-#' Update the path to raw data in a workspace (txt/csv file)
+#' @title Update the path to raw data in a workspace (txt/csv file)
 #'
 #' @inheritParams check_information
 #'
@@ -128,21 +126,25 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #' This function returns either NULL if the update was successful, or an
 #' error
 #' @examples
+#'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_ws <- jws_open(file)
-#' ws_sap_count(my_ws)
+#'
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 #' txt_update_path(
-#'  jws = my_ws,
-#'  new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
-#'  idx_sap = 2)
-#'  # select one (the 2nd) SA-item from second SA-Processing
-#'  sap2<- jws_sap(my_ws,2)
-#'  sai2<-jsap_sai(sap2,2)
-#'  # check path
-#'  sai2_list<-read_sai(sai2)
-#'  sai2_list$ts$metadata$`@id`
+#'     jws = my_ws,
+#'     new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+#'     idx_sap = 1
+#' )
+#'
+#' # Select one (the 2nd) SA-item from first SA-Processing
+#' sap1 <- jws_sap(my_ws, 1)
+#' sai2 <- jsap_sai(sap1, 2)
+#'
+#' # Check path
+#' .jsai_ts_metadata(sai2, "@id")
+#'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
@@ -166,17 +168,9 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
-
-            old_jd3_ts <- get_ts(jsai)
-            properties <- rjd3providers::txt_id_properties(old_jd3_ts$metadata$`@id`)
-            properties$file <- new_path
-            new_id <- rjd3providers::txt_to_id(properties)
-
-            new_jd3_ts <- old_jd3_ts
-            new_jd3_ts$metadata$`@id` <- new_id
-            new_jd3_ts$moniker$id <- new_id
-            new_jd3_ts$moniker$source <- new_jd3_ts$metadata$`@source`
-            set_ts(jsap = jsap, idx = id_sai, y = new_jd3_ts)
+            jsai_id <- .jsai_ts_metadata(jsai, "@id")
+            nid <- rjd3providers::txt_change_file(id = jsai_id, nfile = new_path)
+            put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }
 
