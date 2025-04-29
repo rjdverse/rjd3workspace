@@ -166,6 +166,3 @@ reference:
     - '`.jsap_refresh`'
     - '`.jws_refresh`'
     - '`transfer_series`'
-    - '`add_variable`'
-    - '`write_variables`'
-    - '`read_variables`'
