@@ -451,10 +451,14 @@ get_raw_data <- function(jsai) {
 #' # Change the ts object
 #' set_ts(jsap = jsap, idx = 1L, ts_object)
 #'
+#' jsai1 <- jsap_sai(jsap, 1L)
+#' jsai2 <- jsap_sai(jsap, 2L)
+#' jsai3 <- jsap_sai(jsap, 3L)
+#'
 #' # Get the ts object
-#' get_ts(jsap = jsap, idx = 1L)
-#' get_ts(jsap = jsap, idx = 2L)
-#' get_ts(jsap = jsap, idx = 3L)
+#' get_ts(jsai1)
+#' get_ts(jsai2)
+#' get_ts(jsai3)
 #'
 set_ts <- function(jsap, idx, y) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -495,7 +499,7 @@ get_ts <- function(jsai) {
 #' set_comment(jsap1, 2L, "data collection changed in 2012")
 #'
 #' jsai2 <- jsap_sai(jsap1, 2L)
-#' get_comment(sai1)
+#' get_comment(jsai2)
 #'
 #' @export
 set_comment <- function(jsap, idx, comment) {
@@ -671,14 +675,15 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_jws <- jws_open(file)
 #'
-#' # Select one (the 2nd) SA-item from first SA-Processing
+#' # Select the first SA-Processing and SA-Item
 #' jsap <- jws_sap(my_jws, 1)
+#' jsai <- jsap_sai(jsap, 1L)
 #'
 #' # Change priority
 #' set_priority(jsap, idx = 1L, priority = 3L)
 #'
 #' # Retrieve priority
-#' get_priority(jsap, idx = 1L)
+#' get_priority(jsai)
 #'
 #'
 set_priority <- function(jsap, idx, priority = 0L) {

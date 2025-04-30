@@ -37,6 +37,6 @@ jsap1 <- jws_sap(jws, 1L)
 set_comment(jsap1, 2L, "data collection changed in 2012")
 
 jsai2 <- jsap_sai(jsap1, 2L)
-get_comment(sai1)
+get_comment(jsai2)
 
 }

@@ -27,14 +27,15 @@ Get/Set SA-item Priority
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 my_jws <- jws_open(file)
 
-# Select one (the 2nd) SA-item from first SA-Processing
+# Select the first SA-Processing and SA-Item
 jsap <- jws_sap(my_jws, 1)
+jsai <- jsap_sai(jsap, 1L)
 
 # Change priority
 set_priority(jsap, idx = 1L, priority = 3L)
 
 # Retrieve priority
-get_priority(jsap, idx = 1L)
+get_priority(jsai)
 
 
 }

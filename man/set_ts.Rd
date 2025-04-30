@@ -43,9 +43,13 @@ jsap <- jws_sap(my_jws, 1L)
 # Change the ts object
 set_ts(jsap = jsap, idx = 1L, ts_object)
 
+jsai1 <- jsap_sai(jsap, 1L)
+jsai2 <- jsap_sai(jsap, 2L)
+jsai3 <- jsap_sai(jsap, 3L)
+
 # Get the ts object
-get_ts(jsap = jsap, idx = 1L)
-get_ts(jsap = jsap, idx = 2L)
-get_ts(jsap = jsap, idx = 3L)
+get_ts(jsai1)
+get_ts(jsai2)
+get_ts(jsai3)
 
 }
