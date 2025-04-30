@@ -106,8 +106,7 @@ reference:
 - title: "SA-Items: metadata"
   desc: Functions to get and set metadata from an SA-Item
   contents:
-    - '`.jsai_metadata`'
-    - '`.jsai_ts_metadata`'
+    - '`get_metadata`'
     - '`set_comment`'
     - '`get_comment`'
     - '`set_name`'
@@ -117,6 +116,7 @@ reference:
     - '`get_raw_data`'
     - '`set_ts`'
     - '`get_ts`'
+    - '`get_ts_metadata`'
     - '`set_ts_metadata`'
     - '`put_ts_metadata`'
 - title: Calendars and regressors
