@@ -35,9 +35,9 @@ file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace
 jws <- jws_open(file)
 
 # Select SAProcessing
-sap1 <- jws_sap(jws, 1)
+jsap1 <- jws_sap(jws, 1)
 
 # Select SA-item (as java object)
-sai1 <- jsap_sai(sap1, 3)
+jsai1 <- jsap_sai(jsap1, 3)
 
 }

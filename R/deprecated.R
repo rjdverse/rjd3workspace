@@ -73,12 +73,20 @@
     .Deprecated(".jsai_metadata")
     .jsai_metadata(jsa, key)
 }
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jsa_ts_metadata <- function(jsa, key) {
-    .Deprecated(".jsai_ts_metadata")
-    .jsai_ts_metadata(jsa, key)
+    .Deprecated("get_ts_metadata")
+    get_ts_metadata(jsa, key)
 }
+#' @name deprecated-rjd3workspace
+#' @export
+.jsai_ts_metadata <- function(jsa, key) {
+    .Deprecated("get_ts_metadata")
+    get_ts_metadata(jsa, key)
+}
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jsap_sai_count <- function(jsap) {
@@ -229,4 +237,11 @@ transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
     .Deprecated("transfer_sa_item")
     transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
                      print_indications = TRUE)
+}
+
+#' @name deprecated-rjd3workspace
+#' @export
+.jsai_metadata <- function(jsai, key) {
+    .Deprecated("get_metadata")
+    get_metadata(jsai, key)
 }

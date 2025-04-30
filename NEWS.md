@@ -7,8 +7,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.5.0] - 2025-04-10
+### Changed
 
+* Rename `.jsai_ts_metadata` into `get_ts_metadata()`
+* Rename `.jsai_metadata` into `get_metadata()`
+* Simplified the modification of path in `update_path()`
+
+
+## [3.5.0] - 2025-04-10
 
 ### Added
 

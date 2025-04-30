@@ -22,3 +22,30 @@ get_ts(jsai)
 (JDemetra+) time series contains more information than raw data,
 which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
 }
+\examples{
+# Load a workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+my_jws <- jws_open(file)
+
+library("rjd3providers")
+data_path <- system.file("data", "IPI_nace4.csv", package = "rjd3workspace")
+
+ts_object <- txt_series(
+    file = data_path,
+    series = 1L,
+    delimiter = "SEMICOLON",
+    fmt.date = "dd/MM/yyyy"
+)
+
+# Select the first SA-Processing
+jsap <- jws_sap(my_jws, 1L)
+
+# Change the ts object
+set_ts(jsap = jsap, idx = 1L, ts_object)
+
+# Get the ts object
+get_ts(jsap = jsap, idx = 1L)
+get_ts(jsap = jsap, idx = 2L)
+get_ts(jsap = jsap, idx = 3L)
+
+}

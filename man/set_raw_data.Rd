@@ -31,14 +31,15 @@ file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace
 jws <- jws_open(file)
 
 # Select SAProcessing
-sap1 <- jws_sap(jws,1)
+sap1 <- jws_sap(jws, 1)
 
 # Select SA-item
-sai1 <- jsap_sai(sap1,3) # java object sai
+sai1 <- jsap_sai(sap1, 3) # java object sai
 tail(get_raw_data(sai1))
+
 new_raw_data <- rjd3toolkit::ABS$X0.2.15.10.M
-tail(new_raw_data)
 set_raw_data(sap1,3,new_raw_data)
+
 sai1 <- jsap_sai(sap1,3) # reload SA-item
 tail(get_raw_data(sai1)) # get raw data
 

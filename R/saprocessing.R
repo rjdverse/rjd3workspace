@@ -379,7 +379,7 @@ set_domain_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
-#' Get/Set Raw Data in a SA-item
+#' @title Get/Set Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
 #' @param y new raw time series.
@@ -393,14 +393,15 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
-#' sap1 <- jws_sap(jws,1)
+#' sap1 <- jws_sap(jws, 1)
 #'
 #' # Select SA-item
-#' sai1 <- jsap_sai(sap1,3) # java object sai
+#' sai1 <- jsap_sai(sap1, 3) # java object sai
 #' tail(get_raw_data(sai1))
+#'
 #' new_raw_data <- rjd3toolkit::ABS$X0.2.15.10.M
-#' tail(new_raw_data)
 #' set_raw_data(sap1,3,new_raw_data)
+#'
 #' sai1 <- jsap_sai(sap1,3) # reload SA-item
 #' tail(get_raw_data(sai1)) # get raw data
 #'
@@ -419,7 +420,7 @@ get_raw_data <- function(jsai) {
     rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
 }
 
-#' Get/Set the (JDemetra+) time series of a SA-item
+#' @title Get/Set the (JDemetra+) time series of a SA-item
 #'
 #' @description
 #' (JDemetra+) time series contains more information than raw data,
@@ -428,6 +429,33 @@ get_raw_data <- function(jsai) {
 #' @inheritParams set_raw_data
 #' @param y a "full" time series (jd3-like).
 #' @export
+#'
+#' @examples
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_jws <- jws_open(file)
+#'
+#' library("rjd3providers")
+#' data_path <- system.file("data", "IPI_nace4.csv", package = "rjd3workspace")
+#'
+#' ts_object <- txt_series(
+#'     file = data_path,
+#'     series = 1L,
+#'     delimiter = "SEMICOLON",
+#'     fmt.date = "dd/MM/yyyy"
+#' )
+#'
+#' # Select the first SA-Processing
+#' jsap <- jws_sap(my_jws, 1L)
+#'
+#' # Change the ts object
+#' set_ts(jsap = jsap, idx = 1L, ts_object)
+#'
+#' # Get the ts object
+#' get_ts(jsap = jsap, idx = 1L)
+#' get_ts(jsap = jsap, idx = 2L)
+#' get_ts(jsap = jsap, idx = 3L)
+#'
 set_ts <- function(jsap, idx, y) {
     jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
@@ -461,12 +489,12 @@ get_ts <- function(jsai) {
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
-#' sap1 <- jws_sap(jws, 1)
+#' jsap1 <- jws_sap(jws, 1L)
 #'
-#' # Select SA-item
-#' sai1 <- jsap_sai(sap1, 3)
-#' set_comment(sap1, 2, "data collection changed in 2012")
-#' sai1 <- jsap_sai(sap1, 2) # reload sai
+#' # Add a comment
+#' set_comment(jsap1, 2L, "data collection changed in 2012")
+#'
+#' jsai2 <- jsap_sai(jsap1, 2L)
 #' get_comment(sai1)
 #'
 #' @export
@@ -525,14 +553,9 @@ set_name <- function(jsap, idx, name) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-# set_metadata <- function(jsap, ref_jsai, idx) {
-#   jsai <- jsap_sai(jsap, idx = idx)
-#   jsai <- jsa$withInformations(ref_jsai$getMeta())
-#   replace_sa_item(jsap, jsai = jsai, idx = idx)
-# }
-
-#' Set (JDemetra+) Time Series Metadata of a SA-item
+#' @title Set (JDemetra+) Time Series Metadata of a SA-item
 #'
+#' @description
 #' Function to set the time series metadata of a SA-item (provider, source of the data...).
 #' `set_ts_metadata()` uses the metadata of another SA-item while `put_ts_metadata()`
 #' allows to update a specific key with a new information.
@@ -550,12 +573,47 @@ set_name <- function(jsap, idx, name) {
 #' jws <- jws_open(file)
 #' jsap <- jws_sap(jws, 1)
 #' jsai <- jsap_sai(jsap, 1)
-#' nid <- rjd3providers::txt_change_file(.jsai_ts_metadata(jsai, "@id"), "test.csv")
+#' nid <- rjd3providers::txt_change_file(get_ts_metadata(jsai, "@id"), "test.csv")
 #' put_ts_metadata(jsap, 1, "@id", nid)
 #'
 #' jsai <- jsap_sai(jsap, 1)
-#' .jsai_ts_metadata(jsai, "@id")
+#' get_ts_metadata(jsai, "@id")
 #'
+
+
+# set_metadata <- function(jsap, ref_jsai, idx) {
+#   jsai <- jsap_sai(jsap, idx = idx)
+#   jsai <- jsa$withInformations(ref_jsai$getMeta())
+#   replace_sa_item(jsap, jsai = jsai, idx = idx)
+# }
+
+# put_metadata <- function (jsap, idx, key, value) {
+#     jsai <- jsap_sai(jsap, idx = idx)
+#
+#     meta <- .jcall(jsai, "Ljava/util/Map;", "getMeta")
+#     new_meta <- .jnew("java/util/HashMap", meta)
+#
+#     jkey <- .jnew("java/lang/String", key)
+#     jvalue <- .jnew("java/lang/String", value)
+#
+#     .jcall(
+#         obj = new_meta,
+#         returnSig = "Ljava/lang/Object;",
+#         method = "put",
+#         .jcast(jkey, "java/lang/Object"),
+#         .jcast(jvalue, "java/lang/Object")
+#     )
+#
+#     jsai <- .jcall(
+#         obj = jsai,
+#         returnSig = "Ljdplus/sa/base/api/SaItem;",
+#         method = "withInformations",
+#         .jcast(new_meta, "java/util/Map")
+#     )
+#
+#     replace_sa_item(jsap, jsai = jsai, idx = idx)
+# }
+
 set_ts_metadata <- function(jsap, idx, ref_jsai) {
 
     jsai <- jsap_sai(jsap, idx = idx)
@@ -601,11 +659,28 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 }
 
 
-#' Get/Set SA-item Priority
+#' @title Get/Set SA-item Priority
 #'
 #' @inheritParams set_raw_data
 #' @param priority integer containing the priority.
 #' @export
+#'
+#' @examples
+#'
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_jws <- jws_open(file)
+#'
+#' # Select one (the 2nd) SA-item from first SA-Processing
+#' jsap <- jws_sap(my_jws, 1)
+#'
+#' # Change priority
+#' set_priority(jsap, idx = 1L, priority = 3L)
+#'
+#' # Retrieve priority
+#' get_priority(jsap, idx = 1L)
+#'
+#'
 set_priority <- function(jsap, idx, priority = 0L) {
     jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
@@ -616,6 +691,7 @@ set_priority <- function(jsap, idx, priority = 0L) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
+
 #' @name set_priority
 #' @export
 get_priority <- function(jsai) {

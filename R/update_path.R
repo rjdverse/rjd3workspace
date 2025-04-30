@@ -82,7 +82,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' sai2 <- jsap_sai(sap2, 2)
 #'
 #' # Check path
-#' .jsai_ts_metadata(sai2, "@id")
+#' get_ts_metadata(sai2, "@id")
 #'
 #' @export
 spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
@@ -107,7 +107,7 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
-            jsai_id <- .jsai_ts_metadata(jsai, "@id")
+            jsai_id <- get_ts_metadata(jsai, "@id")
             nid <- rjd3providers::spreadsheet_change_file(id = jsai_id, nfile = new_path)
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }
@@ -143,7 +143,7 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #' sai2 <- jsap_sai(sap1, 2)
 #'
 #' # Check path
-#' .jsai_ts_metadata(sai2, "@id")
+#' get_ts_metadata(sai2, "@id")
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
@@ -168,7 +168,7 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
 
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
-            jsai_id <- .jsai_ts_metadata(jsai, "@id")
+            jsai_id <- get_ts_metadata(jsai, "@id")
             nid <- rjd3providers::txt_change_file(id = jsai_id, nfile = new_path)
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }

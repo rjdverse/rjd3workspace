@@ -21,3 +21,20 @@ get_priority(jsai)
 \description{
 Get/Set SA-item Priority
 }
+\examples{
+
+# Load a workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+my_jws <- jws_open(file)
+
+# Select one (the 2nd) SA-item from first SA-Processing
+jsap <- jws_sap(my_jws, 1)
+
+# Change priority
+set_priority(jsap, idx = 1L, priority = 3L)
+
+# Retrieve priority
+get_priority(jsap, idx = 1L)
+
+
+}

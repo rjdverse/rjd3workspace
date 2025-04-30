@@ -43,6 +43,6 @@ sap2 <- jws_sap(my_ws, 2)
 sai2 <- jsap_sai(sap2, 2)
 
 # Check path
-.jsai_ts_metadata(sai2, "@id")
+get_ts_metadata(sai2, "@id")
 
 }

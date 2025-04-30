@@ -17,7 +17,9 @@ The calendar file is an xml file like the one JDemetra+ would write when definin
 Graphical User Interface.
 }
 \examples{
-file <- system.file("workspaces", "workspace_test","Calendars","Calendars.xml",package = "rjd3workspace")
-my_calendar<-read_calendars(file)
+
+file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
+my_calendar <- read_calendars(file)
 my_calendar
+
 }
