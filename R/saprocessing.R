@@ -17,16 +17,21 @@ sap_sai_count <- function(jsap) {
 #' @return A vector \code{character}.
 #'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
 #'                     package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Extract 2nd SA-Processing
-#' jsap_2 <- jws_sap(jws,2)
+#' jsap_2 <- jws_sap(jws, 2)
+#'
 #' # Retrieve the name
 #' sap_name(jsap_2)
+#'
 #' # Retrieve all the SA-items names
 #' sap_sai_names(jsap_2)
+#'
 #' @export
 sap_name <- function(jsap) {
     return(.jcall(jsap, "S", "getName"))
@@ -137,24 +142,32 @@ jsap_refresh <- function(jsap,
 #' @return \code{NULL} returned invisibly
 #'
 #' @examples
+#'
 #' dir <- tempdir()
-#' # raw series
+#'
+#' # Raw series
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
-#' # creating an empty workspace and SAProcessing
+#'
+#' # Creating an empty workspace and SAProcessing
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
-#' # adding SA-item as estimation result
-#' # estimation with rjd313
+#'
+#' # Adding SA-item as estimation result
+#' # Estimation with rjd313
 #' add_sa_item(jsap1, name = "series_1", x = rjd3x13::x13(y))
-#' # estimation with rjd3tramoseats
+#'
+#' # Estimation with rjd3tramoseats
 #' add_sa_item(jsap1, name = "series_2", x = rjd3tramoseats::tramoseats(y))
-#' # adding SA-item as raw series + specification
+#'
+#' # Adding SA-item as raw series + specification
 #' add_sa_item(jsap1, name = "series_3", x = y, rjd3x13::x13_spec("RSA3"))
 #' add_sa_item(jsap1, name = "series_4", x = y, rjd3tramoseats::tramoseats_spec("RSAFull"))
-#' rws<-read_workspace(jws)
+#' rws <- read_workspace(jws)
 #' rws$processing$sap1$series_4
+#'
 #' # Writing the workspace
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
+#'
 #' @export
 add_sa_item <- function(jsap, name, x, spec, ...) {
     UseMethod("add_sa_item", x)
@@ -307,19 +320,26 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 #' @param spec new specification generated with [rjd3x13::x13_spec()] or [rjd3tramoseats::tramoseats_spec()]
 #' @return \code{NULL} returned invisibly
 #' @examples
+#'
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
+#'
 #' spec <- rjd3x13::x13_spec("rsa3") |>
-#'  rjd3toolkit::set_basic(type = "From", d0 = "2012-01-01")
-#'  # Load a Workspace to modify
-#'  file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
-#'  jws <- jws_open(file)
-#'  # Select SAProcessing with the target SA-item
-#'  sap1<- jws_sap(jws,1)
-#'  # Set specification in targeted SA-item
-#'  set_specification(sap1, 2, spec)
-#'  # Set domain specification in selected SA-item
-#'  set_domain_specification(sap1, 3, spec)
+#'     rjd3toolkit::set_basic(type = "From", d0 = "2012-01-01")
+#'
+#' # Load a Workspace to modify
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Select SAProcessing with the target SA-item
+#' sap1 <- jws_sap(jws, 1)
+#'
+#' # Set specification in targeted SA-item
+#' set_specification(sap1, 2, spec)
+#'
+#' # Set domain specification in selected SA-item
+#' set_domain_specification(sap1, 3, spec)
+#'
 #' @export
 set_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
@@ -359,26 +379,32 @@ set_domain_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
-#' Get/Set Raw Data in a SA-item
+#' @title Get/Set Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
 #' @param y new raw time series.
 #' @param jsai a SA-item.
 #' @return \code{NULL} returned invisibly (set) or TS object (get)
+#'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Select SAProcessing
-#' sap1<- jws_sap(jws,1)
+#' sap1 <- jws_sap(jws, 1)
+#'
 #' # Select SA-item
-#' sai1<-jsap_sai(sap1,3) # java object sai
+#' sai1 <- jsap_sai(sap1, 3) # java object sai
 #' tail(get_raw_data(sai1))
-#' new_raw_data <-rjd3toolkit::ABS$X0.2.15.10.M
-#' tail(new_raw_data)
+#'
+#' new_raw_data <- rjd3toolkit::ABS$X0.2.15.10.M
 #' set_raw_data(sap1,3,new_raw_data)
-#' sai1<-jsap_sai(sap1,3) # reload SA-item
+#'
+#' sai1 <- jsap_sai(sap1,3) # reload SA-item
 #' tail(get_raw_data(sai1)) # get raw data
+#'
 #' @export
 set_raw_data <- function(jsap, idx, y) {
     .jcall(jsap, "V", "setData", as.integer(idx - 1L), rjd3toolkit::.r2jd_tsdata(y))
@@ -394,7 +420,7 @@ get_raw_data <- function(jsai) {
     rjd3toolkit::.jd2r_tsdata(.jcall(jts, "Ljdplus/toolkit/base/api/timeseries/TsData;", "getData"))
 }
 
-#' Get/Set the (JDemetra+) time series of a SA-item
+#' @title Get/Set the (JDemetra+) time series of a SA-item
 #'
 #' @description
 #' (JDemetra+) time series contains more information than raw data,
@@ -403,6 +429,37 @@ get_raw_data <- function(jsai) {
 #' @inheritParams set_raw_data
 #' @param y a "full" time series (jd3-like).
 #' @export
+#'
+#' @examples
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_jws <- jws_open(file)
+#'
+#' library("rjd3providers")
+#' data_path <- system.file("data", "IPI_nace4.csv", package = "rjd3workspace")
+#'
+#' ts_object <- txt_series(
+#'     file = data_path,
+#'     series = 1L,
+#'     delimiter = "SEMICOLON",
+#'     fmt.date = "dd/MM/yyyy"
+#' )
+#'
+#' # Select the first SA-Processing
+#' jsap <- jws_sap(my_jws, 1L)
+#'
+#' # Change the ts object
+#' set_ts(jsap = jsap, idx = 1L, ts_object)
+#'
+#' jsai1 <- jsap_sai(jsap, 1L)
+#' jsai2 <- jsap_sai(jsap, 2L)
+#' jsai3 <- jsap_sai(jsap, 3L)
+#'
+#' # Get the ts object
+#' get_ts(jsai1)
+#' get_ts(jsai2)
+#' get_ts(jsai3)
+#'
 set_ts <- function(jsap, idx, y) {
     jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
@@ -428,17 +485,22 @@ get_ts <- function(jsai) {
 #' @inheritParams set_raw_data
 #' @param comment character containing the comment.
 #' @return \code{NULL} returned invisibly
+#'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Select SAProcessing
-#' sap1<- jws_sap(jws,1)
-#' # Select SA-item
-#' sai1<-jsap_sai(sap1,3)
-#' set_comment(sap1,2,"data collection changed in 2012")
-#' sai1<-jsap_sai(sap1,2) # reload sai
-#' get_comment(sai1)
+#' jsap1 <- jws_sap(jws, 1L)
+#'
+#' # Add a comment
+#' set_comment(jsap1, 2L, "data collection changed in 2012")
+#'
+#' jsai2 <- jsap_sai(jsap1, 2L)
+#' get_comment(jsai2)
+#'
 #' @export
 set_comment <- function(jsap, idx, comment) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -465,18 +527,24 @@ get_comment <- function(jsai) {
 #' @return \code{NULL} returned invisibly
 #' @seealso [sai_name()]
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Select SAProcessing
-#' sap1<- jws_sap(jws,1)
+#' sap1 <- jws_sap(jws,1)
+#'
 #' # Select SA-item
-#' sai1<-jsap_sai(sap1,3) # java object sai
-#' #set name
+#' sai1 <- jsap_sai(sap1,3) # java object sai
+#'
+#' # set name
 #' set_name(sap1,3,"RF1011_1")
+#'
 #' # check
-#' sai1<-jsap_sai(sap1,3) # reload sai
+#' sai1 <- jsap_sai(sap1,3) # reload sai
 #' sai_name(sai1) #get name
+#'
 #' @export
 set_name <- function(jsap, idx, name) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -489,14 +557,9 @@ set_name <- function(jsap, idx, name) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-# set_metadata <- function(jsap, ref_jsai, idx) {
-#   jsai <- jsap_sai(jsap, idx = idx)
-#   jsai <- jsa$withInformations(ref_jsai$getMeta())
-#   replace_sa_item(jsap, jsai = jsai, idx = idx)
-# }
-
-#' Set (JDemetra+) Time Series Metadata of a SA-item
+#' @title Set (JDemetra+) Time Series Metadata of a SA-item
 #'
+#' @description
 #' Function to set the time series metadata of a SA-item (provider, source of the data...).
 #' `set_ts_metadata()` uses the metadata of another SA-item while `put_ts_metadata()`
 #' allows to update a specific key with a new information.
@@ -508,16 +571,53 @@ set_name <- function(jsap, idx, name) {
 #'
 #' @export
 #' @examples
+#'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' jsap <- jws_sap(jws, 1)
 #' jsai <- jsap_sai(jsap, 1)
-#' nid <- rjd3providers::txt_change_file(.jsai_ts_metadata(jsai, "@id"), "test.csv")
+#' nid <- rjd3providers::txt_change_file(get_ts_metadata(jsai, "@id"), "test.csv")
 #' put_ts_metadata(jsap, 1, "@id", nid)
 #'
 #' jsai <- jsap_sai(jsap, 1)
-#' .jsai_ts_metadata(jsai, "@id")
+#' get_ts_metadata(jsai, "@id")
+#'
+
+
+# set_metadata <- function(jsap, ref_jsai, idx) {
+#   jsai <- jsap_sai(jsap, idx = idx)
+#   jsai <- jsa$withInformations(ref_jsai$getMeta())
+#   replace_sa_item(jsap, jsai = jsai, idx = idx)
+# }
+
+# put_metadata <- function (jsap, idx, key, value) {
+#     jsai <- jsap_sai(jsap, idx = idx)
+#
+#     meta <- .jcall(jsai, "Ljava/util/Map;", "getMeta")
+#     new_meta <- .jnew("java/util/HashMap", meta)
+#
+#     jkey <- .jnew("java/lang/String", key)
+#     jvalue <- .jnew("java/lang/String", value)
+#
+#     .jcall(
+#         obj = new_meta,
+#         returnSig = "Ljava/lang/Object;",
+#         method = "put",
+#         .jcast(jkey, "java/lang/Object"),
+#         .jcast(jvalue, "java/lang/Object")
+#     )
+#
+#     jsai <- .jcall(
+#         obj = jsai,
+#         returnSig = "Ljdplus/sa/base/api/SaItem;",
+#         method = "withInformations",
+#         .jcast(new_meta, "java/util/Map")
+#     )
+#
+#     replace_sa_item(jsap, jsai = jsai, idx = idx)
+# }
+
 set_ts_metadata <- function(jsap, idx, ref_jsai) {
 
     jsai <- jsap_sai(jsap, idx = idx)
@@ -563,11 +663,29 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 }
 
 
-#' Get/Set SA-item Priority
+#' @title Get/Set SA-item Priority
 #'
 #' @inheritParams set_raw_data
 #' @param priority integer containing the priority.
 #' @export
+#'
+#' @examples
+#'
+#' # Load a workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' my_jws <- jws_open(file)
+#'
+#' # Select the first SA-Processing and SA-Item
+#' jsap <- jws_sap(my_jws, 1)
+#' jsai <- jsap_sai(jsap, 1L)
+#'
+#' # Change priority
+#' set_priority(jsap, idx = 1L, priority = 3L)
+#'
+#' # Retrieve priority
+#' get_priority(jsai)
+#'
+#'
 set_priority <- function(jsap, idx, priority = 0L) {
     jsai <- jsap_sai(jsap, idx = idx)
     jsai <- .jcall(
@@ -578,6 +696,7 @@ set_priority <- function(jsap, idx, priority = 0L) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
+
 #' @name set_priority
 #' @export
 get_priority <- function(jsai) {

@@ -1,21 +1,27 @@
 #' @include utils.R
 NULL
 
-#' Read an SA-item
+#' @title Read an SA-item
 #'
 #' @description
 #' `read_sai()` extracts all the information of a SA-item (see details).
 #'
 #' @param jsai Java SA-item object.
+#'
 #' @return a list
+#'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Select SAProcessing
-#' sap1<- jws_sap(jws,1)
+#' jsap1 <- jws_sap(jws, 1)
+#'
 #' # Select SA-item (as java object)
-#' sai1 <-jsap_sai(sap1,3)
+#' jsai1 <- jsap_sai(jsap1, 3)
+#'
 #' @details A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
 #' returns a list of 5 objects:
@@ -25,7 +31,9 @@ NULL
 #' - `pointSpec`: specification corresponding to the results of the current
 #' estimation (fully identified model).
 #' - `results`: results of the estimation.
+#'
 #' @export
+#'
 read_sai <- function(jsai) {
     #  if (! .jcall(jsai, "Z", "isProcessed"))
     #    stop("You must run 'jws_compute()' on your workspace.")
@@ -94,16 +102,19 @@ read_sai <- function(jsai) {
     ))
 }
 
-#' Extract results from a SA-item
+#' @title Extract results from a SA-item
 #'
+#' @description
 #' `.jsai_results()` extracts specific variables of the model of the SA-item while
 #' `.jsai_jresults()` extracts the Java object of the results of a SA-item.
+#'
 #' @param jsai Java SA-item object.
 #' @param items vector of characters containing the variables to extract.
 #' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
 #' By default, extracts all the possible variables.
 #'
 #' @export
+#'
 .jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
@@ -139,14 +150,36 @@ sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
 }
 
-#' Extract Java Metadata
+#' @title Extract Metadata from a SA-Item
 #'
+#' @description
 #' Extract specific metadata or time series metadata of a SA-item.
 #'
 #' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
-.jsai_metadata <- function(jsai, key) {
+#'
+#' @examples
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Select SAProcessing
+#' jsap1 <- jws_sap(jws, 1)
+#'
+#' # Select SA-item (as java object)
+#' jsai1 <- jsap_sai(jsap1, 3)
+#'
+#' # Extract the comment as metadata
+#' get_metadata(jsai1, "comment")
+#'
+#' # Extract the ts metadata
+#' get_metadata(jsai1, "@id")
+#' get_metadata(jsai1, "@source")
+#' get_metadata(jsai1, "@timestamp")
+#'
+get_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
@@ -156,9 +189,9 @@ sai_name <- function(jsai) {
     return(val)
 }
 
-#' @name .jsai_metadata
+#' @name get_metadata
 #' @export
-.jsai_ts_metadata <- function(jsai, key) {
+get_ts_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",

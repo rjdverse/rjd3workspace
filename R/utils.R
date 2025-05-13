@@ -158,9 +158,11 @@ x13_write_spec <- function(spec, file) {
 #' @return a list
 #'
 #' @examples
-#' file <- system.file("workspaces", "workspace_test","Calendars","Calendars.xml",package = "rjd3workspace")
-#' my_calendar<-read_calendars(file)
+#'
+#' file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
+#' my_calendar <- read_calendars(file)
 #' my_calendar
+#'
 #' @export
 read_calendars <- function(file) {
     jspec <- .jcall(
@@ -203,7 +205,7 @@ write_calendars <- function(calendars, file) {
 #' @export
 #'
 #' @examples
-read_regressors <- function(file) {
+read_variables <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/toolkit/base/workspace/file/Utility",
         returnSig = "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;",
@@ -225,7 +227,7 @@ read_regressors <- function(file) {
 #' @export
 #'
 #' @examples
-write_regressors <- function(vars, file) {
+write_variables <- function(vars, file) {
     jvars <- rjd3toolkit::.r2jd_variables(vars)
     .jcall(
         "jdplus/toolkit/base/workspace/file/Utility", "V",

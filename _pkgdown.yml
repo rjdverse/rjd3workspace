@@ -106,8 +106,7 @@ reference:
 - title: "SA-Items: metadata"
   desc: Functions to get and set metadata from an SA-Item
   contents:
-    - '`.jsai_metadata`'
-    - '`.jsai_ts_metadata`'
+    - '`get_metadata`'
     - '`set_comment`'
     - '`get_comment`'
     - '`set_name`'
@@ -117,17 +116,18 @@ reference:
     - '`get_raw_data`'
     - '`set_ts`'
     - '`get_ts`'
+    - '`get_ts_metadata`'
     - '`set_ts_metadata`'
     - '`put_ts_metadata`'
 - title: Calendars and regressors
   desc: Functions to add calendars and regressors (variables) to a workspace
   contents:
     - '`add_calendar`'
-    - '`add_regressors`'
+    - '`add_variables`'
     - '`read_calendars`'
-    - '`read_regressors`'
+    - '`read_variables`'
     - '`write_calendars`'
-    - '`write_regressors`'
+    - '`write_variables`'
 - title: Specification Files
   desc: Functions to read/write specification files
   contents:
@@ -166,6 +166,3 @@ reference:
     - '`.jsap_refresh`'
     - '`.jws_refresh`'
     - '`transfer_series`'
-    - '`add_variable`'
-    - '`write_variables`'
-    - '`read_variables`'

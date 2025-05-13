@@ -25,14 +25,18 @@ get_comment(jsai)
 Get/Set Comment from a SA-item
 }
 \examples{
+
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
+
 # Select SAProcessing
-sap1<- jws_sap(jws,1)
-# Select SA-item
-sai1<-jsap_sai(sap1,3)
-set_comment(sap1,2,"data collection changed in 2012")
-sai1<-jsap_sai(sap1,2) # reload sai
-get_comment(sai1)
+jsap1 <- jws_sap(jws, 1L)
+
+# Add a comment
+set_comment(jsap1, 2L, "data collection changed in 2012")
+
+jsai2 <- jsap_sai(jsap1, 2L)
+get_comment(jsai2)
+
 }

@@ -182,15 +182,19 @@ get_context <- function(jws) {
 #' @return
 #' Returns an integer.
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Count the SA-Processings
 #' ws_sap_count(jws)
+#'
 #' # Count the SA-Items
 #' # In SAP 1
 #' sap1<-jws_sap(jws,1)
 #' sap_sai_count(sap1)
+#'
 #' @export
 ws_sap_count <- function(jws) {
     return(.jcall(jws, "I", "getMultiProcessingCount"))
@@ -203,19 +207,24 @@ ws_sap_count <- function(jws) {
 #' SA-Processing its order number (index). The original object is unaltered.
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
+#'
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
+#'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Compute the workspace to enable accessing its components
 #' jws_compute(jws)
-#' # Extract 2nd SA-Processing
-#' jsap2 <- jws_sap(jws,2)
-#' # Extract 3rd SA-item
-#' jsai3 <- jsap_sai(jsap2,3)
 #'
+#' # Extract 2nd SA-Processing
+#' jsap2 <- jws_sap(jws, 2)
+#'
+#' # Extract 3rd SA-item
+#' jsai3 <- jsap_sai(jsap2, 3)
 #'
 #' @export
 jws_sap <- function(jws, idx) {
@@ -237,12 +246,16 @@ jws_sap <- function(jws, idx) {
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
 #' @return a java workspace
+#'
 #' @examples
+#'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
+#'
 #' # Compute the workspace to enable access its components
 #' jws_compute(jws)
+#'
 #' @seealso [read_workspace()] to transform the workspace in a R list.
 #'
 #' @export
@@ -279,13 +292,16 @@ jws_open <- function(file) {
 #' `jws_compute()` allows to extract all the SA-Items as java object.
 #'
 #' @param jws a workspace
-
+#'
 #' @examples
+#'
 #' # Load a Workspace
-#'file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
-#'jws <- jws_open(file)
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
 #' # Compute the workspace to access its components
 #' jws_compute(jws)
+#'
 #' @export
 jws_compute <- function(jws) {
     .jcall(jws, "V", "computeAll")
@@ -303,13 +319,16 @@ jws_compute <- function(jws) {
 #' @return list or java object
 
 #' @examples
-#' #Load workspace
+#'
+#' # Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
-#' #Read workspace
-#' jread_workspace(jws,FALSE)
+#'
+#' # Read workspace
+#' jread_workspace(jws, compute = FALSE)
 #' rws <- read_workspace(jws)
-#' #Read sap
+#'
+#' # Read sap
 #' sap<-jws_sap(jws,1)
 #' jread_sap(sap)
 #' read_sap(sap)
@@ -409,7 +428,8 @@ full_path <- function(path) {
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
-#' # add calendar to the workspace
+#'
+#' # Add calendar to the workspace
 #' add_calendar(jws, "French Calendar", french_calendar)
 #' get_context(jws) # The workspace already contained a Test Calendar
 #'
@@ -435,7 +455,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @return \code{NULL} returned invisibly
 #' @examples
 #' @export
-add_regressors <- function(jws, group, name, y) {
+add_variables <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

@@ -73,12 +73,20 @@
     .Deprecated(".jsai_metadata")
     .jsai_metadata(jsa, key)
 }
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jsa_ts_metadata <- function(jsa, key) {
-    .Deprecated(".jsai_ts_metadata")
-    .jsai_ts_metadata(jsa, key)
+    .Deprecated("get_ts_metadata")
+    get_ts_metadata(jsa, key)
 }
+#' @name deprecated-rjd3workspace
+#' @export
+.jsai_ts_metadata <- function(jsa, key) {
+    .Deprecated("get_ts_metadata")
+    get_ts_metadata(jsa, key)
+}
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jsap_sai_count <- function(jsap) {
@@ -230,23 +238,10 @@ transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
     transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
                      print_indications = TRUE)
 }
-#' @name deprecated-rjd3workspace
-#' @export
-add_variable <- function(jws, group, name, y) {
-    .Deprecated("add_regressors")
-    add_regressors(jws, group, name, y)
-}
 
 #' @name deprecated-rjd3workspace
 #' @export
-read_variables <- function(file) {
-    .Deprecated("read_regressors")
-    read_regressors(file)
-}
-
-#' @name deprecated-rjd3workspace
-#' @export
-write_variables <- function(vars, file) {
-    .Deprecated("write_regressors")
-    write_regressors(vars, file)
+.jsai_metadata <- function(jsai, key) {
+    .Deprecated("get_metadata")
+    get_metadata(jsai, key)
 }

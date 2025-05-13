@@ -14,6 +14,7 @@
 \alias{.jsa_jresults}
 \alias{.jsa_metadata}
 \alias{.jsa_ts_metadata}
+\alias{.jsai_ts_metadata}
 \alias{.jsap_sai_count}
 \alias{.jws_sap_count}
 \alias{.jws_open}
@@ -32,9 +33,7 @@
 \alias{.jsap_refresh}
 \alias{.jws_refresh}
 \alias{transfer_series}
-\alias{add_variable}
-\alias{read_variables}
-\alias{write_variables}
+\alias{.jsai_metadata}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
@@ -60,6 +59,8 @@
 .jsa_metadata(jsa, key)
 
 .jsa_ts_metadata(jsa, key)
+
+.jsai_ts_metadata(jsa, key)
 
 .jsap_sai_count(jsap)
 
@@ -120,11 +121,7 @@ transfer_series(
   print_indications = TRUE
 )
 
-add_variable(jws, group, name, y)
-
-read_variables(file)
-
-write_variables(vars, file)
+.jsai_metadata(jsai, key)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}

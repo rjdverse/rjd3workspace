@@ -39,7 +39,8 @@ french_calendar <- rjd3toolkit::national_calendar(
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
-# add calendar to the workspace
+
+# Add calendar to the workspace
 add_calendar(jws, "French Calendar", french_calendar)
 get_context(jws) # The workspace already contained a Test Calendar
 
