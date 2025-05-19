@@ -5,12 +5,21 @@ NULL
 
 #' Read a Tramo specification file
 #'
-#' @param file
+#'@description
 #'
-#' @return
-#' @export
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
+#'
+#' @param file xml format,
+#'
+#' @return list
 #'
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","TramoSpec","TramoSpec-1.xml", package = "rjd3workspace")
+#' my_spec<- tramo_read_spec(file)
+#' class(my_spec)
+#' str(my_spec)
+#' @export
 tramo_read_spec <- function(file) {
     jspec <- .jcall(
         "jdplus/tramoseats/base/workspace/Utility", "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
@@ -24,13 +33,26 @@ tramo_read_spec <- function(file) {
 
 #' Write a Tramo specification file
 #'
-#' @param spec
-#' @param file
+#' @description
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
 #'
-#' @return
-#' @export
+#' @param spec a specification created with `rjd3tramoseats::tramo_spec`
+#' @param file xml format
 #'
+#'
+#' @return \code{NULL} returned invisibly
 #' @examples
+#'
+#' # creating a spec from default
+#' tramo_spec <- rjd3tramoseats::tramo_spec("tr3")
+#' # forcing multiplicative model
+#' tramo_spec_d <- rjd3toolkit::set_transform(tramo_spec ,
+#'                                           fun = "Log",
+#'                                           outliers = TRUE)
+#' # writing the specification in a xml file
+#' tramo_write_spec(tramo_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#' @export
 tramo_write_spec <- function(spec, file) {
     .jcall(
         "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSpec",
@@ -40,12 +62,21 @@ tramo_write_spec <- function(spec, file) {
 }
 #' Read a Tramo-Seats specification file
 #'
-#' @param file
+#' @description
 #'
-#' @return
-#' @export
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
+#'
+#' @param file xml format,
+#'
+#' @return list
 #'
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","TramoSeatsSpec","TramoSeatsSpec-1.xml", package = "rjd3workspace")
+#' my_spec<- tramoseats_read_spec(file)
+#' class(my_spec)
+#' str(my_spec)
+#' @export
 tramoseats_read_spec <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
@@ -61,12 +92,22 @@ tramoseats_read_spec <- function(file) {
 
 #' Write a Tramo-Seats specification file
 #'
-#' @param file
-#'
-#' @return
-#' @export
-#'
+#' @description
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
+#' @param spec a specification created with `rjd3tramoseats::tramoseats_spec`
+#' @param file xml format
+#' @return \code{NULL} returned invisibly
 #' @examples
+#' # creating a spec from default
+#' tramoseats_spec <- rjd3tramoseats::tramoseats_spec("rsa3")
+#' # forcing multiplicative model
+#'tramoseats_spec_d <- rjd3toolkit::set_transform(tramoseats_spec ,
+#'                                                fun = "Log",
+#'                                                outliers = TRUE)
+#' # writing the specification in a xml file
+#' tramoseats_write_spec(tramoseats_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#' @export
 tramoseats_write_spec <- function(spec, file) {
     .jcall(
         "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSeatsSpec",
@@ -77,12 +118,21 @@ tramoseats_write_spec <- function(spec, file) {
 
 #' Read a Reg-Arima specification file
 #'
-#' @param file
+#' @description
 #'
-#' @return
-#' @export
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
 #'
+#' @param file xml format,
+#'
+#' @return list
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","RegArimaSpec","RegArimaSpec-1.xml", package = "rjd3workspace")
+#' my_spec<-regarima_read_spec(file)
+#' class(my_spec)
+#' str(my_spec)
+#'
+#' @export
 regarima_read_spec <- function(file) {
     jspec <- .jcall(
         "jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
@@ -96,12 +146,25 @@ regarima_read_spec <- function(file) {
 
 #' Write a Reg-Arima specification file
 #'
-#' @param file
+#' @description
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
 #'
-#' @return
-#' @export
+#' @param spec a specification created with `rjd3x13::regarima_spec`
+#' @param file xml format
 #'
+#' @return \code{NULL} returned invisibly
 #' @examples
+#' # creating a spec from default
+#' reg_arima_spec <- rjd3x13::regarima_spec("rg3")
+#' # forcing multiplicative model
+#' reg_arima_spec_d <- rjd3toolkit::set_transform(reg_arima_spec ,
+#'                                              fun = "Log",
+#'                                             outliers = TRUE)
+#' # writing the specification in a xml file
+#' regarima_write_spec(reg_arima_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#'
+#' @export
 regarima_write_spec <- function(spec, file) {
     .jcall(
         "jdplus/x13/base/workspace/Utility", "V", "writeRegArimaSpec",
@@ -112,12 +175,19 @@ regarima_write_spec <- function(spec, file) {
 
 #' Read a X13 specification file
 #'
-#' @param file
+#' @description
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
 #'
-#' @return
-#' @export
+#' @param file xml format,
 #'
+#' @return list
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","X13Spec","X13Spec-1.xml", package = "rjd3workspace")
+#' my_spec<-x13_read_spec(file)
+#' class(my_spec)
+#' str(my_spec)
+#' @export
 x13_read_spec <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/x13/base/workspace/Utility",
@@ -133,13 +203,22 @@ x13_read_spec <- function(file) {
 
 #' Write a X13 specification file
 #'
-#' @param spec
-#' @param file
-#'
-#' @return
-#' @export
-#'
+#' @description
+#' The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+#' Graphical User Interface.
+#' @param spec a specification created with `rjd3x13::x13_spec`
+#' @param file xml format
+#' @return \code{NULL} returned invisibly
 #' @examples
+#' # creating a spec from default
+#' x13_spec<- rjd3x13::x13_spec("rsa3")
+#' # forcing multiplicative model
+#' x13_spec_d <- rjd3toolkit::set_transform(x13_spec,
+#'                                         fun = "Log",
+#'                                         outliers = TRUE)
+#' # writing the specification in a xml file
+#' x13_write_spec(x13_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#' @export
 x13_write_spec <- function(spec, file) {
     .jcall(
         "jdplus/x13/base/workspace/Utility", "V", "writeX13Spec",
@@ -152,7 +231,7 @@ x13_write_spec <- function(spec, file) {
 #'
 #' @param calendar a xml file
 #' @description
-#' The calendar file is an xml file like the one JDemetra+ would write when defining a calendar in the
+#' The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
 #' Graphical User Interface.
 #'
 #' @return a list
@@ -179,13 +258,32 @@ read_calendars <- function(file) {
 
 #' Write a Calendar file
 #'
-#' @param calendars
-#' @param file
+#' @description
+#' The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
+#' Graphical User Interface.
+#' Calendars can be defined with `rjd3toolkit::national_calendar`
 #'
-#' @return
-#' @export
+#' @param list of calendars
+#' @param file xml format
 #'
+#' @return \code{NULL} returned invisibly
 #' @examples
+#' library(rjd3toolkit)
+#' BE <- national_calendar(list(
+#'    fixed_day(7, 21),
+#'    special_day("NEWYEAR"),
+#'    special_day("CHRISTMAS"),
+#'    special_day("MAYDAY"),
+#'    special_day("EASTERMONDAY"),
+#'    special_day("ASCENSION"),
+#'    special_day("WHITMONDAY"),
+#'    special_day("ASSUMPTION"),
+#'    special_day("ALLSAINTSDAY"),
+#'    special_day("ARMISTICE")
+#' ))
+#' write_calendars(list(BEL_cal = BE),
+#'         file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#' @export
 write_calendars <- function(calendars, file) {
     jcal <- rjd3toolkit::.r2jd_calendars(calendars)
     .jcall(
@@ -198,13 +296,19 @@ write_calendars <- function(calendars, file) {
 
 #' Read auxiliary regressors file
 #'
-#' @param file
 #' @description
+#' The variables (regressors) file is a xml file like the one JDemetra+ would write when setting-up user defined regressors in the
+#' Graphical User Interface.
 #'
-#' @return
-#' @export
+#' @param file xml format
 #'
+#' @return list
 #' @examples
+#' file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
+#' my_regressors<- read_variables(file)
+#' class(my_regressors)
+#' str(my_regressors)
+#' @export
 read_variables <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/toolkit/base/workspace/file/Utility",
@@ -220,13 +324,19 @@ read_variables <- function(file) {
 
 #' Write regressors file
 #'
-#' @param vars
-#' @param file
-#'
-#' @return
-#' @export
+#' @param vars list of regressors
+#' @param file xml format
+#' @return \code{NULL} returned invisibly
 #'
 #' @examples
+#' # creating a list of regressors from a xml file
+#' file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
+#' my_regressors<- read_variables(file)
+#' class(my_regressors)
+#' str(my_regressors)
+#' # writing the regressors in a xml file
+#' write_variables(my_regressors, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#' @export
 write_variables <- function(vars, file) {
     jvars <- rjd3toolkit::.r2jd_variables(vars)
     .jcall(
