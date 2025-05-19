@@ -2,15 +2,15 @@
 <informationSet xmlns="ec/tss.core">
     <item name="algorithm">
         <method version="3.0.0">
-            <name>x13</name>
+            <name>tramoseats</name>
             <family>Seasonal adjustment</family>
         </method>
     </item>
-    <item name="regarima">
+    <item name="tramo">
         <subset>
             <item name="algorithm">
                 <method version="3.0.0">
-                    <name>regarima</name>
+                    <name>tramo</name>
                     <family>Modelling</family>
                 </method>
             </item>
@@ -24,16 +24,34 @@
             <item name="automdl">
                 <subset/>
             </item>
-            <item name="outlier">
+            <item name="regression">
                 <subset>
-                    <item name="ao">
-                        <double>0.0</double>
-                    </item>
-                    <item name="ls">
-                        <double>0.0</double>
-                    </item>
-                    <item name="tc">
-                        <double>0.0</double>
+                    <item name="calendar">
+                        <subset>
+                            <item name="td">
+<subset>
+    <item name="mauto">
+        <string>FTEST</string>
+    </item>
+    <item name="option">
+        <string>TD7</string>
+    </item>
+    <item name="leapyear">
+        <string>LeapYear</string>
+    </item>
+</subset>
+                            </item>
+                            <item name="easter">
+<subset>
+    <item name="type">
+        <string>IncludeEaster</string>
+    </item>
+    <item name="test">
+        <boolean>true</boolean>
+    </item>
+</subset>
+                            </item>
+                        </subset>
                     </item>
                 </subset>
             </item>

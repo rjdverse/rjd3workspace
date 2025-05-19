@@ -7,8 +7,22 @@
 write_variables(vars, file)
 }
 \arguments{
-\item{file}{}
+\item{vars}{list of regressors}
+
+\item{file}{xml format}
+}
+\value{
+\code{NULL} returned invisibly
 }
 \description{
 Write regressors file
+}
+\examples{
+# creating a list of regressors from a xml file
+file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
+my_regressors<- read_variables(file)
+class(my_regressors)
+str(my_regressors)
+# writing the regressors in a xml file
+write_variables(my_regressors, file = normalizePath("~/tmp.xml", mustWork = FALSE))
 }
