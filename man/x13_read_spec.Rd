@@ -7,8 +7,18 @@
 x13_read_spec(file)
 }
 \arguments{
-\item{file}{}
+\item{file}{xml format,}
+}
+\value{
+list
 }
 \description{
-Read a X13 specification file
+The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+Graphical User Interface.
+}
+\examples{
+file <- system.file("workspaces", "workspace_test","X13Spec","X13Spec-1.xml", package = "rjd3workspace")
+my_spec<-x13_read_spec(file)
+class(my_spec)
+str(my_spec)
 }

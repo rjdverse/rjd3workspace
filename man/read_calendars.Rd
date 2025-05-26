@@ -13,7 +13,7 @@ read_calendars(file)
 a list
 }
 \description{
-The calendar file is an xml file like the one JDemetra+ would write when defining a calendar in the
+The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
 Graphical User Interface.
 }
 \examples{
