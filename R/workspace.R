@@ -447,14 +447,39 @@ add_calendar <- function(jws, name, calendar) {
     )
 }
 
-#' @title Add Regressor to a Workspace
+
+#' @title Add a Variable to a JD+ Workspace
 #'
-#' @inheritParams set_context
-#' @param group,name group and name of the variable to add.
-#' @param y regressor to add (a `ts` object).
-#' @return \code{NULL} returned invisibly
-#' @examples
+#' @description
+#' Adds a single time series variable to a specified group within a JD+ workspace..
+#'
+#' @param jws A JD+ workspace object (Java pointer), created with `jws_new()`.
+#' @param group A character string indicating the name of the group in which to store the variable.
+#' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
+#' @param name A character string naming the variable.
+#'
+#' @return No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+#'
+#' @details
+#'
+#' If the group does not already exist, a new group is created, but the group will be named after `name`, not `group`
+#'
+#' @section Limitations:
+#' \itemize{
+#'   \item Cannot add multiple variables at once.
+#'   \item Does not support `ts` objects with metadata or dynamic series.
+#'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
+#' }
+#'
+#' @seealso \code{\link{modelling_context}} to create multiple variables and groups at once,
+#' and \code{\link{read_variables}}, \code{\link{write_variables}} to import/export variables.
+#'
 #' @export
+#'
+#' @examples
+#' my_ws <- jws_new()
+#' add_variables(jws = my_ws, group = "reg1", y = AirPassengers, name = "x1")
+#'
 add_variables <- function(jws, group, name, y) {
     .jcall(
         jws, "V", "addVariable", group,
