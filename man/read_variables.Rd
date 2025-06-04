@@ -10,7 +10,7 @@ read_variables(file)
 \item{file}{xml format}
 }
 \value{
-A named list of time series objects, grouped if applicable.
+A named list of time series objects.
 }
 \description{
 The variables (regressors) file is a xml file like the one JDemetra+ would write when setting-up user defined regressors in the

@@ -1,7 +1,7 @@
 #' @include saitem.R
 NULL
 
-#'  @rdname ws_sap_count
+#' @rdname ws_sap_count
 #' @export
 sap_sai_count <- function(jsap) {
     return(.jcall(jsap, "I", "size"))
@@ -37,13 +37,13 @@ sap_name <- function(jsap) {
     return(.jcall(jsap, "S", "getName"))
 }
 
-#'  @rdname make_copy
+#' @rdname make_copy
 #' @export
 jsap_make_copy <- function(jsap) {
     return(.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
 }
 
-#'  @rdname jws_sap
+#' @rdname jws_sap
 #' @export
 jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1L) {
@@ -51,7 +51,7 @@ jsap_sai <- function(jsap, idx) {
     }
     return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L)))
 }
-#'  @rdname sap_name
+#' @rdname sap_name
 #' @export
 sap_sai_names <- function(jsap) {
     if (is.jnull(jsap)) {
@@ -74,7 +74,7 @@ sap_sai_names <- function(jsap) {
     return(sai_names)
 }
 
-#'  @rdname read_workspace
+#' @rdname read_workspace
 #' @export
 read_sap <- function(jsap) {
     n <- .jcall(jsap, "I", "size")
@@ -91,7 +91,7 @@ read_sap <- function(jsap) {
     return(all)
 }
 
-#'  @rdname read_workspace
+#' @rdname read_workspace
 #' @export
 jread_sap <- function(jsap) {
     n <- .jcall(jsap, "I", "size")
@@ -108,7 +108,7 @@ jread_sap <- function(jsap) {
     return(all)
 }
 
-#'  @rdname refresh
+#' @rdname refresh
 #' @export
 jsap_refresh <- function(jsap,
                          policy = c("FreeParameters", "Complete",
@@ -243,7 +243,7 @@ replace_sa_item <- function(jsap, idx, jsai) {
         as.integer(idx - 1L), jsai
     )
 }
-#'  @rdname replace_sa_item
+#' @rdname replace_sa_item
 #' @export
 remove_sa_item <- function(jsap, idx) {
     .jcall(
@@ -251,7 +251,7 @@ remove_sa_item <- function(jsap, idx) {
         as.integer(idx - 1L)
     )
 }
-#'  @rdname replace_sa_item
+#' @rdname replace_sa_item
 #' @export
 remove_all_sa_item <- function(jsap) {
     .jcall(obj = jsap, returnSig = "V", method = "removeAll")
@@ -359,7 +359,7 @@ set_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
-#'  @rdname set_specification
+#' @rdname set_specification
 #' @export
 set_domain_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
@@ -410,7 +410,7 @@ set_raw_data <- function(jsap, idx, y) {
     .jcall(jsap, "V", "setData", as.integer(idx - 1L), rjd3toolkit::.r2jd_tsdata(y))
 }
 
-#'  @rdname set_raw_data
+#' @rdname set_raw_data
 #' @export
 get_raw_data <- function(jsai) {
     jts <- .jcall(
@@ -471,7 +471,7 @@ set_ts <- function(jsap, idx, y) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-#'  @rdname set_ts
+#' @rdname set_ts
 #' @export
 get_ts <- function(jsai) {
     jts <- .jcall(
@@ -514,7 +514,7 @@ set_comment <- function(jsap, idx, comment) {
 }
 
 
-#'  @rdname set_comment
+#' @rdname set_comment
 #' @export
 get_comment <- function(jsai) {
     .jcall(jsai, "S", "getComment")
@@ -649,7 +649,7 @@ set_ts_metadata <- function(jsap, idx, ref_jsai) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-#'  @rdname set_ts_metadata
+#' @rdname set_ts_metadata
 #' @export
 put_ts_metadata <- function(jsap, idx, key, value) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -697,7 +697,7 @@ set_priority <- function(jsap, idx, priority = 0L) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-#'  @rdname set_priority
+#' @rdname set_priority
 #' @export
 get_priority <- function(jsai) {
     .jcall(jsai, "I", "getPriority")

@@ -41,13 +41,13 @@ jws_new <- function(modelling_context = NULL) {
     }
     return(jws)
 }
-#'  @rdname jws_new
+#' @rdname jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
-#'  @rdname .jws_add
+#' @rdname .jws_add
 #' @export
 .jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
@@ -55,7 +55,7 @@ jws_sap_new <- function(jws, name) {
 
 #' Copy a Workspace or SA-Processing
 #'
-#'  @rdname make_copy
+#' @rdname make_copy
 #' @param jws,jsap Java Workspace or SA-Processing
 #'
 #' @return
@@ -130,7 +130,7 @@ jws_make_copy <- function(jws) {
 #' \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
 #' orders (p,d,q)(P,D,Q) can also be re-identified.
 #'
-#'  @rdname refresh
+#' @rdname refresh
 #' @export
 jws_refresh <- function(jws,
                         policy = c("FreeParameters", "Complete",
@@ -151,6 +151,22 @@ jws_refresh <- function(jws,
 #'
 #' @inheritParams jws_new
 #' @inheritParams jws_open
+#'
+#' @examples
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Creating a new context
+#' new_context <- modelling_context(
+#'     calendars = list(FR = french_calendar),
+#'     variables = list(a = AirPassengers)
+#' )
+#'
+#' # Set the context
+#' set_context(jws, new_context)
+#'
 #' @export
 set_context <- function(jws, modelling_context = NULL) {
     if (!is.null(set_context)) {
@@ -158,9 +174,19 @@ set_context <- function(jws, modelling_context = NULL) {
         .jcall(jws, "V", "setContext", jcontext)
     }
 }
-#' Get Context from Workspace
+
+#' @title Get Context from Workspace
 #'
 #' @param jws the Workspace.
+#'
+#' @examples
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Get context
+#' my_context <- get_context(jws)
 #'
 #' @export
 get_context <- function(jws) {
@@ -347,7 +373,7 @@ read_workspace <- function(jws, compute = TRUE) {
     cntxt <- get_context(jws)
     return(list(processing = jsaps, context = cntxt))
 }
-#'  @rdname read_workspace
+#' @rdname read_workspace
 #' @export
 jread_workspace <- function(jws, compute = TRUE) {
     if (compute) jws_compute(jws)
@@ -453,7 +479,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @description
 #' Adds a single time series variable to a specified group within a JD+ workspace..
 #'
-#' @param jws A JD+ workspace object (Java pointer), created with `jws_new()`.
+#' @param jws A JD+ workspace object (Java pointer).
 #' @param group A character string indicating the name of the group in which to store the variable.
 #' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
 #' @param name A character string naming the variable.
@@ -462,12 +488,12 @@ add_calendar <- function(jws, name, calendar) {
 #'
 #' @details
 #'
-#' If the group does not already exist, a new group is created, but the group will be named after `name`, not `group`
+#' For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
 #'
 #' @section Limitations:
 #' \itemize{
 #'   \item Cannot add multiple variables at once.
-#'   \item Does not support `ts` objects with metadata or dynamic series.
+#'   \item Does not support dynamic ts objects with metadata.
 #'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
 #' }
 #'
@@ -477,7 +503,10 @@ add_calendar <- function(jws, name, calendar) {
 #' @export
 #'
 #' @examples
-#' my_ws <- jws_new()
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
 #' add_variables(jws = my_ws, group = "reg1", y = AirPassengers, name = "x1")
 #'
 add_variables <- function(jws, group, name, y) {

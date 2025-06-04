@@ -14,3 +14,19 @@ set_context(jws, modelling_context = NULL)
 \description{
 Set Context of a Workspace
 }
+\examples{
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Creating a new context
+new_context <- modelling_context(
+    calendars = list(FR = french_calendar),
+    variables = list(a = AirPassengers)
+)
+
+# Set the context
+set_context(jws, new_context)
+
+}
