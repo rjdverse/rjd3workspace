@@ -16,6 +16,8 @@ Set Context of a Workspace
 }
 \examples{
 
+library("rjd3toolkit")
+
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
