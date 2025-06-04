@@ -507,7 +507,7 @@ add_calendar <- function(jws, name, calendar) {
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
-#' add_variables(jws = my_ws, group = "reg1", y = AirPassengers, name = "x1")
+#' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #'
 add_variables <- function(jws, group, name, y) {
     .jcall(
