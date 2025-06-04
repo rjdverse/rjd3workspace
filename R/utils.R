@@ -302,13 +302,16 @@ write_calendars <- function(calendars, file) {
 #'
 #' @param file xml format
 #'
-#' @return list
+#' @return A named list of time series objects, grouped if applicable.
+#'
 #' @examples
-#' file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
-#' my_regressors<- read_variables(file)
+#' file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
+#' my_regressors <- read_variables(file)
 #' class(my_regressors)
 #' str(my_regressors)
+#'
 #' @export
+#'
 read_variables <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/toolkit/base/workspace/file/Utility",
@@ -322,20 +325,24 @@ read_variables <- function(file) {
     return(rjd3toolkit::.jd2r_variables(jspec))
 }
 
-#' Write regressors file
+#' @title Write regressors file
 #'
-#' @param vars list of regressors
-#' @param file xml format
-#' @return \code{NULL} returned invisibly
+#' @param vars A named list of `ts` objects, possibly grouped (e.g., list(reg1 = list(x1 = AirPassengers))).
+#' @param file Path to the output XML file.
+#'
+#' @return No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
 #'
 #' @examples
-#' # creating a list of regressors from a xml file
-#' file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
-#' my_regressors<- read_variables(file)
+#'
+#' # Creating a list of regressors from a xml file
+#' file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
+#' my_regressors <- read_variables(file)
 #' class(my_regressors)
 #' str(my_regressors)
-#' # writing the regressors in a xml file
-#' write_variables(my_regressors, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#'
+#' # Writing the regressors in a xml file
+#' write_variables(my_regressors, file = normalizePath("tmp.xml", mustWork = FALSE))
+#'
 #' @export
 write_variables <- function(vars, file) {
     jvars <- rjd3toolkit::.r2jd_variables(vars)

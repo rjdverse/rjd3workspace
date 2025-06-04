@@ -7,22 +7,25 @@
 write_variables(vars, file)
 }
 \arguments{
-\item{vars}{list of regressors}
+\item{vars}{A named list of \code{ts} objects, possibly grouped (e.g., list(reg1 = list(x1 = AirPassengers))).}
 
-\item{file}{xml format}
+\item{file}{Path to the output XML file.}
 }
 \value{
-\code{NULL} returned invisibly
+No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
 }
 \description{
 Write regressors file
 }
 \examples{
-# creating a list of regressors from a xml file
-file <- system.file("workspaces", "workspace_test","Variables","Vars-1.xml", package = "rjd3workspace")
-my_regressors<- read_variables(file)
+
+# Creating a list of regressors from a xml file
+file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
+my_regressors <- read_variables(file)
 class(my_regressors)
 str(my_regressors)
-# writing the regressors in a xml file
-write_variables(my_regressors, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+
+# Writing the regressors in a xml file
+write_variables(my_regressors, file = normalizePath("tmp.xml", mustWork = FALSE))
+
 }
