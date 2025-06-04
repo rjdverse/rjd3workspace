@@ -41,13 +41,13 @@ jws_new <- function(modelling_context = NULL) {
     }
     return(jws)
 }
-#' @name jws_new
+#'  @rdname jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
-#' @name .jws_add
+#'  @rdname .jws_add
 #' @export
 .jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
@@ -55,7 +55,7 @@ jws_sap_new <- function(jws, name) {
 
 #' Copy a Workspace or SA-Processing
 #'
-#' @name make_copy
+#'  @rdname make_copy
 #' @param jws,jsap Java Workspace or SA-Processing
 #'
 #' @return
@@ -130,7 +130,7 @@ jws_make_copy <- function(jws) {
 #' \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
 #' orders (p,d,q)(P,D,Q) can also be re-identified.
 #'
-#' @name refresh
+#'  @rdname refresh
 #' @export
 jws_refresh <- function(jws,
                         policy = c("FreeParameters", "Complete",
@@ -347,7 +347,7 @@ read_workspace <- function(jws, compute = TRUE) {
     cntxt <- get_context(jws)
     return(list(processing = jsaps, context = cntxt))
 }
-#' @name read_workspace
+#'  @rdname read_workspace
 #' @export
 jread_workspace <- function(jws, compute = TRUE) {
     if (compute) jws_compute(jws)
