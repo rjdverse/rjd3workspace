@@ -294,7 +294,7 @@ write_calendars <- function(calendars, file) {
     )
 }
 
-#' Read auxiliary regressors file
+#' @title Read auxiliary regressors file
 #'
 #' @description
 #' The variables (regressors) file is a xml file like the one JDemetra+ would write when setting-up user defined regressors in the
@@ -302,7 +302,7 @@ write_calendars <- function(calendars, file) {
 #'
 #' @param file xml format
 #'
-#' @return A named list of time series objects, grouped if applicable.
+#' @return A named list of time series objects.
 #'
 #' @examples
 #' file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
@@ -327,21 +327,23 @@ read_variables <- function(file) {
 
 #' @title Write regressors file
 #'
-#' @param vars A named list of `ts` objects, possibly grouped (e.g., list(reg1 = list(x1 = AirPassengers))).
+#' @param vars A named list of `ts` objects.
 #' @param file Path to the output XML file.
 #'
 #' @return No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
 #'
 #' @examples
 #'
-#' # Creating a list of regressors from a xml file
-#' file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
-#' my_regressors <- read_variables(file)
-#' class(my_regressors)
-#' str(my_regressors)
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Get context
+#' my_context <- get_context(jws)
+#' vars <- my_context$variables[[1L]]
 #'
 #' # Writing the regressors in a xml file
-#' write_variables(my_regressors, file = normalizePath("tmp.xml", mustWork = FALSE))
+#' write_variables(vars, file = normalizePath("tmp.xml", mustWork = FALSE))
 #'
 #' @export
 write_variables <- function(vars, file) {

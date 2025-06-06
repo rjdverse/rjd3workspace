@@ -7,7 +7,7 @@
 write_variables(vars, file)
 }
 \arguments{
-\item{vars}{A named list of \code{ts} objects, possibly grouped (e.g., list(reg1 = list(x1 = AirPassengers))).}
+\item{vars}{A named list of \code{ts} objects.}
 
 \item{file}{Path to the output XML file.}
 }
@@ -19,13 +19,15 @@ Write regressors file
 }
 \examples{
 
-# Creating a list of regressors from a xml file
-file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
-my_regressors <- read_variables(file)
-class(my_regressors)
-str(my_regressors)
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Get context
+my_context <- get_context(jws)
+vars <- my_context$variables[[1L]]
 
 # Writing the regressors in a xml file
-write_variables(my_regressors, file = normalizePath("tmp.xml", mustWork = FALSE))
+write_variables(vars, file = normalizePath("tmp.xml", mustWork = FALSE))
 
 }

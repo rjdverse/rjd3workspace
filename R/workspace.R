@@ -151,6 +151,41 @@ jws_refresh <- function(jws,
 #'
 #' @inheritParams jws_new
 #' @inheritParams jws_open
+#'
+#' @examples
+#'
+#' library("rjd3toolkit")
+#'
+#' # French calendar
+#' french_calendar <- national_calendar(
+#'     days = list(
+#'         fixed_day(7, 14), # Bastille Day
+#'         fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'         special_day("NEWYEAR"),
+#'         special_day("CHRISTMAS"),
+#'         special_day("MAYDAY"),
+#'         special_day("EASTERMONDAY"),
+#'         special_day("ASCENSION"),
+#'         special_day("WHITMONDAY"),
+#'         special_day("ASSUMPTION"),
+#'         special_day("ALLSAINTSDAY"),
+#'         special_day("ARMISTICE")
+#'     )
+#' )
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Creating a new context
+#' new_context <- modelling_context(
+#'     calendars = list(FR = french_calendar),
+#'     variables = list(a = AirPassengers)
+#' )
+#'
+#' # Set the context
+#' set_context(jws, new_context)
+#'
 #' @export
 set_context <- function(jws, modelling_context = NULL) {
     if (!is.null(set_context)) {
@@ -158,9 +193,19 @@ set_context <- function(jws, modelling_context = NULL) {
         .jcall(jws, "V", "setContext", jcontext)
     }
 }
-#' Get Context from Workspace
+
+#' @title Get Context from Workspace
 #'
 #' @param jws the Workspace.
+#'
+#' @examples
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Get context
+#' my_context <- get_context(jws)
 #'
 #' @export
 get_context <- function(jws) {
@@ -453,7 +498,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @description
 #' Adds a single time series variable to a specified group within a JD+ workspace..
 #'
-#' @param jws A JD+ workspace object (Java pointer), created with `jws_new()`.
+#' @param jws A JD+ workspace object (Java pointer).
 #' @param group A character string indicating the name of the group in which to store the variable.
 #' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
 #' @param name A character string naming the variable.
@@ -462,12 +507,12 @@ add_calendar <- function(jws, name, calendar) {
 #'
 #' @details
 #'
-#' If the group does not already exist, a new group is created, but the group will be named after `name`, not `group`
+#' For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
 #'
 #' @section Limitations:
 #' \itemize{
 #'   \item Cannot add multiple variables at once.
-#'   \item Does not support `ts` objects with metadata or dynamic series.
+#'   \item Does not support dynamic ts objects with metadata.
 #'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
 #' }
 #'
@@ -477,8 +522,11 @@ add_calendar <- function(jws, name, calendar) {
 #' @export
 #'
 #' @examples
-#' my_ws <- jws_new()
-#' add_variables(jws = my_ws, group = "reg1", y = AirPassengers, name = "x1")
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #'
 add_variables <- function(jws, group, name, y) {
     .jcall(

@@ -7,7 +7,7 @@
 add_variables(jws, group, name, y)
 }
 \arguments{
-\item{jws}{A JD+ workspace object (Java pointer), created with \code{jws_new()}.}
+\item{jws}{A JD+ workspace object (Java pointer).}
 
 \item{group}{A character string indicating the name of the group in which to store the variable.}
 
@@ -22,20 +22,23 @@ No return value (\code{NULL} returned invisibly). This function is used for its 
 Adds a single time series variable to a specified group within a JD+ workspace..
 }
 \details{
-If the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}
+For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
 }
 \section{Limitations}{
 
 \itemize{
 \item Cannot add multiple variables at once.
-\item Does not support \code{ts} objects with metadata or dynamic series.
+\item Does not support dynamic ts objects with metadata.
 \item If group does not exist, a new group is created but named after the variable name, not the intended group.
 }
 }
 
 \examples{
-my_ws <- jws_new()
-add_variables(jws = my_ws, group = "reg1", y = AirPassengers, name = "x1")
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 
 }
 \seealso{
