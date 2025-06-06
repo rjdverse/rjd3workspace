@@ -131,7 +131,7 @@ read_sai <- function(jsai) {
     return(r)
 }
 
-#' @rdname .jsai_results
+#' @name .jsai_results
 #' @export
 .jsai_jresults <- function(jsai) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -144,7 +144,7 @@ read_sai <- function(jsai) {
 }
 
 
-#' @rdname sap_name
+#' @name sap_name
 #' @export
 sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
@@ -189,7 +189,7 @@ get_metadata <- function(jsai, key) {
     return(val)
 }
 
-#' @rdname get_metadata
+#' @name get_metadata
 #' @export
 get_ts_metadata <- function(jsai, key) {
     val <- .jcall(
