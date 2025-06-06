@@ -59,7 +59,7 @@
 
 
 <dl><dt id="arg-jws">jws<a class="anchor" aria-label="anchor" href="#arg-jws"></a></dt>
-<dd><p>A JD+ workspace object (Java pointer), created with <code><a href="jws_new.html">jws_new()</a></code>.</p></dd>
+<dd><p>A JD+ workspace object (Java pointer).</p></dd>
 
 
 <dt id="arg-group">group<a class="anchor" aria-label="anchor" href="#arg-group"></a></dt>
@@ -80,14 +80,14 @@
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>If the group does not already exist, a new group is created, but the group will be named after <code>name</code>, not <code>group</code></p>
+    <p>For the time being, if the group does not already exist, a new group is created, but the group will be named after <code>name</code>, not <code>group</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a></h2>
 
 
 <ul><li><p>Cannot add multiple variables at once.</p></li>
-<li><p>Does not support <code>ts</code> objects with metadata or dynamic series.</p></li>
+<li><p>Does not support dynamic ts objects with metadata.</p></li>
 <li><p>If group does not exist, a new group is created but named after the variable name, not the intended group.</p></li>
 </ul></div>
     <div class="section level2">
@@ -98,8 +98,11 @@ and <code><a href="read_variables.html">read_variables</a></code>, <code><a href
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">my_ws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_new.html">jws_new</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">add_variables</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">my_ws</span>, group <span class="op">=</span> <span class="st">"reg1"</span>, y <span class="op">=</span> <span class="va">AirPassengers</span>, name <span class="op">=</span> <span class="st">"x1"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">add_variables</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">jws</span>, group <span class="op">=</span> <span class="st">"reg1"</span>, y <span class="op">=</span> <span class="va">AirPassengers</span>, name <span class="op">=</span> <span class="st">"x1"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
