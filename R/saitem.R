@@ -60,6 +60,7 @@ read_sai <- function(jsai) {
     pspec <- NULL
     rslt <- NULL
 
+
     if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
         spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
             jspec,
@@ -79,10 +80,12 @@ read_sai <- function(jsai) {
                 returnSig = "Ljdplus/sa/base/api/SaSpecification;",
                 method = "getPointSpec"
             )
-            pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
-                jpspec,
-                "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-            ))
+            if (! is.jnull(jpspec)){
+                pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+                    jpspec,
+                    "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+                ))
+            }
         }
     } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
         spec <- rjd3x13::.jd2r_spec_x13(.jcast(jspec, "jdplus/x13/base/api/x13/X13Spec"))
@@ -90,7 +93,9 @@ read_sai <- function(jsai) {
         if (!is.jnull(jrslt)) {
             rslt <- rjd3x13::.x13_rslts(.jcast(jrslt, "jdplus/x13/base/core/x13/X13Results"))
             jpspec <- .jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
-            pspec <- rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
+            if (! is.jnull(jpspec)){
+                pspec <- rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
+            }
         }
     }
     return(list(
