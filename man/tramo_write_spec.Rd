@@ -7,8 +7,25 @@
 tramo_write_spec(spec, file)
 }
 \arguments{
-\item{file}{}
+\item{spec}{a specification created with \code{rjd3tramoseats::tramo_spec}}
+
+\item{file}{xml format}
+}
+\value{
+\code{NULL} returned invisibly
 }
 \description{
-Write a Tramo specification file
+The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
+Graphical User Interface.
+}
+\examples{
+
+# creating a spec from default
+tramo_spec <- rjd3tramoseats::tramo_spec("tr3")
+# forcing multiplicative model
+tramo_spec_d <- rjd3toolkit::set_transform(tramo_spec ,
+                                          fun = "Log",
+                                          outliers = TRUE)
+# writing the specification in a xml file
+tramo_write_spec(tramo_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
 }

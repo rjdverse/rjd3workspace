@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<calendars xmlns="ec/tss.core">
+    <nationalCalendar meancorrection="true" name="Test_Calendar">
+        <specialDayEvent>
+            <fixedDay>
+                <month>JANUARY</month>
+                <day>1</day>
+            </fixedDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <fixedDay>
+                <month>MAY</month>
+                <day>1</day>
+            </fixedDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>EasterMonday</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>Ascension</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+        <specialDayEvent>
+            <specialCalendarDay>
+                <event>WhitMonday</event>
+            </specialCalendarDay>
+        </specialDayEvent>
+    </nationalCalendar>
+</calendars>

@@ -2,13 +2,32 @@
 % Please edit documentation in R/utils.R
 \name{write_variables}
 \alias{write_variables}
-\title{Write auxiliary variables (regressors) file}
+\title{Write regressors file}
 \usage{
 write_variables(vars, file)
 }
 \arguments{
-\item{file}{}
+\item{vars}{A named list of \code{ts} objects.}
+
+\item{file}{Path to the output XML file.}
+}
+\value{
+No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
 }
 \description{
-Write auxiliary variables (regressors) file
+Write regressors file
+}
+\examples{
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Get context
+my_context <- get_context(jws)
+vars <- my_context$variables[[1L]]
+
+# Writing the regressors in a xml file
+write_variables(vars, file = normalizePath("tmp.xml", mustWork = FALSE))
+
 }

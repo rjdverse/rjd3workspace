@@ -1,4 +1,168 @@
-url: ~
+url: https://rjdverse.github.io/rjd3workspace/
 template:
   bootstrap: 5
 
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    - rpackages
+    right:
+    - jdemetra
+    - github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+      aria-label: Home
+    reference:
+      text: Reference
+      href: reference/index.html
+    news:
+      text: News
+      href: news/index.html
+    jdemetra:
+      text: JDemetra+
+      menu:
+      - text: Download JDemetra+
+        href: https://github.com/jdemetra/jdemetra-app/releases
+      - text: JDemetra+ documentation
+        href: https://jdemetra-new-documentation.netlify.app/
+    rpackages:
+      text: Around JDemetra+ and R
+      menu:
+      - text: rjd3toolkit
+        href: https://github.com/rjdverse/rjd3toolkit
+      - text: rjd3x13
+        href: https://github.com/rjdverse/rjd3x13
+      - text: rjd3tramoseats
+        href: https://github.com/rjdverse/rjd3tramoseats
+      - text: rjwsacruncher
+        href: https://github.com/AQLT/rjwsacruncher
+      - text: JDCruncher
+        href: https://github.com/InseeFrLab/JDCruncher
+      - text: ggdemetra3
+        href: https://github.com/AQLT/ggdemetra3
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/rjdverse/rjd3workspace
+      aria-label: View on GitHub
+
+reference:
+- title: "Workspaces: open, read, create, copy, save"
+  desc: Functions to open an existing JDemetra+ workspace, computing allows to retrieve results generated from specifications and raw data
+  contents:
+    - '`jws_new`'
+    - '`jws_open`'
+    - '`jws_compute`'
+    - '`read_workspace`'
+    - '`jread_workspace`'
+    - '`jws_refresh`'
+    - '`set_context`'
+    - '`jws_make_copy`'
+    - '`save_workspace`'
+- title: "Workspaces: get information"
+  desc: Functions to get information on workspaces
+  contents:
+    - '`check_information`'
+    - '`ws_sap_count`'
+    - '`get_context`'
+- title: Update Path to Raw data
+  desc: Functions to update path to raw data for a workspace, a SA-Processing or SA-Item
+  contents:
+    - '`spreadsheet_update_path`'
+    - '`txt_update_path`'
+- title: SA-Processings
+  desc: Functions to create, read SA-Processings and wrangle SA-Items (add, remove...)
+  contents:
+    - '`jws_sap`'
+    - '`jws_sap_new`'
+    - '`jsap_make_copy`'
+    - '`add_sa_item`'
+    - '`replace_sa_item`'
+    - '`remove_sa_item`'
+    - '`remove_all_sa_item`'
+    - '`transfer_sa_item`'
+    - '`sap_name`'
+    - '`sap_sai_names`'
+    - '`read_sap`'
+    - '`jread_sap`'
+    - '`jsap_refresh`'
+    - '`sap_sai_count`'
+- title: SA-Items
+  desc: Functions to extract, read SA-Items and set specifications
+  contents:
+    - '`jsap_sai`'
+    - '`read_sai`'
+    - '`.jsai_results`'
+    - '`.jsai_jresults`'
+    - '`set_specification`'
+    - '`set_domain_specification`'
+- title: "SA-Items: metadata"
+  desc: Functions to get and set metadata from an SA-Item
+  contents:
+    - '`get_metadata`'
+    - '`set_comment`'
+    - '`get_comment`'
+    - '`set_name`'
+    - '`set_priority`'
+    - '`get_priority`'
+    - '`set_raw_data`'
+    - '`get_raw_data`'
+    - '`set_ts`'
+    - '`get_ts`'
+    - '`get_ts_metadata`'
+    - '`set_ts_metadata`'
+    - '`put_ts_metadata`'
+- title: Calendars and regressors
+  desc: Functions to add calendars and regressors (variables) to a workspace
+  contents:
+    - '`add_calendar`'
+    - '`add_variables`'
+    - '`read_calendars`'
+    - '`read_variables`'
+    - '`write_calendars`'
+    - '`write_variables`'
+- title: Specification Files
+  desc: Functions to read/write specification files
+  contents:
+    - '`x13_read_spec`'
+    - '`x13_write_spec`'
+    - '`regarima_read_spec`'
+    - '`regarima_write_spec`'
+    - '`tramoseats_read_spec`'
+    - '`tramoseats_write_spec`'
+    - '`tramo_read_spec`'
+    - '`tramo_write_spec`'
+- title: Deprecated functions
+  desc: Use new version
+  contents:
+    - '`.jmp_load`'
+    - '`.jsa_read`'
+    - '`.jsa_results`'
+    - '`.jsa_jresults`'
+    - '`.jsa_metadata`'
+    - '`.jsa_ts_metadata`'
+    - '`.jsap_sai_count`'
+    - '`.jws_sap_count`'
+    - '`.jws_open`'
+    - '`.jread_workspace`'
+    - '`.jread_sap`'
+    - '`.jws_new`'
+    - '`.jws_sap_new`'
+    - '`.jws_make_copy`'
+    - '`.jsap_make_copy`'
+    - '`.jws_compute`'
+    - '`.jsap_sai`'
+    - '`.jws_sap`'
+    - '`.jsai_name`'
+    - '`.jsap_name`'
+    - '`.jsap_sai_names`'
+    - '`.jsap_refresh`'
+    - '`.jws_refresh`'
+    - '`transfer_series`'

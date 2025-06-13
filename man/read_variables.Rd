@@ -2,13 +2,24 @@
 % Please edit documentation in R/utils.R
 \name{read_variables}
 \alias{read_variables}
-\title{Read auxiliary variables (regressors) file}
+\title{Read auxiliary regressors file}
 \usage{
 read_variables(file)
 }
 \arguments{
-\item{file}{}
+\item{file}{xml format}
+}
+\value{
+A named list of time series objects.
 }
 \description{
-Read auxiliary variables (regressors) file
+The variables (regressors) file is a xml file like the one JDemetra+ would write when setting-up user defined regressors in the
+Graphical User Interface.
+}
+\examples{
+file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
+my_regressors <- read_variables(file)
+class(my_regressors)
+str(my_regressors)
+
 }

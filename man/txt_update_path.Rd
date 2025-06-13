@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_path.R
 \name{txt_update_path}
 \alias{txt_update_path}
-\title{Update the path to a csv/txt file specified in a workspace}
+\title{Update the path to raw data in a workspace (txt/csv file)}
 \usage{
 txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 }
@@ -11,26 +11,35 @@ txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 
 \item{new_path}{new path to the csv/txt file containing raw data}
 
-\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SAProcessing(s)}
 
-\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-item(s).}
 }
 \value{
 This function returns either NULL if the update was successful, or an
 error
 }
 \description{
-Update the path to a csv/txt file specified in a workspace
+Update the path to raw data in a workspace (txt/csv file)
 }
 \examples{
 
-# ws <- .jws_open(file = "ws_production.xml")
-#
-# # Update the entire second SA-Processing of the `ws` workspace with a new path
-# txt_update_path(
-#     jws = ws,
-#     new_path = normalizePath("./data/IPI_nace4.csv", mustWork = TRUE),
-#     idx_sap = 1L
-# )
+# Load a workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+my_ws <- jws_open(file)
+
+# Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
+txt_update_path(
+    jws = my_ws,
+    new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+    idx_sap = 1
+)
+
+# Select one (the 2nd) SA-item from first SA-Processing
+sap1 <- jws_sap(my_ws, 1)
+sai2 <- jsap_sai(sap1, 2)
+
+# Check path
+get_ts_metadata(sai2, "@id")
 
 }

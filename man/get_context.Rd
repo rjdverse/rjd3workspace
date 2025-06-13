@@ -12,3 +12,13 @@ get_context(jws)
 \description{
 Get Context from Workspace
 }
+\examples{
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Get context
+my_context <- get_context(jws)
+
+}

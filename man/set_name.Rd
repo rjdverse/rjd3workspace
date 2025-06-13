@@ -2,20 +2,43 @@
 % Please edit documentation in R/saprocessing.R
 \name{set_name}
 \alias{set_name}
-\title{Set the name associated to a SaItem Comment}
+\title{Set the name of a SA-item}
 \usage{
 set_name(jsap, idx, name)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
-\item{name}{character containing the name of the SAItem.}
+\item{name}{character corresponding to the new name}
+}
+\value{
+\code{NULL} returned invisibly
 }
 \description{
-Set the name associated to a SaItem Comment
+Set the name of a SA-item
+}
+\examples{
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Select SAProcessing
+sap1 <- jws_sap(jws,1)
+
+# Select SA-item
+sai1 <- jsap_sai(sap1,3) # java object sai
+
+# set name
+set_name(sap1,3,"RF1011_1")
+
+# check
+sai1 <- jsap_sai(sap1,3) # reload sai
+sai_name(sai1) #get name
+
 }
 \seealso{
-\code{\link[=.jsai_name]{.jsai_name()}}
+\code{\link[=sai_name]{sai_name()}}
 }
