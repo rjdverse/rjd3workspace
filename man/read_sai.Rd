@@ -29,6 +29,7 @@ estimation (fully identified model).
 }
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -39,5 +40,5 @@ jsap1 <- jws_sap(jws, 1)
 
 # Select SA-item (as java object)
 jsai1 <- jsap_sai(jsap1, 3)
-
+\dontshow{\}) # examplesIf}
 }

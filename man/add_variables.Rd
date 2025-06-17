@@ -34,12 +34,13 @@ For the time being, if the group does not already exist, a new group is created,
 }
 
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
 add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link{modelling_context}} to create multiple variables and groups at once,

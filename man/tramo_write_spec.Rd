@@ -19,6 +19,7 @@ The specification file is a xml file like the one JDemetra+ would write when def
 Graphical User Interface.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # creating a spec from default
 tramo_spec <- rjd3tramoseats::tramo_spec("tr3")
@@ -28,4 +29,5 @@ tramo_spec_d <- rjd3toolkit::set_transform(tramo_spec ,
                                           outliers = TRUE)
 # writing the specification in a xml file
 tramo_write_spec(tramo_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+\dontshow{\}) # examplesIf}
 }
