@@ -3,14 +3,14 @@
 \name{set_priority}
 \alias{set_priority}
 \alias{get_priority}
-\title{Get/Set SaItem Priority}
+\title{Get/Set SA-item Priority}
 \usage{
 set_priority(jsap, idx, priority = 0L)
 
 get_priority(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
@@ -19,5 +19,24 @@ get_priority(jsai)
 \item{jsai}{a SA-item.}
 }
 \description{
-Get/Set SaItem Priority
+Get/Set SA-item Priority
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+# Load a workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+my_jws <- jws_open(file)
+
+# Select the first SA-Processing and SA-Item
+jsap <- jws_sap(my_jws, 1)
+jsai <- jsap_sai(jsap, 1L)
+
+# Change priority
+set_priority(jsap, idx = 1L, priority = 3L)
+
+# Retrieve priority
+get_priority(jsai)
+
+\dontshow{\}) # examplesIf}
 }

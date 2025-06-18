@@ -12,3 +12,14 @@ get_context(jws)
 \description{
 Get Context from Workspace
 }
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Get context
+my_context <- get_context(jws)
+\dontshow{\}) # examplesIf}
+}

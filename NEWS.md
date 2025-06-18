@@ -7,8 +7,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.5.0] - 2025-04-10
+## [3.5.1] - 2025-06-18
 
+
+### Changed
+
+* Rename `.jsai_ts_metadata` into `get_ts_metadata()`
+* Rename `.jsai_metadata` into `get_metadata()`
+* Simplified the modification of path in `update_path()`
+
+
+## [3.5.0] - 2025-04-10
 
 ### Added
 
@@ -22,6 +31,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Rename `.jsap_sa_count()` in `.jsa_sai_count()`
 * Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
 * Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
+* Rename `.jsap_sai_count` in `sap_sai_count`
+
+### Deprecated 
+
+* `.jws_load()` in favour of `.jws_open()`
+* `.jsap_sai_count` is now deprecated
 * Rename `.jsap_sai_count()` in `sap_sai_count()`
 * Rename `.jws_sap_count()` in `ws_sap_count()`
 * Rename `.jws_open()` in `jws_open()`
@@ -39,10 +54,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Rename `.jsap_sai_names` in `sap_sai_names`
 * Rename `.jsap_refresh` in `jsap_refresh`
 * Rename `.jws_refresh` in `jws_refresh`
-
-### Deprecated 
-
-* `.jws_load()` in favor of `.jws_open()`
 
 
 ## [3.2.4] - 2025-02-04
@@ -68,8 +79,21 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [3.2.2] - 2024-03-15
 
 
-[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.0...HEAD
+## [3.2.1] - 2023-12-12
+
+
+## [3.2.0] - 2023-11-24
+
+
+## [3.1.0] - 2023-08-11
+
+
+[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.1...HEAD
+[3.5.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.0...v3.5.1
 [3.5.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...v3.5.0
 [3.2.4]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4
 [3.2.3]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.2...v3.2.3
-[3.2.2]: https://github.com/rjdverse/rjd3workspace/releases/tag/v3.2.2
+[3.2.2]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.1...v3.2.2
+[3.2.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/rjdverse/rjd3workspace/releases/tag/v3.1.0

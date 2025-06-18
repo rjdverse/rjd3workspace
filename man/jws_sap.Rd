@@ -22,14 +22,19 @@ Functions allowing to extract a SA-Processing from a Workspace using its order n
 SA-Processing its order number (index). The original object is unaltered.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
 # Load a Workspace
-# jws <- jws_open(file= my_workspace.xml)
-# Compute the workspace to enable access its components
-# jws_compute(jws)
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Compute the workspace to enable accessing its components
+jws_compute(jws)
+
 # Extract 2nd SA-Processing
-#jsap_2 <- jws_sap(jws_ref,2)
-# Extract 9th SA-item
-#jsai_9 <- jsap_sai(jsap_2,9)
+jsap2 <- jws_sap(jws, 2)
 
-
+# Extract 3rd SA-item
+jsai3 <- jsap_sai(jsap2, 3)
+\dontshow{\}) # examplesIf}
 }

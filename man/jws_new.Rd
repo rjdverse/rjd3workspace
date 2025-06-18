@@ -31,11 +31,12 @@ It can be created with \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::m
 workspace (\code{(set_context)})
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
-
+\dontshow{\}) # examplesIf}
 }
 \references{
 More information on workspaces in JDemetra+ Graphical User Interface:

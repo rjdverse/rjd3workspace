@@ -24,16 +24,17 @@ The copy of a SA-processing will be made in the same workspace. The modelling co
 workspace is also copied.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
 # Make a copy of the workspace
-#jws2 <- jws_make_copy(jws)
+jws2 <- jws_make_copy(jws)
 # Make a copy of sap1 in jws2
-#jsap2 <- jsap_make_copy(jsap)
+jsap2 <- jsap_make_copy(jsap)
 
-
+\dontshow{\}) # examplesIf}
 }
 \references{
 More information on workspaces in JDemetra+ Graphical User Interface:

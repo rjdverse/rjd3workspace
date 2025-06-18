@@ -3,14 +3,14 @@
 \name{set_raw_data}
 \alias{set_raw_data}
 \alias{get_raw_data}
-\title{Get/Set the Raw Data in a SA-item}
+\title{Get/Set Raw Data in a SA-item}
 \usage{
 set_raw_data(jsap, idx, y)
 
 get_raw_data(jsai)
 }
 \arguments{
-\item{jsap}{SAProcessing to modify.}
+\item{jsap}{SAProcessing to be modified.}
 
 \item{idx}{index of the target SA-item.}
 
@@ -18,6 +18,30 @@ get_raw_data(jsai)
 
 \item{jsai}{a SA-item.}
 }
+\value{
+\code{NULL} returned invisibly (set) or TS object (get)
+}
 \description{
-Get/Set the Raw Data in a SA-item
+Get/Set Raw Data in a SA-item
+}
+\examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+# Load a Workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
+
+# Select SAProcessing
+sap1 <- jws_sap(jws, 1)
+
+# Select SA-item
+sai1 <- jsap_sai(sap1, 3) # java object sai
+tail(get_raw_data(sai1))
+
+new_raw_data <- rjd3toolkit::ABS$X0.2.15.10.M
+set_raw_data(sap1,3,new_raw_data)
+
+sai1 <- jsap_sai(sap1,3) # reload SA-item
+tail(get_raw_data(sai1)) # get raw data
+\dontshow{\}) # examplesIf}
 }

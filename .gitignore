@@ -56,7 +56,5 @@ rsconnect/
 
 # produced README.html
 README.html
-inst/doc
 
-# auxiliary code
-aux.R
+pom.xml.versionsBackup

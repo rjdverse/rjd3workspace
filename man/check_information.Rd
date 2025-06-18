@@ -2,23 +2,23 @@
 % Please edit documentation in R/update_path.R
 \name{check_information}
 \alias{check_information}
-\title{Check existing JD+ object}
+\title{Check if JD+ object exists}
 \usage{
 check_information(jws, idx_sap = NULL, idx_sai = NULL)
 }
 \arguments{
 \item{jws}{workspace object}
 
-\item{idx_sap}{index (or indices) of the SA-Processing (s) to check}
+\item{idx_sap}{index (or indices) of the SAProcessing(s)}
 
-\item{idx_sai}{index (or indices) of the SA-Item(s) to check.}
+\item{idx_sai}{index (or indices) of the SA-item(s).}
 }
 \value{
 This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 the WS, or an error specifying the not found object.
 }
 \description{
-Check existing JD+ object
+Check if JD+ object exists
 }
 \details{
 If the object idx_sai is NULL then the function will only check if the
@@ -31,13 +31,15 @@ If the object idx_sap and / or idx_sai have a length > 1 then the checks are
 iterated over all the indices.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
-# ws <- .jws_open(file = "ws_production.xml")
-#
-# # Check if the SA-Item 3 in the SA-Processing 1 exists
-# check_information(jws = ws, idx_sap = 1, idx_sai = 3)
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+jws <- jws_open(file)
 
-# # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
-# check_information(jws = ws, idx_sap = 1, idx_sai = c(1, 2, 5))
+# Check if the SA-Item 3 in the SA-Processing 1 exists
+rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = 3)
 
+# Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
+rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
+\dontshow{\}) # examplesIf}
 }

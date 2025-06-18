@@ -1,31 +1,40 @@
 #' @include utils.R
 NULL
 
-#' Read an SA-item
+#' @title Read an SA-item
 #'
-#' `.jsai_results()` extracts specific variables of the model of the SA-item while
+#' @description
 #' `read_sai()` extracts all the information of a SA-item (see details).
-#'  `.jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
 #' @param jsai Java SA-item object.
-#' @param items vector of characters containing the variables to extract.
-#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
-#' By default, extracts all the possible variables.
 #'
-#' @details A SA-item contains more information than just the results of a model.
-#' All those informations are extracted with the `read_sai()` function that
-#' returns a list with 5 objects:
+#' @return a list
 #'
-#' - `ts`: the raw time series.
-#' - `domainSpec`: initial specification. Reference for any relaxing of some
-#' elements of the specification.
+#' @examplesIf jversion >= 17
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Select SAProcessing
+#' jsap1 <- jws_sap(jws, 1)
+#'
+#' # Select SA-item (as java object)
+#' jsai1 <- jsap_sai(jsap1, 3)
+#'
+#' @details A SA-item contains more information than just the results of an estimation.
+#' Full information is extracted with the `read_sai()` function that
+#' returns a list of 5 objects:
+#' - `ts`: raw time series.
+#' - `domainSpec`: initial specification. Reference when refreshing and relaxing constraints.
 #' - `estimationSpec`: specification used for the current estimation.
 #' - `pointSpec`: specification corresponding to the results of the current
 #' estimation (fully identified model).
-#' - `results`: the result of the model.
+#' - `results`: results of the estimation.
+#'
 #' @export
+#'
 read_sai <- function(jsai) {
-
     #  if (! .jcall(jsai, "Z", "isProcessed"))
     #    stop("You must run 'jws_compute()' on your workspace.")
 
@@ -51,6 +60,7 @@ read_sai <- function(jsai) {
     pspec <- NULL
     rslt <- NULL
 
+
     if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
         spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
             jspec,
@@ -70,10 +80,12 @@ read_sai <- function(jsai) {
                 returnSig = "Ljdplus/sa/base/api/SaSpecification;",
                 method = "getPointSpec"
             )
-            pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
-                jpspec,
-                "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-            ))
+            if (! is.jnull(jpspec)){
+                pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+                    jpspec,
+                    "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+                ))
+            }
         }
     } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
         spec <- rjd3x13::.jd2r_spec_x13(.jcast(jspec, "jdplus/x13/base/api/x13/X13Spec"))
@@ -81,7 +93,9 @@ read_sai <- function(jsai) {
         if (!is.jnull(jrslt)) {
             rslt <- rjd3x13::.x13_rslts(.jcast(jrslt, "jdplus/x13/base/core/x13/X13Results"))
             jpspec <- .jcall(jestimation, "Ljdplus/sa/base/api/SaSpecification;", "getPointSpec")
-            pspec <- rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
+            if (! is.jnull(jpspec)){
+                pspec <- rjd3x13::.jd2r_spec_x13(.jcast(jpspec, "jdplus/x13/base/api/x13/X13Spec"))
+            }
         }
     }
     return(list(
@@ -93,8 +107,19 @@ read_sai <- function(jsai) {
     ))
 }
 
-#' @name read_sai
+#' @title Extract results from a SA-item
+#'
+#' @description
+#' `.jsai_results()` extracts specific variables of the model of the SA-item while
+#' `.jsai_jresults()` extracts the Java object of the results of a SA-item.
+#'
+#' @param jsai Java SA-item object.
+#' @param items vector of characters containing the variables to extract.
+#' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
+#' By default, extracts all the possible variables.
+#'
 #' @export
+#'
 .jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
     if (is.jnull(jestimation)) {
@@ -111,7 +136,7 @@ read_sai <- function(jsai) {
     return(r)
 }
 
-#' @name read_sai
+#' @name .jsai_results
 #' @export
 .jsai_jresults <- function(jsai) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
@@ -124,20 +149,42 @@ read_sai <- function(jsai) {
 }
 
 
-#' @name jsap_name
+#' @name sap_name
 #' @export
 sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
 }
 
-#' Extract Java Metadata
+#' @title Extract Metadata from a SA-Item
 #'
+#' @description
 #' Extract specific metadata or time series metadata of a SA-item.
 #'
 #' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
-.jsai_metadata <- function(jsai, key) {
+#'
+#' @examplesIf jversion >= 17
+#'
+#' # Load a Workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Select SAProcessing
+#' jsap1 <- jws_sap(jws, 1)
+#'
+#' # Select SA-item (as java object)
+#' jsai1 <- jsap_sai(jsap1, 3)
+#'
+#' # Extract the comment as metadata
+#' get_metadata(jsai1, "comment")
+#'
+#' # Extract the ts metadata
+#' get_metadata(jsai1, "@id")
+#' get_metadata(jsai1, "@source")
+#' get_metadata(jsai1, "@timestamp")
+#'
+get_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
@@ -147,9 +194,9 @@ sai_name <- function(jsai) {
     return(val)
 }
 
-#' @name .jsai_metadata
+#' @name get_metadata
 #' @export
-.jsai_ts_metadata <- function(jsai, key) {
+get_ts_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
