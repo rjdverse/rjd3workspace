@@ -22,23 +22,24 @@ Depends:
     R (>= 4.1.0)
 Imports:
     rJava (>= 1.0-6),
-    rjd3toolkit (>= 3.5.1),
-    rjd3tramoseats (>= 3.5.1),
-    rjd3x13 (>= 3.5.1),
     rjd3providers (>= 3.5.1),
-    tools, 
+    rjd3toolkit (>= 3.5.1),
+    rjd3tramoseats (>= 3.5.2),
+    rjd3x13 (>= 3.5.1),
+    tools,
     utils
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
 Remotes: 
-    github::rjdverse/rjd3providers,
-    github::rjdverse/rjd3toolkit,
-    github::rjdverse/rjd3tramoseats,
-    github::rjdverse/rjd3x13,
     github::rjdverse/rjd3providers
-    github::rjdverse/rjd3x13
+    github::rjdverse/rjd3x13@*release,
+    github::rjdverse/rjd3providers@*release,
+    github::rjdverse/rjd3toolkit@*release,
+    github::rjdverse/rjd3tramoseats@*release,
+    github::rjdverse/rjd3x13@*release
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
@@ -52,4 +53,3 @@ Collate:
     'update_path.R'
     'workspace.R'
     'zzz.R'
-Config/testthat/edition: 3
