@@ -26,6 +26,7 @@ Function to set the time series metadata of a SA-item (provider, source of the d
 allows to update a specific key with a new information.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -37,5 +38,5 @@ put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)
 get_ts_metadata(jsai, "@id")
-
+\dontshow{\}) # examplesIf}
 }

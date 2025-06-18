@@ -16,7 +16,7 @@ sap_sai_count <- function(jsap) {
 #' @param jsap,jsai the object to retrieve the name from.
 #' @return A vector \code{character}.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
@@ -141,7 +141,7 @@ jsap_refresh <- function(jsap,
 #'
 #' @return \code{NULL} returned invisibly
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' dir <- tempdir()
 #'
@@ -319,7 +319,7 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 #' @inheritParams replace_sa_item
 #' @param spec new specification generated with [rjd3x13::x13_spec()] or [rjd3tramoseats::tramoseats_spec()]
 #' @return \code{NULL} returned invisibly
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
@@ -386,7 +386,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @param jsai a SA-item.
 #' @return \code{NULL} returned invisibly (set) or TS object (get)
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -430,7 +430,7 @@ get_raw_data <- function(jsai) {
 #' @param y a "full" time series (jd3-like).
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_jws <- jws_open(file)
@@ -486,7 +486,7 @@ get_ts <- function(jsai) {
 #' @param comment character containing the comment.
 #' @return \code{NULL} returned invisibly
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -526,7 +526,7 @@ get_comment <- function(jsai) {
 #' @param name character corresponding to the new name
 #' @return \code{NULL} returned invisibly
 #' @seealso [sai_name()]
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -570,7 +570,7 @@ set_name <- function(jsap, idx, name) {
 #' @param value value of the metadata.
 #'
 #' @export
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -669,7 +669,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' @param priority integer containing the priority.
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

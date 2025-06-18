@@ -31,6 +31,7 @@ If the object idx_sap and / or idx_sai have a length > 1 then the checks are
 iterated over all the indices.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
@@ -40,5 +41,5 @@ rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = 3)
 
 # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
-
+\dontshow{\}) # examplesIf}
 }

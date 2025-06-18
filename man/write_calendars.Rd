@@ -20,6 +20,7 @@ Graphical User Interface.
 Calendars can be defined with \code{rjd3toolkit::national_calendar}
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(rjd3toolkit)
 BE <- national_calendar(list(
    fixed_day(7, 21),
@@ -35,4 +36,5 @@ BE <- national_calendar(list(
 ))
 write_calendars(list(BEL_cal = BE),
         file = normalizePath("~/tmp.xml", mustWork = FALSE))
+\dontshow{\}) # examplesIf}
 }

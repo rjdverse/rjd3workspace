@@ -18,6 +18,7 @@ get_ts_metadata(jsai, key)
 Extract specific metadata or time series metadata of a SA-item.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -36,5 +37,5 @@ get_metadata(jsai1, "comment")
 get_metadata(jsai1, "@id")
 get_metadata(jsai1, "@source")
 get_metadata(jsai1, "@timestamp")
-
+\dontshow{\}) # examplesIf}
 }

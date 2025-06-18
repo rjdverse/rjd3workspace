@@ -18,6 +18,7 @@ a java workspace
 to extract all the SA-Items as java objects).
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -25,7 +26,7 @@ jws <- jws_open(file)
 
 # Compute the workspace to enable access its components
 jws_compute(jws)
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=read_workspace]{read_workspace()}} to transform the workspace in a R list.

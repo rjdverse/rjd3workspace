@@ -17,9 +17,10 @@ The calendar file is a xml file like the one JDemetra+ would write when defining
 Graphical User Interface.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
 my_calendar
-
+\dontshow{\}) # examplesIf}
 }

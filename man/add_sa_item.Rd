@@ -23,6 +23,7 @@ add_sa_item(jsap, name, x, spec, ...)
 Add a SA-item to a SAProcessing
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 dir <- tempdir()
 
@@ -48,5 +49,5 @@ rws$processing$sap1$series_4
 
 # Writing the workspace
 save_workspace(jws, file.path(dir, "workspace.xml"))
-
+\dontshow{\}) # examplesIf}
 }

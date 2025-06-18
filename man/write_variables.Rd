@@ -18,6 +18,7 @@ No return value (\code{NULL} returned invisibly). This function writes variables
 Write regressors file
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -29,5 +30,5 @@ vars <- my_context$variables[[1L]]
 
 # Writing the regressors in a xml file
 write_variables(vars, file = normalizePath("tmp.xml", mustWork = FALSE))
-
+\dontshow{\}) # examplesIf}
 }
