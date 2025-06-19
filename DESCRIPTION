@@ -33,8 +33,6 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Remotes: 
-    github::rjdverse/rjd3providers
-    github::rjdverse/rjd3x13@*release,
     github::rjdverse/rjd3providers@*release,
     github::rjdverse/rjd3toolkit@*release,
     github::rjdverse/rjd3tramoseats@*release,
