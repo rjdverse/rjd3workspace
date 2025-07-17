@@ -448,12 +448,14 @@ full_path <- function(path) {
 }
 
 
-#' Add a Calendar to a Workspace
+#' @title Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
 #' @param name  character name of the calendar to add.
 #' @param calendar  JDemetra+ calendar to add.
+#'
 #' @return \code{NULL} returned invisibly
+#'
 #' @examplesIf jversion >= 17
 #' # French calendar
 #' french_calendar <- rjd3toolkit::national_calendar(
