@@ -26,8 +26,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * Rename `.jsa_XXX()` in `.jsai_XXX()` for SA-Item
 * Rename `.jsap_sa()` in `.jsap_sai()`
-* Rename `.jsap_sa_name()` in `.jsa_sai_names()`
-* Rename `.jsap_sa_count()` in `.jsa_sai_count()`
+* Rename `.jsap_sa_name()` in `.jsap_sai_names()`
+* Rename `.jsap_sa_count()` in `.jsap_sai_count()`
 * Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
 * Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
 * Rename `.jsap_sai_count` in `sap_sai_count`
