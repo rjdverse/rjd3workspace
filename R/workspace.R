@@ -47,9 +47,10 @@ jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
-#' @name .jws_add
+#' @title Add a SA-Processing to a Workspace
+#' @name jws_add
 #' @export
-.jws_add <- function(jws, jsap) {
+jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
 }
 

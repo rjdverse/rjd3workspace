@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* Rename `.jws_add()` into `jws_add()`
+
 ## [3.5.1] - 2025-06-19
 
 ### Changed

@@ -4,18 +4,23 @@
 \alias{deprecated-rjd3workspace}
 \alias{.jmp_sa_count}
 \alias{.jsap_sa_count}
+\alias{.jsap_sai_count}
 \alias{.jmp_name}
+\alias{.jsap_name}
 \alias{.jmp_sa}
+\alias{.jsap_sa}
+\alias{.jsap_sai}
 \alias{.jmp_sa_name}
 \alias{.jsap_sa_name}
+\alias{.jsap_sai_names}
 \alias{.jmp_load}
 \alias{.jsa_read}
 \alias{.jsa_results}
 \alias{.jsa_jresults}
 \alias{.jsa_metadata}
+\alias{.jsai_metadata}
 \alias{.jsa_ts_metadata}
 \alias{.jsai_ts_metadata}
-\alias{.jsap_sai_count}
 \alias{.jws_sap_count}
 \alias{.jws_open}
 \alias{.jread_workspace}
@@ -25,28 +30,35 @@
 \alias{.jws_make_copy}
 \alias{.jsap_make_copy}
 \alias{.jws_compute}
-\alias{.jsap_sai}
 \alias{.jws_sap}
 \alias{.jsai_name}
-\alias{.jsap_name}
-\alias{.jsap_sai_names}
 \alias{.jsap_refresh}
 \alias{.jws_refresh}
 \alias{transfer_series}
-\alias{.jsai_metadata}
+\alias{.jws_add}
 \title{Deprecated functions}
 \usage{
 .jmp_sa_count(jmp)
 
 .jsap_sa_count(jmp)
 
+.jsap_sai_count(jsap)
+
 .jmp_name(jmp)
 
+.jsap_name(jsap)
+
 .jmp_sa(jmp, idx)
+
+.jsap_sa(jsap, idx)
+
+.jsap_sai(jsap, idx)
 
 .jmp_sa_name(jmp)
 
 .jsap_sa_name(jsap)
+
+.jsap_sai_names(jsap)
 
 .jmp_load(jmp)
 
@@ -58,13 +70,11 @@
 
 .jsa_metadata(jsa, key)
 
+.jsai_metadata(jsai, key)
+
 .jsa_ts_metadata(jsa, key)
 
 .jsai_ts_metadata(jsa, key)
-
-.jsap_sai_count(jsap)
-
-.jsap_sai_count(jsap)
 
 .jws_sap_count(jws)
 
@@ -84,15 +94,9 @@
 
 .jws_compute(jws)
 
-.jsap_sai(jsap, idx)
-
 .jws_sap(jws, idx)
 
 .jsai_name(jsai)
-
-.jsap_name(jsap)
-
-.jsap_sai_names(jsap)
 
 .jsap_refresh(
   jsap,
@@ -121,7 +125,7 @@ transfer_series(
   print_indications = TRUE
 )
 
-.jsai_metadata(jsai, key)
+.jws_add(jws, jsap)
 }
 \arguments{
 \item{jmp, idx, jws, name}{Parameters.}
