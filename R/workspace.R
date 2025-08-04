@@ -531,7 +531,22 @@ add_calendar <- function(jws, name, calendar) {
 #' jws <- jws_open(file)
 #' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #'
-add_variables <- function(jws, group, name, y) {
+add_variables <- function(jws, group, name, y, overwrite = FALSE) {
+    if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
+        context <- get_context(my_ws)
+        vars <- context$variables
+        if (!(is.null(vars[[group]][[name]]) || overwrite)) {
+            message(
+                "There is already a variable with the same name in the same group.",
+                "Please change the name of the variable or the name of the group or set `overwrite` to `TRUE`."
+            )
+            return(invisible(NULL))
+        }
+        vars[[group]][[name]] <- y
+        new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
+        set_context(my_ws, modelling_context = new_context)
+        return(invisible(NULL))
+    }
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)
