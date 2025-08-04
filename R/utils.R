@@ -292,7 +292,7 @@ write_calendars <- function(calendars, file) {
     } else if (!(
         is.list(calendars)
         && all(sapply(calendars, inherits, "JD3_CALENDAR"))
-        && is.null(names(calendars))
+        && !is.null(names(calendars))
         && all(nzchar(names(calendars)))
     )) {
         stop("calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects")
