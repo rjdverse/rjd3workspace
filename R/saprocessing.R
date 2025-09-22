@@ -162,6 +162,11 @@ jsap_refresh <- function(jsap,
 #' # Adding SA-item as raw series + specification
 #' add_sa_item(jsap1, name = "series_3", x = y, rjd3x13::x13_spec("RSA3"))
 #' add_sa_item(jsap1, name = "series_4", x = y, rjd3tramoseats::tramoseats_spec("RSAFull"))
+#'
+#' jsai1 <- jsap_sai(jsap = jsap1, idx = 1L)
+#' # Adding SA-item from a Workspace
+#' add_sa_item(jsap = jsap1, name = "series_1_bis", x = jsai1)
+#'
 #' rws <- read_workspace(jws)
 #' rws$processing$sap1$series_4
 #'
