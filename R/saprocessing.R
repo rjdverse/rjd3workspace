@@ -40,7 +40,8 @@ sap_name <- function(jsap) {
 #' @name make_copy
 #' @export
 jsap_make_copy <- function(jsap) {
-    return(.jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy"))
+    jsap_clone <- .jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy")
+    return(jsap_clone)
 }
 
 #' @name jws_sap
@@ -49,7 +50,8 @@ jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1L) {
         return(NULL)
     }
-    return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L)))
+    jsai <- .jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L))
+    return(jsai)
 }
 #' @name sap_name
 #' @export
