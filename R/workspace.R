@@ -47,9 +47,10 @@ jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
-#' @name .jws_add
+#' @title Add a SA-Processing to a Workspace
+#' @name jws_add
 #' @export
-.jws_add <- function(jws, jsap) {
+jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
 }
 
@@ -447,12 +448,14 @@ full_path <- function(path) {
 }
 
 
-#' Add a Calendar to a Workspace
+#' @title Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
 #' @param name  character name of the calendar to add.
 #' @param calendar  JDemetra+ calendar to add.
+#'
 #' @return \code{NULL} returned invisibly
+#'
 #' @examplesIf jversion >= 17
 #' # French calendar
 #' french_calendar <- rjd3toolkit::national_calendar(
@@ -528,7 +531,22 @@ add_calendar <- function(jws, name, calendar) {
 #' jws <- jws_open(file)
 #' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #'
-add_variables <- function(jws, group, name, y) {
+add_variables <- function(jws, group, name, y, overwrite = FALSE) {
+    if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
+        context <- get_context(my_ws)
+        vars <- context$variables
+        if (!(is.null(vars[[group]][[name]]) || overwrite)) {
+            message(
+                "There is already a variable with the same name in the same group.",
+                "Please change the name of the variable or the name of the group or set `overwrite` to `TRUE`."
+            )
+            return(invisible(NULL))
+        }
+        vars[[group]][[name]] <- y
+        new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
+        set_context(my_ws, modelling_context = new_context)
+        return(invisible(NULL))
+    }
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

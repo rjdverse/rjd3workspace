@@ -82,6 +82,7 @@ reference:
   contents:
     - '`jws_sap`'
     - '`jws_sap_new`'
+    - '`jws_add`'
     - '`jsap_make_copy`'
     - '`add_sa_item`'
     - '`replace_sa_item`'
@@ -142,13 +143,25 @@ reference:
 - title: Deprecated functions
   desc: Use new version
   contents:
+    - '`.jmp_sa_count`'
+    - '`.jsap_sa_count`'
+    - '`.jsap_sai_count`'
+    - '`.jmp_name`'
+    - '`.jsap_name`'
+    - '`.jmp_sa`'
+    - '`.jsap_sa`'
+    - '`.jsap_sai`'
+    - '`.jmp_sa_name`'
+    - '`.jsap_sa_name`'
+    - '`.jsap_sai_names`'
     - '`.jmp_load`'
     - '`.jsa_read`'
     - '`.jsa_results`'
     - '`.jsa_jresults`'
     - '`.jsa_metadata`'
+    - '`.jsai_metadata`'
     - '`.jsa_ts_metadata`'
-    - '`.jsap_sai_count`'
+    - '`.jsai_ts_metadata`'
     - '`.jws_sap_count`'
     - '`.jws_open`'
     - '`.jread_workspace`'
@@ -158,11 +171,13 @@ reference:
     - '`.jws_make_copy`'
     - '`.jsap_make_copy`'
     - '`.jws_compute`'
-    - '`.jsap_sai`'
     - '`.jws_sap`'
     - '`.jsai_name`'
-    - '`.jsap_name`'
-    - '`.jsap_sai_names`'
     - '`.jsap_refresh`'
     - '`.jws_refresh`'
     - '`transfer_series`'
+    - '`.jws_add`'
+- title: Wrangling Java objects
+  desc: Functions to easily interact between R and Java objects
+  contents:
+    - '`jversion`'

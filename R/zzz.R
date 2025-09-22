@@ -1,6 +1,14 @@
 #' @include utils.R
 NULL
 
+#' @title Java Utility Functions
+#'
+#' @description
+#' These functions are used in all JDemetra+ 3.0 packages to easily interact between R and Java objects.
+#' @name jd3_utilities
+NULL
+#> NULL
+
 #' @rdname jd3_utilities
 #' @export
 jversion <- NULL
