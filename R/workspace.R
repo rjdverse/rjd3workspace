@@ -1,6 +1,20 @@
 #' @include saprocessing.R
 NULL
 
+setClass("workspace", contains = "jobjRef")
+setClass("sa_item", contains = "jobjRef")
+setClass("sa_processing", contains = "jobjRef")
+
+is.sa_processing <- function(x){
+    inherits(x, "sa_processing")
+}
+is.sa_item <- function(x){
+    inherits(x, "sa_item")
+}
+is.workspace <- function(x){
+    inherits(x, "workspace")
+}
+
 #' Create a Workspace or SA-Processing
 #'
 #' Functions creating a 'JDemetra+' Workspace (\code{jws_new()}) and
