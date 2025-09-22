@@ -64,12 +64,12 @@ Calendars can be defined with <code><a href="https://rjdverse.github.io/rjd3tool
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-file">file<a class="anchor" aria-label="anchor" href="#arg-file"></a></dt>
+<dl><dt id="arg-calendars">calendars<a class="anchor" aria-label="anchor" href="#arg-calendars"></a></dt>
+<dd><p>list of calendars or a <code>JD3_CALENDAR</code> object</p></dd>
+
+
+<dt id="arg-file">file<a class="anchor" aria-label="anchor" href="#arg-file"></a></dt>
 <dd><p>xml format</p></dd>
-
-
-<dt id="arg-list">list<a class="anchor" aria-label="anchor" href="#arg-list"></a></dt>
-<dd><p>of calendars</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -92,6 +92,8 @@ Calendars can be defined with <code><a href="https://rjdverse.github.io/rjd3tool
 <span class="r-in"><span>   <span class="fu"><a href="https://rjdverse.github.io/rjd3toolkit/reference/special_day.html" class="external-link">special_day</a></span><span class="op">(</span><span class="st">"ALLSAINTSDAY"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rjdverse.github.io/rjd3toolkit/reference/special_day.html" class="external-link">special_day</a></span><span class="op">(</span><span class="st">"ARMISTICE"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">write_calendars</span><span class="op">(</span><span class="va">BE</span>,</span></span>
+<span class="r-in"><span>        file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"~/tmp.xml"</span>, mustWork <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">write_calendars</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>BEL_cal <span class="op">=</span> <span class="va">BE</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>        file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"~/tmp.xml"</span>, mustWork <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 </code></pre></div>

@@ -55,13 +55,23 @@
 <span></span>
 <span><span class="fu">.jsap_sa_count</span><span class="op">(</span><span class="va">jmp</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">.jsap_sai_count</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">.jmp_name</span><span class="op">(</span><span class="va">jmp</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">.jsap_name</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">.jmp_sa</span><span class="op">(</span><span class="va">jmp</span>, <span class="va">idx</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">.jsap_sa</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">idx</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">.jsap_sai</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">idx</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jmp_sa_name</span><span class="op">(</span><span class="va">jmp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jsap_sa_name</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">.jsap_sai_names</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jmp_load</span><span class="op">(</span><span class="va">jmp</span><span class="op">)</span></span>
 <span></span>
@@ -73,13 +83,11 @@
 <span></span>
 <span><span class="fu">.jsa_metadata</span><span class="op">(</span><span class="va">jsa</span>, <span class="va">key</span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">.jsai_metadata</span><span class="op">(</span><span class="va">jsai</span>, <span class="va">key</span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">.jsa_ts_metadata</span><span class="op">(</span><span class="va">jsa</span>, <span class="va">key</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jsai_ts_metadata</span><span class="op">(</span><span class="va">jsa</span>, <span class="va">key</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">.jsap_sai_count</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">.jsap_sai_count</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jws_sap_count</span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span>
 <span></span>
@@ -99,15 +107,9 @@
 <span></span>
 <span><span class="fu">.jws_compute</span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">.jsap_sai</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">idx</span><span class="op">)</span></span>
-<span></span>
 <span><span class="fu">.jws_sap</span><span class="op">(</span><span class="va">jws</span>, <span class="va">idx</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jsai_name</span><span class="op">(</span><span class="va">jsai</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">.jsap_name</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">.jsap_sai_names</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">.jsap_refresh</span><span class="op">(</span></span>
 <span>  <span class="va">jsap</span>,</span>
@@ -136,7 +138,7 @@
 <span>  print_indications <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">.jsai_metadata</span><span class="op">(</span><span class="va">jsai</span>, <span class="va">key</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">.jws_add</span><span class="op">(</span><span class="va">jws</span>, <span class="va">jsap</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
