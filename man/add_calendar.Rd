@@ -20,7 +20,7 @@ add_calendar(jws, name, calendar)
 Add a Calendar to a Workspace
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
 # French calendar
 french_calendar <- rjd3toolkit::national_calendar(
     days = list(
