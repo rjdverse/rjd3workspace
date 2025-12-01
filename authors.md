@@ -14,17 +14,17 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/develop/DESCRIPTION)
 
 Palate J, Quartier-la-Tente A, Barthelemy T, Smyk A (2025).
 *rjd3workspace: Interface to 'JDemetra+ 3.x' time series analysis
-software*. R package version 3.6.0,
+software*. R package version 3.6.0.9000,
 <https://github.com/rjdverse/rjd3workspace>.
 
     @Manual{,
       title = {rjd3workspace: Interface to 'JDemetra+ 3.x' time series analysis software},
       author = {Jean Palate and Alain Quartier-la-Tente and Tanguy Barthelemy and Anna Smyk},
       year = {2025},
-      note = {R package version 3.6.0},
+      note = {R package version 3.6.0.9000},
       url = {https://github.com/rjdverse/rjd3workspace},
     }
