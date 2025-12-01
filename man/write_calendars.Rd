@@ -7,9 +7,9 @@
 write_calendars(calendars, file)
 }
 \arguments{
-\item{file}{xml format}
+\item{calendars}{list of calendars or a \code{JD3_CALENDAR} object}
 
-\item{list}{of calendars}
+\item{file}{xml format}
 }
 \value{
 \code{NULL} returned invisibly
@@ -34,6 +34,8 @@ BE <- national_calendar(list(
    special_day("ALLSAINTSDAY"),
    special_day("ARMISTICE")
 ))
+write_calendars(BE,
+        file = normalizePath("~/tmp.xml", mustWork = FALSE))
 write_calendars(list(BEL_cal = BE),
         file = normalizePath("~/tmp.xml", mustWork = FALSE))
 \dontshow{\}) # examplesIf}

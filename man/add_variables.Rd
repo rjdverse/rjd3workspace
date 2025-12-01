@@ -4,7 +4,7 @@
 \alias{add_variables}
 \title{Add a Variable to a JD+ Workspace}
 \usage{
-add_variables(jws, group, name, y)
+add_variables(jws, group, name, y, overwrite = FALSE)
 }
 \arguments{
 \item{jws}{A JD+ workspace object (Java pointer).}

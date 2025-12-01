@@ -10,7 +10,7 @@ read_calendars(file)
 \item{calendar}{a xml file}
 }
 \value{
-a list
+a list of \code{JD3_CALENDAR} objects
 }
 \description{
 The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the

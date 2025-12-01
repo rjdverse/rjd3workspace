@@ -234,7 +234,7 @@ x13_write_spec <- function(spec, file) {
 #' The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
 #' Graphical User Interface.
 #'
-#' @return a list
+#' @return a list of `JD3_CALENDAR` objects
 #'
 #' @examplesIf jversion >= 17
 #'
@@ -263,7 +263,7 @@ read_calendars <- function(file) {
 #' Graphical User Interface.
 #' Calendars can be defined with `rjd3toolkit::national_calendar`
 #'
-#' @param list of calendars
+#' @param calendars list of calendars or a `JD3_CALENDAR` object
 #' @param file xml format
 #'
 #' @return \code{NULL} returned invisibly
@@ -281,10 +281,22 @@ read_calendars <- function(file) {
 #'    special_day("ALLSAINTSDAY"),
 #'    special_day("ARMISTICE")
 #' ))
+#' write_calendars(BE,
+#'         file = normalizePath("~/tmp.xml", mustWork = FALSE))
 #' write_calendars(list(BEL_cal = BE),
 #'         file = normalizePath("~/tmp.xml", mustWork = FALSE))
 #' @export
 write_calendars <- function(calendars, file) {
+    if (inherits(calendars, "JD3_CALENDAR")) {
+        calendars <- list(cal = calendars)
+    } else if (!(
+        is.list(calendars)
+        && all(sapply(calendars, inherits, "JD3_CALENDAR"))
+        && !is.null(names(calendars))
+        && all(nzchar(names(calendars)))
+    )) {
+        stop("calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects")
+    }
     jcal <- rjd3toolkit::.r2jd_calendars(calendars)
     .jcall(
         "jdplus/toolkit/base/workspace/file/Utility", "V",
