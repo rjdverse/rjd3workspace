@@ -20,6 +20,7 @@ set_name(jsap, idx, name)
 Set the name of a SA-item
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -37,7 +38,7 @@ set_name(sap1,3,"RF1011_1")
 # check
 sai1 <- jsap_sai(sap1,3) # reload sai
 sai_name(sai1) #get name
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=sai_name]{sai_name()}}

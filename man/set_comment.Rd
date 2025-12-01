@@ -25,6 +25,7 @@ get_comment(jsai)
 Get/Set Comment from a SA-item
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -38,5 +39,5 @@ set_comment(jsap1, 2L, "data collection changed in 2012")
 
 jsai2 <- jsap_sai(jsap1, 2L)
 get_comment(jsai2)
-
+\dontshow{\}) # examplesIf}
 }

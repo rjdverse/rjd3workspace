@@ -26,6 +26,7 @@ Update the path to raw data in a workspace (spreadsheet)
 The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -44,5 +45,5 @@ sai2 <- jsap_sai(sap2, 2)
 
 # Check path
 get_ts_metadata(sai2, "@id")
-
+\dontshow{\}) # examplesIf}
 }

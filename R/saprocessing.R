@@ -16,7 +16,7 @@ sap_sai_count <- function(jsap) {
 #' @param jsap,jsai the object to retrieve the name from.
 #' @return A vector \code{character}.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
@@ -141,7 +141,7 @@ jsap_refresh <- function(jsap,
 #'
 #' @return \code{NULL} returned invisibly
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' dir <- tempdir()
 #'
@@ -304,7 +304,7 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
         }
 
         if (print_indications) {
-             cat("Serie ", serie_name, ": Transfered.\n")
+            cat("Serie ", serie_name, ": Transfered.\n")
         }
     }
 
@@ -319,7 +319,7 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 #' @inheritParams replace_sa_item
 #' @param spec new specification generated with [rjd3x13::x13_spec()] or [rjd3tramoseats::tramoseats_spec()]
 #' @return \code{NULL} returned invisibly
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
@@ -386,7 +386,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @param jsai a SA-item.
 #' @return \code{NULL} returned invisibly (set) or TS object (get)
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -430,7 +430,7 @@ get_raw_data <- function(jsai) {
 #' @param y a "full" time series (jd3-like).
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_jws <- jws_open(file)
@@ -486,7 +486,7 @@ get_ts <- function(jsai) {
 #' @param comment character containing the comment.
 #' @return \code{NULL} returned invisibly
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -526,7 +526,7 @@ get_comment <- function(jsai) {
 #' @param name character corresponding to the new name
 #' @return \code{NULL} returned invisibly
 #' @seealso [sai_name()]
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -557,11 +557,15 @@ set_name <- function(jsap, idx, name) {
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 
-#' @title Set (JDemetra+) Time Series Metadata of a SA-item
+#' @title Set (JDemetra+) Metadata of a SA-item
 #'
 #' @description
-#' Function to set the time series metadata of a SA-item (provider, source of the data...).
-#' `set_ts_metadata()` uses the metadata of another SA-item while `put_ts_metadata()`
+#' Function to set the metadata of a SA-item.
+#'
+#' `XXX_ts_metadata()` set the time series metadata of a SA-item (provider,
+#' source of the data...). `XXX_metadata()` set any metadata to a SA-Item.
+#'
+#' `set_XXX()` uses the metadata of another SA-item while `put_XXX()`
 #' allows to update a specific key with a new information.
 #'
 #' @inheritParams set_raw_data
@@ -570,7 +574,7 @@ set_name <- function(jsap, idx, name) {
 #' @param value value of the metadata.
 #'
 #' @export
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -583,41 +587,6 @@ set_name <- function(jsap, idx, name) {
 #' jsai <- jsap_sai(jsap, 1)
 #' get_ts_metadata(jsai, "@id")
 #'
-
-
-# set_metadata <- function(jsap, ref_jsai, idx) {
-#   jsai <- jsap_sai(jsap, idx = idx)
-#   jsai <- jsa$withInformations(ref_jsai$getMeta())
-#   replace_sa_item(jsap, jsai = jsai, idx = idx)
-# }
-
-# put_metadata <- function (jsap, idx, key, value) {
-#     jsai <- jsap_sai(jsap, idx = idx)
-#
-#     meta <- .jcall(jsai, "Ljava/util/Map;", "getMeta")
-#     new_meta <- .jnew("java/util/HashMap", meta)
-#
-#     jkey <- .jnew("java/lang/String", key)
-#     jvalue <- .jnew("java/lang/String", value)
-#
-#     .jcall(
-#         obj = new_meta,
-#         returnSig = "Ljava/lang/Object;",
-#         method = "put",
-#         .jcast(jkey, "java/lang/Object"),
-#         .jcast(jvalue, "java/lang/Object")
-#     )
-#
-#     jsai <- .jcall(
-#         obj = jsai,
-#         returnSig = "Ljdplus/sa/base/api/SaItem;",
-#         method = "withInformations",
-#         .jcast(new_meta, "java/util/Map")
-#     )
-#
-#     replace_sa_item(jsap, jsai = jsai, idx = idx)
-# }
-
 set_ts_metadata <- function(jsap, idx, ref_jsai) {
 
     jsai <- jsap_sai(jsap, idx = idx)
@@ -663,13 +632,52 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 }
 
 
+#' @name set_ts_metadata
+#' @export
+set_metadata <- function(jsap, ref_jsai, idx) {
+    jsai <- jsap_sai(jsap, idx = idx)
+    jsai <- jsa$withInformations(ref_jsai$getMeta())
+    replace_sa_item(jsap, jsai = jsai, idx = idx)
+}
+
+#' @name set_ts_metadata
+#' @export
+put_metadata <- function (jsap, idx, key, value) {
+    jsai <- jsap_sai(jsap, idx = idx)
+
+    meta <- .jcall(jsai, "Ljava/util/Map;", "getMeta")
+    new_meta <- .jnew("java/util/HashMap", meta)
+
+    jkey <- .jnew("java/lang/String", key)
+    jvalue <- .jnew("java/lang/String", value)
+
+    .jcall(
+        obj = new_meta,
+        returnSig = "Ljava/lang/Object;",
+        method = "put",
+        .jcast(jkey, "java/lang/Object"),
+        .jcast(jvalue, "java/lang/Object")
+    )
+
+    jsai <- .jcall(
+        obj = jsai,
+        returnSig = "Ljdplus/sa/base/api/SaItem;",
+        method = "withInformations",
+        .jcast(new_meta, "java/util/Map")
+    )
+
+    replace_sa_item(jsap, jsai = jsai, idx = idx)
+}
+
+
+
 #' @title Get/Set SA-item Priority
 #'
 #' @inheritParams set_raw_data
 #' @param priority integer containing the priority.
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

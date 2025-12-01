@@ -10,7 +10,7 @@ NULL
 #'
 #' @return a list
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -164,7 +164,7 @@ sai_name <- function(jsai) {
 #' @param key key of the metadata.
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

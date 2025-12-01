@@ -21,7 +21,7 @@ NULL
 #' @return
 #' Returns a java object workspace or SA-Processing.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' # Create an empty 'JDemetra+' Workspace
 #' jws <- jws_new()
 #' # Add an empty SA-Processing
@@ -47,9 +47,10 @@ jws_sap_new <- function(jws, name) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
 }
 
-#' @name .jws_add
+#' @title Add a SA-Processing to a Workspace
+#' @name jws_add
 #' @export
-.jws_add <- function(jws, jsap) {
+jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
 }
 
@@ -65,7 +66,7 @@ jws_sap_new <- function(jws, name) {
 #' The copy of a SA-processing will be made in the same workspace. The modelling context of the
 #' workspace is also copied.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #' # Create an empty 'JDemetra+' Workspace
 #' jws <- jws_new()
 #' # Add an empty SA-Processing
@@ -152,7 +153,7 @@ jws_refresh <- function(jws,
 #' @inheritParams jws_new
 #' @inheritParams jws_open
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' library("rjd3toolkit")
 #'
@@ -198,7 +199,7 @@ set_context <- function(jws, modelling_context = NULL) {
 #'
 #' @param jws the Workspace.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -226,7 +227,7 @@ get_context <- function(jws) {
 #'
 #' @return
 #' Returns an integer.
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -256,7 +257,7 @@ ws_sap_count <- function(jws) {
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -292,7 +293,7 @@ jws_sap <- function(jws, idx) {
 #' By default a dialog box opens.
 #' @return a java workspace
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -338,7 +339,7 @@ jws_open <- function(file) {
 #'
 #' @param jws a workspace
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -363,7 +364,7 @@ jws_compute <- function(jws) {
 #' @param compute compute or not the workspace (to get the estimation results).
 #' @return list or java object
 
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -415,7 +416,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
 #' @param replace boolean indicating if the Workspace should be replaced if it already exists.
-#' @examples
+#' @examplesIf jversion >= 17
 #' dir <- tempdir()
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
@@ -447,13 +448,15 @@ full_path <- function(path) {
 }
 
 
-#' Add a Calendar to a Workspace
+#' @title Add a Calendar to a Workspace
 #'
 #' @inheritParams set_context
 #' @param name  character name of the calendar to add.
 #' @param calendar  JDemetra+ calendar to add.
+#'
 #' @return \code{NULL} returned invisibly
-#' @examples
+#'
+#' @examplesIf jversion >= 17
 #' # French calendar
 #' french_calendar <- rjd3toolkit::national_calendar(
 #'     days = list(
@@ -521,14 +524,29 @@ add_calendar <- function(jws, name, calendar) {
 #'
 #' @export
 #'
-#' @examples
+#' @examplesIf jversion >= 17
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #'
-add_variables <- function(jws, group, name, y) {
+add_variables <- function(jws, group, name, y, overwrite = FALSE) {
+    if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
+        context <- get_context(my_ws)
+        vars <- context$variables
+        if (!(is.null(vars[[group]][[name]]) || overwrite)) {
+            message(
+                "There is already a variable with the same name in the same group.",
+                "Please change the name of the variable or the name of the group or set `overwrite` to `TRUE`."
+            )
+            return(invisible(NULL))
+        }
+        vars[[group]][[name]] <- y
+        new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
+        set_context(my_ws, modelling_context = new_context)
+        return(invisible(NULL))
+    }
     .jcall(
         jws, "V", "addVariable", group,
         name, rjd3toolkit::.r2jd_tsdata(y)

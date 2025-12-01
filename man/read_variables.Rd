@@ -17,9 +17,10 @@ The variables (regressors) file is a xml file like the one JDemetra+ would write
 Graphical User Interface.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
 my_regressors <- read_variables(file)
 class(my_regressors)
 str(my_regressors)
-
+\dontshow{\}) # examplesIf}
 }

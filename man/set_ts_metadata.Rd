@@ -3,11 +3,17 @@
 \name{set_ts_metadata}
 \alias{set_ts_metadata}
 \alias{put_ts_metadata}
-\title{Set (JDemetra+) Time Series Metadata of a SA-item}
+\alias{set_metadata}
+\alias{put_metadata}
+\title{Set (JDemetra+) Metadata of a SA-item}
 \usage{
 set_ts_metadata(jsap, idx, ref_jsai)
 
 put_ts_metadata(jsap, idx, key, value)
+
+set_metadata(jsap, ref_jsai, idx)
+
+put_metadata(jsap, idx, key, value)
 }
 \arguments{
 \item{jsap}{SAProcessing to be modified.}
@@ -21,11 +27,16 @@ put_ts_metadata(jsap, idx, key, value)
 \item{value}{value of the metadata.}
 }
 \description{
-Function to set the time series metadata of a SA-item (provider, source of the data...).
-\code{set_ts_metadata()} uses the metadata of another SA-item while \code{put_ts_metadata()}
+Function to set the metadata of a SA-item.
+
+\code{XXX_ts_metadata()} set the time series metadata of a SA-item (provider,
+source of the data...). \code{XXX_metadata()} set any metadata to a SA-Item.
+
+\code{set_XXX()} uses the metadata of another SA-item while \code{put_XXX()}
 allows to update a specific key with a new information.
 }
 \examples{
+\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -37,5 +48,5 @@ put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)
 get_ts_metadata(jsai, "@id")
-
+\dontshow{\}) # examplesIf}
 }
