@@ -7,9 +7,19 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* New function `set_metadata()` to copy the metadata from another SAItem
+* New function `put_metadata()` to update a SAI with any metadata (key, value)
+* Residuals are available #3
+
+### Deprecated
+
+* Function `.jws_add()` is deprecated. Please use function `jws_add()` instead.
+
 ### Changed
 
-* Rename `.jws_add()` into `jws_add()`
+* `write_calendars()` accepts now multiple calendars #95
 
 
 ## [3.5.1] - 2025-06-19
