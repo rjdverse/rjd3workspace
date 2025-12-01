@@ -1,6 +1,7 @@
 Type: Package
 Package: rjd3workspace
 Title: Interface to 'JDemetra+ 3.x' time series analysis software
+
 Version: 3.5.1.9000
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
@@ -22,11 +23,11 @@ Depends:
     R (>= 4.1.0)
 Imports:
     rJava (>= 1.0-6),
-    rjd3providers (>= 3.5.1),
     rjd3toolkit (>= 3.5.1),
-    rjd3tramoseats (>= 3.5.2),
+    rjd3tramoseats (>= 3.5.1),
     rjd3x13 (>= 3.5.1),
-    tools,
+    rjd3providers (>= 3.5.1),
+    tools, 
     utils
 Suggests: 
     knitr,
