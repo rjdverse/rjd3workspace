@@ -1,0 +1,9 @@
+# Add a SA-Processing to a Workspace
+
+Add a SA-Processing to a Workspace
+
+## Usage
+
+``` r
+jws_add(jws, jsap)
+```
