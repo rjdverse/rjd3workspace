@@ -12,9 +12,22 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * New function `get_domain_specification()`, `get_point_specification()`, `get_active_specification()` and `get_estimation_specification()` to extract the domain, point, active and estimation specfification.
 * New function `get_results()` to extract the results from a SA-Item
 
+
+## [3.6.0] - 2025-12-01
+
+### Added
+
+* New function `set_metadata()` to copy the metadata from another SAItem
+* New function `put_metadata()` to update a SAI with any metadata (key, value)
+* Residuals are available #3
+
+### Deprecated
+
+* Function `.jws_add()` is deprecated. Please use function `jws_add()` instead.
+
 ### Changed
 
-* Rename `.jws_add()` into `jws_add()`
+* `write_calendars()` accepts now multiple calendars #95
 
 
 ## [3.5.1] - 2025-06-19
@@ -131,7 +144,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [3.1.0] - 2023-08-11
 
 
-[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.1...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...HEAD
+[3.6.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.1...v3.6.0
 [3.5.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.0...v3.5.1
 [3.5.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.4...v3.5.0
 [3.2.4]: https://github.com/rjdverse/rjd3workspace/compare/v3.2.3...v3.2.4
