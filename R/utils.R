@@ -268,7 +268,7 @@ read_calendars <- function(file) {
 #'
 #' @return \code{NULL} returned invisibly
 #' @examplesIf jversion >= 17
-#' library(rjd3toolkit)
+#' library("rjd3toolkit")
 #' BE <- national_calendar(list(
 #'    fixed_day(7, 21),
 #'    special_day("NEWYEAR"),
@@ -292,7 +292,7 @@ write_calendars <- function(calendars, file) {
     } else if (!(
         is.list(calendars)
         && all(sapply(calendars, inherits, "JD3_CALENDAR"))
-        && is.null(names(calendars))
+        && !is.null(names(calendars))
         && all(nzchar(names(calendars)))
     )) {
         stop("calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects")
@@ -366,4 +366,22 @@ write_variables <- function(vars, file) {
         jvars,
         as.character(file)
     )
+}
+
+#' @export
+#' @importFrom rjd3x13 .jd2r_spec_x13
+#' @importFrom rjd3tramoseats .jd2r_spec_tramoseats
+.jd2r_spec <- function(jspec) {
+    if (is.null(jspec)) {
+        return(NULL)
+    } else if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
+        spec <- jspec |>
+            .jcast("jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec") |>
+            rjd3tramoseats::.jd2r_spec_tramoseats()
+    } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
+        spec <- jspec |>
+            .jcast("jdplus/x13/base/api/x13/X13Spec") |>
+            rjd3x13::.jd2r_spec_x13()
+    }
+    return(spec)
 }

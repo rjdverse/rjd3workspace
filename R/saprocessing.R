@@ -51,6 +51,7 @@ jsap_sai <- function(jsap, idx) {
     }
     return(.jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L)))
 }
+
 #' @name sap_name
 #' @export
 sap_sai_names <- function(jsap) {
@@ -314,6 +315,7 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 
     return(invisible(NULL))
 }
+
 #' Set Specification in a Sa-Item
 #'
 #' @inheritParams replace_sa_item
@@ -359,6 +361,7 @@ set_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
+
 #' @name set_specification
 #' @export
 set_domain_specification <- function(jsap, idx, spec) {
@@ -379,6 +382,82 @@ set_domain_specification <- function(jsap, idx, spec) {
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
+
+#' @title Get Specification in a Sa-Item
+#'
+#' @description
+#' `get_estimation_specification()` extract the estimation specification,
+#' `get_domain_specification()` the domain specification, ,
+#' `get_active_specification()` the active specification
+#' `get_point_specification()` the point specification
+#'
+#' @inheritParams read_sai
+#'
+#' @name get-specification
+#'
+#' @returns the specification
+#'
+#' @examplesIf jversion >= 17
+#'
+#' # Load a Workspace to modify
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' jws <- jws_open(file)
+#'
+#' # Select SAProcessing with the target SA-item
+#' jsap1 <- jws_sap(jws, 1)
+#' jsai1 <- jsap_sai(jsap1, 1)
+#'
+#' # Get the active specification in targeted SA-item
+#' get_active_specification(jsai1)
+#'
+#' # Get the domain specification in targeted SA-item
+#' get_domain_specification(jsai1)
+#'
+#' # Get the estimation specification in targeted SA-item
+#' get_estimation_specification(jsai1)
+#'
+#' # Get the point specification in targeted SA-item
+#' get_point_specification(jsai1)
+#'
+#' @export
+get_domain_specification <- function(jsai) {
+    dspec <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
+        .jcall("Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec") |>
+        .jd2r_spec()
+    return(dspec)
+}
+
+#' @rdname get-specification
+#' @export
+get_estimation_specification <- function(jsai) {
+    espec <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
+        .jcall("Ljdplus/sa/base/api/SaSpecification;", "getEstimationSpec") |>
+        .jd2r_spec()
+    return(espec)
+}
+
+#' @rdname get-specification
+#' @export
+get_point_specification <- function(jsai) {
+    pspec <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation") |>
+        .jcall("Ljdplus/sa/base/api/SaSpecification;", "getPointSpec") |>
+        .jd2r_spec()
+    return(pspec)
+}
+
+#' @rdname get-specification
+#' @export
+get_active_specification <- function(jsai) {
+    aspec <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
+        .jcall("Ljdplus/sa/base/api/SaSpecification;", "activeSpecification") |>
+        .jd2r_spec()
+    return(aspec)
+}
+
 #' @title Get/Set Raw Data in a SA-item
 #'
 #' @inheritParams replace_sa_item
@@ -474,11 +553,10 @@ set_ts <- function(jsap, idx, y) {
 #' @name set_ts
 #' @export
 get_ts <- function(jsai) {
-    jts <- .jcall(
-        .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition"),
-        "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs"
-    )
-    return(rjd3toolkit::.jd2r_ts(jts))
+    jdef <- .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+    jts <- .jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+    rts <- rjd3toolkit::.jd2r_ts(jts)
+    return(rts)
 }
 #' Get/Set Comment from a SA-item
 #'

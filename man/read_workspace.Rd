@@ -31,7 +31,7 @@ and allowing to access them as R lists.
 Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return corresponding Java objects
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
 
 # Load workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
