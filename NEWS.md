@@ -7,8 +7,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.6.0] - 2025-12-01
+### Added
 
+* New function `get_domain_specification()`, `get_point_specification()`, `get_active_specification()` and `get_estimation_specification()` to extract the domain, point, active and estimation specfification.
+* New function `get_results()` to extract the results from a SA-Item
+
+
+## [3.6.0] - 2025-12-01
 
 ### Added
 
