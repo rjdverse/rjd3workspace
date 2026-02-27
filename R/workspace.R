@@ -55,7 +55,7 @@ jws_sap_new <- function(jws, name) {
 
 #' @title Add a SA-Processing to a Workspace
 #'
-#' @inheritParams jws_make_copy
+#' @inheritParams make_copy
 #'
 #' @name jws_add
 #' @export

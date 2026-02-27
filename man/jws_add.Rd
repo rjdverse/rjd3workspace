@@ -6,6 +6,9 @@
 \usage{
 jws_add(jws, jsap)
 }
+\arguments{
+\item{jws, jsap}{Java Workspace or SA-Processing}
+}
 \description{
 Add a SA-Processing to a Workspace
 }
