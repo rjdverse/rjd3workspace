@@ -23,7 +23,7 @@ get_ts(jsai)
 which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 my_jws <- jws_open(file)

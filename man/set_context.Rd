@@ -15,7 +15,7 @@ set_context(jws, modelling_context = NULL)
 Set Context of a Workspace
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 
 library("rjd3toolkit")
 

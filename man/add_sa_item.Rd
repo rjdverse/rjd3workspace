@@ -23,7 +23,7 @@ add_sa_item(jsap, name, x, spec, ...)
 Add a SA-item to a SAProcessing
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 
 dir <- tempdir()
 

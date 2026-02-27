@@ -1,6 +1,26 @@
 #' @include utils.R
 NULL
 
+#' @title Java version.
+#'
+#' @returns \code{current_java_version} is the current Java version and \code{minimal_java_version} is the minimum accepted Java version.
+#'
+#' @importFrom rjd3toolkit current_java_version minimal_java_version
+#' @export
+#' @name java_version
+#'
+#' @examples
+#' \donttest{
+#' print(minimal_java_version)
+#' print(current_java_version)
+#' }
+#' @export
+current_java_version <- rjd3toolkit::current_java_version
+
+#' @rdname java_version
+#' @export
+minimal_java_version <- rjd3toolkit::minimal_java_version
+
 #' @title Java Utility Functions
 #'
 #' @description
@@ -9,25 +29,15 @@ NULL
 NULL
 #> NULL
 
-#' @rdname jd3_utilities
-#' @export
-jversion <- NULL
-
 .onAttach <- function(libname, pkgname) {
-    # what's your java  version?  Need >= 17
-    if (jversion < 17) {
-        packageStartupMessage(sprintf("Your java version is %s. 17 or higher is needed.", jversion))
+    if (current_java_version < minimal_java_version) {
+        packageStartupMessage(sprintf("Your java version is %s. %s or higher is needed.",
+                                      current_java_version, minimal_java_version))
     }
 }
 
+#' @importFrom rJava .jpackage .jcall
 .onLoad <- function(libname, pkgname) {
-    if (!requireNamespace("rjd3tramoseats", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-    if (!requireNamespace("rjd3x13", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-    if (!requireNamespace("rjd3providers", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-
-    jversion <<- .jcall("java.lang.System", "S", "getProperty", "java.version")
-    jversion <<- as.integer(regmatches(jversion, regexpr(pattern = "^(\\d+)", text = jversion)))
-
-    result <- rJava::.jpackage(pkgname, lib.loc = libname)
+    result <- .jpackage(pkgname, lib.loc = libname)
     if (!result) stop("Loading java packages failed")
 }

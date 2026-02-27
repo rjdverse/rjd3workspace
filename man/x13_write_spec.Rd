@@ -19,7 +19,7 @@ The specification file is a xml file like the one JDemetra+ would write when def
 Graphical User Interface.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 # creating a spec from default
 x13_spec<- rjd3x13::x13_spec("rsa3")
 # forcing multiplicative model

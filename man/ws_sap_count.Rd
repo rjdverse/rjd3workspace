@@ -20,7 +20,7 @@ Functions counting the SA-Processings in a Workspace (\code{ws_sap_count}) or
 the SA-Items in a SA-Processing (\code{sap_sai_count}).
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
