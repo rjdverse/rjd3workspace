@@ -151,6 +151,7 @@ read_sai <- function(jsai) {
 #' By default, extracts all the possible variables.
 #'
 #' @export
+#' @name results
 #'
 .jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(
@@ -176,7 +177,7 @@ read_sai <- function(jsai) {
     return(r)
 }
 
-#' @rdname .jsai_results
+#' @rdname results
 #' @export
 .jsai_jresults <- function(jsai) {
     jestimation <- .jcall(
