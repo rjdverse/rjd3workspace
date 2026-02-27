@@ -191,6 +191,10 @@ jsap_refresh <- function(
 add_sa_item <- function(jsap, name, x, spec) {
     UseMethod("add_sa_item", x)
 }
+
+#' @rdname add_sa_item
+#' @exportS3Method add_sa_item ts
+#' @method add_sa_item ts
 #' @export
 add_sa_item.ts <- function(jsap, name, x, spec) {
     jts <- rjd3toolkit::.r2jd_tsdata(x)
@@ -210,6 +214,10 @@ add_sa_item.ts <- function(jsap, name, x, spec) {
         .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
     )
 }
+
+#' @rdname add_sa_item
+#' @exportS3Method add_sa_item default
+#' @method add_sa_item default
 #' @export
 add_sa_item.default <- function(jsap, name, x, spec) {
     if (inherits(x, "JD3_X13_OUTPUT")) {
@@ -234,6 +242,9 @@ add_sa_item.default <- function(jsap, name, x, spec) {
     )
 }
 
+#' @rdname add_sa_item
+#' @exportS3Method add_sa_item jobjRef
+#' @method add_sa_item jobjRef
 #' @export
 add_sa_item.jobjRef <- function(jsap, name, x, spec) {
     if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
