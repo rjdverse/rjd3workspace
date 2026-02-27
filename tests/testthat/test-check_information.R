@@ -1,4 +1,6 @@
 test_that("multiplication works", {
+    skip_if_not(current_java_version >= minimal_java_version)
+
     file <- system.file(
         "workspaces",
         "workspace_test.xml",
