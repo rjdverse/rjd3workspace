@@ -27,7 +27,7 @@ NULL
 #' # Add an empty SA-Processing
 #' jsap <- jws_sap_new(jws, "sap1")
 #'
-#' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
+#' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
 #' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
@@ -77,7 +77,7 @@ jws_add <- function(jws, jsap) {
 #' jsap2 <- jsap_make_copy(jsap)
 #'
 #'
-#' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
+#' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
 #' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
@@ -519,8 +519,9 @@ add_calendar <- function(jws, name, calendar) {
 #'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
 #' }
 #'
-#' @seealso \code{\link{modelling_context}} to create multiple variables and groups at once,
-#' and \code{\link{read_variables}}, \code{\link{write_variables}} to import/export variables.
+#' @seealso [rjd3toolkit::modelling_context()] to create multiple variables and
+#' groups at once, and [read_variables()], [write_variables()] to import/export
+#' variables.
 #'
 #' @export
 #'
@@ -543,7 +544,10 @@ add_variables <- function(jws, group, name, y, overwrite = FALSE) {
             return(invisible(NULL))
         }
         vars[[group]][[name]] <- y
-        new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
+        new_context <- rjd3toolkit::modelling_context(
+            calendars = context$calendars,
+            variables = vars
+        )
         set_context(jws, modelling_context = new_context)
         return(invisible(NULL))
     }

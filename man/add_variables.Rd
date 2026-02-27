@@ -43,6 +43,7 @@ add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link{modelling_context}} to create multiple variables and groups at once,
-and \code{\link{read_variables}}, \code{\link{write_variables}} to import/export variables.
+\code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}} to create multiple variables and
+groups at once, and \code{\link[=read_variables]{read_variables()}}, \code{\link[=write_variables]{write_variables()}} to import/export
+variables.
 }
