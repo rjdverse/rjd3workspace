@@ -41,6 +41,7 @@ jws_new <- function(modelling_context = NULL) {
     }
     return(jws)
 }
+
 #' @name jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
@@ -53,6 +54,9 @@ jws_sap_new <- function(jws, name) {
 }
 
 #' @title Add a SA-Processing to a Workspace
+#'
+#' @inheritParams jws_make_copy
+#'
 #' @name jws_add
 #' @export
 jws_add <- function(jws, jsap) {
@@ -87,7 +91,6 @@ jws_add <- function(jws, jsap) {
 #' More information on workspaces in JDemetra+ Graphical User Interface:
 #' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
 #'
-
 #' @export
 jws_make_copy <- function(jws) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
@@ -527,12 +530,15 @@ add_calendar <- function(jws, name, calendar) {
 #' @param group A character string indicating the name of the group in which to store the variable.
 #' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
 #' @param name A character string naming the variable.
+#' @param overwrite a Boolean to indicate whether a variable already present
+#' should be replaced
 #'
-#' @returns No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+#' @returns No return value (\code{NULL} returned invisibly). This function is
+#' used for its side effect of modifying the workspace.
 #'
 #' @details
-#'
-#' For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
+#' For the time being, if the group does not already exist, a new group is
+#' created, but the group will be named after \code{name}, not \code{group}.
 #'
 #' @section Limitations:
 #' \itemize{

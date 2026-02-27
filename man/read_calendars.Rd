@@ -7,7 +7,7 @@
 read_calendars(file)
 }
 \arguments{
-\item{calendar}{a xml file}
+\item{file}{path to a calendar file (in xml format)}
 }
 \value{
 a list of \code{JD3_CALENDAR} objects

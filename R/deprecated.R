@@ -1,6 +1,9 @@
 #' @title Deprecated functions
 #'
-#' @param jmp,idx,jws,name Parameters.
+#' @param jmp,idx,jws,name,jsa,jsap,items,key,policy,period,start,end,info,modelling_context,jsap_from,jsap_to,selected_sa_items,print_indications Parameters.
+#'
+NULL
+
 #' @name deprecated-rjd3workspace
 #' @export
 .jmp_sa_count <- function(jmp) {

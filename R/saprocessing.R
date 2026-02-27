@@ -188,11 +188,11 @@ jsap_refresh <- function(
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
 #'
 #' @export
-add_sa_item <- function(jsap, name, x, spec, ...) {
+add_sa_item <- function(jsap, name, x, spec) {
     UseMethod("add_sa_item", x)
 }
 #' @export
-add_sa_item.ts <- function(jsap, name, x, spec, ...) {
+add_sa_item.ts <- function(jsap, name, x, spec) {
     jts <- rjd3toolkit::.r2jd_tsdata(x)
     if (inherits(spec, "JD3_X13_SPEC")) {
         jspec <- rjd3x13::.r2jd_spec_x13(spec)
@@ -211,7 +211,7 @@ add_sa_item.ts <- function(jsap, name, x, spec, ...) {
     )
 }
 #' @export
-add_sa_item.default <- function(jsap, name, x, spec, ...) {
+add_sa_item.default <- function(jsap, name, x, spec) {
     if (inherits(x, "JD3_X13_OUTPUT")) {
         y <- x$result$preadjust$a1
         spec <- x$estimation_spec
@@ -230,13 +230,12 @@ add_sa_item.default <- function(jsap, name, x, spec, ...) {
         jsap = jsap,
         x = y,
         spec = spec,
-        name = name,
-        ...
+        name = name
     )
 }
 
 #' @export
-add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
+add_sa_item.jobjRef <- function(jsap, name, x, spec) {
     if (.jinstanceof(x, "jdplus/sa/base/api/SaItem")) {
         .jcall(jsap, "V", "add", x)
         if (!missing(name)) {

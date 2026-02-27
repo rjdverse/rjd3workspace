@@ -14,15 +14,20 @@ add_variables(jws, group, name, y, overwrite = FALSE)
 \item{name}{A character string naming the variable.}
 
 \item{y}{A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.}
+
+\item{overwrite}{a Boolean to indicate whether a variable already present
+should be replaced}
 }
 \value{
-No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+No return value (\code{NULL} returned invisibly). This function is
+used for its side effect of modifying the workspace.
 }
 \description{
 Adds a single time series variable to a specified group within a JD+ workspace..
 }
 \details{
-For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
+For the time being, if the group does not already exist, a new group is
+created, but the group will be named after \code{name}, not \code{group}.
 }
 \section{Limitations}{
 

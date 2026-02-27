@@ -4,7 +4,7 @@
 \alias{add_sa_item}
 \title{Add a SA-item to a SAProcessing}
 \usage{
-add_sa_item(jsap, name, x, spec, ...)
+add_sa_item(jsap, name, x, spec)
 }
 \arguments{
 \item{jsap}{SAProcessing.}

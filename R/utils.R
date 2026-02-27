@@ -270,7 +270,8 @@ x13_write_spec <- function(spec, file) {
 
 #' Read a Calendar file
 #'
-#' @param calendar a xml file
+#' @param file path to a calendar file (in xml format)
+#'
 #' @description
 #' The calendar file is a xml file like the one JDemetra+ would write when
 #' defining a calendar in the Graphical User Interface.
