@@ -636,7 +636,7 @@ put_ts_metadata <- function(jsap, idx, key, value) {
 #' @export
 set_metadata <- function(jsap, ref_jsai, idx) {
     jsai <- jsap_sai(jsap, idx = idx)
-    jsai <- jsa$withInformations(ref_jsai$getMeta())
+    jsai <- jsai$withInformations(ref_jsai$getMeta())
     replace_sa_item(jsap, jsai = jsai, idx = idx)
 }
 

@@ -533,7 +533,7 @@ add_calendar <- function(jws, name, calendar) {
 #'
 add_variables <- function(jws, group, name, y, overwrite = FALSE) {
     if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
-        context <- get_context(my_ws)
+        context <- get_context(jws)
         vars <- context$variables
         if (!(is.null(vars[[group]][[name]]) || overwrite)) {
             message(
@@ -544,7 +544,7 @@ add_variables <- function(jws, group, name, y, overwrite = FALSE) {
         }
         vars[[group]][[name]] <- y
         new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
-        set_context(my_ws, modelling_context = new_context)
+        set_context(jws, modelling_context = new_context)
         return(invisible(NULL))
     }
     .jcall(
