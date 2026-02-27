@@ -291,7 +291,7 @@ jws_sap <- function(jws, idx) {
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
-#' @return a java workspace
+#' @returns a java workspace
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -362,7 +362,7 @@ jws_compute <- function(jws) {
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
 #' @param compute compute or not the workspace (to get the estimation results).
-#' @return list or java object
+#' @returns list or java object
 
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -454,7 +454,7 @@ full_path <- function(path) {
 #' @param name  character name of the calendar to add.
 #' @param calendar  JDemetra+ calendar to add.
 #'
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #' # French calendar
@@ -506,7 +506,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
 #' @param name A character string naming the variable.
 #'
-#' @return No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+#' @returns No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
 #'
 #' @details
 #'

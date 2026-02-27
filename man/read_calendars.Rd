@@ -13,13 +13,14 @@ read_calendars(file)
 a list of \code{JD3_CALENDAR} objects
 }
 \description{
-The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
-Graphical User Interface.
+The calendar file is a xml file like the one JDemetra+ would write when
+defining a calendar in the Graphical User Interface.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 
-file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test", "Calendars",
+                    "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
 my_calendar
 \dontshow{\}) # examplesIf}

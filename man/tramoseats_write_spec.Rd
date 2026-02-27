@@ -15,18 +15,23 @@ tramoseats_write_spec(spec, file)
 \code{NULL} returned invisibly
 }
 \description{
-The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
-Graphical User Interface.
+The specification file is a xml file like the one JDemetra+ would write when
+defining a specification in the Graphical User Interface.
 }
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
-# creating a spec from default
-tramoseats_spec <- rjd3tramoseats::tramoseats_spec("rsa3")
-# forcing multiplicative model
-tramoseats_spec_d <- rjd3toolkit::set_transform(tramoseats_spec ,
-                                               fun = "Log",
-                                               outliers = TRUE)
-# writing the specification in a xml file
-tramoseats_write_spec(tramoseats_spec_d, file = normalizePath("~/tmp.xml", mustWork = FALSE))
+# Creating a spec from default
+tramoseats_spec <- rjd3tramoseats::tramoseats_spec("tr3")
+
+# Forcing multiplicative model
+tramoseats_spec_d <- rjd3toolkit::set_transform(
+    tramoseats_spec ,
+    fun = "Log",
+    outliers = TRUE
+)
+
+# Writing the specification in a xml file
+spec_path <- tempfile(fileext = ".xml")
+tramoseats_write_spec(tramoseats_spec_d, file = spec_path)
 \dontshow{\}) # examplesIf}
 }

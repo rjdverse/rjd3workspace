@@ -14,7 +14,7 @@ sap_sai_count <- function(jsap) {
 #' (`sai_name()`) or all SA-item (`sap_sai_names()`) .
 #'
 #' @param jsap,jsai the object to retrieve the name from.
-#' @return A vector \code{character}.
+#' @returns A vector \code{character}.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -139,7 +139,7 @@ jsap_refresh <- function(jsap,
 #' [rjd3tramoseats::tramoseats()]), a SA-item object, `"ts"` object.
 #' @param spec specification to use when `x` is a `"ts"` object.
 #'
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -235,7 +235,7 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec, ...) {
 #' @param jsap SAProcessing to be modified.
 #' @param jsai new SA-item (for replacement).
 #' @param idx index of the target SA-item.
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #' @export
 replace_sa_item <- function(jsap, idx, jsai) {
     .jcall(
@@ -265,7 +265,7 @@ remove_all_sa_item <- function(jsap) {
 #' @param selected_sa_items vector containing the SA-items names to be updated.
 #' @param print_indications A boolean to print indications on the processing status (optional)
 #'
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #'
 #' @details
 #' If \code{selected_sa_items} is missing, all SA-items from \code{jsap_from} will be copied.
@@ -318,7 +318,7 @@ transfer_sa_item <- function(jsap_from, jsap_to, selected_sa_items,
 #'
 #' @inheritParams replace_sa_item
 #' @param spec new specification generated with [rjd3x13::x13_spec()] or [rjd3tramoseats::tramoseats_spec()]
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #' @examplesIf current_java_version >= minimal_java_version
 #'
 #' # Create a (customized) spec) spec
@@ -384,7 +384,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' @inheritParams replace_sa_item
 #' @param y new raw time series.
 #' @param jsai a SA-item.
-#' @return \code{NULL} returned invisibly (set) or TS object (get)
+#' @returns \code{NULL} returned invisibly (set) or TS object (get)
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -484,7 +484,7 @@ get_ts <- function(jsai) {
 #'
 #' @inheritParams set_raw_data
 #' @param comment character containing the comment.
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -524,7 +524,7 @@ get_comment <- function(jsai) {
 #'
 #' @inheritParams set_raw_data
 #' @param name character corresponding to the new name
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #' @seealso [sai_name()]
 #' @examplesIf current_java_version >= minimal_java_version
 #'

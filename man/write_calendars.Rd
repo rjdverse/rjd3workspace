@@ -15,8 +15,8 @@ write_calendars(calendars, file)
 \code{NULL} returned invisibly
 }
 \description{
-The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
-Graphical User Interface.
+The calendar file is a xml file like the one JDemetra+ would write when
+defining a calendar in the Graphical User Interface.
 Calendars can be defined with \code{rjd3toolkit::national_calendar}
 }
 \examples{
@@ -34,9 +34,8 @@ BE <- national_calendar(list(
    special_day("ALLSAINTSDAY"),
    special_day("ARMISTICE")
 ))
-write_calendars(BE,
-        file = normalizePath("~/tmp.xml", mustWork = FALSE))
-write_calendars(list(BEL_cal = BE),
-        file = normalizePath("~/tmp.xml", mustWork = FALSE))
+calendar_path <- tempfile(fileext = ".xml")
+write_calendars(BE, file = calendar_path)
+write_calendars(list(BEL_cal = BE), file = calendar_path)
 \dontshow{\}) # examplesIf}
 }

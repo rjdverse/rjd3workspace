@@ -8,7 +8,7 @@ NULL
 #'
 #' @param jsai Java SA-item object.
 #'
-#' @return a list
+#' @returns a list
 #'
 #' @examplesIf current_java_version >= minimal_java_version
 #'
