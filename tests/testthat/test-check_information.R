@@ -1,5 +1,9 @@
 test_that("multiplication works", {
-    file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+    file <- system.file(
+        "workspaces",
+        "workspace_test.xml",
+        package = "rjd3workspace"
+    )
     jws <- jws_open(file)
 
     # Check if the SA-Item 3 in the SA-Processing 1 exists

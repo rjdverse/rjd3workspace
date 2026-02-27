@@ -25,7 +25,8 @@ tramo_read_spec <- function(file) {
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
         returnSig = "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
-        method = "readTramoSpec", as.character((file))
+        method = "readTramoSpec",
+        as.character((file))
     )
     if (is.jnull(jspec)) {
         return(NULL)
@@ -61,7 +62,9 @@ tramo_read_spec <- function(file) {
 #' @export
 tramo_write_spec <- function(spec, file) {
     .jcall(
-        "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSpec",
+        "jdplus/tramoseats/base/workspace/Utility",
+        "V",
+        "writeTramoSpec",
         rjd3tramoseats::.r2jd_spec_tramo(spec),
         as.character((file))
     )
@@ -125,7 +128,9 @@ tramoseats_read_spec <- function(file) {
 #' @export
 tramoseats_write_spec <- function(spec, file) {
     .jcall(
-        "jdplus/tramoseats/base/workspace/Utility", "V", "writeTramoSeatsSpec",
+        "jdplus/tramoseats/base/workspace/Utility",
+        "V",
+        "writeTramoSeatsSpec",
         rjd3tramoseats::.r2jd_spec_tramoseats(spec),
         as.character(file)
     )
@@ -151,8 +156,10 @@ tramoseats_write_spec <- function(spec, file) {
 #' @export
 regarima_read_spec <- function(file) {
     jspec <- .jcall(
-        "jdplus/x13/base/workspace/Utility", "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
-        "readRegArimaSpec", as.character((file))
+        "jdplus/x13/base/workspace/Utility",
+        "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
+        "readRegArimaSpec",
+        as.character((file))
     )
     if (is.jnull(jspec)) {
         return(NULL)
@@ -188,7 +195,9 @@ regarima_read_spec <- function(file) {
 #' @export
 regarima_write_spec <- function(spec, file) {
     .jcall(
-        "jdplus/x13/base/workspace/Utility", "V", "writeRegArimaSpec",
+        "jdplus/x13/base/workspace/Utility",
+        "V",
+        "writeRegArimaSpec",
         rjd3x13::.r2jd_spec_regarima(spec),
         as.character(file)
     )
@@ -251,7 +260,9 @@ x13_read_spec <- function(file) {
 #' @export
 x13_write_spec <- function(spec, file) {
     .jcall(
-        "jdplus/x13/base/workspace/Utility", "V", "writeX13Spec",
+        "jdplus/x13/base/workspace/Utility",
+        "V",
+        "writeX13Spec",
         rjd3x13::.r2jd_spec_x13(spec),
         as.character(file)
     )
@@ -320,17 +331,20 @@ read_calendars <- function(file) {
 write_calendars <- function(calendars, file) {
     if (inherits(calendars, "JD3_CALENDAR")) {
         calendars <- list(cal = calendars)
-    } else if (!(
-        is.list(calendars)
-        && all(sapply(calendars, inherits, "JD3_CALENDAR"))
-        && !is.null(names(calendars))
-        && all(nzchar(names(calendars)))
-    )) {
-        stop("calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects")
+    } else if (
+        !(is.list(calendars) &&
+            all(sapply(calendars, inherits, "JD3_CALENDAR")) &&
+            !is.null(names(calendars)) &&
+            all(nzchar(names(calendars))))
+    ) {
+        stop(
+            "calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects"
+        )
     }
     jcal <- rjd3toolkit::.r2jd_calendars(calendars)
     .jcall(
-        "jdplus/toolkit/base/workspace/file/Utility", "V",
+        "jdplus/toolkit/base/workspace/file/Utility",
+        "V",
         "writeCalendars",
         jcal,
         as.character(file)
@@ -397,7 +411,8 @@ read_variables <- function(file) {
 write_variables <- function(vars, file) {
     jvars <- rjd3toolkit::.r2jd_variables(vars)
     .jcall(
-        "jdplus/toolkit/base/workspace/file/Utility", "V",
+        "jdplus/toolkit/base/workspace/file/Utility",
+        "V",
         "writeData",
         jvars,
         as.character(file)

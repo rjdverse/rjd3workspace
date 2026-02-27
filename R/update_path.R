@@ -1,4 +1,3 @@
-
 #' @title Check if JD+ object exists
 #'
 #' @param jws workspace object
@@ -32,7 +31,6 @@
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
-
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
         stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
     } else if (is.null(idx_sap)) {
@@ -43,8 +41,12 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         jsap_i <- jws_sap(jws, idx = id_sap)
 
         if (!is.null(idx_sai) && max(idx_sai) > sap_sai_count(jsap_i)) {
-            stop("The SAI n\u00b0", max(idx_sai),
-                 " doesn't exist in the SAP n\u00b0", id_sap)
+            stop(
+                "The SAI n\u00b0",
+                max(idx_sai),
+                " doesn't exist in the SAP n\u00b0",
+                id_sap
+            )
         }
     }
 
@@ -85,8 +87,12 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' get_ts_metadata(sai2, "@id")
 #'
 #' @export
-spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-
+spreadsheet_update_path <- function(
+    jws,
+    new_path,
+    idx_sap = NULL,
+    idx_sai = NULL
+) {
     new_path <- normalizePath(new_path, mustWork = TRUE)
     check_information(jws = jws, idx_sap, idx_sai)
 
@@ -108,7 +114,10 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
             jsai_id <- get_ts_metadata(jsai, "@id")
-            nid <- rjd3providers::spreadsheet_change_file(id = jsai_id, nfile = new_path)
+            nid <- rjd3providers::spreadsheet_change_file(
+                id = jsai_id,
+                nfile = new_path
+            )
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }
@@ -147,7 +156,6 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-
     new_path <- normalizePath(new_path, mustWork = TRUE)
     check_information(jws = jws, idx_sap, idx_sai)
 
@@ -169,7 +177,10 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
             jsai_id <- get_ts_metadata(jsai, "@id")
-            nid <- rjd3providers::txt_change_file(id = jsai_id, nfile = new_path)
+            nid <- rjd3providers::txt_change_file(
+                id = jsai_id,
+                nfile = new_path
+            )
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }

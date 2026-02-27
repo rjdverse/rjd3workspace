@@ -44,7 +44,12 @@ jws_new <- function(modelling_context = NULL) {
 #' @name jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
-    return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
+    return(.jcall(
+        jws,
+        "Ljdplus/sa/base/workspace/MultiProcessing;",
+        "newMultiProcessing",
+        name
+    ))
 }
 
 #' @title Add a SA-Processing to a Workspace
@@ -133,15 +138,22 @@ jws_make_copy <- function(jws) {
 #'
 #' @name refresh
 #' @export
-jws_refresh <- function(jws,
-                        policy = c("FreeParameters", "Complete",
-                                   "Outliers_StochasticComponent",
-                                   "Outliers", "FixedParameters",
-                                   "FixedAutoRegressiveParameters", "Fixed"),
-                        period = 0,
-                        start = NULL,
-                        end = NULL,
-                        info = c("All", "Data", "None")) {
+jws_refresh <- function(
+    jws,
+    policy = c(
+        "FreeParameters",
+        "Complete",
+        "Outliers_StochasticComponent",
+        "Outliers",
+        "FixedParameters",
+        "FixedAutoRegressiveParameters",
+        "Fixed"
+    ),
+    period = 0,
+    start = NULL,
+    end = NULL,
+    info = c("All", "Data", "None")
+) {
     policy <- match.arg(policy)
     info <- match.arg(info)
     jdom <- rjd3toolkit::.jdomain(period, start, end)
@@ -326,7 +338,8 @@ jws_open <- function(file) {
     jws <- .jcall(
         obj = "jdplus/sa/base/workspace/Ws",
         returnSig = "Ljdplus/sa/base/workspace/Ws;",
-        method = "open", full_file_name
+        method = "open",
+        full_file_name
     )
     return(jws)
 }
@@ -381,7 +394,9 @@ jws_compute <- function(jws) {
 #'
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
-    if (compute) jws_compute(jws)
+    if (compute) {
+        jws_compute(jws)
+    }
     n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
         read_sap(jws_sap(jws, i))
@@ -396,7 +411,9 @@ read_workspace <- function(jws, compute = TRUE) {
 #' @name read_workspace
 #' @export
 jread_workspace <- function(jws, compute = TRUE) {
-    if (compute) jws_compute(jws)
+    if (compute) {
+        jws_compute(jws)
+    }
     n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
         jread_sap(jws_sap(jws, i))
@@ -486,10 +503,15 @@ full_path <- function(path) {
 add_calendar <- function(jws, name, calendar) {
     pcal <- rjd3toolkit::.r2p_calendar(calendar)
     jcal <- rjd3toolkit::.p2jd_calendar(pcal)
-    jcal <- .jcast(jcal, "jdplus/toolkit/base/api/timeseries/calendars/CalendarDefinition")
+    jcal <- .jcast(
+        jcal,
+        "jdplus/toolkit/base/api/timeseries/calendars/CalendarDefinition"
+    )
 
     .jcall(
-        jws, "V", "addCalendar",
+        jws,
+        "V",
+        "addCalendar",
         name,
         jcal
     )
@@ -552,7 +574,11 @@ add_variables <- function(jws, group, name, y, overwrite = FALSE) {
         return(invisible(NULL))
     }
     .jcall(
-        jws, "V", "addVariable", group,
-        name, rjd3toolkit::.r2jd_tsdata(y)
+        jws,
+        "V",
+        "addVariable",
+        group,
+        name,
+        rjd3toolkit::.r2jd_tsdata(y)
     )
 }

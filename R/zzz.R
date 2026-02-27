@@ -31,8 +31,11 @@ NULL
 
 .onAttach <- function(libname, pkgname) {
     if (current_java_version < minimal_java_version) {
-        packageStartupMessage(sprintf("Your java version is %s. %s or higher is needed.",
-                                      current_java_version, minimal_java_version))
+        packageStartupMessage(sprintf(
+            "Your java version is %s. %s or higher is needed.",
+            current_java_version,
+            minimal_java_version
+        ))
     }
 }
 

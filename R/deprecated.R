@@ -204,57 +204,93 @@
 
 #' @name deprecated-rjd3workspace
 #' @export
-.jsap_refresh <- function(jsap,
-                          policy = c("FreeParameters", "Complete",
-                                     "Outliers_StochasticComponent",
-                                     "Outliers", "FixedParameters",
-                                     "FixedAutoRegressiveParameters", "Fixed"),
-                          period = 0,
-                          start = NULL,
-                          end = NULL,
-                          info = c("All", "Data", "None")) {
+.jsap_refresh <- function(
+    jsap,
+    policy = c(
+        "FreeParameters",
+        "Complete",
+        "Outliers_StochasticComponent",
+        "Outliers",
+        "FixedParameters",
+        "FixedAutoRegressiveParameters",
+        "Fixed"
+    ),
+    period = 0,
+    start = NULL,
+    end = NULL,
+    info = c("All", "Data", "None")
+) {
     .Deprecated("jsap_refresh")
-    jsap_refresh(jsap,
-                 policy = c("FreeParameters", "Complete",
-                            "Outliers_StochasticComponent",
-                            "Outliers", "FixedParameters",
-                            "FixedAutoRegressiveParameters", "Fixed"),
-                 period = 0,
-                 start = NULL,
-                 end = NULL,
-                 info = c("All", "Data", "None"))
+    jsap_refresh(
+        jsap,
+        policy = c(
+            "FreeParameters",
+            "Complete",
+            "Outliers_StochasticComponent",
+            "Outliers",
+            "FixedParameters",
+            "FixedAutoRegressiveParameters",
+            "Fixed"
+        ),
+        period = 0,
+        start = NULL,
+        end = NULL,
+        info = c("All", "Data", "None")
+    )
 }
 
 #' @name deprecated-rjd3workspace
 #' @export
-.jws_refresh <- function(jws,
-                         policy = c("FreeParameters", "Complete",
-                                    "Outliers_StochasticComponent",
-                                    "Outliers", "FixedParameters",
-                                    "FixedAutoRegressiveParameters", "Fixed"),
-                         period = 0,
-                         start = NULL,
-                         end = NULL,
-                         info = c("All", "Data", "None")) {
+.jws_refresh <- function(
+    jws,
+    policy = c(
+        "FreeParameters",
+        "Complete",
+        "Outliers_StochasticComponent",
+        "Outliers",
+        "FixedParameters",
+        "FixedAutoRegressiveParameters",
+        "Fixed"
+    ),
+    period = 0,
+    start = NULL,
+    end = NULL,
+    info = c("All", "Data", "None")
+) {
     .Deprecated("jws_refresh")
-    jws_refresh(jws,
-                policy = c("FreeParameters", "Complete",
-                           "Outliers_StochasticComponent",
-                           "Outliers", "FixedParameters",
-                           "FixedAutoRegressiveParameters", "Fixed"),
-                period = 0,
-                start = NULL,
-                end = NULL,
-                info = c("All", "Data", "None"))
+    jws_refresh(
+        jws,
+        policy = c(
+            "FreeParameters",
+            "Complete",
+            "Outliers_StochasticComponent",
+            "Outliers",
+            "FixedParameters",
+            "FixedAutoRegressiveParameters",
+            "Fixed"
+        ),
+        period = 0,
+        start = NULL,
+        end = NULL,
+        info = c("All", "Data", "None")
+    )
 }
 
 #' @name deprecated-rjd3workspace
 #' @export
-transfer_series <- function(jsap_from, jsap_to, selected_sa_items,
-                            print_indications = TRUE) {
+transfer_series <- function(
+    jsap_from,
+    jsap_to,
+    selected_sa_items,
+    print_indications = TRUE
+) {
     .Deprecated("transfer_sa_item")
-    transfer_sa_item(jsap_from, jsap_to, selected_sa_items,
-                     print_indications = TRUE)
+    transfer_sa_item(
+        jsap_from,
+        jsap_to,
+        selected_sa_items,
+        print_indications = TRUE
+    )
 }
 
 #' @name deprecated-rjd3workspace
