@@ -32,7 +32,7 @@ my_ws <- jws_open(file)
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 txt_update_path(
     jws = my_ws,
-    new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+    new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace"),
     idx_sap = 1
 )
 

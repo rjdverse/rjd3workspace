@@ -488,7 +488,7 @@ get_raw_data <- function(jsai) {
 #' my_jws <- jws_open(file)
 #'
 #' library("rjd3providers")
-#' data_path <- system.file("data", "IPI_nace4.csv", package = "rjd3workspace")
+#' data_path <- system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
 #'
 #' ts_object <- txt_series(
 #'     file = data_path,

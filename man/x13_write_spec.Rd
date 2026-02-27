@@ -21,7 +21,7 @@ defining a specification in the Graphical User Interface.
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 # Creating a spec from default
-x13_spec <- rjd3x13::x13_spec("tr3")
+x13_spec <- rjd3x13::x13_spec("rsa3")
 
 # Forcing multiplicative model
 x13_spec_d <- rjd3toolkit::set_transform(

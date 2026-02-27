@@ -21,7 +21,7 @@ defining a specification in the Graphical User Interface.
 \examples{
 \dontshow{if (current_java_version >= minimal_java_version) withAutoprint(\{ # examplesIf}
 # Creating a spec from default
-regarima_spec <- rjd3x13::regarima_spec("tr3")
+regarima_spec <- rjd3x13::regarima_spec("rg3")
 
 # Forcing multiplicative model
 regarima_spec_d <- rjd3toolkit::set_transform(

@@ -18,7 +18,7 @@ NULL
 #' @param jws a java workspace object.
 #' @param name name of the new SA-Processing to be added (character).
 #'
-#' @return
+#' @returns
 #' Returns a java object workspace or SA-Processing.
 #'
 #' @examplesIf current_java_version >= minimal_java_version
@@ -68,7 +68,7 @@ jws_add <- function(jws, jsap) {
 #' @name make_copy
 #' @param jws,jsap Java Workspace or SA-Processing
 #'
-#' @return
+#' @returns
 #' Returns a java object workspace or SA-Processing
 #'
 #' @details
@@ -240,7 +240,7 @@ get_context <- function(jws) {
 #'
 #' @param jws,jsap Workspace or SA-Processing.
 #'
-#' @return
+#' @returns
 #' Returns an integer.
 #' @examplesIf current_java_version >= minimal_java_version
 #'
@@ -269,7 +269,7 @@ ws_sap_count <- function(jws) {
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
 #'
-#' @return
+#' @returns
 #' Returns a java object SA-Processing or SA-Item.
 #'
 #' @examplesIf current_java_version >= minimal_java_version

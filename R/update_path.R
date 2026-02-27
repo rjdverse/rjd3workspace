@@ -4,7 +4,7 @@
 #' @param idx_sap index (or indices) of the SAProcessing(s)
 #' @param idx_sai index (or indices) of the SA-item(s).
 #'
-#' @return
+#' @returns
 #' This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 #' the WS, or an error specifying the not found object.
 #'
@@ -59,7 +59,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #'
 #' @param new_path new path to the spreadsheet containing raw data
 #'
-#' @return
+#' @returns
 #' This function returns either NULL if the update was successful, or an
 #' error.
 
@@ -75,7 +75,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 #' spreadsheet_update_path(
 #'     jws = my_ws,
-#'     new_path = system.file("data", "IPI_nace4.xlsx", package = "rjd3workspace"),
+#'     new_path = system.file("extdata", "IPI_nace4.xlsx", package = "rjd3workspace"),
 #'     idx_sap = 2
 #' )
 #'
@@ -131,7 +131,7 @@ spreadsheet_update_path <- function(
 #'
 #' @param new_path new path to the csv/txt file containing raw data
 #'
-#' @return
+#' @returns
 #' This function returns either NULL if the update was successful, or an
 #' error
 #' @examplesIf current_java_version >= minimal_java_version
@@ -143,7 +143,7 @@ spreadsheet_update_path <- function(
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 #' txt_update_path(
 #'     jws = my_ws,
-#'     new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+#'     new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace"),
 #'     idx_sap = 1
 #' )
 #'
