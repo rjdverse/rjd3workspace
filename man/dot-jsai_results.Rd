@@ -2,12 +2,9 @@
 % Please edit documentation in R/saitem.R
 \name{.jsai_results}
 \alias{.jsai_results}
-\alias{.jsai_jresults}
 \title{Extract results from a SA-item}
 \usage{
 .jsai_results(jsai, items = NULL)
-
-.jsai_jresults(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}

@@ -176,7 +176,7 @@ read_sai <- function(jsai) {
     return(r)
 }
 
-#' @name .jsai_results
+#' @rdname .jsai_results
 #' @export
 .jsai_jresults <- function(jsai) {
     jestimation <- .jcall(
@@ -196,8 +196,7 @@ read_sai <- function(jsai) {
     return(res)
 }
 
-
-#' @name sap_name
+#' @rdname sap_name
 #' @export
 sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
@@ -243,7 +242,7 @@ get_metadata <- function(jsai, key) {
     return(val)
 }
 
-#' @name get_metadata
+#' @rdname get_metadata
 #' @export
 get_ts_metadata <- function(jsai, key) {
     val <- .jcall(

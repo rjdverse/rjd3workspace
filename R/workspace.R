@@ -42,7 +42,7 @@ jws_new <- function(modelling_context = NULL) {
     return(jws)
 }
 
-#' @name jws_new
+#' @rdname jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
     return(.jcall(
@@ -57,13 +57,12 @@ jws_sap_new <- function(jws, name) {
 #'
 #' @inheritParams make_copy
 #'
-#' @name jws_add
 #' @export
 jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
 }
 
-#' Copy a Workspace or SA-Processing
+#' @title Copy a Workspace or SA-Processing
 #'
 #' @name make_copy
 #' @param jws,jsap Java Workspace or SA-Processing
@@ -411,7 +410,8 @@ read_workspace <- function(jws, compute = TRUE) {
     cntxt <- get_context(jws)
     return(list(processing = jsaps, context = cntxt))
 }
-#' @name read_workspace
+
+#' @rdname read_workspace
 #' @export
 jread_workspace <- function(jws, compute = TRUE) {
     if (compute) {
