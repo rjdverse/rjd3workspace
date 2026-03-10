@@ -27,14 +27,16 @@ Returns an integer.
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
+#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 
 # Count the SA-Processings
 ws_sap_count(jws)
-#> [1] 2
+#> Error in .jcall(jws, "I", "getMultiProcessingCount"): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 
 # Count the SA-Items
 # In SAP 1
 sap1<-jws_sap(jws,1)
+#> Error: object 'jws' not found
 sap_sai_count(sap1)
-#> [1] 5
+#> Error: object 'sap1' not found
 ```

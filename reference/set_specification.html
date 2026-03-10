@@ -82,6 +82,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create a (customized) spec) spec</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rjdverse/rjd3x13" class="external-link">rjd3x13</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Your java version is 17. 21 or higher is needed.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘rjd3x13’</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:grDevices’:</span>
@@ -90,19 +91,24 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spec</span> <span class="op">&lt;-</span> <span class="fu">rjd3x13</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3x13/reference/x13_spec.html" class="external-link">x13_spec</a></span><span class="op">(</span><span class="st">"rsa3"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>    <span class="fu">rjd3toolkit</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3toolkit/reference/set_basic.html" class="external-link">set_basic</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"From"</span>, d0 <span class="op">=</span> <span class="st">"2012-01-01"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/x13/base/api/x13/X13Spec", "Ljdplus/x13/base/api/x13/X13Spec;",     "fromString", name):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Load a Workspace to modify</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name):</span> java.lang.UnsupportedClassVersionError: jdplus/x13/base/api/x13/X13Spec has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Select SAProcessing with the target SA-item</span></span></span>
 <span class="r-in"><span><span class="va">sap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Set specification in targeted SA-item</span></span></span>
 <span class="r-in"><span><span class="fu">set_specification</span><span class="op">(</span><span class="va">sap1</span>, <span class="fl">2</span>, <span class="va">spec</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'spec' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Set domain specification in selected SA-item</span></span></span>
 <span class="r-in"><span><span class="fu">set_domain_specification</span><span class="op">(</span><span class="va">sap1</span>, <span class="fl">3</span>, <span class="va">spec</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'spec' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

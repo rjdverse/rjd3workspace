@@ -43,6 +43,8 @@ BE <- national_calendar(list(
 ))
 write_calendars(BE,
         file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#> Error in .jcall("jdplus/toolkit/base/r/util/Modelling", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;",     "calendarsOf", bytes): RcallMethod: cannot determine object class
 write_calendars(list(BEL_cal = BE),
         file = normalizePath("~/tmp.xml", mustWork = FALSE))
+#> Error in .jcall("jdplus/toolkit/base/r/util/Modelling", "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;",     "calendarsOf", bytes): java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/r/util/Modelling has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
 ```

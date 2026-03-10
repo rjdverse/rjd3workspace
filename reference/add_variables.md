@@ -61,5 +61,7 @@ to import/export variables.
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
+#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+#> Error in .jcall(jws, "V", "addVariable", group, name, rjd3toolkit::.r2jd_tsdata(y)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 ```

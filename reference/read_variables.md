@@ -25,24 +25,9 @@ A named list of time series objects.
 ``` r
 file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
 my_regressors <- read_variables(file)
+#> Error in .jcall(obj = "jdplus/toolkit/base/workspace/file/Utility", returnSig = "Ljdplus/toolkit/base/api/timeseries/regression/TsDataSuppliers;",     method = "readData", file): RcallMethod: cannot determine object class
 class(my_regressors)
-#> [1] "list"
+#> Error: object 'my_regressors' not found
 str(my_regressors)
-#> List of 2
-#>  $ reg_ud_covid :List of 2
-#>   ..$ moniker:List of 2
-#>   .. ..$ source: chr "XCLPRVDR"
-#>   .. ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=C%3A%5CUsers%5CYWYD5I%5CDocuments%5C00_RJD3_Developpement%5C"| __truncated__
-#>   .. ..- attr(*, "class")= chr "JD3_TSMONIKER"
-#>   ..$ data   : Time-Series [1:444] from 1990 to 2027: 0 0 0 0 0 0 0 0 0 0 ...
-#>   .. ..- attr(*, "name")= chr ""
-#>   ..- attr(*, "class")= chr "JD3_DYNAMICTS"
-#>  $ reg_ud_2022_1:List of 2
-#>   ..$ moniker:List of 2
-#>   .. ..$ source: chr "XCLPRVDR"
-#>   .. ..$ id    : chr "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=C%3A%5CUsers%5CYWYD5I%5CDocuments%5C00_RJD3_Developpement%5C"| __truncated__
-#>   .. ..- attr(*, "class")= chr "JD3_TSMONIKER"
-#>   ..$ data   : Time-Series [1:444] from 1990 to 2027: 0 0 0 0 0 0 0 0 0 0 ...
-#>   .. ..- attr(*, "name")= chr ""
-#>   ..- attr(*, "class")= chr "JD3_DYNAMICTS"
+#> Error: object 'my_regressors' not found
 ```

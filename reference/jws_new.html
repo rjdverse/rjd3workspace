@@ -103,8 +103,10 @@ workspace (<code>(set_context)</code>)</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Create an empty 'JDemetra+' Workspace</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu">jws_new</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in jws_new():</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 <span class="r-in"><span><span class="co"># Add an empty SA-Processing</span></span></span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu">jws_sap_new</span><span class="op">(</span><span class="va">jws</span>, <span class="st">"sap1"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

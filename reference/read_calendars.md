@@ -24,15 +24,7 @@ a list of `JD3_CALENDAR` objects
 ``` r
 file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
+#> Error in .jcall(obj = "jdplus/toolkit/base/workspace/file/Utility", returnSig = "Ljdplus/toolkit/base/api/timeseries/calendars/CalendarManager;",     method = "readCalendars", file): RcallMethod: cannot determine object class
 my_calendar
-#> $Test_Calendar
-#> Holiday:
-#>  - Fixed day: month=1, day=1
-#>  - Fixed day: month=5, day=1
-#>  - Prespecified holiday: event=EASTERMONDAY
-#>  - Prespecified holiday: event=ASCENSION
-#>  - Prespecified holiday: event=WHITMONDAY
-#> 
-#> Mean correction: Yes
-#> 
+#> Error: object 'my_calendar' not found
 ```

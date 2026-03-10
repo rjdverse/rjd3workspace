@@ -22,6 +22,7 @@ set_context(jws, modelling_context = NULL)
 
 ``` r
 library("rjd3toolkit")
+#> Your java version is 17. 21 or higher is needed.
 #> 
 #> Attaching package: ‘rjd3toolkit’
 #> The following objects are masked from ‘package:stats’:
@@ -48,6 +49,7 @@ french_calendar <- national_calendar(
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
+#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 
 # Creating a new context
 new_context <- modelling_context(
@@ -57,4 +59,5 @@ new_context <- modelling_context(
 
 # Set the context
 set_context(jws, new_context)
+#> Error in .jcall("jdplus/toolkit/base/r/util/Modelling", "Ljdplus/toolkit/base/api/timeseries/regression/ModellingContext;",     "of", bytes): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 ```

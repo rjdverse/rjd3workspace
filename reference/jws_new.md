@@ -53,6 +53,8 @@ More information on workspaces in JDemetra+ Graphical User Interface:
 ``` r
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
+#> Error in jws_new(): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
+#> Error: object 'jws' not found
 ```
