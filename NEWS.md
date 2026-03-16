@@ -7,8 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-## [3.6.0] - 2025-12-01
 
+## [3.6.0] - 2025-12-01
 
 ### Added
 
@@ -23,6 +23,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * `write_calendars()` accepts now multiple calendars #95
+* New JARS related to version [3.6.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.6.0)
 
 
 ## [3.5.1] - 2025-06-19
@@ -47,6 +48,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * Simplified the modification of path in `update_path()`
+* New JARS related to version [3.5.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.1)
+
 
 ### Removed
 
@@ -63,6 +66,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
 * Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
+* New JARS related to version [3.5.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.0)
+
 
 ### Deprecated 
 
@@ -119,24 +124,44 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * new function `.jsa_jresults()`, `.jread_sap()` and `.jread_workspace()` to  extract the Java object of the results of a SAItem.
 
+### Changed
+
+* New JARS related to version [3.2.4](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.4)
+
 
 ## [3.2.3] - 2024-07-12
 
 ### Changed
 
-* new jars
+* New JARS related to version [3.2.3](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.3)
 
 
 ## [3.2.2] - 2024-03-15
 
+### Changed
+
+* New JARS related to version [3.2.2](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2)
+
 
 ## [3.2.1] - 2023-12-12
+
+### Changed
+
+* New JARS related to version [3.2.1](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.1)
 
 
 ## [3.2.0] - 2023-11-24
 
+### Changed
+
+* New JARS related to version [3.2.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0)
+
 
 ## [3.1.0] - 2023-08-11
+
+### Added
+
+* New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
 
 [Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...HEAD
