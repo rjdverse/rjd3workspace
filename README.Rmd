@@ -4,7 +4,7 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = TRUE}
 knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>",
@@ -46,14 +46,14 @@ To get the current stable version (from the latest release):
 
 - From GitHub:
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, echo = TRUE, eval = FALSE, warning = TRUE}
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3workspace@*release")
 ```
 
 - From [r-universe](https://rjdverse.r-universe.dev/rjd3workspace):
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, echo = TRUE, eval = FALSE, warning = TRUE}
 install.packages("rjd3workspace", repos = c("https://rjdverse.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -61,7 +61,7 @@ install.packages("rjd3workspace", repos = c("https://rjdverse.r-universe.dev", "
 
 You can install the development version of **{rjd3workspace}** from [GitHub](https://github.com/) with:
 
-```{r, echo = TRUE, eval = FALSE}
+```{r, echo = TRUE, eval = FALSE, warning = TRUE}
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3workspace")
 ```
@@ -69,7 +69,7 @@ remotes::install_github("rjdverse/rjd3workspace")
 
 ## Usage
 
-```{r, echo = TRUE, eval = TRUE}
+```{r, echo = TRUE, eval = TRUE, warning = TRUE}
 library("rjd3workspace")
 
 dir <- tempdir()
@@ -92,7 +92,7 @@ mod1 <- read_sai(jsa1)
 
 ### Create SA-item with path
 
-``` {r create_sa_item_path, echo = TRUE, eval = TRUE}
+```{r create_sa_item_path, echo = TRUE, eval = TRUE, warning = TRUE}
 # install.packages("remotes")
 # remotes::install_github("rjdverse/rjd3providers")
 
@@ -122,7 +122,7 @@ mod1 <- read_sai(jsa1)
 
 ### Change path of an SA-ITEM
 
-``` {r change_path, echo = TRUE, eval = FALSE}
+```{r change_path, echo = TRUE, eval = FALSE, warning = TRUE}
 xlsx_path <- normalizePath("data/IPI_nace4.xlsx", mustWork = TRUE)
 csv_path <- normalizePath("data/IPI_nace4.csv", mustWork = TRUE)
 ws_path <- normalizePath("WS/ws_industrie.xml", mustWork = TRUE)
