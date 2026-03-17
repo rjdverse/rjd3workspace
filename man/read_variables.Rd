@@ -13,12 +13,14 @@ read_variables(file)
 A named list of time series objects.
 }
 \description{
-The variables (regressors) file is a xml file like the one JDemetra+ would write when setting-up user defined regressors in the
-Graphical User Interface.
+The variables (regressors) file is a xml file like the one JDemetra+ would
+write when setting-up user defined regressors in the Graphical User
+Interface.
 }
 \examples{
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
-file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test", "Variables",
+                    "Vars-1.xml", package = "rjd3workspace")
 my_regressors <- read_variables(file)
 class(my_regressors)
 str(my_regressors)

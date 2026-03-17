@@ -2,9 +2,18 @@
 % Please edit documentation in R/saprocessing.R
 \name{add_sa_item}
 \alias{add_sa_item}
+\alias{add_sa_item.ts}
+\alias{add_sa_item.default}
+\alias{add_sa_item.jobjRef}
 \title{Add a SA-item to a SAProcessing}
 \usage{
-add_sa_item(jsap, name, x, spec, ...)
+add_sa_item(jsap, name, x, spec)
+
+\method{add_sa_item}{ts}(jsap, name, x, spec)
+
+\method{add_sa_item}{default}(jsap, name, x, spec)
+
+\method{add_sa_item}{jobjRef}(jsap, name, x, spec)
 }
 \arguments{
 \item{jsap}{SAProcessing.}

@@ -1,6 +1,6 @@
 Type: Package
 Package: rjd3workspace
-Title: Interface to 'JDemetra+ 3.x' time series analysis software
+Title: Wrangling 'JDemetra+ 3.x' Workspace
 Version: 3.7.0.9000
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
@@ -9,12 +9,11 @@ Authors@R: c(
     person("Tanguy", "Barthelemy", , "tanguy.barthelemy@insee.fr", role = c("aut", "cre", "art")),
     person("Anna", "Smyk", , "anna.smyk@insee.fr", role = "aut")
   )
-Description: R Interface to 'JDemetra+ 3.x'
-    (<https://github.com/jdemetra>).  It offers several functions to
-    manipulate 'JDemetra+' workspaces, which can be read by the software
-    and can store several seasonal adjusted series along with user-defined
-    calendars or regression variables.
-License: file LICENSE
+Description: R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  
+    It offers several functions to manipulate 'JDemetra+' workspaces, which 
+    can be read by the software and can store several seasonal adjusted series 
+    along with user-defined calendars or regression variables.
+License: EUPL
 URL: https://github.com/rjdverse/rjd3workspace,
     https://rjdverse.github.io/rjd3workspace/
 BugReports: https://github.com/rjdverse/rjd3workspace/issues

@@ -13,12 +13,13 @@ regarima_read_spec(file)
 list
 }
 \description{
-The specification file is a xml file like the one JDemetra+ would write when defining a specification in the
-Graphical User Interface.
+The specification file is a xml file like the one JDemetra+ would write when
+defining a specification in the Graphical User Interface.
 }
 \examples{
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
-file <- system.file("workspaces", "workspace_test","RegArimaSpec","RegArimaSpec-1.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test", "RegArimaSpec",
+                    "RegArimaSpec-1.xml", package = "rjd3workspace")
 my_spec<-regarima_read_spec(file)
 class(my_spec)
 str(my_spec)

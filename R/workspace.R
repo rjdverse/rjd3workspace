@@ -32,7 +32,7 @@ is.workspace <- function(x){
 #' @param jws a java workspace object.
 #' @param name name of the new SA-Processing to be added (character).
 #'
-#' @return
+#' @returns
 #' Returns a java object workspace or SA-Processing.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
@@ -41,7 +41,7 @@ is.workspace <- function(x){
 #' # Add an empty SA-Processing
 #' jsap <- jws_sap_new(jws, "sap1")
 #'
-#' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
+#' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
 #' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
@@ -56,25 +56,33 @@ jws_new <- function(modelling_context = NULL) {
     jws <- new("workspace", jws)
     return(jws)
 }
-#' @name jws_new
+
+#' @rdname jws_new
 #' @export
 jws_sap_new <- function(jws, name) {
-    return(.jcall(jws, "Ljdplus/sa/base/workspace/MultiProcessing;", "newMultiProcessing", name))
+    return(.jcall(
+        jws,
+        "Ljdplus/sa/base/workspace/MultiProcessing;",
+        "newMultiProcessing",
+        name
+    ))
 }
 
 #' @title Add a SA-Processing to a Workspace
-#' @name jws_add
+#'
+#' @inheritParams make_copy
+#'
 #' @export
 jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
 }
 
-#' Copy a Workspace or SA-Processing
+#' @title Copy a Workspace or SA-Processing
 #'
 #' @name make_copy
 #' @param jws,jsap Java Workspace or SA-Processing
 #'
-#' @return
+#' @returns
 #' Returns a java object workspace or SA-Processing
 #'
 #' @details
@@ -92,12 +100,11 @@ jws_add <- function(jws, jsap) {
 #' jsap2 <- jsap_make_copy(jsap)
 #'
 #'
-#' @seealso \code{\link{read_workspace}}, \code{\link{read_sap}}
+#' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
 #' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
 #'
-
 #' @export
 jws_make_copy <- function(jws) {
     return(.jcall(jws, "Ljdplus/sa/base/workspace/Ws;", "makeCopy"))
@@ -148,15 +155,22 @@ jws_make_copy <- function(jws) {
 #'
 #' @name refresh
 #' @export
-jws_refresh <- function(jws,
-                        policy = c("FreeParameters", "Complete",
-                                   "Outliers_StochasticComponent",
-                                   "Outliers", "FixedParameters",
-                                   "FixedAutoRegressiveParameters", "Fixed"),
-                        period = 0,
-                        start = NULL,
-                        end = NULL,
-                        info = c("All", "Data", "None")) {
+jws_refresh <- function(
+    jws,
+    policy = c(
+        "FreeParameters",
+        "Complete",
+        "Outliers_StochasticComponent",
+        "Outliers",
+        "FixedParameters",
+        "FixedAutoRegressiveParameters",
+        "Fixed"
+    ),
+    period = 0,
+    start = NULL,
+    end = NULL,
+    info = c("All", "Data", "None")
+) {
     policy <- match.arg(policy)
     info <- match.arg(info)
     jdom <- rjd3toolkit::.jdomain(period, start, end)
@@ -240,10 +254,10 @@ get_context <- function(jws) {
 #'
 #' @param jws,jsap Workspace or SA-Processing.
 #'
-#' @return
+#' @returns
 #' Returns an integer.
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
@@ -269,7 +283,7 @@ ws_sap_count <- function(jws) {
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
 #'
-#' @return
+#' @returns
 #' Returns a java object SA-Processing or SA-Item.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
@@ -307,7 +321,7 @@ jws_sap <- function(jws, idx) {
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
-#' @return a java workspace
+#' @returns a java workspace
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -342,7 +356,8 @@ jws_open <- function(file) {
     jws <- .jcall(
         obj = "jdplus/sa/base/workspace/Ws",
         returnSig = "Ljdplus/sa/base/workspace/Ws;",
-        method = "open", full_file_name
+        method = "open",
+        full_file_name
     )
     jws <- new("workspace", jws)
     return(jws)
@@ -379,7 +394,7 @@ jws_compute <- function(jws) {
 #' @param jws java Workspace.
 #' @param jsap java SA-Processing.
 #' @param compute compute or not the workspace (to get the estimation results).
-#' @return list or java object
+#' @returns list or java object
 
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -398,7 +413,9 @@ jws_compute <- function(jws) {
 #'
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
-    if (compute) jws_compute(jws)
+    if (compute) {
+        jws_compute(jws)
+    }
     n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
         read_sap(jws_sap(jws, i))
@@ -410,10 +427,13 @@ read_workspace <- function(jws, compute = TRUE) {
     cntxt <- get_context(jws)
     return(list(processing = jsaps, context = cntxt))
 }
-#' @name read_workspace
+
+#' @rdname read_workspace
 #' @export
 jread_workspace <- function(jws, compute = TRUE) {
-    if (compute) jws_compute(jws)
+    if (compute) {
+        jws_compute(jws)
+    }
     n <- ws_sap_count(jws)
     jsaps <- lapply(seq_len(n), function(i) {
         jread_sap(jws_sap(jws, i))
@@ -471,7 +491,7 @@ full_path <- function(path) {
 #' @param name  character name of the calendar to add.
 #' @param calendar  JDemetra+ calendar to add.
 #'
-#' @return \code{NULL} returned invisibly
+#' @returns \code{NULL} returned invisibly
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # French calendar
@@ -503,10 +523,15 @@ full_path <- function(path) {
 add_calendar <- function(jws, name, calendar) {
     pcal <- rjd3toolkit::.r2p_calendar(calendar)
     jcal <- rjd3toolkit::.p2jd_calendar(pcal)
-    jcal <- .jcast(jcal, "jdplus/toolkit/base/api/timeseries/calendars/CalendarDefinition")
+    jcal <- .jcast(
+        jcal,
+        "jdplus/toolkit/base/api/timeseries/calendars/CalendarDefinition"
+    )
 
     .jcall(
-        jws, "V", "addCalendar",
+        jws,
+        "V",
+        "addCalendar",
         name,
         jcal
     )
@@ -522,12 +547,15 @@ add_calendar <- function(jws, name, calendar) {
 #' @param group A character string indicating the name of the group in which to store the variable.
 #' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
 #' @param name A character string naming the variable.
+#' @param overwrite a Boolean to indicate whether a variable already present
+#' should be replaced
 #'
-#' @return No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+#' @returns No return value (\code{NULL} returned invisibly). This function is
+#' used for its side effect of modifying the workspace.
 #'
 #' @details
-#'
-#' For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
+#' For the time being, if the group does not already exist, a new group is
+#' created, but the group will be named after \code{name}, not \code{group}.
 #'
 #' @section Limitations:
 #' \itemize{
@@ -536,8 +564,9 @@ add_calendar <- function(jws, name, calendar) {
 #'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
 #' }
 #'
-#' @seealso \code{\link{modelling_context}} to create multiple variables and groups at once,
-#' and \code{\link{read_variables}}, \code{\link{write_variables}} to import/export variables.
+#' @seealso [rjd3toolkit::modelling_context()] to create multiple variables and
+#' groups at once, and [read_variables()], [write_variables()] to import/export
+#' variables.
 #'
 #' @export
 #'
@@ -550,7 +579,7 @@ add_calendar <- function(jws, name, calendar) {
 #'
 add_variables <- function(jws, group, name, y, overwrite = FALSE) {
     if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
-        context <- get_context(my_ws)
+        context <- get_context(jws)
         vars <- context$variables
         if (!(is.null(vars[[group]][[name]]) || overwrite)) {
             message(
@@ -560,12 +589,19 @@ add_variables <- function(jws, group, name, y, overwrite = FALSE) {
             return(invisible(NULL))
         }
         vars[[group]][[name]] <- y
-        new_context <- rjd3toolkit::modelling_context(calendars = context$calendars, variables = vars)
-        set_context(my_ws, modelling_context = new_context)
+        new_context <- rjd3toolkit::modelling_context(
+            calendars = context$calendars,
+            variables = vars
+        )
+        set_context(jws, modelling_context = new_context)
         return(invisible(NULL))
     }
     .jcall(
-        jws, "V", "addVariable", group,
-        name, rjd3toolkit::.r2jd_tsdata(y)
+        jws,
+        "V",
+        "addVariable",
+        group,
+        name,
+        rjd3toolkit::.r2jd_tsdata(y)
     )
 }

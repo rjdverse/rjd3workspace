@@ -43,5 +43,5 @@ More information on workspaces in JDemetra+ Graphical User Interface:
 \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
 }
 \seealso{
-\code{\link{read_workspace}}, \code{\link{read_sap}}
+\code{\link[=read_workspace]{read_workspace()}}, \code{\link[=read_sap]{read_sap()}}
 }

@@ -1,11 +1,10 @@
-
 #' @title Check if JD+ object exists
 #'
 #' @param jws workspace object
 #' @param idx_sap index (or indices) of the SAProcessing(s)
 #' @param idx_sai index (or indices) of the SA-item(s).
 #'
-#' @return
+#' @returns
 #' This function returns either a boolean (TRUE) if the SAI and the SAP exist in
 #' the WS, or an error specifying the not found object.
 #'
@@ -21,7 +20,6 @@
 #' iterated over all the indices.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-#'
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
 #'
@@ -32,7 +30,6 @@
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
-
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
         stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
     } else if (is.null(idx_sap)) {
@@ -43,8 +40,12 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
         jsap_i <- jws_sap(jws, idx = id_sap)
 
         if (!is.null(idx_sai) && max(idx_sai) > sap_sai_count(jsap_i)) {
-            stop("The SAI n\u00b0", max(idx_sai),
-                 " doesn't exist in the SAP n\u00b0", id_sap)
+            stop(
+                "The SAI n\u00b0",
+                max(idx_sai),
+                " doesn't exist in the SAP n\u00b0",
+                id_sap
+            )
         }
     }
 
@@ -57,7 +58,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #'
 #' @param new_path new path to the spreadsheet containing raw data
 #'
-#' @return
+#' @returns
 #' This function returns either NULL if the update was successful, or an
 #' error.
 
@@ -65,7 +66,6 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
-#'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_ws <- jws_open(file)
@@ -73,7 +73,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 #' spreadsheet_update_path(
 #'     jws = my_ws,
-#'     new_path = system.file("data", "IPI_nace4.xlsx", package = "rjd3workspace"),
+#'     new_path = system.file("extdata", "IPI_nace4.xlsx", package = "rjd3workspace"),
 #'     idx_sap = 2
 #' )
 #'
@@ -85,8 +85,12 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' get_ts_metadata(sai2, "@id")
 #'
 #' @export
-spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-
+spreadsheet_update_path <- function(
+    jws,
+    new_path,
+    idx_sap = NULL,
+    idx_sai = NULL
+) {
     new_path <- normalizePath(new_path, mustWork = TRUE)
     check_information(jws = jws, idx_sap, idx_sai)
 
@@ -108,7 +112,10 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
             jsai_id <- get_ts_metadata(jsai, "@id")
-            nid <- rjd3providers::spreadsheet_change_file(id = jsai_id, nfile = new_path)
+            nid <- rjd3providers::spreadsheet_change_file(
+                id = jsai_id,
+                nfile = new_path
+            )
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }
@@ -122,11 +129,11 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #'
 #' @param new_path new path to the csv/txt file containing raw data
 #'
-#' @return
+#' @returns
 #' This function returns either NULL if the update was successful, or an
 #' error
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' my_ws <- jws_open(file)
@@ -134,7 +141,7 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 #' txt_update_path(
 #'     jws = my_ws,
-#'     new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+#'     new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace"),
 #'     idx_sap = 1
 #' )
 #'
@@ -147,7 +154,6 @@ spreadsheet_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NUL
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-
     new_path <- normalizePath(new_path, mustWork = TRUE)
     check_information(jws = jws, idx_sap, idx_sai)
 
@@ -169,7 +175,10 @@ txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
         for (id_sai in idx_sai_tmp) {
             jsai <- jsap_sai(jsap, idx = id_sai)
             jsai_id <- get_ts_metadata(jsai, "@id")
-            nid <- rjd3providers::txt_change_file(id = jsai_id, nfile = new_path)
+            nid <- rjd3providers::txt_change_file(
+                id = jsai_id,
+                nfile = new_path
+            )
             put_ts_metadata(jsap, id_sai, "@id", nid)
         }
     }

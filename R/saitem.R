@@ -8,7 +8,7 @@ NULL
 #'
 #' @param jsai Java SA-item object.
 #'
-#' @return a list
+#' @returns a list
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -37,6 +37,99 @@ NULL
 read_sai <- function(jsai) {
     #  if (! .jcall(jsai, "Z", "isProcessed"))
     #    stop("You must run 'jws_compute()' on your workspace.")
+
+    jdef <- .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
+
+    jestimation <- .jcall(
+        jsai,
+        "Ljdplus/sa/base/api/SaEstimation;",
+        "getEstimation"
+    )
+    jrslt <- .jnull()
+    if (!is.jnull(jestimation)) {
+        jrslt <- .jcall(
+            obj = jestimation,
+            returnSig = "Ljdplus/toolkit/base/api/information/GenericExplorable;",
+            method = "getResults"
+        )
+    }
+    # ts
+    jts <- .jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
+    rts <- rjd3toolkit::.jd2r_ts(jts)
+
+    jdspec <- .jcall(
+        jdef,
+        "Ljdplus/sa/base/api/SaSpecification;",
+        "getDomainSpec"
+    )
+    jspec <- .jcall(
+        jdef,
+        "Ljdplus/sa/base/api/SaSpecification;",
+        "activeSpecification"
+    )
+    spec <- NULL
+    dspec <- NULL
+    pspec <- NULL
+    rslt <- NULL
+
+    if (
+        .jinstanceof(
+            jspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        )
+    ) {
+        spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+            jspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        ))
+        dspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+            jdspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        ))
+        if (!is.jnull(jrslt)) {
+            rslt <- rjd3tramoseats::.tramoseats_rslts(.jcast(
+                jrslt,
+                "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"
+            ))
+            jpspec <- .jcall(
+                obj = jestimation,
+                returnSig = "Ljdplus/sa/base/api/SaSpecification;",
+                method = "getPointSpec"
+            )
+            if (!is.jnull(jpspec)) {
+                pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
+                    jpspec,
+                    "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+                ))
+            }
+        }
+    } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
+        spec <- rjd3x13::.jd2r_spec_x13(.jcast(
+            jspec,
+            "jdplus/x13/base/api/x13/X13Spec"
+        ))
+        dspec <- rjd3x13::.jd2r_spec_x13(.jcast(
+            jdspec,
+            "jdplus/x13/base/api/x13/X13Spec"
+        ))
+        if (!is.jnull(jrslt)) {
+            rslt <- rjd3x13::.x13_rslts(.jcast(
+                jrslt,
+                "jdplus/x13/base/core/x13/X13Results"
+            ))
+            jpspec <- .jcall(
+                jestimation,
+                "Ljdplus/sa/base/api/SaSpecification;",
+                "getPointSpec"
+            )
+            if (!is.jnull(jpspec)) {
+                pspec <- rjd3x13::.jd2r_spec_x13(.jcast(
+                    jpspec,
+                    "jdplus/x13/base/api/x13/X13Spec"
+                ))
+            }
+        }
+    }
     return(list(
         ts = get_ts(jsai),
         domainSpec = get_domain_specification(jsai),
@@ -90,11 +183,19 @@ get_results <- function(jsai) {
 #' @rdname get-results
 #' @export
 .jsai_results <- function(jsai, items = NULL) {
-    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- .jcall(
+        jsai,
+        "Ljdplus/sa/base/api/SaEstimation;",
+        "getEstimation"
+    )
     if (is.jnull(jestimation)) {
         return(NULL)
     }
-    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/GenericExplorable;", "getResults")
+    jrslt <- .jcall(
+        jestimation,
+        "Ljdplus/toolkit/base/api/information/GenericExplorable;",
+        "getResults"
+    )
     if (is.null(items)) {
         items <- rjd3toolkit::.proc_dictionary2(jrslt)
     }
@@ -108,17 +209,24 @@ get_results <- function(jsai) {
 #' @rdname get-results
 #' @export
 .jsai_jresults <- function(jsai) {
-    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- .jcall(
+        jsai,
+        "Ljdplus/sa/base/api/SaEstimation;",
+        "getEstimation"
+    )
     if (is.jnull(jestimation)) {
         return(NULL)
     }
-    jrslt <- .jcall(jestimation, "Ljdplus/toolkit/base/api/information/GenericExplorable;", "getResults")
+    jrslt <- .jcall(
+        jestimation,
+        "Ljdplus/toolkit/base/api/information/GenericExplorable;",
+        "getResults"
+    )
     res <- rjd3toolkit::.jd3_object(jrslt, result = TRUE)
     return(res)
 }
 
-
-#' @name sap_name
+#' @rdname sap_name
 #' @export
 sai_name <- function(jsai) {
     return(.jcall(jsai, "S", "getName"))
@@ -158,19 +266,21 @@ get_metadata <- function(jsai, key) {
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
         method = "getSingleMetaData",
-        jsai, as.character(key)
+        jsai,
+        as.character(key)
     )
     return(val)
 }
 
-#' @name get_metadata
+#' @rdname get_metadata
 #' @export
 get_ts_metadata <- function(jsai, key) {
     val <- .jcall(
         obj = "jdplus/sa/base/workspace/Utility",
         returnSig = "S",
         method = "getSingleTsMetaData",
-        jsai, as.character(key)
+        jsai,
+        as.character(key)
     )
     return(val)
 }

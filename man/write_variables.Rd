@@ -12,7 +12,8 @@ write_variables(vars, file)
 \item{file}{Path to the output XML file.}
 }
 \value{
-No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
+No return value (\code{NULL} returned invisibly). This function
+writes variables to file for use in JD+.
 }
 \description{
 Write regressors file
@@ -21,7 +22,8 @@ Write regressors file
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 jws <- jws_open(file)
 
 # Get context
@@ -29,6 +31,7 @@ my_context <- get_context(jws)
 vars <- my_context$variables[[1L]]
 
 # Writing the regressors in a xml file
-write_variables(vars, file = normalizePath("tmp.xml", mustWork = FALSE))
+variable_path <- tempfile(fileext = ".xml")
+write_variables(vars, file = variable_path)
 \dontshow{\}) # examplesIf}
 }

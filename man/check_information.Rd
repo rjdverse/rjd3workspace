@@ -32,7 +32,6 @@ iterated over all the indices.
 }
 \examples{
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
-
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
 
