@@ -7,19 +7,20 @@
 read_calendars(file)
 }
 \arguments{
-\item{calendar}{a xml file}
+\item{file}{path to a calendar file (in xml format)}
 }
 \value{
 a list of \code{JD3_CALENDAR} objects
 }
 \description{
-The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
-Graphical User Interface.
+The calendar file is a xml file like the one JDemetra+ would write when
+defining a calendar in the Graphical User Interface.
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
-file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test", "Calendars",
+                    "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
 my_calendar
 \dontshow{\}) # examplesIf}

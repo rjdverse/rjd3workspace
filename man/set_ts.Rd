@@ -23,13 +23,13 @@ get_ts(jsai)
 which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 my_jws <- jws_open(file)
 
 library("rjd3providers")
-data_path <- system.file("data", "IPI_nace4.csv", package = "rjd3workspace")
+data_path <- system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
 
 ts_object <- txt_series(
     file = data_path,

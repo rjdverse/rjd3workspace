@@ -2,9 +2,18 @@
 % Please edit documentation in R/saprocessing.R
 \name{add_sa_item}
 \alias{add_sa_item}
+\alias{add_sa_item.ts}
+\alias{add_sa_item.default}
+\alias{add_sa_item.jobjRef}
 \title{Add a SA-item to a SAProcessing}
 \usage{
-add_sa_item(jsap, name, x, spec, ...)
+add_sa_item(jsap, name, x, spec)
+
+\method{add_sa_item}{ts}(jsap, name, x, spec)
+
+\method{add_sa_item}{default}(jsap, name, x, spec)
+
+\method{add_sa_item}{jobjRef}(jsap, name, x, spec)
 }
 \arguments{
 \item{jsap}{SAProcessing.}
@@ -23,7 +32,7 @@ add_sa_item(jsap, name, x, spec, ...)
 Add a SA-item to a SAProcessing
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 dir <- tempdir()
 
@@ -44,6 +53,11 @@ add_sa_item(jsap1, name = "series_2", x = rjd3tramoseats::tramoseats(y))
 # Adding SA-item as raw series + specification
 add_sa_item(jsap1, name = "series_3", x = y, rjd3x13::x13_spec("RSA3"))
 add_sa_item(jsap1, name = "series_4", x = y, rjd3tramoseats::tramoseats_spec("RSAFull"))
+
+jsai1 <- jsap_sai(jsap = jsap1, idx = 1L)
+# Adding SA-item from a Workspace
+add_sa_item(jsap = jsap1, name = "series_1_bis", x = jsai1)
+
 rws <- read_workspace(jws)
 rws$processing$sap1$series_4
 

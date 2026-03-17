@@ -22,7 +22,7 @@ get_priority(jsai)
 Get/Set SA-item Priority
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

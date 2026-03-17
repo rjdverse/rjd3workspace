@@ -103,6 +103,7 @@ reference:
     - '`.jsai_results`'
     - '`.jsai_jresults`'
     - '`set_specification`'
+    - '`get-specification`'
     - '`set_domain_specification`'
 - title: "SA-Items: metadata"
   desc: Functions to get and set metadata from an SA-Item
@@ -177,7 +178,3 @@ reference:
     - '`.jws_refresh`'
     - '`transfer_series`'
     - '`.jws_add`'
-- title: Wrangling Java objects
-  desc: Functions to easily interact between R and Java objects
-  contents:
-    - '`jversion`'
