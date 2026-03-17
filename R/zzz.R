@@ -1,13 +1,6 @@
 #' @include utils.R
 NULL
 
-#' @title Java Utility Functions
-#'
-#' @description
-#' These functions are used in all JDemetra+ 3.0 packages to easily interact between R and Java objects.
-#' @name jd3_utilities
-NULL
-
 .onAttach <- function(libname, pkgname) {
     current_java_version <- rjd3toolkit::get_java_version()
     if (current_java_version < rjd3toolkit::minimal_java_version) {

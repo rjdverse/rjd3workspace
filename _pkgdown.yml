@@ -177,7 +177,3 @@ reference:
     - '`.jws_refresh`'
     - '`transfer_series`'
     - '`.jws_add`'
-- title: Wrangling Java objects
-  desc: Functions to easily interact between R and Java objects
-  contents:
-    - '`jversion`'
