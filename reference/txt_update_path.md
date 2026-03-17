@@ -37,23 +37,19 @@ error
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 my_ws <- jws_open(file)
-#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
 txt_update_path(
     jws = my_ws,
-    new_path = system.file("data", "IPI_nace4.csv", package = "rjd3workspace"),
+    new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace"),
     idx_sap = 1
 )
-#> Error in .jcall(jws, "I", "getMultiProcessingCount"): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 
 # Select one (the 2nd) SA-item from first SA-Processing
 sap1 <- jws_sap(my_ws, 1)
-#> Error: object 'my_ws' not found
 sai2 <- jsap_sai(sap1, 2)
-#> Error: object 'sap1' not found
 
 # Check path
 get_ts_metadata(sai2, "@id")
-#> Error: object 'sai2' not found
+#> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&delimiter=SEMICOLON&file=%2Fhome%2Frunner%2Fwork%2F_temp%2FLibrary%2Frjd3workspace%2Fextdata%2FIPI_nace4.csv#seriesIndex=4"
 ```

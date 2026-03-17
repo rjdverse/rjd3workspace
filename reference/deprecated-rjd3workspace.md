@@ -97,6 +97,8 @@ transfer_series(
 
 ## Arguments
 
-- jmp, idx, jws, name:
+- jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute,
+  policy, period, start, end, info, modelling_context, jsap_from,
+  jsap_to, selected_sa_items, print_indications:
 
   Parameters.

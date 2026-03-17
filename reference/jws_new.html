@@ -11,7 +11,7 @@ added to a workspace, it will be valid for all its SA-Processings."><meta proper
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,17 +96,15 @@ workspace (<code>(set_context)</code>)</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="read_workspace.html">read_workspace</a></code>, <code><a href="read_workspace.html">read_sap</a></code></p></div>
+    <div class="dont-index"><p><code><a href="read_workspace.html">read_workspace()</a></code>, <code><a href="read_workspace.html">read_sap()</a></code></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Create an empty 'JDemetra+' Workspace</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu">jws_new</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in jws_new():</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 <span class="r-in"><span><span class="co"># Add an empty SA-Processing</span></span></span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu">jws_sap_new</span><span class="op">(</span><span class="va">jws</span>, <span class="st">"sap1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

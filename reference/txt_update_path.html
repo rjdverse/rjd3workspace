@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,29 +82,24 @@ error</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Load a workspace</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load a workspace</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">my_ws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data</span></span></span>
 <span class="r-in"><span><span class="fu">txt_update_path</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    jws <span class="op">=</span> <span class="va">my_ws</span>,</span></span>
-<span class="r-in"><span>    new_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"IPI_nace4.csv"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    new_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"IPI_nace4.csv"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    idx_sap <span class="op">=</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(jws, "I", "getMultiProcessingCount"):</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Select one (the 2nd) SA-item from first SA-Processing</span></span></span>
 <span class="r-in"><span><span class="va">sap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">my_ws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'my_ws' not found</span>
 <span class="r-in"><span><span class="va">sai2</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">sap1</span>, <span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sap1' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check path</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="get_metadata.html">get_ts_metadata</a></span><span class="op">(</span><span class="va">sai2</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sai2' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&amp;delimiter=SEMICOLON&amp;file=%2Fhome%2Frunner%2Fwork%2F_temp%2FLibrary%2Frjd3workspace%2Fextdata%2FIPI_nace4.csv#seriesIndex=4"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

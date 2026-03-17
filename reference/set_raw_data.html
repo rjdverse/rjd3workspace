@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,26 +87,23 @@
 <span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Select SAProcessing</span></span></span>
 <span class="r-in"><span><span class="va">sap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = jws, returnSig = "Ljdplus/sa/base/workspace/MultiProcessing;",     method = "getMultiProcessing", as.integer(idx - 1L)):</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Select SA-item</span></span></span>
 <span class="r-in"><span><span class="va">sai1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">sap1</span>, <span class="fl">3</span><span class="op">)</span> <span class="co"># java object sai</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sap1' not found</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="fu">get_raw_data</span><span class="op">(</span><span class="va">sai1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sai1' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Jan      Feb      Mar      Apr      May      Jun</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2024 88.21640 88.85806 96.89828 99.10996 95.52958 91.57847</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">new_raw_data</span> <span class="op">&lt;-</span> <span class="fu">rjd3toolkit</span><span class="fu">::</span><span class="va"><a href="https://rjdverse.github.io/rjd3toolkit/reference/ABS.html" class="external-link">ABS</a></span><span class="op">$</span><span class="va">X0.2.15.10.M</span></span></span>
 <span class="r-in"><span><span class="fu">set_raw_data</span><span class="op">(</span><span class="va">sap1</span>,<span class="fl">3</span>,<span class="va">new_raw_data</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sap1' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sai1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">sap1</span>,<span class="fl">3</span><span class="op">)</span> <span class="co"># reload SA-item</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sap1' not found</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="fu">get_raw_data</span><span class="op">(</span><span class="va">sai1</span><span class="op">)</span><span class="op">)</span> <span class="co"># get raw data</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'sai1' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Mar    Apr    May    Jun    Jul    Aug</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2017 1498.6 1490.7 1469.3 1462.5 1533.6 1538.4</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

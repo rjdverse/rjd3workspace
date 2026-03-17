@@ -29,6 +29,11 @@ add_variables(jws, group, name, y, overwrite = FALSE)
   A `ts` object (R time series) to be added. Only a single time series
   can be added at a time.
 
+- overwrite:
+
+  a Boolean to indicate whether a variable already present should be
+  replaced
+
 ## Value
 
 No return value (`NULL` returned invisibly). This function is used for
@@ -50,9 +55,10 @@ created, but the group will be named after `name`, not `group`.
 
 ## See also
 
-`modelling_context` to create multiple variables and groups at once, and
-[`read_variables`](https://rjdverse.github.io/rjd3workspace/reference/read_variables.md),
-[`write_variables`](https://rjdverse.github.io/rjd3workspace/reference/write_variables.md)
+[`rjd3toolkit::modelling_context()`](https://rjdverse.github.io/rjd3toolkit/reference/modelling_context.html)
+to create multiple variables and groups at once, and
+[`read_variables()`](https://rjdverse.github.io/rjd3workspace/reference/read_variables.md),
+[`write_variables()`](https://rjdverse.github.io/rjd3workspace/reference/write_variables.md)
 to import/export variables.
 
 ## Examples
@@ -61,7 +67,5 @@ to import/export variables.
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
-#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
-#> Error in .jcall(jws, "V", "addVariable", group, name, rjd3toolkit::.r2jd_tsdata(y)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 ```

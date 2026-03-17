@@ -32,22 +32,18 @@ More information on workspaces in JDemetra+ Graphical User Interface:
 
 ## See also
 
-[`read_workspace`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md),
-[`read_sap`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md)
+[`read_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md),
+[`read_sap()`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md)
 
 ## Examples
 
 ``` r
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
-#> Error in jws_new(): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
-#> Error: object 'jws' not found
 # Make a copy of the workspace
 jws2 <- jws_make_copy(jws)
-#> Error: object 'jws' not found
 # Make a copy of sap1 in jws2
 jsap2 <- jsap_make_copy(jsap)
-#> Error: object 'jsap' not found
 ```

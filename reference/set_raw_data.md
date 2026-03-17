@@ -38,24 +38,21 @@ get_raw_data(jsai)
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
-#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 
 # Select SAProcessing
 sap1 <- jws_sap(jws, 1)
-#> Error in .jcall(obj = jws, returnSig = "Ljdplus/sa/base/workspace/MultiProcessing;",     method = "getMultiProcessing", as.integer(idx - 1L)): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
 
 # Select SA-item
 sai1 <- jsap_sai(sap1, 3) # java object sai
-#> Error: object 'sap1' not found
 tail(get_raw_data(sai1))
-#> Error: object 'sai1' not found
+#>           Jan      Feb      Mar      Apr      May      Jun
+#> 2024 88.21640 88.85806 96.89828 99.10996 95.52958 91.57847
 
 new_raw_data <- rjd3toolkit::ABS$X0.2.15.10.M
 set_raw_data(sap1,3,new_raw_data)
-#> Error: object 'sap1' not found
 
 sai1 <- jsap_sai(sap1,3) # reload SA-item
-#> Error: object 'sap1' not found
 tail(get_raw_data(sai1)) # get raw data
-#> Error: object 'sai1' not found
+#>         Mar    Apr    May    Jun    Jul    Aug
+#> 2017 1498.6 1490.7 1469.3 1462.5 1533.6 1538.4
 ```

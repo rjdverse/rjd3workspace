@@ -44,13 +44,12 @@ checks are iterated over all the indices.
 ``` r
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
-#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): RcallMethod: cannot determine object class
 
 # Check if the SA-Item 3 in the SA-Processing 1 exists
 rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = 3)
-#> Error in .jcall(jws, "I", "getMultiProcessingCount"): java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws
+#> [1] TRUE
 
 # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
-#> Error: object 'jws' not found
+#> [1] TRUE
 ```

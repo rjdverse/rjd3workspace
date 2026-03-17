@@ -42,13 +42,10 @@ that returns a list of 5 objects:
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
-#> Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name): java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/api/timeseries/calendars/CalendarManager has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0
 
 # Select SAProcessing
 jsap1 <- jws_sap(jws, 1)
-#> Error: object 'jws' not found
 
 # Select SA-item (as java object)
 jsai1 <- jsap_sai(jsap1, 3)
-#> Error: object 'jsap1' not found
 ```

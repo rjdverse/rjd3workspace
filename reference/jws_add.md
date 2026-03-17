@@ -7,3 +7,9 @@ Add a SA-Processing to a Workspace
 ``` r
 jws_add(jws, jsap)
 ```
+
+## Arguments
+
+- jws, jsap:
+
+  Java Workspace or SA-Processing

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,16 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">name</span>, <span class="va">x</span>, <span class="va">spec</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">name</span>, <span class="va">x</span>, <span class="va">spec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'ts'</span></span>
+<span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">name</span>, <span class="va">x</span>, <span class="va">spec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Default S3 method</span></span>
+<span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">name</span>, <span class="va">x</span>, <span class="va">spec</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'jobjRef'</span></span>
+<span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap</span>, <span class="va">name</span>, <span class="va">x</span>, <span class="va">spec</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -90,32 +99,299 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Creating an empty workspace and SAProcessing</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_new.html">jws_new</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in jws_new():</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 <span class="r-in"><span><span class="va">jsap1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_new.html">jws_sap_new</a></span><span class="op">(</span><span class="va">jws</span>, <span class="st">"sap1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Adding SA-item as estimation result</span></span></span>
 <span class="r-in"><span><span class="co"># Estimation with rjd313</span></span></span>
 <span class="r-in"><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"series_1"</span>, x <span class="op">=</span> <span class="fu">rjd3x13</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3x13/reference/x13.html" class="external-link">x13</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/toolkit/base/r/timeseries/TsUtility", "Ljdplus/toolkit/base/api/timeseries/TsData;",     "of", as.integer(freq), as.integer(start[1]), as.integer(start[2]),     as.double(s)):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Estimation with rjd3tramoseats</span></span></span>
 <span class="r-in"><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"series_2"</span>, x <span class="op">=</span> <span class="fu">rjd3tramoseats</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats.html" class="external-link">tramoseats</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/toolkit/base/r/timeseries/TsUtility", "Ljdplus/toolkit/base/api/timeseries/TsData;",     "of", as.integer(freq), as.integer(start[1]), as.integer(start[2]),     as.double(s)):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/r/timeseries/TsUtility has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Adding SA-item as raw series + specification</span></span></span>
 <span class="r-in"><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"series_3"</span>, x <span class="op">=</span> <span class="va">y</span>, <span class="fu">rjd3x13</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3x13/reference/x13_spec.html" class="external-link">x13_spec</a></span><span class="op">(</span><span class="st">"RSA3"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/toolkit/base/r/timeseries/TsUtility", "Ljdplus/toolkit/base/api/timeseries/TsData;",     "of", as.integer(freq), as.integer(start[1]), as.integer(start[2]),     as.double(s)):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span><span class="fu">add_sa_item</span><span class="op">(</span><span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"series_4"</span>, x <span class="op">=</span> <span class="va">y</span>, <span class="fu">rjd3tramoseats</span><span class="fu">::</span><span class="fu"><a href="https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats_spec.html" class="external-link">tramoseats_spec</a></span><span class="op">(</span><span class="st">"RSAFull"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall("jdplus/toolkit/base/r/timeseries/TsUtility", "Ljdplus/toolkit/base/api/timeseries/TsData;",     "of", as.integer(freq), as.integer(start[1]), as.integer(start[2]),     as.double(s)):</span> java.lang.UnsupportedClassVersionError: jdplus/toolkit/base/r/timeseries/TsUtility has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 61.0</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">jsai1</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span>jsap <span class="op">=</span> <span class="va">jsap1</span>, idx <span class="op">=</span> <span class="fl">1L</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Adding SA-item from a Workspace</span></span></span>
+<span class="r-in"><span><span class="fu">add_sa_item</span><span class="op">(</span>jsap <span class="op">=</span> <span class="va">jsap1</span>, name <span class="op">=</span> <span class="st">"series_1_bis"</span>, x <span class="op">=</span> <span class="va">jsai1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">rws</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_workspace.html">read_workspace</a></span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 <span class="r-in"><span><span class="va">rws</span><span class="op">$</span><span class="va">processing</span><span class="op">$</span><span class="va">sap1</span><span class="op">$</span><span class="va">series_4</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'rws' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "series_4"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $moniker</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a6cb3cbf-da20-47bd-b13a-e9c1a3a443da"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "JD3_TSMONIKER"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $metadata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1982                       460.1  502.6  443.8  459.1  438.4  465.1  452.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1983  379.2  378.0  472.1  503.4  510.6  462.4  468.3  458.2  482.7  485.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1984  414.7  414.5  484.7  487.3  597.9  500.4  543.4  503.4  522.8  556.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1985  516.3  452.5  525.8  587.7  700.3  561.8  602.8  582.5  563.1  637.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1986  570.5  478.2  547.4  594.3  751.6  553.4  663.2  581.1  661.9  665.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1987  613.9  513.2  599.9  674.1  714.0  670.5  720.9  601.6  672.3  709.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1988  631.0  551.1  678.1  715.7  740.8  722.0  683.5  650.9  723.3  729.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1989  631.5  552.0  719.0  697.6  764.8  786.3  715.1  723.8  757.9  751.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1990  678.2  586.2  726.8  744.1  815.5  832.4  710.3  759.4  741.1  786.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1991  694.0  604.7  719.2  748.2  828.2  746.9  794.5  770.4  741.5  858.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1992  740.0  665.9  701.5  831.4  878.6  826.0  788.2  723.6  819.8  902.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1993  762.1  643.0  754.1  840.7  906.6  887.1  771.5  728.7  844.7  886.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1994  745.7  664.4  821.5  831.7  908.0  912.6  782.9  798.8  887.0  934.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1995  752.4  682.5  811.2  906.0  927.2  906.8  880.6  873.9  856.8  920.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1996  833.1  737.1  812.0  895.2  962.8  908.6  908.0  888.9  833.7  933.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1997  840.9  727.4  857.9  849.0  994.8  830.2  971.1  836.0  939.1  976.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1998  917.3  716.2  822.9  970.1  970.2  849.4 1042.3  869.9  939.4 1021.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1999  942.0  738.4  903.2  953.2 1011.2  894.4 1054.5  899.5 1002.3 1043.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2000  924.9  798.2  901.9 1024.7 1052.3 1165.5  859.3 1009.2 1054.6 1070.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2001  971.9  814.6 1017.5 1039.2 1123.5 1024.9 1100.8  963.0 1012.9 1132.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2002 1027.9  841.4 1043.9 1075.3 1190.9 1143.0 1075.7 1065.9 1060.1 1211.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2003 1099.3  900.5 1092.7 1222.4 1237.1 1237.9 1182.0 1101.2 1198.2 1316.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2004 1182.9  989.8 1131.4 1277.1 1280.3 1384.1 1305.9 1166.8 1317.9 1358.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2005 1246.3 1037.3 1300.8 1153.7 1264.2 1454.2 1290.1 1210.7 1277.8 1314.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2006 1193.7 1037.7 1204.5 1348.6 1267.6 1429.0 1412.0 1239.2 1219.1 1344.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2007 1267.3 1047.0 1331.6 1302.6 1365.1 1491.5 1462.3 1315.5 1353.3 1440.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2008 1397.8 1140.5 1351.7 1396.6 1421.1 1401.6 1582.3 1268.4 1383.3 1452.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2009 1451.0 1056.6 1386.9 1509.1 1519.4 1500.5 1570.7 1341.5 1399.9 1534.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2010 1469.1 1111.9 1379.9 1389.7 1427.2 1551.4 1581.0 1324.0 1422.0 1464.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2011 1412.6 1117.5 1321.6 1472.6 1408.9 1471.9 1532.5 1293.5 1345.7 1404.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2012 1362.4 1131.7 1349.2 1391.2 1456.9 1616.4 1423.4 1359.0 1367.8 1442.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2013 1397.4 1113.6 1397.3 1339.1 1441.9 1537.4 1390.6 1337.2 1359.4 1463.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2014 1451.0 1064.9 1293.2 1442.9 1411.8 1461.6 1501.6 1254.2 1356.4 1478.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2015 1471.2 1053.8 1367.2 1442.2 1428.7 1480.9 1540.9 1331.9 1400.1 1566.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2016 1519.2 1155.8 1451.5 1451.0 1449.7 1596.1 1468.3 1293.9 1393.5 1497.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2017 1428.5 1092.4 1370.3 1522.6 1452.4 1557.2 1445.5 1303.1              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Nov    Dec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1982  522.9  889.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1983  568.7  963.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1984  623.2 1039.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1985  697.1 1187.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1986  700.9 1367.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1987  743.2 1460.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1988  870.3 1570.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1989  923.8 1569.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1990  931.5 1563.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1991  944.7 1600.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1992  968.6 1650.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1993  970.0 1710.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1994 1000.4 1817.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1995 1067.4 1857.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1996 1081.6 1837.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1997 1111.3 1879.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1998 1137.7 1975.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1999 1207.2 2069.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2000 1232.5 2177.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2001 1344.8 2269.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2002 1495.1 2338.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2003 1528.2 2424.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2004 1536.7 2500.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2005 1540.4 2536.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2006 1623.3 2611.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2007 1687.9 2747.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2008 1675.9 2886.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2009 1736.6 2795.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2010 1705.5 2752.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2011 1660.0 2730.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2012 1672.9 2753.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2013 1668.9 2725.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2014 1687.7 2756.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2015 1730.5 2913.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2016 1684.3 2850.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2017              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "JD3_TS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $domainSpec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Serie span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Preliminary Check: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tolerance: 1e-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Exact ML: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unit root limit: 0.96</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Function: AUTO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC difference: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Adjust: NONE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Regression</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Calendar regressor: TD7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with Leap Year: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AutoAdjust: FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Test: TEST_NO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Easter: INCLUDEEASTER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Pre-specified outliers: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ramps: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> User-defined variables: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ARIMA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (0,1,1) (0,1,1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  theta(1) btheta(1) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0         0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification SEATS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Approximation mode: APP_LEGACY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MA unit root boundary: 0.95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Trend boundary: 0.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal tolerance: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal boundary: 0.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Method: ALG_BURMAN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Benchmarking</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $estimationSpec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Serie span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Preliminary Check: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tolerance: 1e-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Exact ML: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unit root limit: 0.96</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Function: AUTO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC difference: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Adjust: NONE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Regression</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Calendar regressor: TD7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with Leap Year: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AutoAdjust: FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Test: TEST_NO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Easter: INCLUDEEASTER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Pre-specified outliers: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ramps: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> User-defined variables: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ARIMA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (0,1,1) (0,1,1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  theta(1) btheta(1) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0         0 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification SEATS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Approximation mode: APP_LEGACY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MA unit root boundary: 0.95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Trend boundary: 0.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal tolerance: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal boundary: 0.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Method: ALG_BURMAN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Benchmarking</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $pointSpec</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Series</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Serie span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Preliminary Check: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model span: All </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tolerance: 1e-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Exact ML: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unit root limit: 0.96</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Function: LOG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC difference: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Adjust: NONE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Regression</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Calendar regressor: TD7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> with Leap Year: Yes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AutoAdjust: FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Test: TEST_NO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Easter: INCLUDEEASTER</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Pre-specified outliers: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 	- AO (2000-06-01) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 	- AO (2000-07-01) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Ramps: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> User-defined variables: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ARIMA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (0,1,1) (0,1,1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  theta(1) btheta(1) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.8278   -0.4255 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Specification SEATS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Approximation mode: APP_LEGACY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> MA unit root boundary: 0.95</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Trend boundary: 0.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal tolerance: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal boundary: 0.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Method: ALG_BURMAN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Benchmarking</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $results</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model: TRAMO-SEATS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Log-transformation: yes </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (0,1,1) (0,1,1)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  theta(1) btheta(1) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   -0.8278   -0.4255 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Regression model:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             mon             tue             wed             thu             fri </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      -0.0109446       0.0048940       0.0001761       0.0132928      -0.0024801 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             sat              lp          easter AO (2000-06-01) AO (2000-07-01) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       0.0153509       0.0410667       0.0503888       0.1681662      -0.1972348 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> For a more detailed output, use the 'summary()' function.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Writing the workspace</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="save_workspace.html">save_workspace</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"workspace.xml"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -1,8 +1,8 @@
-# rjd3workspace: Interface to 'JDemetra+ 3.x' time series analysis software
+# rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace
 
-R Interface to 'JDemetra+ 3.x' (<https://github.com/jdemetra>). It
-offers several functions to manipulate 'JDemetra+' workspaces, which can
-be read by the software and can store several seasonal adjusted series
+R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>). It offers
+several functions to manipulate 'JDemetra+' workspaces, which can be
+read by the software and can store several seasonal adjusted series
 along with user-defined calendars or regression variables.
 
 ## See also

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,14 +73,21 @@
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>A <code>ts</code> object (R time series) to be added. Only a single time series can be added at a time.</p></dd>
 
+
+<dt id="arg-overwrite">overwrite<a class="anchor" aria-label="anchor" href="#arg-overwrite"></a></dt>
+<dd><p>a Boolean to indicate whether a variable already present
+should be replaced</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>No return value (<code>NULL</code> returned invisibly). This function is used for its side effect of modifying the workspace.</p>
+    <p>No return value (<code>NULL</code> returned invisibly). This function is
+used for its side effect of modifying the workspace.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>For the time being, if the group does not already exist, a new group is created, but the group will be named after <code>name</code>, not <code>group</code>.</p>
+    <p>For the time being, if the group does not already exist, a new group is
+created, but the group will be named after <code>name</code>, not <code>group</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a></h2>
@@ -92,8 +99,9 @@
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code>modelling_context</code> to create multiple variables and groups at once,
-and <code><a href="read_variables.html">read_variables</a></code>, <code><a href="write_variables.html">write_variables</a></code> to import/export variables.</p></div>
+    <div class="dont-index"><p><code><a href="https://rjdverse.github.io/rjd3toolkit/reference/modelling_context.html" class="external-link">rjd3toolkit::modelling_context()</a></code> to create multiple variables and
+groups at once, and <code><a href="read_variables.html">read_variables()</a></code>, <code><a href="write_variables.html">write_variables()</a></code> to import/export
+variables.</p></div>
     </div>
 
     <div class="section level2">
@@ -102,9 +110,7 @@ and <code><a href="read_variables.html">read_variables</a></code>, <code><a href
 <span class="r-in"><span><span class="co"># Load a Workspace</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span><span class="fu">add_variables</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">jws</span>, group <span class="op">=</span> <span class="st">"reg1"</span>, y <span class="op">=</span> <span class="va">AirPassengers</span>, name <span class="op">=</span> <span class="st">"x1"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(jws, "V", "addVariable", group, name, rjd3toolkit::.r2jd_tsdata(y)):</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

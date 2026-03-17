@@ -254,12 +254,18 @@ Functions to extract, read SA-Items and set specifications
   : Extract a SA-Processing or a SA-Item
 - [`read_sai()`](https://rjdverse.github.io/rjd3workspace/reference/read_sai.md)
   : Read an SA-item
-- [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/dot-jsai_results.md)
-  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/dot-jsai_results.md)
+- [`get_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
   : Extract results from a SA-item
 - [`set_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
   [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
   : Set Specification in a Sa-Item
+- [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  : Get Specification in a Sa-Item
 
 ## SA-Items: metadata
 
@@ -365,11 +371,4 @@ Use new version
   [`transfer_series()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jws_add()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   : Deprecated functions
-
-## Wrangling Java objects
-
-Functions to easily interact between R and Java objects
-
-- [`jversion`](https://rjdverse.github.io/rjd3workspace/reference/jd3_utilities.md)
-  : Java Utility Functions
 

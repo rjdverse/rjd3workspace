@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.6.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,18 +88,16 @@ iterated over all the indices.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(obj = "jdplus/sa/base/workspace/Ws", returnSig = "Ljdplus/sa/base/workspace/Ws;",     method = "open", full_file_name):</span> RcallMethod: cannot determine object class</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check if the SA-Item 3 in the SA-Processing 1 exists</span></span></span>
 <span class="r-in"><span><span class="fu">rjd3workspace</span><span class="fu">:::</span><span class="fu">check_information</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">jws</span>, idx_sap <span class="op">=</span> <span class="fl">1</span>, idx_sai <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in .jcall(jws, "I", "getMultiProcessingCount"):</span> java.lang.NoClassDefFoundError: Could not initialize class jdplus.sa.base.workspace.Ws</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist</span></span></span>
 <span class="r-in"><span><span class="fu">rjd3workspace</span><span class="fu">:::</span><span class="fu">check_information</span><span class="op">(</span>jws <span class="op">=</span> <span class="va">jws</span>, idx_sap <span class="op">=</span> <span class="fl">1</span>, idx_sai <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'jws' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
