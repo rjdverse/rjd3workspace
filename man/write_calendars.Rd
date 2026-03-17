@@ -21,7 +21,7 @@ Calendars can be defined with \code{rjd3toolkit::national_calendar}
 }
 \examples{
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
-library(rjd3toolkit)
+library("rjd3toolkit")
 BE <- national_calendar(list(
    fixed_day(7, 21),
    special_day("NEWYEAR"),
