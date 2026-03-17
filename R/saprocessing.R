@@ -51,7 +51,7 @@ jsap_sai <- function(jsap, idx) {
         return(NULL)
     }
     jsai <- .jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L))
-    # jsai <- new("sa_item", jsai)
+    # jsai <- methods::new("sa_item", jsai)
     return(jsai)
 }
 
@@ -450,7 +450,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #'
 #' @returns the specification
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace to modify
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

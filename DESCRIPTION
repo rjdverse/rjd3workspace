@@ -26,7 +26,8 @@ Imports:
     rjd3tramoseats (>= 3.7.1),
     rjd3x13 (>= 3.7.1),
     tools,
-    utils
+    utils, 
+    methods
 Suggests: 
     knitr,
     rmarkdown,

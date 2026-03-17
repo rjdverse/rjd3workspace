@@ -1,9 +1,11 @@
 #' @include saprocessing.R
 NULL
 
-setClass("workspace", contains = "jobjRef")
-setClass("sa_item", contains = "jobjRef")
-setClass("sa_processing", contains = "jobjRef")
+#' @importFrom methods setClass
+#' @importFrom methods new
+methods::setClass("workspace", contains = "jobjRef")
+methods::setClass("sa_item", contains = "jobjRef")
+methods::setClass("sa_processing", contains = "jobjRef")
 
 is.sa_processing <- function(x){
     inherits(x, "sa_processing")
@@ -53,7 +55,7 @@ jws_new <- function(modelling_context = NULL) {
     if (!is.null(modelling_context)) {
         set_context(jws, modelling_context)
     }
-    # jws <- new("workspace", jws)
+    # jws <- methods::new("workspace", jws)
     return(jws)
 }
 
@@ -309,7 +311,7 @@ jws_sap <- function(jws, idx) {
         method = "getMultiProcessing",
         as.integer(idx - 1L)
     )
-    # jsap <- new("sa_processing", jsap)
+    # jsap <- methods::new("sa_processing", jsap)
     return(jsap)
 }
 
@@ -359,7 +361,7 @@ jws_open <- function(file) {
         method = "open",
         full_file_name
     )
-    # jws <- new("workspace", jws)
+    # jws <- methods::new("workspace", jws)
     return(jws)
 }
 
