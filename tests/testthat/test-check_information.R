@@ -4,7 +4,7 @@ test_that("multiplication works", {
     file <- system.file(
         "workspaces",
         "workspace_test.xml",
-        package = "rjd3workspace"
+        package = "rjd3workspace"*
     )
     jws <- jws_open(file)
 

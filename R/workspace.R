@@ -53,7 +53,7 @@ jws_new <- function(modelling_context = NULL) {
     if (!is.null(modelling_context)) {
         set_context(jws, modelling_context)
     }
-    jws <- new("workspace", jws)
+    # jws <- new("workspace", jws)
     return(jws)
 }
 
@@ -309,7 +309,7 @@ jws_sap <- function(jws, idx) {
         method = "getMultiProcessing",
         as.integer(idx - 1L)
     )
-    jsap <- new("sa_processing", jsap)
+    # jsap <- new("sa_processing", jsap)
     return(jsap)
 }
 
@@ -359,7 +359,7 @@ jws_open <- function(file) {
         method = "open",
         full_file_name
     )
-    jws <- new("workspace", jws)
+    # jws <- new("workspace", jws)
     return(jws)
 }
 

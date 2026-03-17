@@ -51,7 +51,7 @@ jsap_sai <- function(jsap, idx) {
         return(NULL)
     }
     jsai <- .jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L))
-    jsai <- new("sa_item", jsai)
+    # jsai <- new("sa_item", jsai)
     return(jsai)
 }
 
