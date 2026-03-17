@@ -31,7 +31,7 @@ It can be created with \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::m
 workspace (\code{(set_context)})
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
 # Add an empty SA-Processing

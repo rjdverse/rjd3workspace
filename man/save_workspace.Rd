@@ -18,7 +18,7 @@ Function allowing to write a workspace as a collection of xml files readable by 
 User Interface.
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 dir <- tempdir()
 jws <- jws_new()
 jsap1 <- jws_sap_new(jws, "sap1")

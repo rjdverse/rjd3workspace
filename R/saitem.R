@@ -10,7 +10,7 @@ NULL
 #'
 #' @return a list
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -164,7 +164,7 @@ sai_name <- function(jsai) {
 #' @param key key of the metadata.
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

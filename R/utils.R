@@ -14,7 +14,7 @@ NULL
 #'
 #' @return list
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test","TramoSpec","TramoSpec-1.xml", package = "rjd3workspace")
 #' my_spec<- tramo_read_spec(file)
 #' class(my_spec)
@@ -42,7 +42,7 @@ tramo_read_spec <- function(file) {
 #'
 #'
 #' @return \code{NULL} returned invisibly
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # creating a spec from default
 #' tramo_spec <- rjd3tramoseats::tramo_spec("tr3")
@@ -71,7 +71,7 @@ tramo_write_spec <- function(spec, file) {
 #'
 #' @return list
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test","TramoSeatsSpec","TramoSeatsSpec-1.xml", package = "rjd3workspace")
 #' my_spec<- tramoseats_read_spec(file)
 #' class(my_spec)
@@ -98,7 +98,7 @@ tramoseats_read_spec <- function(file) {
 #' @param spec a specification created with `rjd3tramoseats::tramoseats_spec`
 #' @param file xml format
 #' @return \code{NULL} returned invisibly
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # creating a spec from default
 #' tramoseats_spec <- rjd3tramoseats::tramoseats_spec("rsa3")
 #' # forcing multiplicative model
@@ -126,7 +126,7 @@ tramoseats_write_spec <- function(spec, file) {
 #' @param file xml format,
 #'
 #' @return list
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test","RegArimaSpec","RegArimaSpec-1.xml", package = "rjd3workspace")
 #' my_spec<-regarima_read_spec(file)
 #' class(my_spec)
@@ -154,7 +154,7 @@ regarima_read_spec <- function(file) {
 #' @param file xml format
 #'
 #' @return \code{NULL} returned invisibly
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # creating a spec from default
 #' reg_arima_spec <- rjd3x13::regarima_spec("rg3")
 #' # forcing multiplicative model
@@ -182,7 +182,7 @@ regarima_write_spec <- function(spec, file) {
 #' @param file xml format,
 #'
 #' @return list
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test","X13Spec","X13Spec-1.xml", package = "rjd3workspace")
 #' my_spec<-x13_read_spec(file)
 #' class(my_spec)
@@ -209,7 +209,7 @@ x13_read_spec <- function(file) {
 #' @param spec a specification created with `rjd3x13::x13_spec`
 #' @param file xml format
 #' @return \code{NULL} returned invisibly
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # creating a spec from default
 #' x13_spec<- rjd3x13::x13_spec("rsa3")
 #' # forcing multiplicative model
@@ -236,7 +236,7 @@ x13_write_spec <- function(spec, file) {
 #'
 #' @return a list of `JD3_CALENDAR` objects
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' file <- system.file("workspaces", "workspace_test", "Calendars", "Calendars.xml", package = "rjd3workspace")
 #' my_calendar <- read_calendars(file)
@@ -267,7 +267,7 @@ read_calendars <- function(file) {
 #' @param file xml format
 #'
 #' @return \code{NULL} returned invisibly
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' library(rjd3toolkit)
 #' BE <- national_calendar(list(
 #'    fixed_day(7, 21),
@@ -316,7 +316,7 @@ write_calendars <- function(calendars, file) {
 #'
 #' @return A named list of time series objects.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test", "Variables", "Vars-1.xml", package = "rjd3workspace")
 #' my_regressors <- read_variables(file)
 #' class(my_regressors)
@@ -344,7 +344,7 @@ read_variables <- function(file) {
 #'
 #' @return No return value (\code{NULL} returned invisibly). This function writes variables to file for use in JD+.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

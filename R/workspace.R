@@ -35,7 +35,7 @@ is.workspace <- function(x){
 #' @return
 #' Returns a java object workspace or SA-Processing.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Create an empty 'JDemetra+' Workspace
 #' jws <- jws_new()
 #' # Add an empty SA-Processing
@@ -81,7 +81,7 @@ jws_add <- function(jws, jsap) {
 #' The copy of a SA-processing will be made in the same workspace. The modelling context of the
 #' workspace is also copied.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Create an empty 'JDemetra+' Workspace
 #' jws <- jws_new()
 #' # Add an empty SA-Processing
@@ -168,7 +168,7 @@ jws_refresh <- function(jws,
 #' @inheritParams jws_new
 #' @inheritParams jws_open
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' library("rjd3toolkit")
 #'
@@ -214,7 +214,7 @@ set_context <- function(jws, modelling_context = NULL) {
 #'
 #' @param jws the Workspace.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -242,7 +242,7 @@ get_context <- function(jws) {
 #'
 #' @return
 #' Returns an integer.
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -272,7 +272,7 @@ ws_sap_count <- function(jws) {
 #' @return
 #' Returns a java object SA-Processing or SA-Item.
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -309,7 +309,7 @@ jws_sap <- function(jws, idx) {
 #' By default a dialog box opens.
 #' @return a java workspace
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -356,7 +356,7 @@ jws_open <- function(file) {
 #'
 #' @param jws a workspace
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -381,7 +381,7 @@ jws_compute <- function(jws) {
 #' @param compute compute or not the workspace (to get the estimation results).
 #' @return list or java object
 
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -433,7 +433,7 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
 #' @param replace boolean indicating if the Workspace should be replaced if it already exists.
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' dir <- tempdir()
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
@@ -473,7 +473,7 @@ full_path <- function(path) {
 #'
 #' @return \code{NULL} returned invisibly
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # French calendar
 #' french_calendar <- rjd3toolkit::national_calendar(
 #'     days = list(
@@ -541,7 +541,7 @@ add_calendar <- function(jws, name, calendar) {
 #'
 #' @export
 #'
-#' @examplesIf jversion >= 17
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

@@ -23,7 +23,7 @@ set_domain_specification(jsap, idx, spec)
 Set Specification in a Sa-Item
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Create a (customized) spec) spec
 library(rjd3x13)

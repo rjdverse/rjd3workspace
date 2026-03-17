@@ -26,7 +26,7 @@ Update the path to raw data in a workspace (spreadsheet)
 The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 }
 \examples{
-\dontshow{if (jversion >= 17) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
