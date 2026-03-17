@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* Use `get_java_version()` instead of `.jversion`
+
 
 ## [3.6.0] - 2025-12-01
 
@@ -92,7 +96,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Function `.jws_make_copy()` is deprecated. Please use function `jws_make_copy()` instead.
 * Function `.jsap_make_copy()` is deprecated. Please use function `jsap_make_copy()` instead.
 * Function `.jws_compute()` is deprecated. Please use function `jws_compute()` instead.
-* Function `.jsap_sai()` is deprecated. Please use function `jsap_sai()` instead.
 * Function `.jsap_refresh` is deprecated. Please use function `jsap_refresh` instead.
 * Function `.jws_refresh` is deprecated. Please use function `jws_refresh` instead.
 
