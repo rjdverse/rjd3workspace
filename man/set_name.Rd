@@ -23,6 +23,7 @@ Set the name of a SA-item
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -37,6 +38,7 @@ set_name(sap1,3,"RF1011_1")
 # check
 sai1 <- jsap_sai(sap1,3) # reload sai
 sai_name(sai1) #get name
+}
 \dontshow{\}) # examplesIf}
 }
 \seealso{

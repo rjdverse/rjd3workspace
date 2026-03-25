@@ -14,6 +14,7 @@ NULL
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -21,6 +22,7 @@ NULL
 #'
 #' # Select SA-item (as java object)
 #' jsai1 <- jsap_sai(jsap1, 3)
+#' }
 #'
 #' @details A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
@@ -245,6 +247,7 @@ sai_name <- function(jsai) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -260,6 +263,7 @@ sai_name <- function(jsai) {
 #' get_metadata(jsai1, "@id")
 #' get_metadata(jsai1, "@source")
 #' get_metadata(jsai1, "@timestamp")
+#' }
 #'
 get_metadata <- function(jsai, key) {
     val <- .jcall(

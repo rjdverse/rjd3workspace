@@ -17,9 +17,11 @@ Get Context from Workspace
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Get context
 my_context <- get_context(jws)
+}
 \dontshow{\}) # examplesIf}
 }

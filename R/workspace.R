@@ -207,6 +207,7 @@ jws_refresh <- function(
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Creating a new context
@@ -217,6 +218,7 @@ jws_refresh <- function(
 #'
 #' # Set the context
 #' set_context(jws, new_context)
+#' }
 #'
 #' @export
 set_context <- function(jws, modelling_context = NULL) {
@@ -234,10 +236,12 @@ set_context <- function(jws, modelling_context = NULL) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Get context
 #' my_context <- get_context(jws)
+#' }
 #'
 #' @export
 get_context <- function(jws) {
@@ -262,6 +266,7 @@ get_context <- function(jws) {
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Count the SA-Processings
@@ -269,8 +274,9 @@ get_context <- function(jws) {
 #'
 #' # Count the SA-Items
 #' # In SAP 1
-#' sap1<-jws_sap(jws,1)
+#' sap1 <- jws_sap(jws,1)
 #' sap_sai_count(sap1)
+#' }
 #'
 #' @export
 ws_sap_count <- function(jws) {
@@ -292,6 +298,7 @@ ws_sap_count <- function(jws) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Compute the workspace to enable accessing its components
@@ -302,6 +309,7 @@ ws_sap_count <- function(jws) {
 #'
 #' # Extract 3rd SA-item
 #' jsai3 <- jsap_sai(jsap2, 3)
+#' }
 #'
 #' @export
 jws_sap <- function(jws, idx) {
@@ -329,10 +337,12 @@ jws_sap <- function(jws, idx) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Compute the workspace to enable access its components
 #' jws_compute(jws)
+#' }
 #'
 #' @seealso [read_workspace()] to transform the workspace in a R list.
 #'
@@ -377,10 +387,12 @@ jws_open <- function(file) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Compute the workspace to access its components
 #' jws_compute(jws)
+#' }
 #'
 #' @export
 jws_compute <- function(jws) {
@@ -402,16 +414,19 @@ jws_compute <- function(jws) {
 #'
 #' # Load workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Read workspace
 #' jread_workspace(jws, compute = FALSE)
+#'
 #' rws <- read_workspace(jws)
 #'
 #' # Read sap
-#' sap<-jws_sap(jws,1)
+#' sap <- jws_sap(jws,1)
 #' jread_sap(sap)
 #' read_sap(sap)
+#' }
 #'
 #' @export
 read_workspace <- function(jws, compute = TRUE) {
@@ -447,21 +462,26 @@ jread_workspace <- function(jws, compute = TRUE) {
     return(jsaps)
 }
 
-#' Save Workspace
+#' @title Save Workspace
 #'
+#' @description
 #' Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
 #' User Interface.
 #'
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
 #' @param replace boolean indicating if the Workspace should be replaced if it already exists.
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' dir <- tempdir()
 #' jws <- jws_new()
 #' jsap1 <- jws_sap_new(jws, "sap1")
 #' y <- rjd3toolkit::ABS$X0.2.09.10.M
+#'
+#' \donttest{
 #' add_sa_item(jsap1, name = "serie_1", x = y, rjd3x13::x13_spec())
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
+#' }
 #'
 #' @export
 save_workspace <- function(jws, file, replace = FALSE) {
@@ -514,11 +534,13 @@ full_path <- function(path) {
 #' )
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Add calendar to the workspace
 #' add_calendar(jws, "French Calendar", french_calendar)
 #' get_context(jws) # The workspace already contained a Test Calendar
+#' }
 #'
 #' @export
 #'
@@ -576,8 +598,10 @@ add_calendar <- function(jws, name, calendar) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+#' }
 #'
 add_variables <- function(jws, group, name, y, overwrite = FALSE) {
     if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {

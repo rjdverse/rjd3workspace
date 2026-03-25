@@ -33,6 +33,7 @@ the specification
 
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing with the target SA-item
@@ -50,5 +51,6 @@ get_estimation_specification(jsai1)
 
 # Get the point specification in targeted SA-item
 get_point_specification(jsai1)
+}
 \dontshow{\}) # examplesIf}
 }

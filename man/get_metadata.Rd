@@ -22,6 +22,7 @@ Extract specific metadata or time series metadata of a SA-item.
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -37,5 +38,6 @@ get_metadata(jsai1, "comment")
 get_metadata(jsai1, "@id")
 get_metadata(jsai1, "@source")
 get_metadata(jsai1, "@timestamp")
+}
 \dontshow{\}) # examplesIf}
 }

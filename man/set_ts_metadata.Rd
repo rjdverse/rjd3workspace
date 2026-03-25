@@ -40,6 +40,7 @@ allows to update a specific key with a new information.
 
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 jsap <- jws_sap(jws, 1)
 jsai <- jsap_sai(jsap, 1)
@@ -48,5 +49,6 @@ put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)
 get_ts_metadata(jsai, "@id")
+}
 \dontshow{\}) # examplesIf}
 }

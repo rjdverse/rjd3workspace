@@ -38,6 +38,7 @@ french_calendar <- national_calendar(
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Creating a new context
@@ -48,5 +49,6 @@ new_context <- modelling_context(
 
 # Set the context
 set_context(jws, new_context)
+}
 \dontshow{\}) # examplesIf}
 }

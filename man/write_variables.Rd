@@ -24,6 +24,7 @@ Write regressors file
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml",
                     package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Get context
@@ -33,5 +34,6 @@ vars <- my_context$variables[[1L]]
 # Writing the regressors in a xml file
 variable_path <- tempfile(fileext = ".xml")
 write_variables(vars, file = variable_path)
+}
 \dontshow{\}) # examplesIf}
 }

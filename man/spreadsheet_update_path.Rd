@@ -29,6 +29,7 @@ The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemet
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 my_ws <- jws_open(file)
 
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -44,5 +45,6 @@ sai2 <- jsap_sai(sap2, 2)
 
 # Check path
 get_ts_metadata(sai2, "@id")
+}
 \dontshow{\}) # examplesIf}
 }

@@ -47,3 +47,4 @@ cran-comments.md
 
 ^lychee\.toml$
 ^\.lycheeignore$
+^CRAN-SUBMISSION$
