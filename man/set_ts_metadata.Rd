@@ -26,6 +26,9 @@ put_metadata(jsap, idx, key, value)
 
 \item{value}{value of the metadata.}
 }
+\value{
+\code{NULL} returned invisibly.
+}
 \description{
 Function to set the metadata of a SA-item.
 

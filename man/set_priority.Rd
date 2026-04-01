@@ -18,6 +18,10 @@ get_priority(jsai)
 
 \item{jsai}{a SA-item.}
 }
+\value{
+\code{set_priority} returns \code{NULL} invisibly. \code{get_priority} returns the
+priority (an integer).
+}
 \description{
 Get/Set SA-item Priority
 }

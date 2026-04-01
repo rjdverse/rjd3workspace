@@ -9,6 +9,9 @@ get_context(jws)
 \arguments{
 \item{jws}{the Workspace.}
 }
+\value{
+The modelling context (list object with Calendars and Variables).
+}
 \description{
 Get Context from Workspace
 }

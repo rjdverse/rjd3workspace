@@ -9,6 +9,9 @@ jws_compute(jws)
 \arguments{
 \item{jws}{a workspace}
 }
+\value{
+Invisibly \code{NULL}
+}
 \description{
 \code{jws_compute()} allows to extract all the SA-Items as java object.
 }

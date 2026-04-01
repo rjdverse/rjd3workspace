@@ -9,7 +9,7 @@ txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 \arguments{
 \item{jws}{workspace object}
 
-\item{new_path}{new path to the csv/txt file containing raw data}
+\item{new_path}{new path to the csv/txt file containing raw data.}
 
 \item{idx_sap}{index (or indices) of the SAProcessing(s)}
 

@@ -283,6 +283,7 @@ replace_sa_item <- function(jsap, idx, jsai) {
         as.integer(idx - 1L),
         jsai
     )
+    return(invisible(NULL))
 }
 #' @rdname replace_sa_item
 #' @export
@@ -582,6 +583,9 @@ get_raw_data <- function(jsai) {
 #'
 #' @inheritParams set_raw_data
 #' @param y a "full" time series (jd3-like).
+#'
+#' @returns `NULL` returned invisibly
+#'
 #' @export
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
@@ -625,6 +629,7 @@ set_ts <- function(jsap, idx, y) {
         rjd3toolkit::.r2jd_ts(y)
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
+    return(invisible(NULL))
 }
 
 #' @rdname set_ts
@@ -731,6 +736,8 @@ set_name <- function(jsap, idx, name) {
 #' @param ref_jsai a reference SA-item containing the metadata.
 #' @param key key of the metadata.
 #' @param value value of the metadata.
+#'
+#' @returns `NULL` returned invisibly.
 #'
 #' @export
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
@@ -846,6 +853,9 @@ put_metadata <- function(jsap, idx, key, value) {
 #' @param priority integer containing the priority.
 #' @export
 #'
+#' @returns `set_priority` returns `NULL` invisibly. `get_priority` returns the
+#' priority (an integer).
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a workspace
@@ -873,6 +883,7 @@ set_priority <- function(jsap, idx, priority = 0L) {
         as.integer(priority)
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
+    return(invisible(NULL))
 }
 
 #' @rdname set_priority

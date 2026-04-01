@@ -11,6 +11,9 @@ set_context(jws, modelling_context = NULL)
 
 \item{modelling_context}{a list of variables and calendars}
 }
+\value{
+Invisibly \code{NULL}
+}
 \description{
 Set Context of a Workspace
 }

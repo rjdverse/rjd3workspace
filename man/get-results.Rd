@@ -20,6 +20,9 @@ get_results(jsai)
 See \code{\link[rjd3x13:x13_dictionary]{rjd3x13::x13_dictionary()}} or \code{\link[rjd3tramoseats:tramoseats_dictionary]{rjd3tramoseats::tramoseats_dictionary()}}.
 By default, extracts all the possible variables.}
 }
+\value{
+List with all the results of the adjustment.
+}
 \description{
 \code{get_results()} extracts the results of a SA-item.
 \code{.jsai_results()} extracts specific output of the model of the SA-item.

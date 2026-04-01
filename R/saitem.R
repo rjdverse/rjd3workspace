@@ -153,6 +153,8 @@ read_sai <- function(jsai) {
 #' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
 #' By default, extracts all the possible variables.
 #'
+#' @returns List with all the results of the adjustment.
+#'
 #' @name get-results
 #' @export
 #'
@@ -242,6 +244,8 @@ sai_name <- function(jsai) {
 #' @inheritParams read_sai
 #' @param key key of the metadata.
 #' @export
+#'
+#' @returns The corresponding metadata (character, numeric...)
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'

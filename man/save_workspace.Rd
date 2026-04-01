@@ -13,6 +13,9 @@ save_workspace(jws, file, replace = FALSE)
 
 \item{replace}{boolean indicating if the Workspace should be replaced if it already exists.}
 }
+\value{
+A boolean indicating if the saving was successful.
+}
 \description{
 Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
 User Interface.

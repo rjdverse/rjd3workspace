@@ -74,9 +74,12 @@ jws_sap_new <- function(jws, name) {
 #'
 #' @inheritParams make_copy
 #'
+#' @returns Invisibly `NULL`
+#'
 #' @export
 jws_add <- function(jws, jsap) {
     .jcall(jws, "V", "add", jsap)
+    return(invisible(NULL))
 }
 
 #' @title Copy a Workspace or SA-Processing
@@ -126,6 +129,7 @@ jws_make_copy <- function(jws) {
 #' 1980). If they are not specified, the outliers will be re-identified on the
 #' whole series.
 #' @param info information to refresh.
+#'
 #' @details
 #'
 #' Available refresh policies are:
@@ -155,6 +159,8 @@ jws_make_copy <- function(jws) {
 #' \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
 #' orders (p,d,q)(P,D,Q) can also be re-identified.
 #'
+#' @returns The refreshed element.
+#'
 #' @name refresh
 #' @export
 jws_refresh <- function(
@@ -183,6 +189,8 @@ jws_refresh <- function(
 #'
 #' @inheritParams jws_new
 #' @inheritParams jws_open
+#'
+#' @returns Invisibly `NULL`
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -226,6 +234,7 @@ set_context <- function(jws, modelling_context = NULL) {
         jcontext <- rjd3toolkit::.r2jd_modellingcontext(modelling_context)
         .jcall(jws, "V", "setContext", jcontext)
     }
+    return(invisible(NULL))
 }
 
 #' @title Get Context from Workspace
@@ -242,6 +251,8 @@ set_context <- function(jws, modelling_context = NULL) {
 #' # Get context
 #' my_context <- get_context(jws)
 #' }
+#'
+#' @returns The modelling context (list object with Calendars and Variables).
 #'
 #' @export
 get_context <- function(jws) {
@@ -383,6 +394,8 @@ jws_open <- function(file) {
 #'
 #' @param jws a workspace
 #'
+#' @returns Invisibly `NULL`
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
@@ -397,6 +410,7 @@ jws_open <- function(file) {
 #' @export
 jws_compute <- function(jws) {
     .jcall(jws, "V", "computeAll")
+    return(invisible(NULL))
 }
 
 #' Read all SA-Items from a Workspace or SA-Processing
@@ -471,6 +485,8 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
 #' @param replace boolean indicating if the Workspace should be replaced if it already exists.
+#'
+#' @returns A boolean indicating if the saving was successful.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' dir <- tempdir()

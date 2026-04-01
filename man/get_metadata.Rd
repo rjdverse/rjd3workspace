@@ -14,6 +14,9 @@ get_ts_metadata(jsai, key)
 
 \item{key}{key of the metadata.}
 }
+\value{
+The corresponding metadata (character, numeric...)
+}
 \description{
 Extract specific metadata or time series metadata of a SA-item.
 }

@@ -31,6 +31,9 @@
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
 #' }
 #'
+#' @keywords internal
+#' @noRd
+#'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
         stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
@@ -56,9 +59,10 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
 #' @title Update the path to raw data in a workspace (spreadsheet)
 #'
-#' @inheritParams check_information
-#'
+#' @param jws workspace object
 #' @param new_path new path to the spreadsheet containing raw data
+#' @param idx_sap index (or indices) of the SAProcessing(s)
+#' @param idx_sai index (or indices) of the SA-item(s).
 #'
 #' @returns
 #' This function returns either NULL if the update was successful, or an
@@ -129,9 +133,10 @@ spreadsheet_update_path <- function(
 
 #' @title Update the path to raw data in a workspace (txt/csv file)
 #'
-#' @inheritParams check_information
-#'
-#' @param new_path new path to the csv/txt file containing raw data
+#' @param jws workspace object
+#' @param new_path new path to the csv/txt file containing raw data.
+#' @param idx_sap index (or indices) of the SAProcessing(s)
+#' @param idx_sai index (or indices) of the SA-item(s).
 #'
 #' @returns
 #' This function returns either NULL if the update was successful, or an

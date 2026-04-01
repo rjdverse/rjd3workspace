@@ -43,6 +43,9 @@ whole series.}
 
 \item{jws, jsap}{Java Workspace or SA-Processing}
 }
+\value{
+The refreshed element.
+}
 \description{
 Refresh a Workspace or SA-Processing
 }
