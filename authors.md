@@ -14,16 +14,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/develop/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/v3.7.1/DESCRIPTION)
 
 Palate J, Quartier-la-Tente A, Barthelemy T, Smyk A (2026).
 *rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace*. R package version
-3.7.0.9000, <https://github.com/rjdverse/rjd3workspace>.
+3.7.1, <https://github.com/rjdverse/rjd3workspace>.
 
     @Manual{,
       title = {rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace},
       author = {Jean Palate and Alain Quartier-la-Tente and Tanguy Barthelemy and Anna Smyk},
       year = {2026},
-      note = {R package version 3.7.0.9000},
+      note = {R package version 3.7.1},
       url = {https://github.com/rjdverse/rjd3workspace},
     }
