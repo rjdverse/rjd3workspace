@@ -25,10 +25,11 @@ get_comment(jsai)
 Get/Set Comment from a SA-item
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -39,5 +40,6 @@ set_comment(jsap1, 2L, "data collection changed in 2012")
 
 jsai2 <- jsap_sai(jsap1, 2L)
 get_comment(jsai2)
+}
 \dontshow{\}) # examplesIf}
 }

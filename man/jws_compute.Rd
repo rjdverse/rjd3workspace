@@ -9,17 +9,22 @@ jws_compute(jws)
 \arguments{
 \item{jws}{a workspace}
 }
+\value{
+Invisibly \code{NULL}
+}
 \description{
 \code{jws_compute()} allows to extract all the SA-Items as java object.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Compute the workspace to access its components
 jws_compute(jws)
+}
 \dontshow{\}) # examplesIf}
 }

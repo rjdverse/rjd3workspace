@@ -30,7 +30,7 @@ TRAMO-SEATS with the package
 **{rjd3workspace}** relies on the
 [**{rJava}**](https://CRAN.R-project.org/package=rJava) package
 
-Running rjd3 packages requires **Java 17 or higher**. How to set up such
+Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
 [here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
 
@@ -69,19 +69,19 @@ library("rjd3workspace")
 dir <- tempdir()
 
 y <- rjd3toolkit::ABS$X0.2.09.10.M
-jws <- .jws_new()
-jsap1 <- .jws_sap_new(jws, "sa1")
+jws <- jws_new()
+jsap1 <- jws_sap_new(jws, "sa1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
 save_workspace(jws, file.path(dir, "ws.xml"))
 
-jws <- .jws_load(file = file.path(dir, "ws.xml"))
-.jws_compute(jws) # to compute the models
-jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
-jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
-.jsa_name(jsa1)
+jws <- jws_open(file = file.path(dir, "ws.xml"))
+jws_compute(jws) # to compute the models
+jsap1 <- jws_sap(jws, idx = 1) # first SAProcessing
+jsa1 <- jsap_sai(jsap1, idx = 1) # first SAItem
+sai_name(jsa1)
 #> [1] "x13"
-mod1 <- .jsa_read(jsa1)
+mod1 <- read_sai(jsa1)
 ```
 
 ### Create SA-item with path
@@ -92,12 +92,12 @@ mod1 <- .jsa_read(jsa1)
 
 dir <- tempdir()
 
-xlsx_file <- paste0(system.file("examples", package = "rjd3providers"), "/Insee.xlsx")
+xlsx_file <- file.path(system.file("extdata", package = "rjd3providers"), "Insee.xlsx")
 ts1 <- rjd3providers::spreadsheet_series(file = xlsx_file, sheet = 1L, series = 3L)
 
 y <- ts1$data
-jws <- .jws_new()
-jsap1 <- .jws_sap_new(jws, "sa1")
+jws <- jws_new()
+jsap1 <- jws_sap_new(jws, "sa1")
 add_sa_item(jsap1, name = "x13", x = rjd3x13::x13(y))
 set_ts(jsap = jsap1, idx = 1L, y = ts1)
 add_sa_item(jsap1, name = "tramo", x = rjd3tramoseats::tramoseats(y))
@@ -105,13 +105,13 @@ set_ts(jsap = jsap1, idx = 2L, y = ts1)
 
 save_workspace(jws, file.path(dir, "ws.xml"))
 
-jws <- .jws_load(file = file.path(dir, "ws.xml"))
-.jws_compute(jws) # to compute the models
-jsap1 <- .jws_sap(jws, idx = 1) # first SAProcessing
-jsa1 <- .jsap_sa(jsap1, idx = 1) # first SAItem
-.jsa_name(jsa1)
+jws <- jws_open(file = file.path(dir, "ws.xml"))
+jws_compute(jws) # to compute the models
+jsap1 <- jws_sap(jws, idx = 1) # first SAProcessing
+jsa1 <- jsap_sai(jsap1, idx = 1) # first SAItem
+sai_name(jsa1)
 #> [1] "x13"
-mod1 <- .jsa_read(jsa1)
+mod1 <- read_sai(jsa1)
 ```
 
 ### Change path of an SA-ITEM

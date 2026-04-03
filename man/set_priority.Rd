@@ -18,14 +18,19 @@ get_priority(jsai)
 
 \item{jsai}{a SA-item.}
 }
+\value{
+\code{set_priority} returns \code{NULL} invisibly. \code{get_priority} returns the
+priority (an integer).
+}
 \description{
 Get/Set SA-item Priority
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 my_jws <- jws_open(file)
 
 # Select the first SA-Processing and SA-Item
@@ -37,6 +42,6 @@ set_priority(jsap, idx = 1L, priority = 3L)
 
 # Retrieve priority
 get_priority(jsai)
-
+}
 \dontshow{\}) # examplesIf}
 }

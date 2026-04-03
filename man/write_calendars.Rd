@@ -15,28 +15,29 @@ write_calendars(calendars, file)
 \code{NULL} returned invisibly
 }
 \description{
-The calendar file is a xml file like the one JDemetra+ would write when defining a calendar in the
-Graphical User Interface.
+The calendar file is a xml file like the one JDemetra+ would write when
+defining a calendar in the Graphical User Interface.
 Calendars can be defined with \code{rjd3toolkit::national_calendar}
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-library(rjd3toolkit)
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+library("rjd3toolkit")
 BE <- national_calendar(list(
-   fixed_day(7, 21),
-   special_day("NEWYEAR"),
-   special_day("CHRISTMAS"),
-   special_day("MAYDAY"),
-   special_day("EASTERMONDAY"),
-   special_day("ASCENSION"),
-   special_day("WHITMONDAY"),
-   special_day("ASSUMPTION"),
-   special_day("ALLSAINTSDAY"),
-   special_day("ARMISTICE")
+    fixed_day(7, 21),
+    special_day("NEWYEAR"),
+    special_day("CHRISTMAS"),
+    special_day("MAYDAY"),
+    special_day("EASTERMONDAY"),
+    special_day("ASCENSION"),
+    special_day("WHITMONDAY"),
+    special_day("ASSUMPTION"),
+    special_day("ALLSAINTSDAY"),
+    special_day("ARMISTICE")
 ))
-write_calendars(BE,
-        file = normalizePath("~/tmp.xml", mustWork = FALSE))
-write_calendars(list(BEL_cal = BE),
-        file = normalizePath("~/tmp.xml", mustWork = FALSE))
+
+calendar_path <- tempfile(pattern = "calendar", fileext = ".xml")
+
+write_calendars(BE, file = calendar_path)
+write_calendars(list(BEL_cal = BE), file = calendar_path)
 \dontshow{\}) # examplesIf}
 }

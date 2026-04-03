@@ -20,7 +20,7 @@ add_calendar(jws, name, calendar)
 Add a Calendar to a Workspace
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # French calendar
 french_calendar <- rjd3toolkit::national_calendar(
     days = list(
@@ -39,10 +39,12 @@ french_calendar <- rjd3toolkit::national_calendar(
 )
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Add calendar to the workspace
 add_calendar(jws, "French Calendar", french_calendar)
 get_context(jws) # The workspace already contained a Test Calendar
+}
 \dontshow{\}) # examplesIf}
 }

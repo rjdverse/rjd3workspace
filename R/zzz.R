@@ -1,33 +1,23 @@
 #' @include utils.R
 NULL
 
-#' @title Java Utility Functions
-#'
-#' @description
-#' These functions are used in all JDemetra+ 3.0 packages to easily interact between R and Java objects.
-#' @name jd3_utilities
-NULL
-#> NULL
-
-#' @rdname jd3_utilities
-#' @export
-jversion <- NULL
-
+#' @importFrom rjd3toolkit get_java_version minimal_java_version
 .onAttach <- function(libname, pkgname) {
-    # what's your java  version?  Need >= 17
-    if (jversion < 17) {
-        packageStartupMessage(sprintf("Your java version is %s. 17 or higher is needed.", jversion))
+    current_java_version <- rjd3toolkit::get_java_version()
+    if (current_java_version < rjd3toolkit::minimal_java_version) {
+        packageStartupMessage(sprintf(
+            "Your java version is %s. %s or higher is needed.",
+            current_java_version,
+            rjd3toolkit::minimal_java_version
+        ))
     }
 }
 
+#' @importFrom rJava .jpackage .jaddClassPath
 .onLoad <- function(libname, pkgname) {
-    if (!requireNamespace("rjd3tramoseats", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-    if (!requireNamespace("rjd3x13", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-    if (!requireNamespace("rjd3providers", quietly = TRUE)) stop("Loading rjd3 libraries failed")
-
-    jversion <<- .jcall("java.lang.System", "S", "getProperty", "java.version")
-    jversion <<- as.integer(regmatches(jversion, regexpr(pattern = "^(\\d+)", text = jversion)))
-
+    jar_dir <- file.path(libname, pkgname, "inst", "java")
+    jars <- list.files(jar_dir, pattern = "\\.jar$", full.names = TRUE, all.files = TRUE)
+    rJava::.jaddClassPath(jars)
     result <- rJava::.jpackage(pkgname, lib.loc = libname)
-    if (!result) stop("Loading java packages failed")
+    if (!result) stop("Loading java packages failed", call. = FALSE)
 }

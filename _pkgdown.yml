@@ -69,7 +69,6 @@ reference:
 - title: "Workspaces: get information"
   desc: Functions to get information on workspaces
   contents:
-    - '`check_information`'
     - '`ws_sap_count`'
     - '`get_context`'
 - title: Update Path to Raw data
@@ -103,7 +102,9 @@ reference:
     - '`.jsai_results`'
     - '`.jsai_jresults`'
     - '`set_specification`'
+    - '`get-specification`'
     - '`set_domain_specification`'
+    - '`.jd2r_spec`'
 - title: "SA-Items: metadata"
   desc: Functions to get and set metadata from an SA-Item
   contents:
@@ -177,7 +178,3 @@ reference:
     - '`.jws_refresh`'
     - '`transfer_series`'
     - '`.jws_add`'
-- title: Wrangling Java objects
-  desc: Functions to easily interact between R and Java objects
-  contents:
-    - '`jversion`'

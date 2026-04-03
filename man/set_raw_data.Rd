@@ -25,10 +25,11 @@ get_raw_data(jsai)
 Get/Set Raw Data in a SA-item
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -43,5 +44,6 @@ set_raw_data(sap1,3,new_raw_data)
 
 sai1 <- jsap_sai(sap1,3) # reload SA-item
 tail(get_raw_data(sai1)) # get raw data
+}
 \dontshow{\}) # examplesIf}
 }

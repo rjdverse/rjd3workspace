@@ -26,6 +26,9 @@ put_metadata(jsap, idx, key, value)
 
 \item{value}{value of the metadata.}
 }
+\value{
+\code{NULL} returned invisibly.
+}
 \description{
 Function to set the metadata of a SA-item.
 
@@ -36,10 +39,11 @@ source of the data...). \code{XXX_metadata()} set any metadata to a SA-Item.
 allows to update a specific key with a new information.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 jsap <- jws_sap(jws, 1)
 jsai <- jsap_sai(jsap, 1)
@@ -48,5 +52,6 @@ put_ts_metadata(jsap, 1, "@id", nid)
 
 jsai <- jsap_sai(jsap, 1)
 get_ts_metadata(jsai, "@id")
+}
 \dontshow{\}) # examplesIf}
 }

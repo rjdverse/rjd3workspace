@@ -9,17 +9,22 @@ get_context(jws)
 \arguments{
 \item{jws}{the Workspace.}
 }
+\value{
+The modelling context (list object with Calendars and Variables).
+}
 \description{
 Get Context from Workspace
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Get context
 my_context <- get_context(jws)
+}
 \dontshow{\}) # examplesIf}
 }

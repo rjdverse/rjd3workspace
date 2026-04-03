@@ -14,15 +14,20 @@ add_variables(jws, group, name, y, overwrite = FALSE)
 \item{name}{A character string naming the variable.}
 
 \item{y}{A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.}
+
+\item{overwrite}{a Boolean to indicate whether a variable already present
+should be replaced}
 }
 \value{
-No return value (\code{NULL} returned invisibly). This function is used for its side effect of modifying the workspace.
+No return value (\code{NULL} returned invisibly). This function is
+used for its side effect of modifying the workspace.
 }
 \description{
 Adds a single time series variable to a specified group within a JD+ workspace..
 }
 \details{
-For the time being, if the group does not already exist, a new group is created, but the group will be named after \code{name}, not \code{group}.
+For the time being, if the group does not already exist, a new group is
+created, but the group will be named after \code{name}, not \code{group}.
 }
 \section{Limitations}{
 
@@ -34,15 +39,18 @@ For the time being, if the group does not already exist, a new group is created,
 }
 
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+}
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link{modelling_context}} to create multiple variables and groups at once,
-and \code{\link{read_variables}}, \code{\link{write_variables}} to import/export variables.
+\code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}} to create multiple variables and
+groups at once, and \code{\link[=read_variables]{read_variables()}}, \code{\link[=write_variables]{write_variables()}} to import/export
+variables.
 }

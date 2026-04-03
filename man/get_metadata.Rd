@@ -14,14 +14,18 @@ get_ts_metadata(jsai, key)
 
 \item{key}{key of the metadata.}
 }
+\value{
+The corresponding metadata (character, numeric...)
+}
 \description{
 Extract specific metadata or time series metadata of a SA-item.
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -37,5 +41,6 @@ get_metadata(jsai1, "comment")
 get_metadata(jsai1, "@id")
 get_metadata(jsai1, "@source")
 get_metadata(jsai1, "@timestamp")
+}
 \dontshow{\}) # examplesIf}
 }

@@ -23,14 +23,14 @@ set_domain_specification(jsap, idx, spec)
 Set Specification in a Sa-Item
 }
 \examples{
-\dontshow{if (jversion >= 17) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Create a (customized) spec) spec
 library(rjd3x13)
 
 spec <- rjd3x13::x13_spec("rsa3") |>
     rjd3toolkit::set_basic(type = "From", d0 = "2012-01-01")
 
+\donttest{
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 jws <- jws_open(file)
@@ -43,5 +43,6 @@ set_specification(sap1, 2, spec)
 
 # Set domain specification in selected SA-item
 set_domain_specification(sap1, 3, spec)
+}
 \dontshow{\}) # examplesIf}
 }
