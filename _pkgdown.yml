@@ -69,7 +69,6 @@ reference:
 - title: "Workspaces: get information"
   desc: Functions to get information on workspaces
   contents:
-    - '`check_information`'
     - '`ws_sap_count`'
     - '`get_context`'
 - title: Update Path to Raw data
