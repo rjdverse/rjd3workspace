@@ -504,8 +504,13 @@ get_estimation_specification <- function(jsai) {
 #' @rdname get-specification
 #' @export
 get_point_specification <- function(jsai) {
-    pspec <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation") |>
+    jestimation <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+
+    if (is.null(jestimation) || is.jnull(jestimation)) {
+        return(NULL)
+    }
+    pspec <- jestimation |>
         .jcall("Ljdplus/sa/base/api/SaSpecification;", "getPointSpec") |>
         .jd2r_spec()
     return(pspec)
