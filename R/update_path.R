@@ -21,6 +21,7 @@
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Check if the SA-Item 3 in the SA-Processing 1 exists
@@ -28,6 +29,10 @@
 #'
 #' # Check if the SA-Items 1, 2 and 5 in the SA-Processing 1 exist
 #' rjd3workspace:::check_information(jws = jws, idx_sap = 1, idx_sai = c(1, 2, 4))
+#' }
+#'
+#' @keywords internal
+#' @noRd
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
@@ -54,9 +59,10 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 
 #' @title Update the path to raw data in a workspace (spreadsheet)
 #'
-#' @inheritParams check_information
-#'
+#' @param jws workspace object
 #' @param new_path new path to the spreadsheet containing raw data
+#' @param idx_sap index (or indices) of the SAProcessing(s)
+#' @param idx_sai index (or indices) of the SA-item(s).
 #'
 #' @returns
 #' This function returns either NULL if the update was successful, or an
@@ -68,6 +74,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' my_ws <- jws_open(file)
 #'
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -83,6 +90,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #'
 #' # Check path
 #' get_ts_metadata(sai2, "@id")
+#' }
 #'
 #' @export
 spreadsheet_update_path <- function(
@@ -125,9 +133,10 @@ spreadsheet_update_path <- function(
 
 #' @title Update the path to raw data in a workspace (txt/csv file)
 #'
-#' @inheritParams check_information
-#'
-#' @param new_path new path to the csv/txt file containing raw data
+#' @param jws workspace object
+#' @param new_path new path to the csv/txt file containing raw data.
+#' @param idx_sap index (or indices) of the SAProcessing(s)
+#' @param idx_sai index (or indices) of the SA-item(s).
 #'
 #' @returns
 #' This function returns either NULL if the update was successful, or an
@@ -136,6 +145,7 @@ spreadsheet_update_path <- function(
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' my_ws <- jws_open(file)
 #'
 #' # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -151,6 +161,7 @@ spreadsheet_update_path <- function(
 #'
 #' # Check path
 #' get_ts_metadata(sai2, "@id")
+#' }
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {

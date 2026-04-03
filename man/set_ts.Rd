@@ -18,6 +18,9 @@ get_ts(jsai)
 
 \item{jsai}{a SA-item.}
 }
+\value{
+\code{NULL} returned invisibly
+}
 \description{
 (JDemetra+) time series contains more information than raw data,
 which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
@@ -26,6 +29,7 @@ which can be manipulated with \code{set_raw_data()} and \code{get_raw_data()}
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 my_jws <- jws_open(file)
 
 library("rjd3providers")
@@ -52,5 +56,6 @@ jsai3 <- jsap_sai(jsap, 3L)
 get_ts(jsai1)
 get_ts(jsai2)
 get_ts(jsai3)
+}
 \dontshow{\}) # examplesIf}
 }

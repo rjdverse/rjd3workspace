@@ -9,7 +9,7 @@ txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 \arguments{
 \item{jws}{workspace object}
 
-\item{new_path}{new path to the csv/txt file containing raw data}
+\item{new_path}{new path to the csv/txt file containing raw data.}
 
 \item{idx_sap}{index (or indices) of the SAProcessing(s)}
 
@@ -26,6 +26,7 @@ Update the path to raw data in a workspace (txt/csv file)
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 my_ws <- jws_open(file)
 
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -41,5 +42,6 @@ sai2 <- jsap_sai(sap1, 2)
 
 # Check path
 get_ts_metadata(sai2, "@id")
+}
 \dontshow{\}) # examplesIf}
 }

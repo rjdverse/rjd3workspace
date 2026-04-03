@@ -9,6 +9,9 @@ get_context(jws)
 \arguments{
 \item{jws}{the Workspace.}
 }
+\value{
+The modelling context (list object with Calendars and Variables).
+}
 \description{
 Get Context from Workspace
 }
@@ -17,9 +20,11 @@ Get Context from Workspace
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Get context
 my_context <- get_context(jws)
+}
 \dontshow{\}) # examplesIf}
 }

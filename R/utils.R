@@ -403,6 +403,7 @@ read_variables <- function(file) {
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
 #'                     package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Get context
@@ -412,6 +413,7 @@ read_variables <- function(file) {
 #' # Writing the regressors in a xml file
 #' variable_path <- tempfile(fileext = ".xml")
 #' write_variables(vars, file = variable_path)
+#' }
 #'
 #' @export
 write_variables <- function(vars, file) {
@@ -425,6 +427,12 @@ write_variables <- function(vars, file) {
     )
 }
 
+#' @title Converts a jspec to a spec
+#'
+#' @param jspec Specification in java format
+#'
+#' @returns Specification in R format
+#'
 #' @export
 #' @importFrom rjd3x13 .jd2r_spec_x13
 #' @importFrom rjd3tramoseats .jd2r_spec_tramoseats

@@ -14,6 +14,7 @@ NULL
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -21,6 +22,7 @@ NULL
 #'
 #' # Select SA-item (as java object)
 #' jsai1 <- jsap_sai(jsap1, 3)
+#' }
 #'
 #' @details A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
@@ -151,6 +153,8 @@ read_sai <- function(jsai) {
 #' See [rjd3x13::x13_dictionary()] or [rjd3tramoseats::tramoseats_dictionary()].
 #' By default, extracts all the possible variables.
 #'
+#' @returns List with all the results of the adjustment.
+#'
 #' @name get-results
 #' @export
 #'
@@ -241,10 +245,13 @@ sai_name <- function(jsai) {
 #' @param key key of the metadata.
 #' @export
 #'
+#' @returns The corresponding metadata (character, numeric...)
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -260,6 +267,7 @@ sai_name <- function(jsai) {
 #' get_metadata(jsai1, "@id")
 #' get_metadata(jsai1, "@source")
 #' get_metadata(jsai1, "@timestamp")
+#' }
 #'
 get_metadata <- function(jsai, key) {
     val <- .jcall(

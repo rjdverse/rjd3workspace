@@ -11,6 +11,9 @@ set_context(jws, modelling_context = NULL)
 
 \item{modelling_context}{a list of variables and calendars}
 }
+\value{
+Invisibly \code{NULL}
+}
 \description{
 Set Context of a Workspace
 }
@@ -38,6 +41,7 @@ french_calendar <- national_calendar(
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Creating a new context
@@ -48,5 +52,6 @@ new_context <- modelling_context(
 
 # Set the context
 set_context(jws, new_context)
+}
 \dontshow{\}) # examplesIf}
 }

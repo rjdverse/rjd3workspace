@@ -29,6 +29,7 @@ Get/Set Raw Data in a SA-item
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -43,5 +44,6 @@ set_raw_data(sap1,3,new_raw_data)
 
 sai1 <- jsap_sai(sap1,3) # reload SA-item
 tail(get_raw_data(sai1)) # get raw data
+}
 \dontshow{\}) # examplesIf}
 }

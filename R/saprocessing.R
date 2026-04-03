@@ -21,6 +21,7 @@ sap_sai_count <- function(jsap) {
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
 #'                     package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Extract 2nd SA-Processing
@@ -31,6 +32,7 @@ sap_sai_count <- function(jsap) {
 #'
 #' # Retrieve all the SA-items names
 #' sap_sai_names(jsap_2)
+#' }
 #'
 #' @export
 sap_name <- function(jsap) {
@@ -167,7 +169,9 @@ jsap_refresh <- function(
 #' jsap1 <- jws_sap_new(jws, "sap1")
 #'
 #' # Adding SA-item as estimation result
-#' # Estimation with rjd313
+#'
+#' \donttest{
+#' # Estimation with rjd3x13
 #' add_sa_item(jsap1, name = "series_1", x = rjd3x13::x13(y))
 #'
 #' # Estimation with rjd3tramoseats
@@ -186,6 +190,7 @@ jsap_refresh <- function(
 #'
 #' # Writing the workspace
 #' save_workspace(jws, file.path(dir, "workspace.xml"))
+#' }
 #'
 #' @export
 add_sa_item <- function(jsap, name, x, spec) {
@@ -278,6 +283,7 @@ replace_sa_item <- function(jsap, idx, jsai) {
         as.integer(idx - 1L),
         jsai
     )
+    return(invisible(NULL))
 }
 #' @rdname replace_sa_item
 #' @export
@@ -382,6 +388,7 @@ transfer_sa_item <- function(
 #' spec <- rjd3x13::x13_spec("rsa3") |>
 #'     rjd3toolkit::set_basic(type = "From", d0 = "2012-01-01")
 #'
+#' \donttest{
 #' # Load a Workspace to modify
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' jws <- jws_open(file)
@@ -394,6 +401,7 @@ transfer_sa_item <- function(
 #'
 #' # Set domain specification in selected SA-item
 #' set_domain_specification(sap1, 3, spec)
+#' }
 #'
 #' @export
 set_specification <- function(jsap, idx, spec) {
@@ -454,6 +462,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #'
 #' # Load a Workspace to modify
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing with the target SA-item
@@ -471,6 +480,7 @@ set_domain_specification <- function(jsap, idx, spec) {
 #'
 #' # Get the point specification in targeted SA-item
 #' get_point_specification(jsai1)
+#' }
 #'
 #' @export
 get_domain_specification <- function(jsai) {
@@ -522,6 +532,7 @@ get_active_specification <- function(jsai) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -536,6 +547,7 @@ get_active_specification <- function(jsai) {
 #'
 #' sai1 <- jsap_sai(sap1,3) # reload SA-item
 #' tail(get_raw_data(sai1)) # get raw data
+#' }
 #'
 #' @export
 set_raw_data <- function(jsap, idx, y) {
@@ -571,11 +583,15 @@ get_raw_data <- function(jsai) {
 #'
 #' @inheritParams set_raw_data
 #' @param y a "full" time series (jd3-like).
+#'
+#' @returns `NULL` returned invisibly
+#'
 #' @export
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' my_jws <- jws_open(file)
 #'
 #' library("rjd3providers")
@@ -602,6 +618,7 @@ get_raw_data <- function(jsai) {
 #' get_ts(jsai1)
 #' get_ts(jsai2)
 #' get_ts(jsai3)
+#' }
 #'
 set_ts <- function(jsap, idx, y) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -612,6 +629,7 @@ set_ts <- function(jsap, idx, y) {
         rjd3toolkit::.r2jd_ts(y)
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
+    return(invisible(NULL))
 }
 
 #' @rdname set_ts
@@ -622,6 +640,7 @@ get_ts <- function(jsai) {
     rts <- rjd3toolkit::.jd2r_ts(jts)
     return(rts)
 }
+
 #' Get/Set Comment from a SA-item
 #'
 #' @inheritParams set_raw_data
@@ -632,6 +651,7 @@ get_ts <- function(jsai) {
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -642,6 +662,7 @@ get_ts <- function(jsai) {
 #'
 #' jsai2 <- jsap_sai(jsap1, 2L)
 #' get_comment(jsai2)
+#' }
 #'
 #' @export
 set_comment <- function(jsap, idx, comment) {
@@ -671,6 +692,7 @@ get_comment <- function(jsai) {
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #'
 #' # Select SAProcessing
@@ -685,6 +707,7 @@ get_comment <- function(jsai) {
 #' # check
 #' sai1 <- jsap_sai(sap1,3) # reload sai
 #' sai_name(sai1) #get name
+#' }
 #'
 #' @export
 set_name <- function(jsap, idx, name) {
@@ -714,11 +737,14 @@ set_name <- function(jsap, idx, name) {
 #' @param key key of the metadata.
 #' @param value value of the metadata.
 #'
+#' @returns `NULL` returned invisibly.
+#'
 #' @export
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' jws <- jws_open(file)
 #' jsap <- jws_sap(jws, 1)
 #' jsai <- jsap_sai(jsap, 1)
@@ -727,6 +753,7 @@ set_name <- function(jsap, idx, name) {
 #'
 #' jsai <- jsap_sai(jsap, 1)
 #' get_ts_metadata(jsai, "@id")
+#' }
 #'
 set_ts_metadata <- function(jsap, idx, ref_jsai) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -826,10 +853,14 @@ put_metadata <- function(jsap, idx, key, value) {
 #' @param priority integer containing the priority.
 #' @export
 #'
+#' @returns `set_priority` returns `NULL` invisibly. `get_priority` returns the
+#' priority (an integer).
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
 #' my_jws <- jws_open(file)
 #'
 #' # Select the first SA-Processing and SA-Item
@@ -841,7 +872,7 @@ put_metadata <- function(jsap, idx, key, value) {
 #'
 #' # Retrieve priority
 #' get_priority(jsai)
-#'
+#' }
 #'
 set_priority <- function(jsap, idx, priority = 0L) {
     jsai <- jsap_sai(jsap, idx = idx)
@@ -852,6 +883,7 @@ set_priority <- function(jsap, idx, priority = 0L) {
         as.integer(priority)
     )
     replace_sa_item(jsap, jsai = jsai, idx = idx)
+    return(invisible(NULL))
 }
 
 #' @rdname set_priority

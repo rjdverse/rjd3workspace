@@ -14,6 +14,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* First release on [CRAN](https://cran.r-project.org/web/packages/rjd3workspace/index.html)
 * New function `get_domain_specification()`, `get_point_specification()`, `get_active_specification()` and `get_estimation_specification()` to extract the domain, point, active and estimation specfification.
 * New function `get_results()` to extract the results from a SA-Item
 

@@ -35,15 +35,18 @@ Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return co
 
 # Load workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Read workspace
 jread_workspace(jws, compute = FALSE)
+
 rws <- read_workspace(jws)
 
 # Read sap
-sap<-jws_sap(jws,1)
+sap <- jws_sap(jws,1)
 jread_sap(sap)
 read_sap(sap)
+}
 \dontshow{\}) # examplesIf}
 }

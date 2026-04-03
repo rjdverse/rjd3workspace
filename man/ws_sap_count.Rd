@@ -23,6 +23,7 @@ the SA-Items in a SA-Processing (\code{sap_sai_count}).
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
 jws <- jws_open(file)
 
 # Count the SA-Processings
@@ -30,7 +31,8 @@ ws_sap_count(jws)
 
 # Count the SA-Items
 # In SAP 1
-sap1<-jws_sap(jws,1)
+sap1 <- jws_sap(jws,1)
 sap_sai_count(sap1)
+}
 \dontshow{\}) # examplesIf}
 }

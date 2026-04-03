@@ -44,7 +44,9 @@ jws <- jws_new()
 jsap1 <- jws_sap_new(jws, "sap1")
 
 # Adding SA-item as estimation result
-# Estimation with rjd313
+
+\donttest{
+# Estimation with rjd3x13
 add_sa_item(jsap1, name = "series_1", x = rjd3x13::x13(y))
 
 # Estimation with rjd3tramoseats
@@ -63,5 +65,6 @@ rws$processing$sap1$series_4
 
 # Writing the workspace
 save_workspace(jws, file.path(dir, "workspace.xml"))
+}
 \dontshow{\}) # examplesIf}
 }
