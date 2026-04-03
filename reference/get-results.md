@@ -27,3 +27,7 @@ get_results(jsai)
   or
   [`rjd3tramoseats::tramoseats_dictionary()`](https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats_dictionary.html).
   By default, extracts all the possible variables.
+
+## Value
+
+List with all the results of the adjustment.

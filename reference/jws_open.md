@@ -30,8 +30,10 @@ to transform the workspace in a R list.
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Compute the workspace to enable access its components
 jws_compute(jws)
+# }
 ```

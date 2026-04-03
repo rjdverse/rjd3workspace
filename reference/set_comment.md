@@ -37,6 +37,7 @@ get_comment(jsai)
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -48,4 +49,5 @@ set_comment(jsap1, 2L, "data collection changed in 2012")
 jsai2 <- jsap_sai(jsap1, 2L)
 get_comment(jsai2)
 #> [1] "data collection changed in 2012"
+# }
 ```

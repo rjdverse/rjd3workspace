@@ -66,6 +66,8 @@ to import/export variables.
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+# }
 ```

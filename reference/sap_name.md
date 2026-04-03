@@ -29,6 +29,7 @@ A vector `character`.
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml",
                     package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Extract 2nd SA-Processing
@@ -41,4 +42,5 @@ sap_name(jsap_2)
 # Retrieve all the SA-items names
 sap_sai_names(jsap_2)
 #> [1] "RF0893" "RF0899" "RF1011" "RF1012"
+# }
 ```

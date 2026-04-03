@@ -41,6 +41,7 @@ in JDemetra+ v3.x.
 ``` r
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 my_ws <- jws_open(file)
 
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -57,4 +58,5 @@ sai2 <- jsap_sai(sap2, 2)
 # Check path
 get_ts_metadata(sai2, "@id")
 #> [1] "demetra://tsprovider/XCLPRVDR/20111201/SERIES?file=%2Fhome%2Frunner%2Fwork%2F_temp%2FLibrary%2Frjd3workspace%2Fextdata%2FIPI_nace4.xlsx#seriesName=RF0899&sheetName=IPI"
+# }
 ```

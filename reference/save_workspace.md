@@ -24,6 +24,10 @@ save_workspace(jws, file, replace = FALSE)
   boolean indicating if the Workspace should be replaced if it already
   exists.
 
+## Value
+
+A boolean indicating if the saving was successful.
+
 ## Examples
 
 ``` r
@@ -31,6 +35,9 @@ dir <- tempdir()
 jws <- jws_new()
 jsap1 <- jws_sap_new(jws, "sap1")
 y <- rjd3toolkit::ABS$X0.2.09.10.M
+
+# \donttest{
 add_sa_item(jsap1, name = "serie_1", x = y, rjd3x13::x13_spec())
 save_workspace(jws, file.path(dir, "workspace.xml"))
+# }
 ```

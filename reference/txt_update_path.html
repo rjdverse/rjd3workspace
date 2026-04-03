@@ -63,7 +63,7 @@
 
 
 <dt id="arg-new-path">new_path<a class="anchor" aria-label="anchor" href="#arg-new-path"></a></dt>
-<dd><p>new path to the csv/txt file containing raw data</p></dd>
+<dd><p>new path to the csv/txt file containing raw data.</p></dd>
 
 
 <dt id="arg-idx-sap">idx_sap<a class="anchor" aria-label="anchor" href="#arg-idx-sap"></a></dt>
@@ -84,6 +84,7 @@ error</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load a workspace</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">my_ws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data</span></span></span>
@@ -100,6 +101,7 @@ error</p>
 <span class="r-in"><span><span class="co"># Check path</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="get_metadata.html">get_ts_metadata</a></span><span class="op">(</span><span class="va">sai2</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&amp;delimiter=SEMICOLON&amp;file=%2Fhome%2Frunner%2Fwork%2F_temp%2FLibrary%2Frjd3workspace%2Fextdata%2FIPI_nace4.csv#seriesIndex=4"</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

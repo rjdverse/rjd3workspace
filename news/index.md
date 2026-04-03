@@ -18,6 +18,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Added
 
+- First release on
+  [CRAN](https://cran.r-project.org/web/packages/rjd3workspace/index.html)
 - New function
   [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md),
   [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md),

@@ -37,6 +37,7 @@ get_raw_data(jsai)
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -55,4 +56,5 @@ sai1 <- jsap_sai(sap1,3) # reload SA-item
 tail(get_raw_data(sai1)) # get raw data
 #>         Mar    Apr    May    Jun    Jul    Aug
 #> 2017 1498.6 1490.7 1469.3 1462.5 1533.6 1538.4
+# }
 ```

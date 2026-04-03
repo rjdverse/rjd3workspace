@@ -96,12 +96,17 @@ allows to update a specific key with a new information.</p>
 <dd><p>value of the metadata.</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p><code>NULL</code> returned invisibly.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Change the file of a given item</span></span></span>
 <span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jws_sap</a></span><span class="op">(</span><span class="va">jws</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
@@ -111,6 +116,7 @@ allows to update a specific key with a new information.</p>
 <span class="r-in"><span><span class="va">jsai</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_sap.html">jsap_sai</a></span><span class="op">(</span><span class="va">jsap</span>, <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="get_metadata.html">get_ts_metadata</a></span><span class="op">(</span><span class="va">jsai</span>, <span class="st">"@id"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&amp;delimiter=SEMICOLON&amp;file=test.csv#seriesIndex=3"</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

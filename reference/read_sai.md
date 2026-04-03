@@ -41,6 +41,7 @@ that returns a list of 5 objects:
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -48,4 +49,5 @@ jsap1 <- jws_sap(jws, 1)
 
 # Select SA-item (as java object)
 jsai1 <- jsap_sai(jsap1, 3)
+# }
 ```

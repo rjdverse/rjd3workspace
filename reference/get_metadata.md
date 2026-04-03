@@ -20,11 +20,16 @@ get_ts_metadata(jsai, key)
 
   key of the metadata.
 
+## Value
+
+The corresponding metadata (character, numeric...)
+
 ## Examples
 
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing
@@ -44,4 +49,5 @@ get_metadata(jsai1, "@source")
 #> NULL
 get_metadata(jsai1, "@timestamp")
 #> NULL
+# }
 ```

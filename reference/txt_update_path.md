@@ -16,7 +16,7 @@ txt_update_path(jws, new_path, idx_sap = NULL, idx_sai = NULL)
 
 - new_path:
 
-  new path to the csv/txt file containing raw data
+  new path to the csv/txt file containing raw data.
 
 - idx_sap:
 
@@ -36,6 +36,7 @@ error
 ``` r
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 my_ws <- jws_open(file)
 
 # Update the entire second SA-Processing of the `my_ws` workspace with a new path to raw data
@@ -52,4 +53,5 @@ sai2 <- jsap_sai(sap1, 2)
 # Check path
 get_ts_metadata(sai2, "@id")
 #> [1] "demetra://tsprovider/Txt/20111201/SERIES?datePattern=dd%2FMM%2Fyyyy&delimiter=SEMICOLON&file=%2Fhome%2Frunner%2Fwork%2F_temp%2FLibrary%2Frjd3workspace%2Fextdata%2FIPI_nace4.csv#seriesIndex=4"
+# }
 ```

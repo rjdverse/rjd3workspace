@@ -31,6 +31,7 @@ Returns a java object SA-Processing or SA-Item.
 ``` r
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Compute the workspace to enable accessing its components
@@ -41,4 +42,5 @@ jsap2 <- jws_sap(jws, 2)
 
 # Extract 3rd SA-item
 jsai3 <- jsap_sai(jsap2, 3)
+# }
 ```

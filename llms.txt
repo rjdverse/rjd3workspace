@@ -175,8 +175,6 @@ retrieve results generated from specifications and raw data
 
 Functions to get information on workspaces
 
-- [`check_information()`](https://rjdverse.github.io/rjd3workspace/reference/check_information.md)
-  : Check if JD+ object exists
 - [`sap_sai_count()`](https://rjdverse.github.io/rjd3workspace/reference/ws_sap_count.md)
   [`ws_sap_count()`](https://rjdverse.github.io/rjd3workspace/reference/ws_sap_count.md)
   : Count SA-Processings or SA-Items
@@ -266,6 +264,8 @@ Functions to extract, read SA-Items and set specifications
   [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   : Get Specification in a Sa-Item
+- [`.jd2r_spec()`](https://rjdverse.github.io/rjd3workspace/reference/dot-jd2r_spec.md)
+  : Converts a jspec to a spec
 
 ## SA-Items: metadata
 

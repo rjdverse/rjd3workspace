@@ -52,6 +52,10 @@ jws_refresh(
 
   Java Workspace or SA-Processing
 
+## Value
+
+The refreshed element.
+
 ## Details
 
 Available refresh policies are:

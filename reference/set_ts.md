@@ -32,11 +32,16 @@ get_ts(jsai)
 
   a SA-item.
 
+## Value
+
+`NULL` returned invisibly
+
 ## Examples
 
 ``` r
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 my_jws <- jws_open(file)
 
 library("rjd3providers")
@@ -355,4 +360,5 @@ get_ts(jsai3)
 #> 
 #> attr(,"class")
 #> [1] "JD3_TS"
+# }
 ```

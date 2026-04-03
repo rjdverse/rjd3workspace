@@ -102,3 +102,9 @@ transfer_series(
   jsap_to, selected_sa_items, print_indications:
 
   Parameters.
+
+## Value
+
+The same value as returned by the corresponding non-deprecated function.
+The returned object represents an encoded identifier for a spreadsheet
+series or collection.

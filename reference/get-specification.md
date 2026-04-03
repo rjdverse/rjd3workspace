@@ -32,6 +32,7 @@ the specification
 ``` r
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+# \donttest{
 jws <- jws_open(file)
 
 # Select SAProcessing with the target SA-item
@@ -227,4 +228,5 @@ get_point_specification(jsai1)
 #> 
 #> Benchmarking
 #> Is enabled: No
+# }
 ```
