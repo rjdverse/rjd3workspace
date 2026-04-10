@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,13 +78,17 @@
 
 <p><a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml/badge.svg" alt="lint"></a></p>
 <p><a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg" alt="GH Pages built"></a> <!-- badges: end --></p>
-<p><strong>{rjd3workspace}</strong> offers several functions to wrangle JDemetra+ v3.x workspaces.</p>
-<p>Seasonal adjustment with X-12ARIMA can be done with the package <a href="https://github.com/rjdverse/rjd3x13" class="external-link"><strong>{rjd3x13}</strong></a> and with TRAMO-SEATS with the package <a href="https://github.com/rjdverse/rjd3tramoseats" class="external-link"><strong>{rjd3tramoseats}</strong></a>.</p>
+<p><strong>{rjd3workspace}</strong> contains various functions to wrangle JDemetra+ v3.x workspaces.</p>
+<p>Seasonal adjustment with X13-ARIMA can be done with the package <a href="https://github.com/rjdverse/rjd3x13" class="external-link"><strong>{rjd3x13}</strong></a> and with TRAMO-SEATS with the package <a href="https://github.com/rjdverse/rjd3tramoseats" class="external-link"><strong>{rjd3tramoseats}</strong></a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p><strong>{rjd3workspace}</strong> relies on the <a href="https://CRAN.R-project.org/package=rJava" class="external-link"><strong>{rJava}</strong></a> package</p>
 <p>Running rjd3 packages requires <strong>Java 21 or higher</strong>. How to set up such a configuration in R is explained <a href="https://jdemetra-new-documentation.netlify.app/#Rconfig" class="external-link">here</a></p>
+<p><strong>🎉 {rjd3workspace} is now available on CRAN! 🎉</strong></p>
+<p>To install it, just launch the following command line:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rjd3workspace"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="latest-release">Latest release<a class="anchor" aria-label="anchor" href="#latest-release"></a>
 </h3>
@@ -92,20 +96,20 @@
 <ul>
 <li>From GitHub:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3workspace@*release"</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>From <a href="https://rjdverse.r-universe.dev/rjd3workspace" class="external-link">r-universe</a>:</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rjd3workspace"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://rjdverse.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="development-version">Development version<a class="anchor" aria-label="anchor" href="#development-version"></a>
 </h3>
 <p>You can install the development version of <strong>{rjd3workspace}</strong> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"rjdverse/rjd3workspace"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -113,7 +117,10 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="create-a-workspace-with-two-sa-items">Create a Workspace with two SA-items<a class="anchor" aria-label="anchor" href="#create-a-workspace-with-two-sa-items"></a>
+</h3>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rjdverse/rjd3workspace" class="external-link">"rjd3workspace"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -132,10 +139,11 @@
 <span><span class="fu"><a href="reference/sap_name.html">sai_name</a></span><span class="op">(</span><span class="va">jsa1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "x13"</span></span>
 <span><span class="va">mod1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_sai.html">read_sai</a></span><span class="op">(</span><span class="va">jsa1</span><span class="op">)</span></span></code></pre></div>
+</div>
 <div class="section level3">
 <h3 id="create-sa-item-with-path">Create SA-item with path<a class="anchor" aria-label="anchor" href="#create-sa-item-with-path"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
 <span><span class="co"># remotes::install_github("rjdverse/rjd3providers")</span></span>
 <span></span>
@@ -165,7 +173,7 @@
 <div class="section level3">
 <h3 id="change-path-of-an-sa-item">Change path of an SA-ITEM<a class="anchor" aria-label="anchor" href="#change-path-of-an-sa-item"></a>
 </h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">xlsx_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"data/IPI_nace4.xlsx"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">csv_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"data/IPI_nace4.csv"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">ws_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"WS/ws_industrie.xml"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
