@@ -17,10 +17,10 @@ Statistics](https://awesome.re/mentioned-badge.svg)](https://github.com/SNStatCo
 built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 
-**{rjd3workspace}** offers several functions to wrangle JDemetra+ v3.x
+**{rjd3workspace}** contains various functions to wrangle JDemetra+ v3.x
 workspaces.
 
-Seasonal adjustment with X-12ARIMA can be done with the package
+Seasonal adjustment with X13-ARIMA can be done with the package
 [**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) and with
 TRAMO-SEATS with the package
 [**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats).
@@ -33,6 +33,15 @@ TRAMO-SEATS with the package
 Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
 [here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+
+**🎉 {rjd3workspace} is now available on CRAN! 🎉**
+
+To install it, just launch the following command line:
+
+``` r
+install.packages("rjd3workspace")
+```
+
 
 ### Latest release
 
@@ -62,6 +71,8 @@ remotes::install_github("rjdverse/rjd3workspace")
 ```
 
 ## Usage
+
+### Create a Workspace with two SA-items
 
 ``` r
 library("rjd3workspace")
