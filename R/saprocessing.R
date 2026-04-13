@@ -525,7 +525,6 @@ get_result_specification <- function(jsai) {
         .jd2r_spec()
     return(pspec)
 }
-
 #' @rdname get-specification
 #' @export
 get_active_specification <- function(jsai) {
