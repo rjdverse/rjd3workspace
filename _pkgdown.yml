@@ -70,7 +70,7 @@ reference:
   contents:
     - '`jws_refresh`'
     - '`jsap_refresh`'
-- - title: "Workspaces: get information"
+- title: "Workspaces: get information"
   desc: Functions to get information on workspaces
   contents:
     - '`ws_sap_count`'
