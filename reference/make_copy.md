@@ -18,7 +18,7 @@ jws_make_copy(jws)
 
 ## Value
 
-Returns a java object workspace or SA-Processing
+Returns a Java object workspace or SA-Processing
 
 ## Details
 
@@ -28,7 +28,7 @@ modelling context of the workspace is also copied.
 ## References
 
 More information on workspaces in JDemetra+ Graphical User Interface:
-<https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/>
+<https://doc.jdemetra.org/t-gui-sa-modelling-features/>
 
 ## See also
 

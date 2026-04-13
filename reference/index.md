@@ -17,9 +17,6 @@ retrieve results generated from specifications and raw data
   [`read_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md)
   [`jread_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md)
   : Read all SA-Items from a Workspace or SA-Processing
-- [`jsap_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
-  [`jws_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
-  : Refresh a Workspace or SA-Processing
 - [`set_context()`](https://rjdverse.github.io/rjd3workspace/reference/set_context.md)
   : Set Context of a Workspace
 - [`jsap_make_copy()`](https://rjdverse.github.io/rjd3workspace/reference/make_copy.md)
@@ -27,6 +24,14 @@ retrieve results generated from specifications and raw data
   : Copy a Workspace or SA-Processing
 - [`save_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/save_workspace.md)
   : Save Workspace
+
+## Workspaces, SAProcessings: refresh
+
+Functions refresh a workspace or SAProcessing
+
+- [`jsap_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
+  [`jws_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
+  : Refresh a Workspace or SA-Processing
 
 ## Workspaces: get information
 
@@ -92,10 +97,6 @@ remove…)
   [`jread_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/read_workspace.md)
   : Read all SA-Items from a Workspace or SA-Processing
 
-- [`jsap_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
-  [`jws_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/refresh.md)
-  : Refresh a Workspace or SA-Processing
-
 - [`sap_sai_count()`](https://rjdverse.github.io/rjd3workspace/reference/ws_sap_count.md)
   [`ws_sap_count()`](https://rjdverse.github.io/rjd3workspace/reference/ws_sap_count.md)
   : Count SA-Processings or SA-Items
@@ -114,13 +115,51 @@ Functions to extract, read SA-Items and set specifications
   [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
   : Extract results from a SA-item
 - [`set_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
-  [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
+  [`set_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
   : Set Specification in a Sa-Item
-- [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+- [`get_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_result_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   : Get Specification in a Sa-Item
+- [`.jmp_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sai_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jmp_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jmp_sa()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sa()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sai()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jmp_sa_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sa_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_sai_names()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jmp_load()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsa_read()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsa_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsa_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsa_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsa_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_sap_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_open()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jread_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jread_sap()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_new()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_sap_new()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_make_copy()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_make_copy()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_compute()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_sap()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsap_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`transfer_series()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jws_add()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  : Deprecated functions
 - [`.jd2r_spec()`](https://rjdverse.github.io/rjd3workspace/reference/dot-jd2r_spec.md)
   : Converts a jspec to a spec
 
@@ -227,4 +266,7 @@ Use new version
   [`.jws_refresh()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`transfer_series()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jws_add()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   : Deprecated functions

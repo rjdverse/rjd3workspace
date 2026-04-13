@@ -24,7 +24,7 @@ jws_sap(jws, idx)
 
 ## Value
 
-Returns a java object SA-Processing or SA-Item.
+Returns a Javaobject SA-Processing or SA-Item.
 
 ## Examples
 

@@ -12,7 +12,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Fixed
 
-- [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+- [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   fails when estimation is NULL
   [\#108](https://github.com/rjdverse/rjd3workspace/issues/108)
 
@@ -29,8 +29,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - First release on
   [CRAN](https://cran.r-project.org/web/packages/rjd3workspace/index.html)
 - New function
-  [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md),
-  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md),
+  [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
+  [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
   [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   and
   [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
@@ -323,7 +323,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - fixed
   [`set_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
   and
-  [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
+  [`set_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
 - Correction of imports when the workspace contains no SAP.
 - `replace` parameter of
   [`save_workspace()`](https://rjdverse.github.io/rjd3workspace/reference/save_workspace.md)

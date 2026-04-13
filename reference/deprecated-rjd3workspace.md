@@ -93,13 +93,19 @@ transfer_series(
 )
 
 .jws_add(jws, jsap)
+
+set_domain_specification(jsap, idx, spec)
+
+get_domain_specification(jsai)
+
+get_point_specification(jsai)
 ```
 
 ## Arguments
 
 - jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute,
   policy, period, start, end, info, modelling_context, jsap_from,
-  jsap_to, selected_sa_items, print_indications:
+  jsap_to, selected_sa_items, print_indications, spec:
 
   Parameters.
 

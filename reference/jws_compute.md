@@ -1,6 +1,6 @@
 # Compute a Workspace
 
-`jws_compute()` allows to extract all the SA-Items as java object.
+`jws_compute()` allows to extract all the SA-Items as Javaobject.
 
 ## Usage
 

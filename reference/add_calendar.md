@@ -12,7 +12,7 @@ add_calendar(jws, name, calendar)
 
 - jws:
 
-  a java workspace object.
+  a Javaworkspace object.
 
 - name:
 

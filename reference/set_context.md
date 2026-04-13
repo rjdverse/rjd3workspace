@@ -12,7 +12,7 @@ set_context(jws, modelling_context = NULL)
 
 - jws:
 
-  a java workspace object.
+  a Javaworkspace object.
 
 - modelling_context:
 

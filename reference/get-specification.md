@@ -1,18 +1,18 @@
 # Get Specification in a Sa-Item
 
 `get_estimation_specification()` extract the estimation specification,
-`get_domain_specification()` the domain specification, ,
-`get_active_specification()` the active specification
-`get_point_specification()` the point specification
+`get_reference_specification()` reference specification, ,
+`get_active_specification()` active specification
+`get_result_specification()` result specification
 
 ## Usage
 
 ``` r
-get_domain_specification(jsai)
+get_reference_specification(jsai)
 
 get_estimation_specification(jsai)
 
-get_point_specification(jsai)
+get_result_specification(jsai)
 
 get_active_specification(jsai)
 ```
@@ -25,7 +25,13 @@ get_active_specification(jsai)
 
 ## Value
 
-the specification
+the requested specification
+
+## References
+
+More information on different types of specifications in JDemetra+
+documentation:
+<https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App>
 
 ## Examples
 
@@ -100,8 +106,8 @@ get_active_specification(jsai1)
 #> Benchmarking
 #> Is enabled: No
 
-# Get the domain specification in targeted SA-item
-get_domain_specification(jsai1)
+# Get the reference specification in targeted SA-item
+get_reference_specification(jsai1)
 #> Specification
 #> 
 #> Series
@@ -165,8 +171,8 @@ get_domain_specification(jsai1)
 get_estimation_specification(jsai1)
 #> NULL
 
-# Get the point specification in targeted SA-item
-get_point_specification(jsai1)
+# Get the result specification in targeted SA-item
+get_result_specification(jsai1)
 #> Specification
 #> 
 #> Series

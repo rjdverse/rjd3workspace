@@ -7,7 +7,7 @@ Set Specification in a Sa-Item
 ``` r
 set_specification(jsap, idx, spec)
 
-set_domain_specification(jsap, idx, spec)
+set_reference_specification(jsap, idx, spec)
 ```
 
 ## Arguments
@@ -30,6 +30,12 @@ set_domain_specification(jsap, idx, spec)
 ## Value
 
 `NULL` returned invisibly
+
+## References
+
+More information on different types of specifications in JDemetra+
+documentation:
+<https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App>
 
 ## Examples
 
@@ -56,7 +62,7 @@ sap1 <- jws_sap(jws, 1)
 # Set specification in targeted SA-item
 set_specification(sap1, 2, spec)
 
-# Set domain specification in selected SA-item
-set_domain_specification(sap1, 3, spec)
+# Set reference specification in selected SA-item
+set_reference_specification(sap1, 3, spec)
 # }
 ```

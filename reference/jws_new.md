@@ -20,7 +20,7 @@ jws_sap_new(jws, name)
 
 - jws:
 
-  a java workspace object.
+  a Javaworkspace object.
 
 - name:
 
@@ -28,7 +28,7 @@ jws_sap_new(jws, name)
 
 ## Value
 
-Returns a java object workspace or SA-Processing.
+Returns a Javaobject workspace or SA-Processing.
 
 ## Details
 
@@ -41,7 +41,7 @@ function or retrieved from another workspace (`(set_context)`)
 ## References
 
 More information on workspaces in JDemetra+ Graphical User Interface:
-<https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/>
+<https://doc.jdemetra.org/t-gui-sa-modelling-features/>
 
 ## See also
 
