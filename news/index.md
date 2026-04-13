@@ -10,6 +10,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...HEAD)
 
+#### Fixed
+
+- [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  fails when estimation is NULL
+  [\#108](https://github.com/rjdverse/rjd3workspace/issues/108)
+
 ### [3.7.1](https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...v3.7.1) - 2026-04-03
 
 #### Changed
