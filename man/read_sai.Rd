@@ -21,10 +21,9 @@ Full information is extracted with the \code{read_sai()} function that
 returns a list of 5 objects:
 \itemize{
 \item \code{ts}: raw time series.
-\item \code{domainSpec}: initial specification. Reference when refreshing and relaxing constraints.
+\item \code{referenceSpec}: initial specification. Reference when refreshing and relaxing constraints.
 \item \code{estimationSpec}: specification used for the current estimation.
-\item \code{pointSpec}: specification corresponding to the results of the current
-estimation (fully identified model).
+\item \code{resultSpec}: specification containing all parameters stemming from \code{estimationSpec} (fully identified model).
 \item \code{results}: results of the estimation.
 }
 }
@@ -41,6 +40,11 @@ jsap1 <- jws_sap(jws, 1)
 
 # Select SA-item (as java object)
 jsai1 <- jsap_sai(jsap1, 3)
+
+ # read SA-item
+read_sai(jsai = jsai1)
 }
+
+
 \dontshow{\}) # examplesIf}
 }

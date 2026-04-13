@@ -15,7 +15,7 @@ jws_sap(jws, idx)
 \item{jws, jsap}{Workspace or SA-Processing.}
 }
 \value{
-Returns a java object SA-Processing or SA-Item.
+Returns a Javaobject SA-Processing or SA-Item.
 }
 \description{
 Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a

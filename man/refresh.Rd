@@ -29,15 +29,21 @@ jws_refresh(
 \arguments{
 \item{policy}{refresh policy to apply (see details).}
 
-\item{period, start, end}{to specify the span on which outliers will not be
-re-identified (i.e.: re-detected) when \code{policy = "Outliers"} or
-\code{policy = "Outliers_StochasticComponent"}.
+\item{period, start, end}{additional parameters used to specify the span on
+which additive outliers (AO) are introduced when \code{policy = "Current"} or to
+specify the span on which outliers will be re-detected when
+\code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}, in this
+last case \code{end} is unused.
+
+If \code{start} is not specified, outliers will be re-identified on the whole
+series.
 Span definition: \code{period}: numeric, number of observations in a year
-(12, 4...). \code{start} and \code{end}: first and last date from which
-outliers will not be re-identified, defined as arrays of two elements: year
-and first period (for example, if \code{period = 12}, \code{c(1980, 1)} for January
-1980). If they are not specified, the outliers will be re-identified on the
-whole series.}
+(12, 4...).
+\code{start} and \code{end}: defined as arrays of two elements: year and
+first period (for example, \code{period = 12} and \code{c(1980, 1)} stands for January
+1980)
+The dates corresponding to \code{start} and \code{end} are included in the span
+definition.}
 
 \item{info}{information to refresh.}
 
@@ -50,30 +56,62 @@ The refreshed element.
 Refresh a Workspace or SA-Processing
 }
 \details{
+A particular selection of parameters to be kept fixed or re-estimated is called a
+revision policy.
+
 Available refresh policies are:
-
-\strong{Current}: applying the current pre-adjustment reg-arima model and
-adding the new raw data points as Additive Outliers (defined as new
-intervention variables)
-
-\strong{Fixed}: applying the current pre-adjustment reg-arima model and
-replacing forecasts by new raw data points.
-
-\strong{FixedParameters}: pre-adjustment reg-arima model is partially
+\enumerate{
+\item \strong{Current}: applying the current pre-adjustment reg-arima model from
+and handling the new raw data points, or any sub-span of the series as
+Additive Outliers (defined as new intervention variables);
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Fixed}: applying the current pre-adjustment reg-arima model
+and replacing forecasts by new raw data points;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FixedParameters}: pre-adjustment reg-arima model is partially
 modified: regression coefficients will be re-estimated but regression
-variables, Arima orders and coefficients are unchanged.
+variables, Arima orders and coefficients are unchanged;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FixedAutoRegressiveParameters}: same as FixedParameters but
+Arima Moving Average coefficients (MA) are also re-estimated, Auto-regressive
+(AR) coefficients are kept fixed;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FreeParameters}: all regression and Arima model coefficients
+are re-estimated, regression variables and Arima orders are kept fixed;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Outliers}: regression variables and Arima orders are kept
+fixed, but outliers will be re-detected on the defined span, thus all
+regression and Arima model coefficients are re-estimated;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima
+model orders (p,d,q)(P,D,Q) can also be re-identified;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Complete}: All the parameters are re-identified and
+re-estimated, unless constrained in the reference spec.
+X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+}
+}
+\examples{
+\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
-\strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima
-Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR)
-coefficients are kept fixed.
+# Load workspace
+file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+\donttest{
+jws <- jws_open(file)
 
-\strong{FreeParameters}: all regression and Arima model coefficients are
-re-estimated, regression variables and Arima orders are kept fixed.
+# Read workspace
+jread_workspace(jws, compute = FALSE)
 
-\strong{Outliers}: regression variables and Arima orders are kept fixed, but
-outliers will be re-detected on the defined span, thus all regression and
-Arima model coefficients are re-estimated
+rws <- read_workspace(jws)
 
-\strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
-orders (p,d,q)(P,D,Q) can also be re-identified.
+# Read sap
+sap <- jws_sap(jws,1)
+jread_sap(sap)
+read_sap(sap)
+}
+\dontshow{\}) # examplesIf}
+}
+\references{
+More information on revision policies in JDemetra+ documentation:
+\url{https://doc.jdemetra.org/a-rev-policies}
 }
