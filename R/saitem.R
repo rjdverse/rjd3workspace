@@ -164,7 +164,7 @@ read_sai <- function(jsai) {
 #'
 get_results <- function(jsai) {
     jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
-    if (is.jnull(jestimation)) {
+    if (is.jnull(jestimation) || is.null(jestimation)) {
         return(NULL)
     }
     jrslt <- .jcall(
