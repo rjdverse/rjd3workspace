@@ -62,10 +62,14 @@ reference:
     - '`jws_compute`'
     - '`read_workspace`'
     - '`jread_workspace`'
-    - '`jws_refresh`'
     - '`set_context`'
     - '`jws_make_copy`'
     - '`save_workspace`'
+- title: "Workspaces, SAProcessings: refresh"
+  desc: Functions refresh a workspace or SAProcessing
+  contents:
+    - '`jws_refresh`'
+    - '`jsap_refresh`'
 - title: "Workspaces: get information"
   desc: Functions to get information on workspaces
   contents:
@@ -92,7 +96,6 @@ reference:
     - '`sap_sai_names`'
     - '`read_sap`'
     - '`jread_sap`'
-    - '`jsap_refresh`'
     - '`sap_sai_count`'
 - title: SA-Items
   desc: Functions to extract, read SA-Items and set specifications

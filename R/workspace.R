@@ -31,11 +31,11 @@ is.workspace <- function(x){
 #'
 #'
 #' @param modelling_context a list of variables and calendars
-#' @param jws a java workspace object.
+#' @param jws a Javaworkspace object.
 #' @param name name of the new SA-Processing to be added (character).
 #'
 #' @returns
-#' Returns a java object workspace or SA-Processing.
+#' Returns a Javaobject workspace or SA-Processing.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Create an empty 'JDemetra+' Workspace
@@ -46,7 +46,7 @@ is.workspace <- function(x){
 #' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
-#' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features/}
 #'
 #'
 #' @export
@@ -88,7 +88,7 @@ jws_add <- function(jws, jsap) {
 #' @param jws,jsap Java Workspace or SA-Processing
 #'
 #' @returns
-#' Returns a java object workspace or SA-Processing
+#' Returns a Java object workspace or SA-Processing
 #'
 #' @details
 #' The copy of a SA-processing will be made in the same workspace. The modelling context of the
@@ -108,7 +108,7 @@ jws_add <- function(jws, jsap) {
 #' @seealso [read_workspace()], [read_sap()]
 #' @references
 #' More information on workspaces in JDemetra+ Graphical User Interface:
-#' \url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features/}
 #'
 #' @export
 jws_make_copy <- function(jws) {
@@ -118,48 +118,86 @@ jws_make_copy <- function(jws) {
 #' Refresh a Workspace or SA-Processing
 #'
 #' @inheritParams make_copy
+#'
 #' @param policy refresh policy to apply (see details).
-#' @param period,start,end to specify the span on which outliers will not be
-#' re-identified (i.e.: re-detected) when `policy = "Outliers"` or
-#' `policy = "Outliers_StochasticComponent"`.
+#'
+#' @param period,start,end  additional parameters used to specify the span on
+#' which additive outliers (AO) are introduced when `policy = "Current"` or to
+#' specify the span on which outliers will be re-detected when
+#' `policy = "Outliers"` or `policy = "Outliers_StochasticComponent"`, in this
+#' last case \code{end} is unused.
+#'
+#' If \code{start} is not specified, outliers will be re-identified on the whole
+#' series.
 #' Span definition: \code{period}: numeric, number of observations in a year
-#' (12, 4...). \code{start} and \code{end}: first and last date from which
-#' outliers will not be re-identified, defined as arrays of two elements: year
-#' and first period (for example, if `period = 12`, `c(1980, 1)` for January
-#' 1980). If they are not specified, the outliers will be re-identified on the
-#' whole series.
+#' (12, 4...).
+#' \code{start} and \code{end}: defined as arrays of two elements: year and
+#' first period (for example, `period = 12` and `c(1980, 1)` stands for January
+#' 1980)
+#' The dates corresponding to \code{start} and \code{end} are included in the span
+#' definition.
+#'
 #' @param info information to refresh.
 #'
 #' @details
 #'
+#' A particular selection of parameters to be kept fixed or re-estimated is called a
+#' revision policy.
+#'
 #' Available refresh policies are:
-#'
-#' \strong{Current}: applying the current pre-adjustment reg-arima model and
-#' adding the new raw data points as Additive Outliers (defined as new
-#' intervention variables)
-#'
-#' \strong{Fixed}: applying the current pre-adjustment reg-arima model and
-#' replacing forecasts by new raw data points.
-#'
-#' \strong{FixedParameters}: pre-adjustment reg-arima model is partially
+#' \enumerate{
+#' \item \strong{Current}: applying the current pre-adjustment reg-arima model from
+#' and handling the new raw data points, or any sub-span of the series as
+#' Additive Outliers (defined as new intervention variables);
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{Fixed}: applying the current pre-adjustment reg-arima model
+#' and replacing forecasts by new raw data points;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{FixedParameters}: pre-adjustment reg-arima model is partially
 #' modified: regression coefficients will be re-estimated but regression
-#' variables, Arima orders and coefficients are unchanged.
-#'
-#' \strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima
-#' Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR)
-#' coefficients are kept fixed.
-#'
-#' \strong{FreeParameters}: all regression and Arima model coefficients are
-#' re-estimated, regression variables and Arima orders are kept fixed.
-#'
-#' \strong{Outliers}: regression variables and Arima orders are kept fixed, but
-#' outliers will be re-detected on the defined span, thus all regression and
-#' Arima model coefficients are re-estimated
-#'
-#' \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
-#' orders (p,d,q)(P,D,Q) can also be re-identified.
+#' variables, Arima orders and coefficients are unchanged;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{FixedAutoRegressiveParameters}: same as FixedParameters but
+#' Arima Moving Average coefficients (MA) are also re-estimated, Auto-regressive
+#'  (AR) coefficients are kept fixed;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{FreeParameters}: all regression and Arima model coefficients
+#' are re-estimated, regression variables and Arima orders are kept fixed;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{Outliers}: regression variables and Arima orders are kept
+#' fixed, but outliers will be re-detected on the defined span, thus all
+#' regression and Arima model coefficients are re-estimated;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima
+#' model orders (p,d,q)(P,D,Q) can also be re-identified;
+#' X11 (or SEATS) and Benchmarking part parameters are untouched.
+#' \item \strong{Complete}: All the parameters are re-identified and
+#' re-estimated, unless constrained in the reference spec.
+#' X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+#' }
+#' @references
+#' More information on revision policies in JDemetra+ documentation:
+#' \url{https://doc.jdemetra.org/a-rev-policies}
 #'
 #' @returns The refreshed element.
+#'
+#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#'
+#' # Load workspace
+#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' \donttest{
+#' jws <- jws_open(file)
+#'
+#' # Read workspace
+#' jread_workspace(jws, compute = FALSE)
+#'
+#' rws <- read_workspace(jws)
+#'
+#' # Read sap
+#' sap <- jws_sap(jws,1)
+#' jread_sap(sap)
+#' read_sap(sap)
+#' }
 #'
 #' @name refresh
 #' @export
@@ -303,7 +341,7 @@ ws_sap_count <- function(jws) {
 #' @param idx index of the object to extract.
 #'
 #' @returns
-#' Returns a java object SA-Processing or SA-Item.
+#' Returns a Javaobject SA-Processing or SA-Item.
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -338,11 +376,11 @@ jws_sap <- function(jws, idx) {
 #'
 #' @description
 #' `jws_open()` opens an existing Workspace (as a Java pointer) and `jws_compute()` computes it (allowing
-#' to extract all the SA-Items as java objects).
+#' to extract all the SA-Items as Java objects).
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
-#' @returns a java workspace
+#' @returns a Javaworkspace
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -390,7 +428,7 @@ jws_open <- function(file) {
 #' @title Compute a Workspace
 #'
 #' @description
-#' `jws_compute()` allows to extract all the SA-Items as java object.
+#' `jws_compute()` allows to extract all the SA-Items as Javaobject.
 #'
 #' @param jws a workspace
 #'
@@ -419,10 +457,10 @@ jws_compute <- function(jws) {
 #' and allowing to access them as R lists.
 #' Whereas functions `jread_sap()` and `jread_workspace()` only return corresponding Java objects
 #'
-#' @param jws java Workspace.
-#' @param jsap java SA-Processing.
+#' @param jws Java Workspace.
+#' @param jsap Java SA-Processing.
 #' @param compute compute or not the workspace (to get the estimation results).
-#' @returns list or java object
+#' @returns list or Java object
 
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'

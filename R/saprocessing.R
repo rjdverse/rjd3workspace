@@ -381,6 +381,12 @@ transfer_sa_item <- function(
 #'
 #' @returns \code{NULL} returned invisibly
 #'
+#' @references
+#' More information on different types of specifications in JDemetra+ documentation:
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
+#'
+#'
+#'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
@@ -399,8 +405,8 @@ transfer_sa_item <- function(
 #' # Set specification in targeted SA-item
 #' set_specification(sap1, 2, spec)
 #'
-#' # Set domain specification in selected SA-item
-#' set_domain_specification(sap1, 3, spec)
+#' # Set reference specification in selected SA-item
+#' set_reference_specification(sap1, 3, spec)
 #' }
 #'
 #' @export
@@ -425,7 +431,7 @@ set_specification <- function(jsap, idx, spec) {
 
 #' @rdname set_specification
 #' @export
-set_domain_specification <- function(jsap, idx, spec) {
+set_reference_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
         jspec <- rjd3x13::.r2jd_spec_x13(spec)
     } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -448,15 +454,19 @@ set_domain_specification <- function(jsap, idx, spec) {
 #'
 #' @description
 #' `get_estimation_specification()` extract the estimation specification,
-#' `get_domain_specification()` the domain specification, ,
-#' `get_active_specification()` the active specification
-#' `get_point_specification()` the point specification
+#' `get_reference_specification()`   reference specification, ,
+#' `get_active_specification()` active specification
+#' `get_result_specification()` result specification
 #'
 #' @inheritParams read_sai
 #'
 #' @name get-specification
 #'
-#' @returns the specification
+#' @returns the requested specification
+#'
+#' @references
+#' More information on different types of specifications in JDemetra+ documentation:
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
@@ -472,18 +482,18 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' # Get the active specification in targeted SA-item
 #' get_active_specification(jsai1)
 #'
-#' # Get the domain specification in targeted SA-item
-#' get_domain_specification(jsai1)
+#' # Get the reference specification in targeted SA-item
+#' get_reference_specification(jsai1)
 #'
 #' # Get the estimation specification in targeted SA-item
 #' get_estimation_specification(jsai1)
 #'
-#' # Get the point specification in targeted SA-item
-#' get_point_specification(jsai1)
+#' # Get the result specification in targeted SA-item
+#' get_result_specification(jsai1)
 #' }
 #'
 #' @export
-get_domain_specification <- function(jsai) {
+get_reference_specification <- function(jsai) {
     dspec <- jsai |>
         .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
         .jcall("Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec") |>
@@ -503,7 +513,7 @@ get_estimation_specification <- function(jsai) {
 
 #' @rdname get-specification
 #' @export
-get_point_specification <- function(jsai) {
+get_result_specification <- function(jsai) {
     jestimation <- jsai |>
         .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
 
@@ -515,7 +525,6 @@ get_point_specification <- function(jsai) {
         .jd2r_spec()
     return(pspec)
 }
-
 #' @rdname get-specification
 #' @export
 get_active_specification <- function(jsai) {

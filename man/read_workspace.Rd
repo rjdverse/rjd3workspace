@@ -16,14 +16,14 @@ read_workspace(jws, compute = TRUE)
 jread_workspace(jws, compute = TRUE)
 }
 \arguments{
-\item{jsap}{java SA-Processing.}
+\item{jsap}{Java SA-Processing.}
 
-\item{jws}{java Workspace.}
+\item{jws}{Java Workspace.}
 
 \item{compute}{compute or not the workspace (to get the estimation results).}
 }
 \value{
-list or java object
+list or Java object
 }
 \description{
 Functions reading all SA-Items from a Workspace (\code{read_workspace()}) or a SA-Processing (\code{read_sap()})

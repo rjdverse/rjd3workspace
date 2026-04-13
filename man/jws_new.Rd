@@ -12,12 +12,12 @@ jws_sap_new(jws, name)
 \arguments{
 \item{modelling_context}{a list of variables and calendars}
 
-\item{jws}{a java workspace object.}
+\item{jws}{a Javaworkspace object.}
 
 \item{name}{name of the new SA-Processing to be added (character).}
 }
 \value{
-Returns a java object workspace or SA-Processing.
+Returns a Javaobject workspace or SA-Processing.
 }
 \description{
 Functions creating a 'JDemetra+' Workspace (\code{jws_new()}) and
@@ -40,7 +40,7 @@ jsap <- jws_sap_new(jws, "sap1")
 }
 \references{
 More information on workspaces in JDemetra+ Graphical User Interface:
-\url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
+\url{https://doc.jdemetra.org/t-gui-sa-modelling-features/}
 }
 \seealso{
 \code{\link[=read_workspace]{read_workspace()}}, \code{\link[=read_sap]{read_sap()}}

@@ -7,7 +7,7 @@
 set_context(jws, modelling_context = NULL)
 }
 \arguments{
-\item{jws}{a java workspace object.}
+\item{jws}{a Javaworkspace object.}
 
 \item{modelling_context}{a list of variables and calendars}
 }
