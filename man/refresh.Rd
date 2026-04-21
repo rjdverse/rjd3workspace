@@ -29,28 +29,21 @@ jws_refresh(
 \arguments{
 \item{policy}{refresh policy to apply (see details).}
 
-\item{period, start, end}{additional parameters used to specify the span on
-which additive outliers (AO) are introduced when \code{policy = "Current"} or to
-specify the span on which outliers will be re-detected when
-\code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}, in this
-last case \code{end} is unused.
+\item{period, start, end}{additional parameters used to specify the span
+When \code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}
+\code{period}: numeric, number of observations in a year (12, 4...), compulsory,
+if mis-specified or missing, re-estimation with refreshed specification won't work.
+\code{end} has to be specified as the date from which outliers will be re-identified}
 
-If \code{start} is not specified, outliers will be re-identified on the whole
-series.
-Span definition: \code{period}: numeric, number of observations in a year
-(12, 4...).
-\code{start} and \code{end}: defined as arrays of two elements: year and
-first period (for example, \code{period = 12} and \code{c(1980, 1)} stands for January
-1980)
-The dates corresponding to \code{start} and \code{end} are included in the span
-definition.}
-
-\item{info}{information to refresh.}
+\item{info}{indication on how data should be refreshed
+\code{All}: data and metadata will be refreshed (default)
+\code{Data}: data will be refreshed, not metadata
+\code{None}: nor data neither metadata will be refreshed, to be used for updating specifications only.}
 
 \item{jws, jsap}{Java Workspace or SA-Processing}
 }
 \value{
-The refreshed element.
+refreshed workspace or SAP
 }
 \description{
 Refresh a Workspace or SA-Processing
@@ -58,13 +51,12 @@ Refresh a Workspace or SA-Processing
 \details{
 A particular selection of parameters to be kept fixed or re-estimated is called a
 revision policy.
+Workspace has to be computed before refresh
+When refreshing data, empty your cache by restarting your R session, before refreshing,
+otherwise the specification will be refreshed but the new data will not be taken into account.
 
 Available refresh policies are:
 \enumerate{
-\item \strong{Current}: applying the current pre-adjustment reg-arima model from
-and handling the new raw data points, or any sub-span of the series as
-Additive Outliers (defined as new intervention variables);
-X11 (or SEATS) and Benchmarking part parameters are untouched.
 \item \strong{Fixed}: applying the current pre-adjustment reg-arima model
 and replacing forecasts by new raw data points;
 X11 (or SEATS) and Benchmarking part parameters are untouched.
@@ -95,19 +87,26 @@ X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in 
 \dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
 
 # Load workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
-
-# Read workspace
-jread_workspace(jws, compute = FALSE)
-
-rws <- read_workspace(jws)
-
-# Read sap
-sap <- jws_sap(jws,1)
-jread_sap(sap)
-read_sap(sap)
+jws_compute(jws)
+# Read current workspace: reference spec and estimation spec
+rws <- read_workspace(jws, compute= TRUE)
+rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
+rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+# Refresh workspace COMPLETE
+jws_refresh(jws, policy = "Complete")
+# Read refreshed workspace: new estimation spec
+rws2 <- read_workspace(jws, compute= TRUE)
+rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+# Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
+jws <- jws_open(file)
+jws_compute(jws)
+jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
+# Read refreshed workspace: new estimation spec
+rws3 <- read_workspace(jws, compute= TRUE)
+rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 }
 \dontshow{\}) # examplesIf}
 }

@@ -121,35 +121,27 @@ jws_make_copy <- function(jws) {
 #'
 #' @param policy refresh policy to apply (see details).
 #'
-#' @param period,start,end  additional parameters used to specify the span on
-#' which additive outliers (AO) are introduced when `policy = "Current"` or to
-#' specify the span on which outliers will be re-detected when
-#' `policy = "Outliers"` or `policy = "Outliers_StochasticComponent"`, in this
-#' last case \code{end} is unused.
+#' @param period,start,end  additional parameters used to specify the span
+#' When `policy = "Outliers"` or `policy = "Outliers_StochasticComponent"`
+#' \code{period}: numeric, number of observations in a year (12, 4...), compulsory,
+#' if mis-specified or missing, re-estimation with refreshed specification won't work.
+#' \code{end} has to be specified as the date from which outliers will be re-identified
 #'
-#' If \code{start} is not specified, outliers will be re-identified on the whole
-#' series.
-#' Span definition: \code{period}: numeric, number of observations in a year
-#' (12, 4...).
-#' \code{start} and \code{end}: defined as arrays of two elements: year and
-#' first period (for example, `period = 12` and `c(1980, 1)` stands for January
-#' 1980)
-#' The dates corresponding to \code{start} and \code{end} are included in the span
-#' definition.
-#'
-#' @param info information to refresh.
+#' @param info indication on how data should be refreshed
+#' `All`: data and metadata will be refreshed (default)
+#' `Data`: data will be refreshed, not metadata
+#' `None`: nor data neither metadata will be refreshed, to be used for updating specifications only.
 #'
 #' @details
 #'
 #' A particular selection of parameters to be kept fixed or re-estimated is called a
 #' revision policy.
+#' Workspace has to be computed before refresh
+#' When refreshing data, empty your cache by restarting your R session, before refreshing,
+#' otherwise the specification will be refreshed but the new data will not be taken into account.
 #'
 #' Available refresh policies are:
 #' \enumerate{
-#' \item \strong{Current}: applying the current pre-adjustment reg-arima model from
-#' and handling the new raw data points, or any sub-span of the series as
-#' Additive Outliers (defined as new intervention variables);
-#' X11 (or SEATS) and Benchmarking part parameters are untouched.
 #' \item \strong{Fixed}: applying the current pre-adjustment reg-arima model
 #' and replacing forecasts by new raw data points;
 #' X11 (or SEATS) and Benchmarking part parameters are untouched.
@@ -179,24 +171,31 @@ jws_make_copy <- function(jws) {
 #' More information on revision policies in JDemetra+ documentation:
 #' \url{https://doc.jdemetra.org/a-rev-policies}
 #'
-#' @returns The refreshed element.
+#' @returns refreshed workspace or SAP
 #'
 #' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
 #'
 #' # Load workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
-#'
-#' # Read workspace
-#' jread_workspace(jws, compute = FALSE)
-#'
-#' rws <- read_workspace(jws)
-#'
-#' # Read sap
-#' sap <- jws_sap(jws,1)
-#' jread_sap(sap)
-#' read_sap(sap)
+#' jws_compute(jws)
+#' # Read current workspace: reference spec and estimation spec
+#' rws <- read_workspace(jws, compute= TRUE)
+#' rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
+#' rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+#' # Refresh workspace COMPLETE
+#' jws_refresh(jws, policy = "Complete")
+#' # Read refreshed workspace: new estimation spec
+#' rws2 <- read_workspace(jws, compute= TRUE)
+#' rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+#' # Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
+#' jws <- jws_open(file)
+#' jws_compute(jws)
+#' jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
+#' # Read refreshed workspace: new estimation spec
+#' rws3 <- read_workspace(jws, compute= TRUE)
+#' rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 #' }
 #'
 #' @name refresh
