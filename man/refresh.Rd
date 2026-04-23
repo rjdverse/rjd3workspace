@@ -9,7 +9,7 @@
 jsap_refresh(
   jsap,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
-    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed", "Current"),
   period = 0,
   start = NULL,
   end = NULL,
@@ -19,7 +19,7 @@ jsap_refresh(
 jws_refresh(
   jws,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
-    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed", "Current"),
   period = 0,
   start = NULL,
   end = NULL,
