@@ -15,9 +15,15 @@ NULL
 
 #' @importFrom rJava .jpackage .jaddClassPath
 .onLoad <- function(libname, pkgname) {
-    jar_dir <- file.path(libname, pkgname, "inst", "java")
-    jars <- list.files(jar_dir, pattern = "\\.jar$", full.names = TRUE, all.files = TRUE)
-    rJava::.jaddClassPath(jars)
     result <- rJava::.jpackage(pkgname, lib.loc = libname)
     if (!result) stop("Loading java packages failed", call. = FALSE)
+    # reload sa managers (tramoseats, x13)
+    # necessary because we don't master the way java classes are loaded in R
+    try({
+        .jcall(
+            "jdplus/sa/base/api/SaManager",
+            "V",
+            "reload"
+        )
+    })
 }

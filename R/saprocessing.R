@@ -125,7 +125,8 @@ jsap_refresh <- function(
         "Outliers",
         "FixedParameters",
         "FixedAutoRegressiveParameters",
-        "Fixed"
+        "Fixed",
+        "Current"
     ),
     period = 0,
     start = NULL,
