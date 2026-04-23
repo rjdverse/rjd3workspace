@@ -37,108 +37,14 @@ NULL
 #' @export
 #'
 read_sai <- function(jsai) {
-    #  if (! .jcall(jsai, "Z", "isProcessed"))
-    #    stop("You must run 'jws_compute()' on your workspace.")
-
-    jdef <- .jcall(jsai, "Ljdplus/sa/base/api/SaDefinition;", "getDefinition")
-
-    jestimation <- .jcall(
-        jsai,
-        "Ljdplus/sa/base/api/SaEstimation;",
-        "getEstimation"
-    )
-    jrslt <- .jnull()
-    if (!is.jnull(jestimation)) {
-        jrslt <- .jcall(
-            obj = jestimation,
-            returnSig = "Ljdplus/toolkit/base/api/information/GenericExplorable;",
-            method = "getResults"
-        )
-    }
-    # ts
-    jts <- .jcall(jdef, "Ljdplus/toolkit/base/api/timeseries/Ts;", "getTs")
-    rts <- rjd3toolkit::.jd2r_ts(jts)
-
-    jdspec <- .jcall(
-        jdef,
-        "Ljdplus/sa/base/api/SaSpecification;",
-        "getDomainSpec"
-    )
-    jspec <- .jcall(
-        jdef,
-        "Ljdplus/sa/base/api/SaSpecification;",
-        "activeSpecification"
-    )
-    spec <- NULL
-    dspec <- NULL
-    pspec <- NULL
-    rslt <- NULL
-
-    if (
-        .jinstanceof(
-            jspec,
-            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-        )
-    ) {
-        spec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
-            jspec,
-            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-        ))
-        dspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
-            jdspec,
-            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-        ))
-        if (!is.jnull(jrslt)) {
-            rslt <- rjd3tramoseats::.tramoseats_rslts(.jcast(
-                jrslt,
-                "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"
-            ))
-            jpspec <- .jcall(
-                obj = jestimation,
-                returnSig = "Ljdplus/sa/base/api/SaSpecification;",
-                method = "getPointSpec"
-            )
-            if (!is.jnull(jpspec)) {
-                pspec <- rjd3tramoseats::.jd2r_spec_tramoseats(.jcast(
-                    jpspec,
-                    "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
-                ))
-            }
-        }
-    } else if (.jinstanceof(jspec, "jdplus/x13/base/api/x13/X13Spec")) {
-        spec <- rjd3x13::.jd2r_spec_x13(.jcast(
-            jspec,
-            "jdplus/x13/base/api/x13/X13Spec"
-        ))
-        dspec <- rjd3x13::.jd2r_spec_x13(.jcast(
-            jdspec,
-            "jdplus/x13/base/api/x13/X13Spec"
-        ))
-        if (!is.jnull(jrslt)) {
-            rslt <- rjd3x13::.x13_rslts(.jcast(
-                jrslt,
-                "jdplus/x13/base/core/x13/X13Results"
-            ))
-            jpspec <- .jcall(
-                jestimation,
-                "Ljdplus/sa/base/api/SaSpecification;",
-                "getPointSpec"
-            )
-            if (!is.jnull(jpspec)) {
-                pspec <- rjd3x13::.jd2r_spec_x13(.jcast(
-                    jpspec,
-                    "jdplus/x13/base/api/x13/X13Spec"
-                ))
-            }
-        }
-    }
-    return(list(
+    sai <- list(
         ts = get_ts(jsai),
         domainSpec = get_domain_specification(jsai),
         estimationSpec = get_active_specification(jsai),
         pointSpec = get_point_specification(jsai),
         results = get_results(jsai)
-    ))
+    )
+    return(sai)
 }
 
 #' @title Extract results from a SA-item
