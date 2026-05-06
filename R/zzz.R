@@ -1,7 +1,7 @@
 #' @include utils.R
+#' @importFrom rjd3toolkit get_java_version minimal_java_version
 NULL
 
-#' @importFrom rjd3toolkit get_java_version minimal_java_version
 .onAttach <- function(libname, pkgname) {
     current_java_version <- rjd3toolkit::get_java_version()
     if (current_java_version < rjd3toolkit::minimal_java_version) {

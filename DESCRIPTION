@@ -1,7 +1,7 @@
 Type: Package
 Package: rjd3workspace
 Title: Wrangling 'JDemetra+ 3.x' Workspace
-Version: 3.7.1.9000
+Version: 3.7.1.9100
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
     person("Alain", "Quartier-la-Tente", , "alain.quartier@yahoo.fr", role = "aut",
@@ -20,11 +20,11 @@ BugReports: https://github.com/rjdverse/rjd3workspace/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    rJava (>= 1.0-6),
-    rjd3providers (>= 3.7.1),
-    rjd3toolkit (>= 3.7.1),
-    rjd3tramoseats (>= 3.7.1),
-    rjd3x13 (>= 3.7.1),
+    rJava (>= 1.0-18),
+    rjd3toolkit (>= 3.7.1.9100),
+    rjd3providers (>= 3.7.1.9100),
+    rjd3tramoseats (>= 3.7.1.9100),
+    rjd3x13 (>= 3.7.1.9100),
     tools,
     utils, 
     methods
