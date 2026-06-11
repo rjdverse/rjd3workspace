@@ -20,7 +20,8 @@ BugReports: https://github.com/rjdverse/rjd3workspace/issues
 Depends:
     R (>= 4.1.0)
 Imports:
-    rJava (>= 1.0-18),
+    rJava (>= 1.0-6),
+    rjd3jars(>= 0.0.4),
     rjd3toolkit (>= 3.7.1.9100),
     rjd3providers (>= 3.7.1.9100),
     rjd3tramoseats (>= 3.7.1.9100),
@@ -35,7 +36,6 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 SystemRequirements: Java (>= 21)
 Collate: 
     'deprecated.R'
@@ -46,3 +46,4 @@ Collate:
     'update_path.R'
     'workspace.R'
     'zzz.R'
+Config/roxygen2/version: 8.0.0

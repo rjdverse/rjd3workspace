@@ -10,7 +10,7 @@ NULL
 #'
 #' @returns a list
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version()
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -71,7 +71,7 @@ read_sai <- function(jsai) {
     jspec <- .jcall(
         jdef,
         "Ljdplus/sa/base/api/SaSpecification;",
-        "activeSpecification"
+        "getEstimationSpec"
     )
     spec <- NULL
     dspec <- NULL
@@ -251,7 +251,7 @@ sai_name <- function(jsai) {
 #'
 #' @returns The corresponding metadata (character, numeric...)
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version()
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
