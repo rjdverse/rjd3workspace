@@ -9,8 +9,8 @@ built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/
 **{rjd3workspace}** contains various functions to wrangle JDemetra+ v3.x
 workspaces (create, read, add/remove SA-items..).
 
-Seasonal adjustment in R, without using JDeemetra+ workspaces but
-directly TS (time series class) objects can be done with
+Seasonal adjustment in R, without using JDemetra+ workspaces but
+directly TS (time series class) objects, can be done with
 [**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) using X13-ARIMA
 algorithm or with
 [**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats) using
