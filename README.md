@@ -18,12 +18,10 @@ built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/
 <!-- badges: end -->
 
 **{rjd3workspace}** contains various functions to wrangle JDemetra+ v3.x
-workspaces.
+workspaces (create, read, add/remove SA-items..).
 
-Seasonal adjustment with X13-ARIMA can be done with the package
-[**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) and with
-TRAMO-SEATS with the package
-[**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats).
+Seasonal adjustment in R, without using JDeemetra+ workspaces but directly TS (time series class) objects can be done with [**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) using X13-ARIMA algorithm or  with
+ [**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats) using TRAMO-SEATS algorithm.
 
 ## Installation
 
@@ -32,7 +30,7 @@ TRAMO-SEATS with the package
 
 Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
-[here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+[here](https://doc.jdemetra.org/#Rconfig)
 
 **🎉 {rjd3workspace} is now available on CRAN! 🎉**
 
