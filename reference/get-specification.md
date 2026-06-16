@@ -36,6 +36,7 @@ documentation:
 ## Examples
 
 ``` r
+
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 # \donttest{

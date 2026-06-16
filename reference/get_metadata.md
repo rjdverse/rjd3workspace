@@ -27,6 +27,7 @@ The corresponding metadata (character, numeric...)
 ## Examples
 
 ``` r
+
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 # \donttest{

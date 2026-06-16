@@ -49,6 +49,7 @@ put_metadata(jsap, idx, key, value)
 ## Examples
 
 ``` r
+
 # Change the file of a given item
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 # \donttest{

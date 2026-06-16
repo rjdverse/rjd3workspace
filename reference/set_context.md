@@ -25,6 +25,7 @@ Invisibly `NULL`
 ## Examples
 
 ``` r
+
 library("rjd3toolkit")
 #> 
 #> Attaching package: ‘rjd3toolkit’

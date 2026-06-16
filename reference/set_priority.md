@@ -36,6 +36,7 @@ priority (an integer).
 ## Examples
 
 ``` r
+
 # Load a workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 # \donttest{

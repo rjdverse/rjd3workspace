@@ -7,12 +7,14 @@
 built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml)
 
 **{rjd3workspace}** contains various functions to wrangle JDemetra+ v3.x
-workspaces.
+workspaces (create, read, add/remove SA-items..).
 
-Seasonal adjustment with X13-ARIMA can be done with the package
-[**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) and with
-TRAMO-SEATS with the package
-[**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats).
+Seasonal adjustment in R, without using JDeemetra+ workspaces but
+directly TS (time series class) objects can be done with
+[**{rjd3x13}**](https://github.com/rjdverse/rjd3x13) using X13-ARIMA
+algorithm or with
+[**{rjd3tramoseats}**](https://github.com/rjdverse/rjd3tramoseats) using
+TRAMO-SEATS algorithm.
 
 ## Installation
 
@@ -21,13 +23,14 @@ TRAMO-SEATS with the package
 
 Running rjd3 packages requires **Java 21 or higher**. How to set up such
 a configuration in R is explained
-[here](https://jdemetra-new-documentation.netlify.app/#Rconfig)
+[here](https://doc.jdemetra.org/#Rconfig)
 
 **🎉 {rjd3workspace} is now available on CRAN! 🎉**
 
 To install it, just launch the following command line:
 
 ``` r
+
 install.packages("rjd3workspace")
 ```
 
@@ -38,6 +41,7 @@ To get the current stable version (from the latest release):
 - From GitHub:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3workspace@*release")
 ```
@@ -45,6 +49,7 @@ remotes::install_github("rjdverse/rjd3workspace@*release")
 - From [r-universe](https://rjdverse.r-universe.dev/rjd3workspace):
 
 ``` r
+
 install.packages("rjd3workspace", repos = c("https://rjdverse.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -54,6 +59,7 @@ You can install the development version of **{rjd3workspace}** from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("rjdverse/rjd3workspace")
 ```
@@ -63,6 +69,7 @@ remotes::install_github("rjdverse/rjd3workspace")
 ### Create a Workspace with two SA-items
 
 ``` r
+
 library("rjd3workspace")
 
 dir <- tempdir()
@@ -86,6 +93,7 @@ mod1 <- read_sai(jsa1)
 ### Create SA-item with path
 
 ``` r
+
 # install.packages("remotes")
 # remotes::install_github("rjdverse/rjd3providers")
 
@@ -116,6 +124,7 @@ mod1 <- read_sai(jsa1)
 ### Change path of an SA-ITEM
 
 ``` r
+
 xlsx_path <- normalizePath("data/IPI_nace4.xlsx", mustWork = TRUE)
 csv_path <- normalizePath("data/IPI_nace4.csv", mustWork = TRUE)
 ws_path <- normalizePath("WS/ws_industrie.xml", mustWork = TRUE)

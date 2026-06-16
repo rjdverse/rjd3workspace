@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Wrangling JDemetra+ 3.x Workspace">
 <meta name="description" content="R Interface to JDemetra+ 3.x(&lt;https://github.com/jdemetra&gt;). It offers several functions to manipulate JDemetra+ workspaces, which can be read by the software and can store several seasonal adjusted series along with user-defined calendars or regression variables.">
@@ -78,13 +78,13 @@
 
 <p><a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml/badge.svg" alt="lint"></a></p>
 <p><a href="https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml" class="external-link"><img src="https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg" alt="GH Pages built"></a> <!-- badges: end --></p>
-<p><strong>{rjd3workspace}</strong> contains various functions to wrangle JDemetra+ v3.x workspaces.</p>
-<p>Seasonal adjustment with X13-ARIMA can be done with the package <a href="https://github.com/rjdverse/rjd3x13" class="external-link"><strong>{rjd3x13}</strong></a> and with TRAMO-SEATS with the package <a href="https://github.com/rjdverse/rjd3tramoseats" class="external-link"><strong>{rjd3tramoseats}</strong></a>.</p>
+<p><strong>{rjd3workspace}</strong> contains various functions to wrangle JDemetra+ v3.x workspaces (create, read, add/remove SA-items..).</p>
+<p>Seasonal adjustment in R, without using JDeemetra+ workspaces but directly TS (time series class) objects can be done with <a href="https://github.com/rjdverse/rjd3x13" class="external-link"><strong>{rjd3x13}</strong></a> using X13-ARIMA algorithm or with <a href="https://github.com/rjdverse/rjd3tramoseats" class="external-link"><strong>{rjd3tramoseats}</strong></a> using TRAMO-SEATS algorithm.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p><strong>{rjd3workspace}</strong> relies on the <a href="https://CRAN.R-project.org/package=rJava" class="external-link"><strong>{rJava}</strong></a> package</p>
-<p>Running rjd3 packages requires <strong>Java 21 or higher</strong>. How to set up such a configuration in R is explained <a href="https://jdemetra-new-documentation.netlify.app/#Rconfig" class="external-link">here</a></p>
+<p>Running rjd3 packages requires <strong>Java 21 or higher</strong>. How to set up such a configuration in R is explained <a href="https://doc.jdemetra.org/#Rconfig" class="external-link">here</a></p>
 <p><strong>🎉 {rjd3workspace} is now available on CRAN! 🎉</strong></p>
 <p>To install it, just launch the following command line:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">

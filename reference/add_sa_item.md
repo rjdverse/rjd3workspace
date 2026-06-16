@@ -46,6 +46,7 @@ add_sa_item(jsap, name, x, spec)
 ## Examples
 
 ``` r
+
 dir <- tempdir()
 
 # Raw series
@@ -83,7 +84,7 @@ rws$processing$sap1$series_4
 #> [1] ""
 #> 
 #> $id
-#> [1] "7d87b87d-0f33-4e44-87c3-5447fc632d33"
+#> [1] "79a610ec-e089-499a-88cc-3c758f202132"
 #> 
 #> attr(,"class")
 #> [1] "JD3_TSMONIKER"

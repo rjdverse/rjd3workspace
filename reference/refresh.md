@@ -106,6 +106,7 @@ More information on revision policies in JDemetra+ documentation:
 ## Examples
 
 ``` r
+
 # Load workspace
 file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
 # \donttest{
