@@ -12,6 +12,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * `get_point_specification()` fails when estimation is NULL #108
 
+### Removed
+
+* `get_active_specification()`
+
 
 ## [3.7.1] - 2026-04-03
 
