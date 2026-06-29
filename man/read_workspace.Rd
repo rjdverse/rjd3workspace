@@ -16,14 +16,14 @@ read_workspace(jws, compute = TRUE)
 jread_workspace(jws, compute = TRUE)
 }
 \arguments{
-\item{jsap}{java SA-Processing.}
+\item{jsap}{Java SA-Processing.}
 
-\item{jws}{java Workspace.}
+\item{jws}{Java Workspace.}
 
 \item{compute}{compute or not the workspace (to get the estimation results).}
 }
 \value{
-list or java object
+list or Java object
 }
 \description{
 Functions reading all SA-Items from a Workspace (\code{read_workspace()}) or a SA-Processing (\code{read_sap()})
@@ -31,7 +31,7 @@ and allowing to access them as R lists.
 Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return corresponding Java objects
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
 # Load workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

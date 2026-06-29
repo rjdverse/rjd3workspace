@@ -10,7 +10,7 @@ NULL
 #'
 #' @returns a list
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version()
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -22,16 +22,20 @@ NULL
 #'
 #' # Select SA-item (as java object)
 #' jsai1 <- jsap_sai(jsap1, 3)
+#'
+#'  # read SA-item
+#' read_sai(jsai = jsai1)
 #' }
+#'
+#'
 #'
 #' @details A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
 #' returns a list of 5 objects:
 #' - `ts`: raw time series.
-#' - `domainSpec`: initial specification. Reference when refreshing and relaxing constraints.
+#' - `referenceSpec`: initial specification. Reference when refreshing and relaxing constraints.
 #' - `estimationSpec`: specification used for the current estimation.
-#' - `pointSpec`: specification corresponding to the results of the current
-#' estimation (fully identified model).
+#' - `resultSpec`: specification containing all parameters stemming from `estimationSpec` (fully identified model).
 #' - `results`: results of the estimation.
 #'
 #' @export
@@ -39,9 +43,9 @@ NULL
 read_sai <- function(jsai) {
     sai <- list(
         ts = get_ts(jsai),
-        domainSpec = get_domain_specification(jsai),
-        estimationSpec = get_active_specification(jsai),
-        pointSpec = get_point_specification(jsai),
+        referenceSpec = get_reference_specification(jsai),
+        estimationSpec = get_estimation_specification(jsai),
+        resultSpec = get_result_specification(jsai),
         results = get_results(jsai)
     )
     return(sai)
@@ -153,7 +157,7 @@ sai_name <- function(jsai) {
 #'
 #' @returns The corresponding metadata (character, numeric...)
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version()
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

@@ -9,7 +9,7 @@
 jsap_refresh(
   jsap,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
-    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed", "Current"),
   period = 0,
   start = NULL,
   end = NULL,
@@ -19,7 +19,7 @@ jsap_refresh(
 jws_refresh(
   jws,
   policy = c("FreeParameters", "Complete", "Outliers_StochasticComponent", "Outliers",
-    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed"),
+    "FixedParameters", "FixedAutoRegressiveParameters", "Fixed", "Current"),
   period = 0,
   start = NULL,
   end = NULL,
@@ -29,51 +29,88 @@ jws_refresh(
 \arguments{
 \item{policy}{refresh policy to apply (see details).}
 
-\item{period, start, end}{to specify the span on which outliers will not be
-re-identified (i.e.: re-detected) when \code{policy = "Outliers"} or
-\code{policy = "Outliers_StochasticComponent"}.
-Span definition: \code{period}: numeric, number of observations in a year
-(12, 4...). \code{start} and \code{end}: first and last date from which
-outliers will not be re-identified, defined as arrays of two elements: year
-and first period (for example, if \code{period = 12}, \code{c(1980, 1)} for January
-1980). If they are not specified, the outliers will be re-identified on the
-whole series.}
+\item{period, start, end}{additional parameters used to specify the span
+When \code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}
+\code{period}: numeric, number of observations in a year (12, 4...), compulsory,
+if mis-specified or missing, re-estimation with refreshed specification won't work.
+\code{end} has to be specified as the date from which outliers will be re-identified}
 
-\item{info}{information to refresh.}
+\item{info}{indication on how data should be refreshed
+\code{All}: data and metadata will be refreshed (default)
+\code{Data}: data will be refreshed, not metadata
+\code{None}: nor data neither metadata will be refreshed, to be used for updating specifications only.}
 
 \item{jws, jsap}{Java Workspace or SA-Processing}
 }
 \value{
-The refreshed element.
+refreshed workspace or SAP
 }
 \description{
 Refresh a Workspace or SA-Processing
 }
 \details{
+A particular selection of parameters to be kept fixed or re-estimated is called a
+revision policy.
+Workspace has to be computed before refresh
+When refreshing data, empty your cache by restarting your R session, before refreshing,
+otherwise the specification will be refreshed but the new data will not be taken into account.
+
 Available refresh policies are:
-
-\strong{Current}: applying the current pre-adjustment reg-arima model and
-adding the new raw data points as Additive Outliers (defined as new
-intervention variables)
-
-\strong{Fixed}: applying the current pre-adjustment reg-arima model and
-replacing forecasts by new raw data points.
-
-\strong{FixedParameters}: pre-adjustment reg-arima model is partially
+\enumerate{
+\item \strong{Fixed}: applying the current pre-adjustment reg-arima model
+and replacing forecasts by new raw data points;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FixedParameters}: pre-adjustment reg-arima model is partially
 modified: regression coefficients will be re-estimated but regression
-variables, Arima orders and coefficients are unchanged.
+variables, Arima orders and coefficients are unchanged;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FixedAutoRegressiveParameters}: same as FixedParameters but
+Arima Moving Average coefficients (MA) are also re-estimated, Auto-regressive
+(AR) coefficients are kept fixed;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{FreeParameters}: all regression and Arima model coefficients
+are re-estimated, regression variables and Arima orders are kept fixed;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Outliers}: regression variables and Arima orders are kept
+fixed, but outliers will be re-detected on the defined span, thus all
+regression and Arima model coefficients are re-estimated;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Outliers_StochasticComponent}: same as "Outliers" but Arima
+model orders (p,d,q)(P,D,Q) can also be re-identified;
+X11 (or SEATS) and Benchmarking part parameters are untouched.
+\item \strong{Complete}: All the parameters are re-identified and
+re-estimated, unless constrained in the reference spec.
+X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+}
+}
+\examples{
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
-\strong{FixedAutoRegressiveParameters}: same as FixedParameters but Arima
-Moving Average coefficients (MA) are also re-estimated, Auto-regressive (AR)
-coefficients are kept fixed.
-
-\strong{FreeParameters}: all regression and Arima model coefficients are
-re-estimated, regression variables and Arima orders are kept fixed.
-
-\strong{Outliers}: regression variables and Arima orders are kept fixed, but
-outliers will be re-detected on the defined span, thus all regression and
-Arima model coefficients are re-estimated
-
-\strong{Outliers_StochasticComponent}: same as "Outliers" but Arima model
-orders (p,d,q)(P,D,Q) can also be re-identified.
+# Load workspace
+file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+\donttest{
+jws <- jws_open(file)
+jws_compute(jws)
+# Read current workspace: reference spec and estimation spec
+rws <- read_workspace(jws, compute= TRUE)
+rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
+rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+# Refresh workspace COMPLETE
+jws_refresh(jws, policy = "Complete")
+# Read refreshed workspace: new estimation spec
+rws2 <- read_workspace(jws, compute= TRUE)
+rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+# Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
+jws <- jws_open(file)
+jws_compute(jws)
+jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
+# Read refreshed workspace: new estimation spec
+rws3 <- read_workspace(jws, compute= TRUE)
+rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+}
+\dontshow{\}) # examplesIf}
+}
+\references{
+More information on revision policies in JDemetra+ documentation:
+\url{https://doc.jdemetra.org/a-rev-policies}
 }

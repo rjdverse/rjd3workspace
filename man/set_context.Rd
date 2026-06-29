@@ -7,7 +7,7 @@
 set_context(jws, modelling_context = NULL)
 }
 \arguments{
-\item{jws}{a java workspace object.}
+\item{jws}{a Javaworkspace object.}
 
 \item{modelling_context}{a list of variables and calendars}
 }
@@ -18,7 +18,7 @@ Invisibly \code{NULL}
 Set Context of a Workspace
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
 library("rjd3toolkit")
 

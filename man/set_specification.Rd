@@ -2,12 +2,12 @@
 % Please edit documentation in R/saprocessing.R
 \name{set_specification}
 \alias{set_specification}
-\alias{set_domain_specification}
+\alias{set_reference_specification}
 \title{Set Specification in a Sa-Item}
 \usage{
 set_specification(jsap, idx, spec)
 
-set_domain_specification(jsap, idx, spec)
+set_reference_specification(jsap, idx, spec)
 }
 \arguments{
 \item{jsap}{SAProcessing to be modified.}
@@ -23,7 +23,7 @@ set_domain_specification(jsap, idx, spec)
 Set Specification in a Sa-Item
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 # Create a (customized) spec) spec
 library(rjd3x13)
 
@@ -41,8 +41,12 @@ sap1 <- jws_sap(jws, 1)
 # Set specification in targeted SA-item
 set_specification(sap1, 2, spec)
 
-# Set domain specification in selected SA-item
-set_domain_specification(sap1, 3, spec)
+# Set reference specification in selected SA-item
+set_reference_specification(sap1, 3, spec)
 }
 \dontshow{\}) # examplesIf}
+}
+\references{
+More information on different types of specifications in JDemetra+ documentation:
+\url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
 }

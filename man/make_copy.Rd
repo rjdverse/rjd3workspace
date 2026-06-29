@@ -14,7 +14,7 @@ jws_make_copy(jws)
 \item{jws, jsap}{Java Workspace or SA-Processing}
 }
 \value{
-Returns a java object workspace or SA-Processing
+Returns a Java object workspace or SA-Processing
 }
 \description{
 Copy a Workspace or SA-Processing
@@ -24,7 +24,7 @@ The copy of a SA-processing will be made in the same workspace. The modelling co
 workspace is also copied.
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
 # Add an empty SA-Processing
@@ -38,7 +38,7 @@ jsap2 <- jsap_make_copy(jsap)
 }
 \references{
 More information on workspaces in JDemetra+ Graphical User Interface:
-\url{https://jdemetra-new-documentation.netlify.app/t-gui-sa-modelling-features/}
+\url{https://doc.jdemetra.org/t-gui-sa-modelling-features/}
 }
 \seealso{
 \code{\link[=read_workspace]{read_workspace()}}, \code{\link[=read_sap]{read_sap()}}

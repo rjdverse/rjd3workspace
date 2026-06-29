@@ -6,7 +6,7 @@
 \alias{rjd3workspace-package}
 \title{rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace}
 \description{
-\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
 
 R Interface to 'JDemetra+ 3.x'(\url{https://github.com/jdemetra}). It offers several functions to manipulate 'JDemetra+' workspaces, which can be read by the software and can store several seasonal adjusted series along with user-defined calendars or regression variables.
 }
@@ -24,6 +24,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Tanguy Barthelemy \email{tanguy.barthelemy@insee.fr} [artist]
   \item Jean Palate \email{palatejean@gmail.com}
   \item Alain Quartier-la-Tente \email{alain.quartier@yahoo.fr} (\href{https://orcid.org/0000-0001-7890-3857}{ORCID})
   \item Anna Smyk \email{anna.smyk@insee.fr}
