@@ -455,7 +455,6 @@ set_reference_specification <- function(jsap, idx, spec) {
 #' @description
 #' `get_estimation_specification()` extract the estimation specification,
 #' `get_reference_specification()`   reference specification, ,
-#' `get_active_specification()` active specification
 #' `get_result_specification()` result specification
 #'
 #' @inheritParams read_sai
@@ -478,9 +477,6 @@ set_reference_specification <- function(jsap, idx, spec) {
 #' # Select SAProcessing with the target SA-item
 #' jsap1 <- jws_sap(jws, 1)
 #' jsai1 <- jsap_sai(jsap1, 1)
-#'
-#' # Get the active specification in targeted SA-item
-#' get_active_specification(jsai1)
 #'
 #' # Get the reference specification in targeted SA-item
 #' get_reference_specification(jsai1)
@@ -524,15 +520,6 @@ get_result_specification <- function(jsai) {
         .jcall("Ljdplus/sa/base/api/SaSpecification;", "getPointSpec") |>
         .jd2r_spec()
     return(pspec)
-}
-#' @rdname get-specification
-#' @export
-get_active_specification <- function(jsai) {
-    aspec <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
-        .jcall("Ljdplus/sa/base/api/SaSpecification;", "getEstimationSpec") |>
-        .jd2r_spec()
-    return(aspec)
 }
 
 #' @title Get/Set Raw Data in a SA-item

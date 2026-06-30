@@ -7,11 +7,45 @@
 NULL
 
 #' @importFrom rJava .jpackage .jaddClassPath
+#' @importFrom rjd3jars reload_dictionaries reload_tsproviders
+#' @importFrom rjd3jars reload_safactories check_java_version
 .onLoad <- function(libname, pkgname) {
-    result <- rJava::.jpackage(pkgname, lib.loc = libname)
-    if (!result) stop("Loading java packages failed", call. = FALSE)
+    # Loading dependencies
+    if (!requireNamespace("rjd3jars", quietly = TRUE)) {
+        stop("Loading {rjd3jars} failed", call. = FALSE)
+    }
+    if (!requireNamespace("rjd3toolkit", quietly = TRUE)) {
+        stop("Loading {rjd3toolkit} failed", call. = FALSE)
+    }
+    if (!requireNamespace("rjd3x13", quietly = TRUE)) {
+        stop("Loading {rjd3x13} failed", call. = FALSE)
+    }
+    if (!requireNamespace("rjd3tramoseats", quietly = TRUE)) {
+        stop("Loading {rjd3tramoseats} failed", call. = FALSE)
+    }
+    if (!requireNamespace("rjd3providers", quietly = TRUE)) {
+        stop("Loading {rjd3providers} failed", call. = FALSE)
+    }
 
-    if (rjd3jars::check_java_version()){
+    # Loading Java class
+    jar_dir <- file.path(libname, pkgname, "inst", "java")
+    jars_inst <- list.files(
+        jar_dir,
+        pattern = "\\.jar$",
+        full.names = TRUE,
+        all.files = TRUE
+    )
+    result <- rJava::.jpackage(
+        pkgname,
+        lib.loc = libname,
+        morePaths = jars_inst
+    )
+    if (!result) {
+        stop("Loading java packages failed")
+    }
+
+    if (rjd3jars::check_java_version(silent = TRUE)) {
+        rjd3jars::reload_dictionaries()
         rjd3jars::reload_tsproviders()
         rjd3jars::reload_safactories()
     }
