@@ -5,7 +5,6 @@
 \alias{get_reference_specification}
 \alias{get_estimation_specification}
 \alias{get_result_specification}
-\alias{get_active_specification}
 \title{Get Specification in a Sa-Item}
 \usage{
 get_reference_specification(jsai)
@@ -13,8 +12,6 @@ get_reference_specification(jsai)
 get_estimation_specification(jsai)
 
 get_result_specification(jsai)
-
-get_active_specification(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}
@@ -25,11 +22,10 @@ the requested specification
 \description{
 \code{get_estimation_specification()} extract the estimation specification,
 \code{get_reference_specification()}   reference specification, ,
-\code{get_active_specification()} active specification
 \code{get_result_specification()} result specification
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -39,9 +35,6 @@ jws <- jws_open(file)
 # Select SAProcessing with the target SA-item
 jsap1 <- jws_sap(jws, 1)
 jsai1 <- jsap_sai(jsap1, 1)
-
-# Get the active specification in targeted SA-item
-get_active_specification(jsai1)
 
 # Get the reference specification in targeted SA-item
 get_reference_specification(jsai1)

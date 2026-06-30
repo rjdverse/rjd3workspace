@@ -1,5 +1,5 @@
 test_that("multiplication works", {
-    skip_if_not(rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version)
+    skip_if_not(rjd3jars::check_java_version())
 
     file <- system.file(
         "workspaces",
