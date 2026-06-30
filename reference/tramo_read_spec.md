@@ -29,7 +29,7 @@ class(my_spec)
 #> [1] "JD3_TRAMO_SPEC"
 str(my_spec)
 #> List of 7
-#>  $ basic     :List of 2
+#>  $ basic     :List of 3
 #>   ..$ span            :List of 5
 #>   .. ..$ type: chr "ALL"
 #>   .. ..$ d0  : NULL
@@ -38,6 +38,7 @@ str(my_spec)
 #>   .. ..$ n1  : int 0
 #>   .. ..- attr(*, "class")= chr "JD3_SPAN"
 #>   ..$ preliminaryCheck: logi TRUE
+#>   ..$ frequency       : int 0
 #>  $ transform :List of 4
 #>   ..$ fn      : chr "AUTO"
 #>   ..$ fct     : num 0.95

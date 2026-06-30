@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rjd3workspace</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.7.1.9100</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -277,133 +277,18 @@ X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in 
 <span class="r-in"><span><span class="fu">jws_refresh</span><span class="op">(</span><span class="va">jws</span>, policy <span class="op">=</span> <span class="st">"Complete"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Read refreshed workspace: new estimation spec</span></span></span>
 <span class="r-in"><span><span class="va">rws2</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_workspace.html">read_workspace</a></span><span class="op">(</span><span class="va">jws</span>, compute<span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Expecting a single value: [extent=0].</span>
 <span class="r-in"><span><span class="va">rws2</span><span class="op">$</span><span class="va">processing</span><span class="op">$</span><span class="va">`SAProcessing-1`</span><span class="op">$</span><span class="va">`RF0811`</span><span class="op">$</span><span class="va">estimationSpec</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Specification</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Series</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Serie span: All </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preliminary Check: Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model span: All </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Tolerance: 1e-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Function: AUTO</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> AIC difference: -2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Adjust: NONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Regression</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No calendar regressor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Easter: No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pre-specified outliers: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- LS.2024-01, coefficient: 0 (UNDEFINED)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ramps: No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Detection span: All </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers type: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- AO, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- LS, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- TC, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> TC rate: 0.7 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Method: ADDONE (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ARIMA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (0,1,1) (0,1,1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  theta(1) btheta(1) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0         0 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Specification X11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal component: Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Length of the Henderson filter: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal filter: FILTER_MSR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Boundaries used for extreme values correction : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	 lower_sigma:  1.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	 upper_sigma:  2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nb of forecasts: -1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nb of backcasts: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Calendar sigma: NONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Benchmarking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Is enabled: No</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'rws2' not found</span>
 <span class="r-in"><span><span class="co"># Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="jws_compute.html">jws_compute</a></span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">jws_refresh</span><span class="op">(</span><span class="va">jws</span>, policy <span class="op">=</span> <span class="st">"Outliers"</span>, period<span class="op">=</span><span class="fl">12</span>, end<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2020</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Read refreshed workspace: new estimation spec</span></span></span>
 <span class="r-in"><span><span class="va">rws3</span> <span class="op">&lt;-</span> <span class="fu"><a href="read_workspace.html">read_workspace</a></span><span class="op">(</span><span class="va">jws</span>, compute<span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Expecting a single value: [extent=0].</span>
 <span class="r-in"><span><span class="va">rws3</span><span class="op">$</span><span class="va">processing</span><span class="op">$</span><span class="va">`SAProcessing-1`</span><span class="op">$</span><span class="va">`RF0811`</span><span class="op">$</span><span class="va">estimationSpec</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Specification</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Series</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Serie span: From 2012-01-01 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Preliminary Check: Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Estimate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model span: From 2015-01-01 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Tolerance: 1e-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Function: LEVEL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> AIC difference: -2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Adjust: NONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Regression</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> No calendar regressor</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Easter: STANDARD </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Duration: 8 (Auto) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Test: NO  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Coef:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- Type: ESTIMATED  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- Value: -18.74348 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pre-specified outliers: 2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- LS.2024-01, coefficient: 0 (INITIAL)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- AO.2020-03, coefficient: -23.2364877397156 (INITIAL)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Ramps: No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Detection span: From 2020-04-01 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Outliers type: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- AO, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- LS, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	- TC, critical value : 0 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> TC rate: 0.7 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Method: ADDONE (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ARIMA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA model: (1,1,1) (1,1,1)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SARIMA coefficients:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    phi(1)  theta(1)   bphi(1) btheta(1) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0         0         0         0 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Specification X11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal component: Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Length of the Henderson filter: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Seasonal filter: FILTER_MSR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Boundaries used for extreme values correction : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	 lower_sigma:  1.5 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 	 upper_sigma:  2.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nb of forecasts: -2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Nb of backcasts: 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Calendar sigma: NONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Benchmarking</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Enabled: Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Target: TARGET_CALENDARADJUSTED (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Lambda: 1 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rho: 1 (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Bias: BIAS_NONE (Auto)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Use forecast: Yes</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'rws3' not found</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

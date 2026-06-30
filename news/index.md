@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3workspace 3.7.1.9000
+## rjd3workspace 3.7.1.9100
 
 All notable changes to this project will be documented in this file.
 
@@ -16,13 +16,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   fails when estimation is NULL
   [\#108](https://github.com/rjdverse/rjd3workspace/issues/108)
 
+#### Removed
+
+- `get_active_specification()`
+
 ### [3.7.1](https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...v3.7.1) - 2026-04-03
 
 #### Changed
 
-- Use
-  [`get_java_version()`](https://rdrr.io/pkg/rjd3jars/man/jd3_utilities.html)
-  instead of `.jversion`
+- Use `get_java_version()` instead of `.jversion`
 
 #### Added
 
@@ -31,8 +33,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - New function
   [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
   [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
-  [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  and
+  `get_active_specification()` and
   [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   to extract the domain, point, active and estimation specfification.
 - New function

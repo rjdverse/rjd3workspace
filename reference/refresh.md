@@ -240,132 +240,17 @@ rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 jws_refresh(jws, policy = "Complete")
 # Read refreshed workspace: new estimation spec
 rws2 <- read_workspace(jws, compute= TRUE)
+#> Error: Expecting a single value: [extent=0].
 rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
-#> Specification
-#> 
-#> Series
-#> Serie span: All 
-#> Preliminary Check: Yes
-#> 
-#> Estimate
-#> Model span: All 
-#> 
-#> Tolerance: 1e-07
-#> 
-#> Transformation
-#> Function: AUTO
-#> AIC difference: -2
-#> Adjust: NONE
-#> 
-#> Regression
-#> No calendar regressor
-#> 
-#> Easter: No
-#> 
-#> Pre-specified outliers: 1
-#>  - LS.2024-01, coefficient: 0 (UNDEFINED)
-#> Ramps: No
-#> 
-#> Outliers
-#> Detection span: All 
-#> Outliers type: 
-#>  - AO, critical value : 0 (Auto)
-#>  - LS, critical value : 0 (Auto)
-#>  - TC, critical value : 0 (Auto)
-#> TC rate: 0.7 (Auto)
-#> Method: ADDONE (Auto)
-#> 
-#> ARIMA
-#> SARIMA model: (0,1,1) (0,1,1)
-#> 
-#> SARIMA coefficients:
-#>  theta(1) btheta(1) 
-#>         0         0 
-#> 
-#> Specification X11
-#> Seasonal component: Yes
-#> Length of the Henderson filter: 0
-#> Seasonal filter: FILTER_MSR
-#> Boundaries used for extreme values correction : 
-#>   lower_sigma:  1.5 
-#>   upper_sigma:  2.5
-#> Nb of forecasts: -1
-#> Nb of backcasts: 0
-#> Calendar sigma: NONE
-#> 
-#> Benchmarking
-#> Is enabled: No
+#> Error: object 'rws2' not found
 # Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
 jws <- jws_open(file)
 jws_compute(jws)
 jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
 # Read refreshed workspace: new estimation spec
 rws3 <- read_workspace(jws, compute= TRUE)
+#> Error: Expecting a single value: [extent=0].
 rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
-#> Specification
-#> 
-#> Series
-#> Serie span: From 2012-01-01 
-#> Preliminary Check: Yes
-#> 
-#> Estimate
-#> Model span: From 2015-01-01 
-#> 
-#> Tolerance: 1e-07
-#> 
-#> Transformation
-#> Function: LEVEL
-#> AIC difference: -2
-#> Adjust: NONE
-#> 
-#> Regression
-#> No calendar regressor
-#> 
-#> Easter: STANDARD 
-#> Duration: 8 (Auto) 
-#> Test: NO  
-#> Coef:
-#>  - Type: ESTIMATED  
-#>  - Value: -18.74348 
-#> 
-#> Pre-specified outliers: 2
-#>  - LS.2024-01, coefficient: 0 (INITIAL)
-#>  - AO.2020-03, coefficient: -23.2364877397156 (INITIAL)
-#> Ramps: No
-#> 
-#> Outliers
-#> Detection span: From 2020-04-01 
-#> Outliers type: 
-#>  - AO, critical value : 0 (Auto)
-#>  - LS, critical value : 0 (Auto)
-#>  - TC, critical value : 0 (Auto)
-#> TC rate: 0.7 (Auto)
-#> Method: ADDONE (Auto)
-#> 
-#> ARIMA
-#> SARIMA model: (1,1,1) (1,1,1)
-#> 
-#> SARIMA coefficients:
-#>    phi(1)  theta(1)   bphi(1) btheta(1) 
-#>         0         0         0         0 
-#> 
-#> Specification X11
-#> Seasonal component: Yes
-#> Length of the Henderson filter: 0
-#> Seasonal filter: FILTER_MSR
-#> Boundaries used for extreme values correction : 
-#>   lower_sigma:  1.5 
-#>   upper_sigma:  2.5
-#> Nb of forecasts: -2
-#> Nb of backcasts: 0
-#> Calendar sigma: NONE
-#> 
-#> Benchmarking
-#> Enabled: Yes
-#> Target: TARGET_CALENDARADJUSTED (Auto)
-#> Lambda: 1 (Auto)
-#> Rho: 1 (Auto)
-#> Bias: BIAS_NONE (Auto)
-#> Use forecast: Yes
+#> Error: object 'rws3' not found
 # }
 ```

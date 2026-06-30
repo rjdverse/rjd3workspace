@@ -22,6 +22,8 @@ Useful links:
 
 Authors:
 
+- Tanguy Barthelemy <tanguy.barthelemy@insee.fr> \[artist\]
+
 - Jean Palate <palatejean@gmail.com>
 
 - Alain Quartier-la-Tente <alain.quartier@yahoo.fr>

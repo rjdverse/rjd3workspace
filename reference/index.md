@@ -120,7 +120,6 @@ Functions to extract, read SA-Items and set specifications
 - [`get_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   [`get_result_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  [`get_active_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
   : Get Specification in a Sa-Item
 - [`.jmp_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsap_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)

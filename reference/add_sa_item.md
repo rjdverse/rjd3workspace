@@ -41,7 +41,7 @@ add_sa_item(jsap, name, x, spec)
 
 ## Value
 
-`NULL` returned invisibly
+`NULL` returned invisibly#'
 
 ## Examples
 
@@ -84,7 +84,7 @@ rws$processing$sap1$series_4
 #> [1] ""
 #> 
 #> $id
-#> [1] "576a278a-4560-4d9b-baa7-81e2ecd0bfa8"
+#> [1] "ad1a4d8f-a044-4380-bd33-2e76569dbfb5"
 #> 
 #> attr(,"class")
 #> [1] "JD3_TSMONIKER"
