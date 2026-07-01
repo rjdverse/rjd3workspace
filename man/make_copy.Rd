@@ -27,10 +27,13 @@ workspace is also copied.
 \dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
 # Create an empty 'JDemetra+' Workspace
 jws <- jws_new()
+
 # Add an empty SA-Processing
 jsap <- jws_sap_new(jws, "sap1")
+
 # Make a copy of the workspace
 jws2 <- jws_make_copy(jws)
+
 # Make a copy of sap1 in jws2
 jsap2 <- jsap_make_copy(jsap)
 

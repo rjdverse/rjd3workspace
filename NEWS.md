@@ -11,6 +11,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 * `get_point_specification()` fails when estimation is NULL #108
+* Bug when refreshing a workspace without raw-data path in examples
 
 ### Removed
 

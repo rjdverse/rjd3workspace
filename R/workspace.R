@@ -97,10 +97,13 @@ jws_add <- function(jws, jsap) {
 #' @examplesIf rjd3jars::check_java_version()
 #' # Create an empty 'JDemetra+' Workspace
 #' jws <- jws_new()
+#'
 #' # Add an empty SA-Processing
 #' jsap <- jws_sap_new(jws, "sap1")
+#'
 #' # Make a copy of the workspace
 #' jws2 <- jws_make_copy(jws)
+#'
 #' # Make a copy of sap1 in jws2
 #' jsap2 <- jsap_make_copy(jsap)
 #'
@@ -177,24 +180,34 @@ jws_make_copy <- function(jws) {
 #'
 #' # Load workspace
 #' file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+#'
 #' \donttest{
 #' jws <- jws_open(file)
+#' txt_update_path(
+#'     jws = jws,
+#'     new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+#' )
 #' jws_compute(jws)
+#'
 #' # Read current workspace: reference spec and estimation spec
-#' rws <- read_workspace(jws, compute= TRUE)
+#' rws <- read_workspace(jws, compute = TRUE)
 #' rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
 #' rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+#'
 #' # Refresh workspace COMPLETE
 #' jws_refresh(jws, policy = "Complete")
+#'
 #' # Read refreshed workspace: new estimation spec
-#' rws2 <- read_workspace(jws, compute= TRUE)
+#' rws2 <- read_workspace(jws, compute = TRUE)
 #' rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+#'
 #' # Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
 #' jws <- jws_open(file)
 #' jws_compute(jws)
-#' jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
+#' jws_refresh(jws, policy = "Outliers", period = 12, end = c(2020, 4))
+#'
 #' # Read refreshed workspace: new estimation spec
-#' rws3 <- read_workspace(jws, compute= TRUE)
+#' rws3 <- read_workspace(jws, compute = TRUE)
 #' rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 #' }
 #'
@@ -323,7 +336,7 @@ get_context <- function(jws) {
 #'
 #' # Count the SA-Items
 #' # In SAP 1
-#' sap1 <- jws_sap(jws,1)
+#' sap1 <- jws_sap(jws, 1)
 #' sap_sai_count(sap1)
 #' }
 #'
