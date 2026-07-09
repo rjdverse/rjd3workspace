@@ -17,7 +17,7 @@ The calendar file is a xml file like the one JDemetra+ would write when
 defining a calendar in the Graphical User Interface.
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 file <- system.file("workspaces", "workspace_test", "Calendars",
                     "Calendars.xml", package = "rjd3workspace")

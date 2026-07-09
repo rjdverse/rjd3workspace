@@ -84,7 +84,7 @@ X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in 
 }
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load workspace
 file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")

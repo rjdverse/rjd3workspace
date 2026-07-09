@@ -16,7 +16,7 @@ sap_sai_count <- function(jsap) {
 #' @param jsap,jsai the object to retrieve the name from.
 #' @returns A vector \code{character}.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
@@ -157,7 +157,7 @@ jsap_refresh <- function(
 #' @param spec specification to use when `x` is a `"ts"` object.
 #'
 #' @returns \code{NULL} returned invisibly#'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' dir <- tempdir()
 #'
@@ -387,7 +387,7 @@ transfer_sa_item <- function(
 #'
 #'
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
 #'
@@ -467,7 +467,7 @@ set_reference_specification <- function(jsap, idx, spec) {
 #' More information on different types of specifications in JDemetra+ documentation:
 #' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace to modify
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -529,7 +529,7 @@ get_result_specification <- function(jsai) {
 #' @param jsai a SA-item.
 #' @returns \code{NULL} returned invisibly (set) or TS object (get)
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -589,7 +589,7 @@ get_raw_data <- function(jsai) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
@@ -648,7 +648,7 @@ get_ts <- function(jsai) {
 #' @param comment character containing the comment.
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -690,7 +690,7 @@ get_comment <- function(jsai) {
 #' @returns \code{NULL} returned invisibly
 #' @seealso [sai_name()]
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
@@ -741,7 +741,7 @@ set_name <- function(jsap, idx, name) {
 #' @returns `NULL` returned invisibly.
 #'
 #' @export
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -857,7 +857,7 @@ put_metadata <- function(jsap, idx, key, value) {
 #' @returns `set_priority` returns `NULL` invisibly. `get_priority` returns the
 #' priority (an integer).
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

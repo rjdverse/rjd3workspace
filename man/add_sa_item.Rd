@@ -32,7 +32,7 @@ add_sa_item(jsap, name, x, spec)
 Add a SA-item to a SAProcessing
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 dir <- tempdir()
 

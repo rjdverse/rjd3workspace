@@ -19,7 +19,7 @@
 #' If the object idx_sap and / or idx_sai have a length > 1 then the checks are
 #' iterated over all the indices.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
@@ -71,7 +71,7 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
 #' @details
 #' The spreadsheet file must be a .xlsx file. .xls files are not accepted in JDemetra+ v3.x.
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
@@ -142,7 +142,7 @@ spreadsheet_update_path <- function(
 #' This function returns either NULL if the update was successful, or an
 #' error
 #'
-#' @examplesIf rjd3jars::check_java_version()
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
