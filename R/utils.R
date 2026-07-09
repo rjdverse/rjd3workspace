@@ -439,7 +439,12 @@ write_variables <- function(vars, file) {
 .jd2r_spec <- function(jspec) {
     if (is.null(jspec)) {
         return(NULL)
-    } else if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
+    } else if (
+        .jinstanceof(
+            jspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        )
+    ) {
         spec <- jspec |>
             .jcast("jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec") |>
             rjd3tramoseats::.jd2r_spec_tramoseats()

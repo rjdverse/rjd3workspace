@@ -69,7 +69,11 @@ read_sai <- function(jsai) {
 #' @export
 #'
 get_results <- function(jsai) {
-    jestimation <- .jcall(jsai, "Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- .jcall(
+        jsai,
+        "Ljdplus/sa/base/api/SaEstimation;",
+        "getEstimation"
+    )
     if (is.jnull(jestimation) || is.null(jestimation)) {
         return(NULL)
     }
@@ -82,9 +86,16 @@ get_results <- function(jsai) {
         return(NULL)
     }
 
-    if (.jinstanceof(jrslt, "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults")) {
+    if (
+        .jinstanceof(
+            jrslt,
+            "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"
+        )
+    ) {
         rslt <- jrslt |>
-            .jcast("jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults") |>
+            .jcast(
+                "jdplus/tramoseats/base/core/tramoseats/TramoSeatsResults"
+            ) |>
             rjd3tramoseats::.tramoseats_rslts()
     } else if (.jinstanceof(jrslt, "jdplus.x13.base.core.x13.X13Results")) {
         rslt <- jrslt |>

@@ -7,13 +7,13 @@ methods::setClass("workspace", contains = "jobjRef")
 methods::setClass("sa_item", contains = "jobjRef")
 methods::setClass("sa_processing", contains = "jobjRef")
 
-is.sa_processing <- function(x){
+is.sa_processing <- function(x) {
     inherits(x, "sa_processing")
 }
-is.sa_item <- function(x){
+is.sa_item <- function(x) {
     inherits(x, "sa_item")
 }
-is.workspace <- function(x){
+is.workspace <- function(x) {
     inherits(x, "workspace")
 }
 

@@ -42,7 +42,11 @@ sap_name <- function(jsap) {
 #' @rdname make_copy
 #' @export
 jsap_make_copy <- function(jsap) {
-    jsap_clone <- .jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy")
+    jsap_clone <- .jcall(
+        jsap,
+        "Ljdplus/sa/base/workspace/MultiProcessing;",
+        "makeCopy"
+    )
     return(jsap_clone)
 }
 
@@ -52,7 +56,12 @@ jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1L) {
         return(NULL)
     }
-    jsai <- .jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L))
+    jsai <- .jcall(
+        jsap,
+        "Ljdplus/sa/base/api/SaItem;",
+        "get",
+        as.integer(idx - 1L)
+    )
     # jsai <- methods::new("sa_item", jsai)
     return(jsai)
 }
