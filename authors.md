@@ -17,13 +17,13 @@ Source:
 [`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/develop/DESCRIPTION)
 
 Palate J, Quartier-la-Tente A, Barthelemy T, Smyk A (2026).
-*rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace*. R package version
-3.7.1.9100, <https://github.com/rjdverse/rjd3workspace>.
+*rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspaces*. R package version
+3.8.0, <https://github.com/rjdverse/rjd3workspace>.
 
     @Manual{,
-      title = {rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace},
+      title = {rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspaces},
       author = {Jean Palate and Alain Quartier-la-Tente and Tanguy Barthelemy and Anna Smyk},
       year = {2026},
-      note = {R package version 3.7.1.9100},
+      note = {R package version 3.8.0},
       url = {https://github.com/rjdverse/rjd3workspace},
     }

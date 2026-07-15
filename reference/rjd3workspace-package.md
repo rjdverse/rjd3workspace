@@ -1,4 +1,4 @@
-# rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace
+# rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspaces
 
 R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>). It offers
 several functions to manipulate 'JDemetra+' workspaces, which can be
