@@ -330,7 +330,3 @@ get_point_specification <- function(jsai) {
     .Deprecated("get_result_specification")
     get_result_specification(jsai)
 }
-
-
-
-
