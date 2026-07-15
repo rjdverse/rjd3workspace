@@ -38,7 +38,7 @@ str(my_spec)
 #>   .. ..$ n1  : int 0
 #>   .. ..- attr(*, "class")= chr "JD3_SPAN"
 #>   ..$ preliminaryCheck: logi TRUE
-#>   ..$ frequency       : int 0
+#>   ..$ frequency       : int -1
 #>  $ transform :List of 4
 #>   ..$ fn      : chr "AUTO"
 #>   ..$ fct     : num 0.95

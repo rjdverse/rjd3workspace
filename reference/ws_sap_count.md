@@ -35,7 +35,7 @@ ws_sap_count(jws)
 
 # Count the SA-Items
 # In SAP 1
-sap1 <- jws_sap(jws,1)
+sap1 <- jws_sap(jws, 1)
 sap_sai_count(sap1)
 #> [1] 5
 # }

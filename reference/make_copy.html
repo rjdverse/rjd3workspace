@@ -87,10 +87,13 @@ workspace is also copied.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Create an empty 'JDemetra+' Workspace</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_new.html">jws_new</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Add an empty SA-Processing</span></span></span>
 <span class="r-in"><span><span class="va">jsap</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_new.html">jws_sap_new</a></span><span class="op">(</span><span class="va">jws</span>, <span class="st">"sap1"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make a copy of the workspace</span></span></span>
 <span class="r-in"><span><span class="va">jws2</span> <span class="op">&lt;-</span> <span class="fu">jws_make_copy</span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Make a copy of sap1 in jws2</span></span></span>
 <span class="r-in"><span><span class="va">jsap2</span> <span class="op">&lt;-</span> <span class="fu">jsap_make_copy</span><span class="op">(</span><span class="va">jsap</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -105,7 +108,7 @@ workspace is also copied.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>

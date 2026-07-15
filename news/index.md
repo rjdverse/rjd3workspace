@@ -14,7 +14,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   fails when estimation is NULL
-  [\#108](https://github.com/rjdverse/rjd3workspace/issues/108)
+  [\#108](https://rjdverse.github.io/rjd3workspace/news/github.com/rjdverse/rjd3workspace/issues/108)
+- Bug when refreshing a workspace without raw-data path in examples
 
 #### Removed
 
