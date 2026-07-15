@@ -4,7 +4,7 @@
 \name{rjd3workspace-package}
 \alias{rjd3workspace}
 \alias{rjd3workspace-package}
-\title{rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspace}
+\title{rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspaces}
 \description{
 \if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
 
