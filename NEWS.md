@@ -10,7 +10,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-* `get_point_specification()` fails when estimation is NULL #108
+* `get_point_specification()` fails when estimation is NULL [#108](github.com/rjdverse/rjd3workspace/issues/108)
+* Bug when refreshing a workspace without raw-data path in examples
 
 ### Removed
 
@@ -36,7 +37,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * New function `set_metadata()` to copy the metadata from another SAItem
 * New function `put_metadata()` to update a SAI with any metadata (key, value)
-* Residuals are available #3
+* Residuals are available [#3](https://github.com/rjdverse/rjd3workspace/issues/3)
 
 ### Deprecated
 
@@ -44,7 +45,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* `write_calendars()` accepts now multiple calendars #95
+* `write_calendars()` accepts now multiple calendars [#95](https://github.com/rjdverse/rjd3workspace/issues/95)
 * New JARS related to version [3.6.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.6.0)
 
 

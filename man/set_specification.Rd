@@ -23,7 +23,7 @@ set_reference_specification(jsap, idx, spec)
 Set Specification in a Sa-Item
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 # Create a (customized) spec) spec
 library(rjd3x13)
 

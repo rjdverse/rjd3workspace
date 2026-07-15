@@ -84,28 +84,39 @@ X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in 
 }
 }
 \examples{
-\dontshow{if (rjd3jars::check_java_version()) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load workspace
 file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+
 \donttest{
 jws <- jws_open(file)
+txt_update_path(
+    jws = jws,
+    new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+)
 jws_compute(jws)
+
 # Read current workspace: reference spec and estimation spec
-rws <- read_workspace(jws, compute= TRUE)
+jws1 <- jws_make_copy(jws)
+rws <- read_workspace(jws1, compute = TRUE)
 rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
 rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+
 # Refresh workspace COMPLETE
-jws_refresh(jws, policy = "Complete")
+jws2 <- jws_make_copy(jws)
+jws_refresh(jws2, policy = "Complete")
+
 # Read refreshed workspace: new estimation spec
-rws2 <- read_workspace(jws, compute= TRUE)
+rws2 <- read_workspace(jws2, compute = TRUE)
 rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
+
 # Refresh workspace Outliers (like "lastoutliers in the GUI, but with custom start date)
-jws <- jws_open(file)
-jws_compute(jws)
-jws_refresh(jws, policy = "Outliers", period=12, end=c(2020,4))
+jws3 <- jws_make_copy(jws)
+jws_refresh(jws3, policy = "Outliers", period = 12, end = c(2020, 4))
+
 # Read refreshed workspace: new estimation spec
-rws3 <- read_workspace(jws, compute= TRUE)
+rws3 <- read_workspace(jws3, compute = TRUE)
 rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 }
 \dontshow{\}) # examplesIf}

@@ -6,6 +6,12 @@
 #' @importFrom rjd3toolkit dictionary
 NULL
 
+#' @importFrom rjd3jars check_java_version
+.onAttach <- function(libname, pkgname) {
+    # Check java version
+    rjd3jars::check_java_version(silent = FALSE, startup = TRUE)
+}
+
 #' @importFrom rJava .jpackage .jaddClassPath
 #' @importFrom rjd3jars reload_dictionaries reload_tsproviders
 #' @importFrom rjd3jars reload_safactories check_java_version
@@ -44,7 +50,9 @@ NULL
         stop("Loading java packages failed")
     }
 
-    if (rjd3jars::check_java_version(silent = TRUE)) {
+    # If java >= 21, then reload dictionnaries
+    has_java <- rjd3jars::check_java_version(silent = TRUE)
+    if (has_java) {
         rjd3jars::reload_dictionaries()
         rjd3jars::reload_tsproviders()
         rjd3jars::reload_safactories()
