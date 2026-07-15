@@ -1,6 +1,6 @@
 Type: Package
 Package: rjd3workspace
-Title: Wrangling 'JDemetra+ 3.x' Workspace
+Title: Wrangling 'JDemetra+ 3.x' Workspaces
 Version: 3.8.0
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
