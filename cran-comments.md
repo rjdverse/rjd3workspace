@@ -2,7 +2,7 @@
 
 * changed the example of read_calendars to \donttest
 
-* set an environment variable to limit the cores used in tests
+* removed the tests with parallelization problems
 
 ### R CMD check results
 
