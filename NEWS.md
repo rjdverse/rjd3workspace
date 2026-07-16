@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
-* `get_point_specification()` fails when estimation is NULL [#108](github.com/rjdverse/rjd3workspace/issues/108)
+* `get_point_specification()` fails when estimation is NULL [#108](https://github.com/rjdverse/rjd3workspace/issues/108)
 * Bug when refreshing a workspace without raw-data path in examples
 
 ### Removed
@@ -26,7 +26,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-* First release on [CRAN](https://cran.r-project.org/web/packages/rjd3workspace/index.html)
+* First release on [CRAN](https://cran.r-project.org/package=rjd3workspace)
 * New function `get_domain_specification()`, `get_point_specification()`, `get_active_specification()` and `get_estimation_specification()` to extract the domain, point, active and estimation specfification.
 * New function `get_results()` to extract the results from a SA-Item
 
