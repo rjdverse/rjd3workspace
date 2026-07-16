@@ -8,6 +8,5 @@
 
 library("testthat") # nolint unused_import_linter undesirable_function_linter
 library("rjd3workspace") # nolint unused_import_linter undesirable_function_linter
-Sys.setenv("OMP_THREAD_LIMIT" = 2)
 
 test_check("rjd3workspace")
