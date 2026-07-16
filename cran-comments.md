@@ -1,3 +1,14 @@
+## Re-Submission - 2026-07-16
+
+* changed the example of read_calendars to \donttest
+
+* set an environment variable to limit the cores used in tests
+
+### R CMD check results
+
+0 errors | 0 warnings | 1 note
+
+
 ## Submission of {rjd3workspace} v3.8.0 - 2026-07-15
 
 ### R CMD check results
