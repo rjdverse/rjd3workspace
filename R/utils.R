@@ -284,10 +284,12 @@ x13_write_spec <- function(spec, file) {
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
+#' \donttest{
 #' file <- system.file("workspaces", "workspace_test", "Calendars",
 #'                     "Calendars.xml", package = "rjd3workspace")
 #' my_calendar <- read_calendars(file)
 #' my_calendar
+#' }
 #'
 #' @export
 read_calendars <- function(file) {

@@ -19,9 +19,11 @@ defining a calendar in the Graphical User Interface.
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
+\donttest{
 file <- system.file("workspaces", "workspace_test", "Calendars",
                     "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
 my_calendar
+}
 \dontshow{\}) # examplesIf}
 }

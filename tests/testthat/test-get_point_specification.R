@@ -3,6 +3,7 @@ library("rjd3x13")
 
 test_that("get_point_specification works", {
     skip_if_not(rjd3jars::check_java_version())
+    testthat::skip_on_cran()
 
     # Case 1
     jws <- jws_new()
