@@ -23,6 +23,7 @@ a list of `JD3_CALENDAR` objects
 
 ``` r
 
+# \donttest{
 file <- system.file("workspaces", "workspace_test", "Calendars",
                     "Calendars.xml", package = "rjd3workspace")
 my_calendar <- read_calendars(file)
@@ -37,4 +38,5 @@ my_calendar
 #> 
 #> Mean correction: Yes
 #> 
+# }
 ```
