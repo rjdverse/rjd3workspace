@@ -17,7 +17,7 @@ The specification file is a xml file like the one JDemetra+ would write when
 defining a specification in the Graphical User Interface.
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 file <- system.file("workspaces", "workspace_test", "TramoSpec",
                     "TramoSpec-1.xml", package = "rjd3workspace")
 my_spec<- tramo_read_spec(file)

@@ -26,13 +26,13 @@ add_sa_item(jsap, name, x, spec)
 \item{spec}{specification to use when \code{x} is a \code{"ts"} object.}
 }
 \value{
-\code{NULL} returned invisibly
+\code{NULL} returned invisibly#'
 }
 \description{
 Add a SA-item to a SAProcessing
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 dir <- tempdir()
 

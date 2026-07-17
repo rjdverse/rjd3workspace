@@ -16,7 +16,7 @@ sap_sai_count <- function(jsap) {
 #' @param jsap,jsai the object to retrieve the name from.
 #' @returns A vector \code{character}.
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
@@ -42,7 +42,11 @@ sap_name <- function(jsap) {
 #' @rdname make_copy
 #' @export
 jsap_make_copy <- function(jsap) {
-    jsap_clone <- .jcall(jsap, "Ljdplus/sa/base/workspace/MultiProcessing;", "makeCopy")
+    jsap_clone <- .jcall(
+        jsap,
+        "Ljdplus/sa/base/workspace/MultiProcessing;",
+        "makeCopy"
+    )
     return(jsap_clone)
 }
 
@@ -52,7 +56,12 @@ jsap_sai <- function(jsap, idx) {
     if (is.jnull(jsap) || idx < 1L) {
         return(NULL)
     }
-    jsai <- .jcall(jsap, "Ljdplus/sa/base/api/SaItem;", "get", as.integer(idx - 1L))
+    jsai <- .jcall(
+        jsap,
+        "Ljdplus/sa/base/api/SaItem;",
+        "get",
+        as.integer(idx - 1L)
+    )
     # jsai <- methods::new("sa_item", jsai)
     return(jsai)
 }
@@ -125,7 +134,8 @@ jsap_refresh <- function(
         "Outliers",
         "FixedParameters",
         "FixedAutoRegressiveParameters",
-        "Fixed"
+        "Fixed",
+        "Current"
     ),
     period = 0,
     start = NULL,
@@ -155,9 +165,8 @@ jsap_refresh <- function(
 #' [rjd3tramoseats::tramoseats()]), a SA-item object, `"ts"` object.
 #' @param spec specification to use when `x` is a `"ts"` object.
 #'
-#' @returns \code{NULL} returned invisibly
-#'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @returns \code{NULL} returned invisibly#'
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' dir <- tempdir()
 #'
@@ -381,7 +390,13 @@ transfer_sa_item <- function(
 #'
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @references
+#' More information on different types of specifications in JDemetra+ documentation:
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
+#'
+#'
+#'
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Create a (customized) spec) spec
 #' library(rjd3x13)
 #'
@@ -399,8 +414,8 @@ transfer_sa_item <- function(
 #' # Set specification in targeted SA-item
 #' set_specification(sap1, 2, spec)
 #'
-#' # Set domain specification in selected SA-item
-#' set_domain_specification(sap1, 3, spec)
+#' # Set reference specification in selected SA-item
+#' set_reference_specification(sap1, 3, spec)
 #' }
 #'
 #' @export
@@ -425,7 +440,7 @@ set_specification <- function(jsap, idx, spec) {
 
 #' @rdname set_specification
 #' @export
-set_domain_specification <- function(jsap, idx, spec) {
+set_reference_specification <- function(jsap, idx, spec) {
     if (inherits(spec, "JD3_X13_SPEC")) {
         jspec <- rjd3x13::.r2jd_spec_x13(spec)
     } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
@@ -448,17 +463,20 @@ set_domain_specification <- function(jsap, idx, spec) {
 #'
 #' @description
 #' `get_estimation_specification()` extract the estimation specification,
-#' `get_domain_specification()` the domain specification, ,
-#' `get_active_specification()` the active specification
-#' `get_point_specification()` the point specification
+#' `get_reference_specification()`   reference specification, ,
+#' `get_result_specification()` result specification
 #'
 #' @inheritParams read_sai
 #'
 #' @name get-specification
 #'
-#' @returns the specification
+#' @returns the requested specification
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @references
+#' More information on different types of specifications in JDemetra+ documentation:
+#' \url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
+#'
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace to modify
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -469,21 +487,18 @@ set_domain_specification <- function(jsap, idx, spec) {
 #' jsap1 <- jws_sap(jws, 1)
 #' jsai1 <- jsap_sai(jsap1, 1)
 #'
-#' # Get the active specification in targeted SA-item
-#' get_active_specification(jsai1)
-#'
-#' # Get the domain specification in targeted SA-item
-#' get_domain_specification(jsai1)
+#' # Get the reference specification in targeted SA-item
+#' get_reference_specification(jsai1)
 #'
 #' # Get the estimation specification in targeted SA-item
 #' get_estimation_specification(jsai1)
 #'
-#' # Get the point specification in targeted SA-item
-#' get_point_specification(jsai1)
+#' # Get the result specification in targeted SA-item
+#' get_result_specification(jsai1)
 #' }
 #'
 #' @export
-get_domain_specification <- function(jsai) {
+get_reference_specification <- function(jsai) {
     dspec <- jsai |>
         .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
         .jcall("Ljdplus/sa/base/api/SaSpecification;", "getDomainSpec") |>
@@ -503,22 +518,17 @@ get_estimation_specification <- function(jsai) {
 
 #' @rdname get-specification
 #' @export
-get_point_specification <- function(jsai) {
-    pspec <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation") |>
+get_result_specification <- function(jsai) {
+    jestimation <- jsai |>
+        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+
+    if (is.null(jestimation) || is.jnull(jestimation)) {
+        return(NULL)
+    }
+    pspec <- jestimation |>
         .jcall("Ljdplus/sa/base/api/SaSpecification;", "getPointSpec") |>
         .jd2r_spec()
     return(pspec)
-}
-
-#' @rdname get-specification
-#' @export
-get_active_specification <- function(jsai) {
-    aspec <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaDefinition;", "getDefinition") |>
-        .jcall("Ljdplus/sa/base/api/SaSpecification;", "activeSpecification") |>
-        .jd2r_spec()
-    return(aspec)
 }
 
 #' @title Get/Set Raw Data in a SA-item
@@ -528,7 +538,7 @@ get_active_specification <- function(jsai) {
 #' @param jsai a SA-item.
 #' @returns \code{NULL} returned invisibly (set) or TS object (get)
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -588,7 +598,7 @@ get_raw_data <- function(jsai) {
 #'
 #' @export
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
@@ -647,7 +657,7 @@ get_ts <- function(jsai) {
 #' @param comment character containing the comment.
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -689,7 +699,7 @@ get_comment <- function(jsai) {
 #' @returns \code{NULL} returned invisibly
 #' @seealso [sai_name()]
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 #' \donttest{
@@ -740,7 +750,7 @@ set_name <- function(jsap, idx, name) {
 #' @returns `NULL` returned invisibly.
 #'
 #' @export
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Change the file of a given item
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -856,7 +866,7 @@ put_metadata <- function(jsap, idx, key, value) {
 #' @returns `set_priority` returns `NULL` invisibly. `get_priority` returns the
 #' priority (an integer).
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a workspace
 #' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")

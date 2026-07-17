@@ -20,7 +20,7 @@ Functions counting the SA-Processings in a Workspace (\code{ws_sap_count}) or
 the SA-Items in a SA-Processing (\code{sap_sai_count}).
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 \donttest{
@@ -31,7 +31,7 @@ ws_sap_count(jws)
 
 # Count the SA-Items
 # In SAP 1
-sap1 <- jws_sap(jws,1)
+sap1 <- jws_sap(jws, 1)
 sap_sai_count(sap1)
 }
 \dontshow{\}) # examplesIf}

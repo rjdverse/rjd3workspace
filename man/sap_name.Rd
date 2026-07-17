@@ -23,7 +23,7 @@ Functions to retrieve the name of a SAProcessing (\code{sap_name()}) or Sa-item
 (\code{sai_name()}) or all SA-item (\code{sap_sai_names()}) .
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
 file <- system.file("workspaces", "workspace_test.xml",

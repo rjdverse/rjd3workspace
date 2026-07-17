@@ -1,6 +1,6 @@
 #' @title Deprecated functions
 #'
-#' @param jmp,idx,jws,name,jsa,jsai,jsap,items,key,file,compute,policy,period,start,end,info,modelling_context,jsap_from,jsap_to,selected_sa_items,print_indications Parameters.
+#' @param jmp,idx,jws,name,jsa,jsai,jsap,items,key,file,compute,policy,period,start,end,info,modelling_context,jsap_from,jsap_to,selected_sa_items,print_indications,spec Parameters.
 #'
 #' @returns
 #' The same value as returned by the corresponding non-deprecated function.
@@ -308,4 +308,25 @@ transfer_series <- function(
     .Deprecated("jws_add")
     jws_add(jws, jsap)
     .jcall(jws, "V", "add", jsap)
+}
+
+#' @rdname deprecated-rjd3workspace
+#' @export
+set_domain_specification <- function(jsap, idx, spec) {
+    .Deprecated("set_reference_specification")
+    set_reference_specification(jsap, idx, spec)
+}
+
+#' @rdname deprecated-rjd3workspace
+#' @export
+get_domain_specification <- function(jsai) {
+    .Deprecated("get_reference_specification")
+    get_reference_specification(jsai)
+}
+
+#' @rdname deprecated-rjd3workspace
+#' @export
+get_point_specification <- function(jsai) {
+    .Deprecated("get_result_specification")
+    get_result_specification(jsai)
 }

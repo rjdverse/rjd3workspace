@@ -1,5 +1,5 @@
 #' @importFrom rJava .jpackage .jcall .jnull .jarray .jevalArray .jcast .jcastToArray .jinstanceof is.jnull .jnew .jclass
-#' @import rjd3x13 rjd3tramoseats rjd3providers
+#' @import rjd3toolkit
 NULL
 
 
@@ -14,7 +14,7 @@ NULL
 #'
 #' @returns list
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test", "TramoSpec",
 #'                     "TramoSpec-1.xml", package = "rjd3workspace")
 #' my_spec<- tramo_read_spec(file)
@@ -45,7 +45,7 @@ tramo_read_spec <- function(file) {
 #'
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Creating a spec from default
 #' tramo_spec <- rjd3tramoseats::tramo_spec("tr3")
 #'
@@ -81,7 +81,7 @@ tramo_write_spec <- function(spec, file) {
 #'
 #' @returns list
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test", "TramoSeatsSpec",
 #'                     "TramoSeatsSpec-1.xml", package = "rjd3workspace")
 #' my_spec<- tramoseats_read_spec(file)
@@ -112,7 +112,7 @@ tramoseats_read_spec <- function(file) {
 #'
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Creating a spec from default
 #' tramoseats_spec <- rjd3tramoseats::tramoseats_spec("tr3")
 #'
@@ -148,7 +148,7 @@ tramoseats_write_spec <- function(spec, file) {
 #' @param file xml format,
 #'
 #' @returns list
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test", "RegArimaSpec",
 #'                     "RegArimaSpec-1.xml", package = "rjd3workspace")
 #' my_spec<-regarima_read_spec(file)
@@ -180,7 +180,7 @@ regarima_read_spec <- function(file) {
 #'
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Creating a spec from default
 #' regarima_spec <- rjd3x13::regarima_spec("rg3")
 #'
@@ -216,7 +216,7 @@ regarima_write_spec <- function(spec, file) {
 #' @param file xml format,
 #'
 #' @returns list
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test", "X13Spec",
 #'                     "X13Spec-1.xml", package = "rjd3workspace")
 #' my_spec<-x13_read_spec(file)
@@ -246,7 +246,7 @@ x13_read_spec <- function(file) {
 #' @param file xml format
 #' @returns \code{NULL} returned invisibly
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Creating a spec from default
 #' x13_spec <- rjd3x13::x13_spec("rsa3")
 #'
@@ -282,12 +282,14 @@ x13_write_spec <- function(spec, file) {
 #'
 #' @returns a list of `JD3_CALENDAR` objects
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
+#' \donttest{
 #' file <- system.file("workspaces", "workspace_test", "Calendars",
 #'                     "Calendars.xml", package = "rjd3workspace")
 #' my_calendar <- read_calendars(file)
 #' my_calendar
+#' }
 #'
 #' @export
 read_calendars <- function(file) {
@@ -314,7 +316,7 @@ read_calendars <- function(file) {
 #' @param file xml format
 #'
 #' @returns \code{NULL} returned invisibly
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' library("rjd3toolkit")
 #' BE <- national_calendar(list(
 #'     fixed_day(7, 21),
@@ -368,7 +370,7 @@ write_calendars <- function(calendars, file) {
 #'
 #' @returns A named list of time series objects.
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' file <- system.file("workspaces", "workspace_test", "Variables",
 #'                     "Vars-1.xml", package = "rjd3workspace")
 #' my_regressors <- read_variables(file)
@@ -398,7 +400,7 @@ read_variables <- function(file) {
 #' @returns No return value (\code{NULL} returned invisibly). This function
 #' writes variables to file for use in JD+.
 #'
-#' @examplesIf rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version
+#' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
 #' file <- system.file("workspaces", "workspace_test.xml",
@@ -439,7 +441,12 @@ write_variables <- function(vars, file) {
 .jd2r_spec <- function(jspec) {
     if (is.null(jspec)) {
         return(NULL)
-    } else if (.jinstanceof(jspec, "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec")) {
+    } else if (
+        .jinstanceof(
+            jspec,
+            "jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec"
+        )
+    ) {
         spec <- jspec |>
             .jcast("jdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec") |>
             rjd3tramoseats::.jd2r_spec_tramoseats()

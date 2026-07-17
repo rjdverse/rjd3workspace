@@ -2,34 +2,30 @@
 % Please edit documentation in R/saprocessing.R
 \name{get-specification}
 \alias{get-specification}
-\alias{get_domain_specification}
+\alias{get_reference_specification}
 \alias{get_estimation_specification}
-\alias{get_point_specification}
-\alias{get_active_specification}
+\alias{get_result_specification}
 \title{Get Specification in a Sa-Item}
 \usage{
-get_domain_specification(jsai)
+get_reference_specification(jsai)
 
 get_estimation_specification(jsai)
 
-get_point_specification(jsai)
-
-get_active_specification(jsai)
+get_result_specification(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}
 }
 \value{
-the specification
+the requested specification
 }
 \description{
 \code{get_estimation_specification()} extract the estimation specification,
-\code{get_domain_specification()} the domain specification, ,
-\code{get_active_specification()} the active specification
-\code{get_point_specification()} the point specification
+\code{get_reference_specification()}   reference specification, ,
+\code{get_result_specification()} result specification
 }
 \examples{
-\dontshow{if (rjd3toolkit::get_java_version() >= rjd3toolkit::minimal_java_version) withAutoprint(\{ # examplesIf}
+\dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace to modify
 file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
@@ -40,17 +36,18 @@ jws <- jws_open(file)
 jsap1 <- jws_sap(jws, 1)
 jsai1 <- jsap_sai(jsap1, 1)
 
-# Get the active specification in targeted SA-item
-get_active_specification(jsai1)
-
-# Get the domain specification in targeted SA-item
-get_domain_specification(jsai1)
+# Get the reference specification in targeted SA-item
+get_reference_specification(jsai1)
 
 # Get the estimation specification in targeted SA-item
 get_estimation_specification(jsai1)
 
-# Get the point specification in targeted SA-item
-get_point_specification(jsai1)
+# Get the result specification in targeted SA-item
+get_result_specification(jsai1)
 }
 \dontshow{\}) # examplesIf}
+}
+\references{
+More information on different types of specifications in JDemetra+ documentation:
+\url{https://doc.jdemetra.org/t-gui-sa-modelling-features#Spec-Def-App}
 }
