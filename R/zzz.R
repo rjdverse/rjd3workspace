@@ -47,7 +47,7 @@ NULL
         morePaths = jars_inst
     )
     if (!result) {
-        stop("Loading java packages failed")
+        stop("Loading java packages failed", call. = FALSE)
     }
 
     # If java >= 21, then reload dictionnaries

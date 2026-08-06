@@ -421,11 +421,11 @@ jws_open <- function(file) {
             file <- base::file.choose()
         }
         if (length(file) == 0L) {
-            stop("You have to choose a file !")
+            stop("You have to choose a file !", call. = FALSE)
         }
     }
     if (!file.exists(file) || tools::file_ext(file) != "xml") {
-        stop("The file doesn't exist or isn't a .xml file !")
+        stop("The file doesn't exist or isn't a .xml file !", call. = FALSE)
     }
     full_file_name <- full_path(file)
     jws <- .jcall(

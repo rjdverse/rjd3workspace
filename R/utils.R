@@ -346,7 +346,9 @@ write_calendars <- function(calendars, file) {
             all(nzchar(names(calendars))))
     ) {
         stop(
-            "calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects"
+            "calendars must be a `JD3_CALENDAR`",
+            " or a named list of `JD3_CALENDAR` objects",
+            call. = FALSE
         )
     }
     jcal <- rjd3toolkit::.r2jd_calendars(calendars)
