@@ -531,12 +531,15 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @title Save Workspace
 #'
 #' @description
-#' Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
-#' User Interface.
+#' Function allowing to write a workspace as a collection of xml files readable
+#' by JDemetra+ Graphical User Interface.
 #'
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
-#' @param replace boolean indicating if the Workspace should be replaced if it already exists.
+#' @param replace boolean indicating if the Workspace should be replaced if it
+#'   already exists.
+#' @param verbose Boolean indicating whether to print additional information.
+#'   Default is `TRUE`.
 #'
 #' @returns A boolean indicating if the saving was successful.
 #'
@@ -552,17 +555,36 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' }
 #'
 #' @export
-save_workspace <- function(jws, file, replace = FALSE) {
+save_workspace <- function(jws, file, replace = FALSE, verbose = TRUE) {
     # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
     version <- "jd3"
     file <- full_path(file)
-    if (replace && file.exists(file)) {
+
+    if (!replace && file.exists(file)) {
+        if (verbose) {
+            warning(
+                "A workspace already exists. ",
+                "To overwrite it, use the argument `replace = TRUE`.",
+                call. = FALSE
+            )
+        }
+        return(FALSE)
+    }
+
+    if (verbose) {
+        message("The workspace will be written to ", file, ".")
+    }
+    if (file.exists(file)) {
         base::file.remove(file)
         base::unlink(
             gsub("\\.xml$", "", file),
             recursive = TRUE
         )
+        if (verbose) {
+            message("A workspace already exists and will be overwritten.")
+        }
     }
+
     invisible(.jcall(jws, "Z", "saveAs", file, version, !replace))
 }
 

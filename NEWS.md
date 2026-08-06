@@ -7,6 +7,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+* `save_workspace` generates a warning when a workspace already exists and `replace = FALSE` (the default)  [#105](https://github.com/rjdverse/rjd3workspace/issues/105)
+
 ## [3.8.0] - 2026-07-17
 
 ### Fixed
