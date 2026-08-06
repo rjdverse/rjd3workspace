@@ -16,7 +16,9 @@
 \alias{.jmp_load}
 \alias{.jsa_read}
 \alias{.jsa_results}
+\alias{.jsai_results}
 \alias{.jsa_jresults}
+\alias{.jsai_jresults}
 \alias{.jsa_metadata}
 \alias{.jsai_metadata}
 \alias{.jsa_ts_metadata}
@@ -69,7 +71,11 @@
 
 .jsa_results(jsa, items = NULL)
 
+.jsai_results(jsa, items = NULL)
+
 .jsa_jresults(jsa)
+
+.jsai_jresults(jsa)
 
 .jsa_metadata(jsa, key)
 

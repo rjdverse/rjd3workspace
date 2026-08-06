@@ -107,7 +107,7 @@ get_results <- function(jsai) {
 
 #' @rdname get-results
 #' @export
-.jsai_results <- function(jsai, items = NULL) {
+jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaEstimation;",
@@ -133,7 +133,7 @@ get_results <- function(jsai) {
 
 #' @rdname get-results
 #' @export
-.jsai_jresults <- function(jsai) {
+jsai_jresults <- function(jsai) {
     jestimation <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaEstimation;",
