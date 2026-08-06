@@ -25,9 +25,10 @@ is.workspace <- function(x) {
 #'
 #' @details
 #' A modelling context is a list of variables to be used as external regressors
-#' in modelling processes (Reg-Arima or Tramo) or calendars to be used to generate calendar regressors.
-#' It can be created with [rjd3toolkit::modelling_context()] function or retrieved from another
-#' workspace (\code{(set_context)})
+#' in modelling processes (Reg-Arima or Tramo) or calendars to be used to
+#' generate calendar regressors.
+#' It can be created with [rjd3toolkit::modelling_context()] function or
+#' retrieved from another workspace (\code{(set_context)})
 #'
 #'
 #' @param modelling_context a list of variables and calendars
@@ -91,8 +92,8 @@ jws_add <- function(jws, jsap) {
 #' Returns a Java object workspace or SA-Processing
 #'
 #' @details
-#' The copy of a SA-processing will be made in the same workspace. The modelling context of the
-#' workspace is also copied.
+#' The copy of a SA-processing will be made in the same workspace. The
+#' modelling context of the workspace is also copied.
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Create an empty 'JDemetra+' Workspace
@@ -126,22 +127,24 @@ jws_make_copy <- function(jws) {
 #'
 #' @param period,start,end  additional parameters used to specify the span
 #' When `policy = "Outliers"` or `policy = "Outliers_StochasticComponent"`
-#' \code{period}: numeric, number of observations in a year (12, 4...), compulsory,
-#' if mis-specified or missing, re-estimation with refreshed specification won't work.
-#' \code{end} has to be specified as the date from which outliers will be re-identified
+#' \code{period}: numeric, number of observations in a year (12, 4...),
+#' compulsory, if mis-specified or missing, re-estimation with refreshed
+#' specification won't work. \code{end} has to be specified as the date from
+#' which outliers will be re-identified
 #'
 #' @param info indication on how data should be refreshed
-#' `All`: data and metadata will be refreshed (default)
-#' `Data`: data will be refreshed, not metadata
-#' `None`: nor data neither metadata will be refreshed, to be used for updating specifications only.
+#' - `All`: data and metadata will be refreshed (default)
+#' - `Data`: data will be refreshed, not metadata
+#' - `None`: nor data neither metadata will be refreshed, to be used for updating
+#'   specifications only.
 #'
 #' @details
-#'
-#' A particular selection of parameters to be kept fixed or re-estimated is called a
-#' revision policy.
+#' A particular selection of parameters to be kept fixed or re-estimated is
+#' called a revision policy.
 #' Workspace has to be computed before refresh
-#' When refreshing data, empty your cache by restarting your R session, before refreshing,
-#' otherwise the specification will be refreshed but the new data will not be taken into account.
+#' When refreshing data, empty your cache by restarting your R session, before
+#' refreshing, otherwise the specification will be refreshed but the new data
+#' will not be taken into account.
 #'
 #' Available refresh policies are:
 #' \enumerate{
@@ -168,7 +171,8 @@ jws_make_copy <- function(jws) {
 #' X11 (or SEATS) and Benchmarking part parameters are untouched.
 #' \item \strong{Complete}: All the parameters are re-identified and
 #' re-estimated, unless constrained in the reference spec.
-#' X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+#' X11 (or SEATS) and Benchmarking part parameters are entirely reset to values
+#' in the reference specification.
 #' }
 #' @references
 #' More information on revision policies in JDemetra+ documentation:
@@ -179,13 +183,15 @@ jws_make_copy <- function(jws) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load workspace
-#' file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test_refresh.xml",
+#'                     package = "rjd3workspace")
 #'
 #' \donttest{
 #' jws <- jws_open(file)
 #' txt_update_path(
 #'     jws = jws,
-#'     new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+#'     new_path = system.file("extdata", "IPI_nace4.csv",
+#'                            package = "rjd3workspace")
 #' )
 #' jws_compute(jws)
 #'
@@ -251,8 +257,10 @@ jws_refresh <- function(
 #' # French calendar
 #' french_calendar <- national_calendar(
 #'     days = list(
-#'         fixed_day(7, 14), # Bastille Day
-#'         fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'         # Bastille Day
+#'         fixed_day(7, 14),
+#'         # End of 2nd WW
+#'         fixed_day(5, 8, validity = list(start = "1982-05-08")),
 #'         special_day("NEWYEAR"),
 #'         special_day("CHRISTMAS"),
 #'         special_day("MAYDAY"),

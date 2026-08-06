@@ -1,4 +1,5 @@
-#' @importFrom rJava .jpackage .jcall .jnull .jarray .jevalArray .jcast .jcastToArray .jinstanceof is.jnull .jnew .jclass
+#' @importFrom rJava .jpackage .jcall .jnull .jarray .jevalArray .jcast
+#' @importFrom rJava .jcastToArray .jinstanceof is.jnull .jnew .jclass
 #' @import rjd3toolkit
 NULL
 
