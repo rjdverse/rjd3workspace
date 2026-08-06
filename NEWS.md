@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+* New `verbose` argument in `write_calendars` and document behavious when the list of calendars is not named [#92](https://github.com/rjdverse/rjd3workspace/issues/92)
+* New message in `write_calendars` when the single calendar is not named (and renamed in `"cal"`) [#101](https://github.com/rjdverse/rjd3workspace/issues/101)
+
 ## [3.8.0] - 2026-07-17
 
 ### Fixed
