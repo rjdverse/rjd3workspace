@@ -25,9 +25,10 @@ is.workspace <- function(x) {
 #'
 #' @details
 #' A modelling context is a list of variables to be used as external regressors
-#' in modelling processes (Reg-Arima or Tramo) or calendars to be used to generate calendar regressors.
-#' It can be created with [rjd3toolkit::modelling_context()] function or retrieved from another
-#' workspace (\code{(set_context)})
+#' in modelling processes (Reg-Arima or Tramo) or calendars to be used to
+#' generate calendar regressors.
+#' It can be created with [rjd3toolkit::modelling_context()] function or
+#' retrieved from another workspace (\code{(set_context)})
 #'
 #'
 #' @param modelling_context a list of variables and calendars
@@ -91,8 +92,8 @@ jws_add <- function(jws, jsap) {
 #' Returns a Java object workspace or SA-Processing
 #'
 #' @details
-#' The copy of a SA-processing will be made in the same workspace. The modelling context of the
-#' workspace is also copied.
+#' The copy of a SA-processing will be made in the same workspace. The
+#' modelling context of the workspace is also copied.
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Create an empty 'JDemetra+' Workspace
@@ -126,22 +127,26 @@ jws_make_copy <- function(jws) {
 #'
 #' @param period,start,end  additional parameters used to specify the span
 #' When `policy = "Outliers"` or `policy = "Outliers_StochasticComponent"`
-#' \code{period}: numeric, number of observations in a year (12, 4...), compulsory,
-#' if mis-specified or missing, re-estimation with refreshed specification won't work.
-#' \code{end} has to be specified as the date from which outliers will be re-identified
+#' \code{period}: numeric, number of observations in a year (12, 4...),
+#' compulsory, if mis-specified or missing, re-estimation with refreshed
+#' specification won't work.
+#' \code{end} has to be specified as the date from which outliers will be
+#' re-identified
 #'
 #' @param info indication on how data should be refreshed
-#' `All`: data and metadata will be refreshed (default)
-#' `Data`: data will be refreshed, not metadata
-#' `None`: nor data neither metadata will be refreshed, to be used for updating specifications only.
+#' - `All`: data and metadata will be refreshed (default)
+#' - `Data`: data will be refreshed, not metadata
+#' - `None`: nor data neither metadata will be refreshed, to be used for
+#'   updating specifications only.
 #'
 #' @details
 #'
-#' A particular selection of parameters to be kept fixed or re-estimated is called a
-#' revision policy.
+#' A particular selection of parameters to be kept fixed or re-estimated is
+#' called a revision policy.
 #' Workspace has to be computed before refresh
-#' When refreshing data, empty your cache by restarting your R session, before refreshing,
-#' otherwise the specification will be refreshed but the new data will not be taken into account.
+#' When refreshing data, empty your cache by restarting your R session, before
+#' refreshing, otherwise the specification will be refreshed but the new data
+#' will not be taken into account.
 #'
 #' Available refresh policies are:
 #' \enumerate{
@@ -168,7 +173,8 @@ jws_make_copy <- function(jws) {
 #' X11 (or SEATS) and Benchmarking part parameters are untouched.
 #' \item \strong{Complete}: All the parameters are re-identified and
 #' re-estimated, unless constrained in the reference spec.
-#' X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+#' X11 (or SEATS) and Benchmarking part parameters are entirely reset to values
+#' in the reference specification.
 #' }
 #' @references
 #' More information on revision policies in JDemetra+ documentation:
@@ -179,13 +185,15 @@ jws_make_copy <- function(jws) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load workspace
-#' file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test_refresh.xml",
+#'                     package = "rjd3workspace")
 #'
 #' \donttest{
 #' jws <- jws_open(file)
 #' txt_update_path(
 #'     jws = jws,
-#'     new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+#'     new_path = system.file("extdata", "IPI_nace4.csv",
+#'                            package = "rjd3workspace")
 #' )
 #' jws_compute(jws)
 #'
@@ -245,14 +253,15 @@ jws_refresh <- function(
 #' @returns Invisibly `NULL`
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
-#'
 #' library("rjd3toolkit")
 #'
 #' # French calendar
 #' french_calendar <- national_calendar(
 #'     days = list(
-#'         fixed_day(7, 14), # Bastille Day
-#'         fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+#'         # Bastille Day
+#'         fixed_day(7, 14),
+#'         # End of 2nd WW
+#'         fixed_day(5, 8, validity = list(start = "1982-05-08")),
 #'         special_day("NEWYEAR"),
 #'         special_day("CHRISTMAS"),
 #'         special_day("MAYDAY"),
@@ -266,7 +275,8 @@ jws_refresh <- function(
 #' )
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -296,7 +306,8 @@ set_context <- function(jws, modelling_context = NULL) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -328,7 +339,8 @@ get_context <- function(jws) {
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -349,8 +361,9 @@ ws_sap_count <- function(jws) {
 #' Extract a SA-Processing or a SA-Item
 #'
 #' @description
-#' Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a
-#' SA-Processing its order number (index). The original object is unaltered.
+#' Functions allowing to extract a SA-Processing from a Workspace using its
+#' order number (index) and a SA-Item from a SA-Processing its order number
+#' (index). The original object is unaltered.
 #' @param jws,jsap Workspace or SA-Processing.
 #' @param idx index of the object to extract.
 #'
@@ -360,7 +373,8 @@ ws_sap_count <- function(jws) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -389,8 +403,9 @@ jws_sap <- function(jws, idx) {
 #' @title Open an existing 'JDemetra+' Workspace
 #'
 #' @description
-#' `jws_open()` opens an existing Workspace (as a Java pointer) and `jws_compute()` computes it (allowing
-#' to extract all the SA-Items as Java objects).
+#' `jws_open()` opens an existing Workspace (as a Java pointer) and
+#' `jws_compute()` computes it (allowing to extract all the SA-Items as Java
+#' objects).
 #'
 #' @param file path to Workspace xml master file
 #' By default a dialog box opens.
@@ -399,7 +414,8 @@ jws_sap <- function(jws, idx) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -451,7 +467,8 @@ jws_open <- function(file) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -467,9 +484,10 @@ jws_compute <- function(jws) {
 
 #' Read all SA-Items from a Workspace or SA-Processing
 #'
-#' Functions reading all SA-Items from a Workspace (`read_workspace()`) or a SA-Processing (`read_sap()`)
-#' and allowing to access them as R lists.
-#' Whereas functions `jread_sap()` and `jread_workspace()` only return corresponding Java objects
+#' Functions reading all SA-Items from a Workspace (`read_workspace()`) or a
+#' SA-Processing (`read_sap()`) and allowing to access them as R lists.
+#' Whereas functions `jread_sap()` and `jread_workspace()` only return
+#' corresponding Java objects
 #'
 #' @param jws Java Workspace.
 #' @param jsap Java SA-Processing.
@@ -479,7 +497,8 @@ jws_compute <- function(jws) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -531,12 +550,13 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @title Save Workspace
 #'
 #' @description
-#' Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
-#' User Interface.
+#' Function allowing to write a workspace as a collection of xml files readable
+#' by JDemetra+ Graphical User Interface.
 #'
 #' @param jws Workspace object to export.
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
-#' @param replace boolean indicating if the Workspace should be replaced if it already exists.
+#' @param replace boolean indicating if the Workspace should be replaced if it
+#'   already exists.
 #'
 #' @returns A boolean indicating if the saving was successful.
 #'
@@ -584,24 +604,30 @@ full_path <- function(path) {
 #' @returns \code{NULL} returned invisibly
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
+#' library("rjd3toolkit")
+#'
 #' # French calendar
-#' french_calendar <- rjd3toolkit::national_calendar(
+#' french_calendar <- national_calendar(
 #'     days = list(
-#'         rjd3toolkit::fixed_day(7, 14), # Bastille Day
-#'         rjd3toolkit::fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
-#'         rjd3toolkit::special_day("NEWYEAR"),
-#'         rjd3toolkit::special_day("CHRISTMAS"),
-#'         rjd3toolkit::special_day("MAYDAY"),
-#'         rjd3toolkit::special_day("EASTERMONDAY"),
-#'         rjd3toolkit::special_day("ASCENSION"),
-#'         rjd3toolkit::special_day("WHITMONDAY"),
-#'         rjd3toolkit::special_day("ASSUMPTION"),
-#'         rjd3toolkit::special_day("ALLSAINTSDAY"),
-#'         rjd3toolkit::special_day("ARMISTICE")
+#'         # Bastille Day
+#'         fixed_day(7, 14),
+#'         # End of 2nd WW
+#'         fixed_day(5, 8, validity = list(start = "1982-05-08")),
+#'         special_day("NEWYEAR"),
+#'         special_day("CHRISTMAS"),
+#'         special_day("MAYDAY"),
+#'         special_day("EASTERMONDAY"),
+#'         special_day("ASCENSION"),
+#'         special_day("WHITMONDAY"),
+#'         special_day("ASSUMPTION"),
+#'         special_day("ALLSAINTSDAY"),
+#'         special_day("ARMISTICE")
 #'     )
 #' )
+#'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -633,14 +659,22 @@ add_calendar <- function(jws, name, calendar) {
 #' @title Add a Variable to a JD+ Workspace
 #'
 #' @description
-#' Adds a single time series variable to a specified group within a JD+ workspace..
+#' Adds a single time series variable to a specified group within a JD+
+#' workspace..
 #'
 #' @param jws A JD+ workspace object (Java pointer).
-#' @param group A character string indicating the name of the group in which to store the variable.
-#' @param y A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.
-#' @param name A character string naming the variable.
-#' @param overwrite a Boolean to indicate whether a variable already present
-#' should be replaced
+#' @param ... Other argument
+#' @param ... Additional arguments passed to
+#'   [rjd3toolkit::complete_modelling_context()] as:
+#'   \itemize{
+#'     \item{group}{A character string indicating the name of the group in
+#'       which to store the variable.}
+#'     \item{y}{A \code{ts} object (R time series) to be added. Only a single
+#'       time series can be added at a time.}
+#'     \item{name}{A character string naming the variable.}
+#'     \item{overwrite}{a Boolean to indicate whether a variable already
+#'       present should be replaced}
+#'   }
 #'
 #' @returns No return value (\code{NULL} returned invisibly). This function is
 #' used for its side effect of modifying the workspace.
@@ -653,7 +687,8 @@ add_calendar <- function(jws, name, calendar) {
 #' \itemize{
 #'   \item Cannot add multiple variables at once.
 #'   \item Does not support dynamic ts objects with metadata.
-#'   \item If group does not exist, a new group is created but named after the variable name, not the intended group.
+#'   \item If group does not exist, a new group is created but named after the
+#'     variable name, not the intended group.
 #' }
 #'
 #' @seealso [rjd3toolkit::modelling_context()] to create multiple variables and
@@ -665,37 +700,21 @@ add_calendar <- function(jws, name, calendar) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
 #' }
 #'
-add_variables <- function(jws, group, name, y, overwrite = FALSE) {
-    if (inherits(y, what = c("JD3_DYNAMICTS", "JD3_TS"))) {
-        context <- get_context(jws)
-        vars <- context$variables
-        if (!(is.null(vars[[group]][[name]]) || overwrite)) {
-            message(
-                "There is already a variable with the same name in the same group.",
-                "Please change the name of the variable or the name of the group or set `overwrite` to `TRUE`."
-            )
-            return(invisible(NULL))
-        }
-        vars[[group]][[name]] <- y
-        new_context <- rjd3toolkit::modelling_context(
-            calendars = context$calendars,
-            variables = vars
-        )
-        set_context(jws, modelling_context = new_context)
-        return(invisible(NULL))
-    }
-    .jcall(
-        jws,
-        "V",
-        "addVariable",
-        group,
-        name,
-        rjd3toolkit::.r2jd_tsdata(y)
+#' @importFrom rjd3toolkit complete_modelling_context
+#'
+add_variables <- function(jws, ...) {
+    context <- rjd3toolkit::complete_modelling_context(
+        modelling_context = get_context(jws),
+        ...
     )
+    set_context(jws, modelling_context = context)
+    return(invisible(NULL))
 }
+
