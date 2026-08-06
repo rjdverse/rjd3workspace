@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+* Relative paths are accepted for `regarima_read_spec()`, `tramo_read_spec()`, `tramoseats_read_spec()` and `x13_read_spec()` [#91](https://github.com/rjdverse/rjd3workspace/issues/91)
+
+
 ## [3.8.0] - 2026-07-17
 
 ### Fixed

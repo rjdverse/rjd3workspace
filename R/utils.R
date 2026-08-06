@@ -22,6 +22,7 @@ NULL
 #' str(my_spec)
 #' @export
 tramo_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
         returnSig = "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
@@ -89,6 +90,7 @@ tramo_write_spec <- function(spec, file) {
 #' str(my_spec)
 #' @export
 tramoseats_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
         returnSig = "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
@@ -157,6 +159,7 @@ tramoseats_write_spec <- function(spec, file) {
 #'
 #' @export
 regarima_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         "jdplus/x13/base/workspace/Utility",
         "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
@@ -224,6 +227,7 @@ regarima_write_spec <- function(spec, file) {
 #' str(my_spec)
 #' @export
 x13_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/x13/base/workspace/Utility",
         returnSig = "Ljdplus/x13/base/api/x13/X13Spec;",
