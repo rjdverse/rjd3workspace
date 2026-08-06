@@ -698,13 +698,37 @@ add_calendar <- function(jws, name, calendar) {
 #' @export
 #'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
+#' # Create a Workspace
+#' my_ws <- jws_new()
 #'
-#' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml",
-#'                     package = "rjd3workspace")
 #' \donttest{
-#' jws <- jws_open(file)
-#' add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+#' # Add one variable
+#' add_variables(
+#'     jws = jws,
+#'     group = "reg1",
+#'     y = AirPassengers,
+#'     name = "x1"
+#' )
+#'
+#' # Add 2 named variables
+#' add_variables(
+#'     jws = my_ws,
+#'     group = "reg1",
+#'     y = list(a = mdeaths, b = ldeaths),
+#'     name = "DeathMale"
+#' )
+#'
+#' # Add a list of variables (or a MTS)
+#' add_variables(
+#'     jws = my_ws,
+#'     group = "reg1",
+#'     y = ABS
+#' )
+#' add_variables(
+#'     jws = my_ws,
+#'     group = "reg1",
+#'     y = Seatsbelts
+#' )
 #' }
 #'
 #' @importFrom rjd3toolkit complete_modelling_context

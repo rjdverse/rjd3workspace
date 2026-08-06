@@ -4,26 +4,30 @@
 \alias{add_variables}
 \title{Add a Variable to a JD+ Workspace}
 \usage{
-add_variables(jws, group, name, y, overwrite = FALSE)
+add_variables(jws, ...)
 }
 \arguments{
 \item{jws}{A JD+ workspace object (Java pointer).}
 
-\item{group}{A character string indicating the name of the group in which to store the variable.}
-
+\item{...}{Additional arguments passed to
+\code{\link[rjd3toolkit:complete_modelling_context]{rjd3toolkit::complete_modelling_context()}} as:
+\itemize{
+\item{group}{A character string indicating the name of the group in
+which to store the variable.}
+\item{y}{A \code{ts} object (R time series) to be added. Only a single
+time series can be added at a time.}
 \item{name}{A character string naming the variable.}
-
-\item{y}{A \code{ts} object (R time series) to be added. Only a single time series can be added at a time.}
-
-\item{overwrite}{a Boolean to indicate whether a variable already present
-should be replaced}
+\item{overwrite}{a Boolean to indicate whether a variable already
+present should be replaced}
+}}
 }
 \value{
 No return value (\code{NULL} returned invisibly). This function is
 used for its side effect of modifying the workspace.
 }
 \description{
-Adds a single time series variable to a specified group within a JD+ workspace..
+Adds a single time series variable to a specified group within a JD+
+workspace..
 }
 \details{
 For the time being, if the group does not already exist, a new group is
@@ -34,18 +38,44 @@ created, but the group will be named after \code{name}, not \code{group}.
 \itemize{
 \item Cannot add multiple variables at once.
 \item Does not support dynamic ts objects with metadata.
-\item If group does not exist, a new group is created but named after the variable name, not the intended group.
+\item If group does not exist, a new group is created but named after the
+variable name, not the intended group.
 }
 }
 
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
+# Create a Workspace
+my_ws <- jws_new()
 
-# Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 \donttest{
-jws <- jws_open(file)
-add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+# Add one variable
+add_variables(
+    jws = jws,
+    group = "reg1",
+    y = AirPassengers,
+    name = "x1"
+)
+
+# Add 2 named variables
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = list(a = mdeaths, b = ldeaths),
+    name = "DeathMale"
+)
+
+# Add a list of variables (or a MTS)
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = ABS
+)
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = Seatsbelts
+)
 }
 \dontshow{\}) # examplesIf}
 }

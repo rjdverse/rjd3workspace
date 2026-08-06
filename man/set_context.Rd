@@ -19,14 +19,15 @@ Set Context of a Workspace
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
-
 library("rjd3toolkit")
 
 # French calendar
 french_calendar <- national_calendar(
     days = list(
-        fixed_day(7, 14), # Bastille Day
-        fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+        # Bastille Day
+        fixed_day(7, 14),
+        # End of 2nd WW
+        fixed_day(5, 8, validity = list(start = "1982-05-08")),
         special_day("NEWYEAR"),
         special_day("CHRISTMAS"),
         special_day("MAYDAY"),
@@ -40,7 +41,8 @@ french_calendar <- national_calendar(
 )
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 
