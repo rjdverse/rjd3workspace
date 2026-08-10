@@ -3,15 +3,15 @@
 \name{get-results}
 \alias{get-results}
 \alias{get_results}
-\alias{.jsai_results}
-\alias{.jsai_jresults}
+\alias{jsai_results}
+\alias{jsai_jresults}
 \title{Extract results from a SA-item}
 \usage{
 get_results(jsai)
 
-.jsai_results(jsai, items = NULL)
+jsai_results(jsai, items = NULL)
 
-.jsai_jresults(jsai)
+jsai_jresults(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}

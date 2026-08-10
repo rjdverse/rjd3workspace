@@ -7,9 +7,15 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+
 ### Changed
 
 * `add_variables` uses `complete_modelling_context` from {rjd3toolkit}, corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION` and `JD3_DYNAMICTS` objects [#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+
+### Deprecated
+
+* Function `.jsai_jresults()` is deprecated. Please use function `jsai_jresults()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
+* Function `.jsai_results()` is deprecated. Please use function `jsai_results()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
 
 ### Added
 
@@ -18,6 +24,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Fixed
 
+* Relative paths are accepted for `regarima_read_spec()`, `tramo_read_spec()`, `tramoseats_read_spec()` and `x13_read_spec()` [#91](https://github.com/rjdverse/rjd3workspace/issues/91)
 * `save_workspace` generates a warning when a workspace already exists and `replace = FALSE` (the default)  [#105](https://github.com/rjdverse/rjd3workspace/issues/105)
 
 
