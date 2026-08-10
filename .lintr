@@ -8,12 +8,14 @@ linters: lintr::all_linters(
         commented_code_linter = NULL,
         nonportable_path_linter = NULL,
         implicit_integer_linter = NULL,
+        undesirable_function_linter = NULL,
         object_overwrite_linter = NULL
     )
 encoding: "UTF-8"
 exclusions: list(
     "tests/" = list(
+        library_call_linter = Inf,
         undesirable_function_linter = Inf,
-        library_call_linter = Inf
+        unused_import_linter = Inf
     )
   )
