@@ -211,6 +211,8 @@ read_sai(jsai = jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -271,6 +273,8 @@ read_sai(jsai = jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -334,6 +338,8 @@ read_sai(jsai = jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No

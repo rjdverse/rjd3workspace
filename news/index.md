@@ -1,8 +1,6 @@
 # Changelog
 
-## rjd3workspace 3.8.0
-
-CRAN release: 2026-07-17
+## rjd3workspace 3.8.0.9000
 
 All notable changes to this project will be documented in this file.
 

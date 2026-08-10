@@ -173,6 +173,8 @@ rws$processing$`SAProcessing-1`$`RF0811`$referenceSpec
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -231,6 +233,8 @@ rws$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 #> Nb of forecasts: -2
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: MULTIPLICATIVE
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Enabled: Yes
@@ -298,6 +302,8 @@ rws2$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -365,6 +371,8 @@ rws3$processing$`SAProcessing-1`$`RF0811`$estimationSpec
 #> Nb of forecasts: -2
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: MULTIPLICATIVE
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Enabled: Yes

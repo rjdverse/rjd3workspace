@@ -100,6 +100,8 @@ get_reference_specification(jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -161,6 +163,8 @@ get_estimation_specification(jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
@@ -225,6 +229,8 @@ get_result_specification(jsai1)
 #> Nb of forecasts: -1
 #> Nb of backcasts: 0
 #> Calendar sigma: NONE
+#> Mode X-11: UNKNOWN
+#> Bias: RATIO
 #> 
 #> Benchmarking
 #> Is enabled: No
