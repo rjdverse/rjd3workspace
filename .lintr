@@ -15,3 +15,10 @@ linters: lintr::all_linters(
         #print_linter = NULL
     )
 encoding: "UTF-8"
+exclusions: list(
+    "tests/" = list(
+        library_call_linter = Inf,
+        undesirable_function_linter = Inf,
+        unused_import_linter = Inf
+    )
+  )

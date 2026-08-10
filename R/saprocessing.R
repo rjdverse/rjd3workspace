@@ -519,8 +519,11 @@ get_estimation_specification <- function(jsai) {
 #' @rdname get-specification
 #' @export
 get_result_specification <- function(jsai) {
-    jestimation <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- .jcall(
+        obj = jsai,
+        returnSig = "Ljdplus/sa/base/api/SaEstimation;",
+        method = "getEstimation"
+    )
 
     if (is.null(jestimation) || is.jnull(jestimation)) {
         return(NULL)
