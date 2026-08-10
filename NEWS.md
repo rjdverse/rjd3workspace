@@ -11,6 +11,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * `add_variables` uses `complete_modelling_context` from {rjd3toolkit}, corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION` and `JD3_DYNAMICTS` objects [#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
 
+### Added
+
+* New `verbose` argument in `write_calendars` and document behavious when the list of calendars is not named [#92](https://github.com/rjdverse/rjd3workspace/issues/92)
+* New message in `write_calendars` when the single calendar is not named (and renamed in `"cal"`) [#101](https://github.com/rjdverse/rjd3workspace/issues/101)
+
+### Fixed
+
+* `save_workspace` generates a warning when a workspace already exists and `replace = FALSE` (the default)  [#105](https://github.com/rjdverse/rjd3workspace/issues/105)
+
+
 ## [3.8.0] - 2026-07-17
 
 ### Fixed
@@ -178,8 +188,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
-[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/3.8.0...HEAD
-[3.8.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...3.8.0
+[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD
+[3.8.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...v3.8.0
 [3.7.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...v3.7.1
 [3.6.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.1...v3.6.0
 [3.5.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.0...v3.5.1

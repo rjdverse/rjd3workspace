@@ -4,7 +4,7 @@
 \alias{save_workspace}
 \title{Save Workspace}
 \usage{
-save_workspace(jws, file, replace = FALSE)
+save_workspace(jws, file, replace = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{jws}{Workspace object to export.}
@@ -13,6 +13,9 @@ save_workspace(jws, file, replace = FALSE)
 
 \item{replace}{boolean indicating if the Workspace should be replaced if it
 already exists.}
+
+\item{verbose}{Boolean indicating whether to print additional information.
+Default is \code{TRUE}.}
 }
 \value{
 A boolean indicating if the saving was successful.

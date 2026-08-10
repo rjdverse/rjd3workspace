@@ -140,7 +140,6 @@ jws_make_copy <- function(jws) {
 #'   updating specifications only.
 #'
 #' @details
-#'
 #' A particular selection of parameters to be kept fixed or re-estimated is
 #' called a revision policy.
 #' Workspace has to be computed before refresh
@@ -437,11 +436,11 @@ jws_open <- function(file) {
             file <- base::file.choose()
         }
         if (length(file) == 0L) {
-            stop("You have to choose a file !")
+            stop("You have to choose a file !", call. = FALSE)
         }
     }
     if (!file.exists(file) || tools::file_ext(file) != "xml") {
-        stop("The file doesn't exist or isn't a .xml file !")
+        stop("The file doesn't exist or isn't a .xml file !", call. = FALSE)
     }
     full_file_name <- full_path(file)
     jws <- .jcall(
@@ -557,6 +556,8 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' @param file path where to export the 'JDemetra+' Workspace (.xml file).
 #' @param replace boolean indicating if the Workspace should be replaced if it
 #'   already exists.
+#' @param verbose Boolean indicating whether to print additional information.
+#'   Default is `TRUE`.
 #'
 #' @returns A boolean indicating if the saving was successful.
 #'
@@ -572,17 +573,36 @@ jread_workspace <- function(jws, compute = TRUE) {
 #' }
 #'
 #' @export
-save_workspace <- function(jws, file, replace = FALSE) {
+save_workspace <- function(jws, file, replace = FALSE, verbose = TRUE) {
     # version <- match.arg(tolower(version)[1], c("jd3", "jd2"))
     version <- "jd3"
     file <- full_path(file)
-    if (replace && file.exists(file)) {
+
+    if (!replace && file.exists(file)) {
+        if (verbose) {
+            warning(
+                "A workspace already exists. ",
+                "To overwrite it, use the argument `replace = TRUE`.",
+                call. = FALSE
+            )
+        }
+        return(FALSE)
+    }
+
+    if (verbose) {
+        message("The workspace will be written to ", file, ".")
+    }
+    if (file.exists(file)) {
         base::file.remove(file)
         base::unlink(
             gsub("\\.xml$", "", file),
             recursive = TRUE
         )
+        if (verbose) {
+            message("A workspace already exists and will be overwritten.")
+        }
     }
+
     invisible(.jcall(jws, "Z", "saveAs", file, version, !replace))
 }
 
