@@ -10,6 +10,15 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD)
 
+#### Added
+
+- New `verbose` argument in `write_calendars` and document behavious
+  when the list of calendars is not named
+  [\#92](https://github.com/rjdverse/rjd3workspace/issues/92)
+- New message in `write_calendars` when the single calendar is not named
+  (and renamed in `"cal"`)
+  [\#101](https://github.com/rjdverse/rjd3workspace/issues/101)
+
 #### Fixed
 
 - `save_workspace` generates a warning when a workspace already exists

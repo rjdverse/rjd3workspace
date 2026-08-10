@@ -8,22 +8,34 @@ defined with
 ## Usage
 
 ``` r
-write_calendars(calendars, file)
+write_calendars(calendars, file, verbose = TRUE)
 ```
 
 ## Arguments
 
 - calendars:
 
-  list of calendars or a `JD3_CALENDAR` object
+  named list of calendars or a `JD3_CALENDAR` object
 
 - file:
 
   xml format
 
+- verbose:
+
+  Boolean indicating whether to print additional information. Default is
+  `TRUE`.
+
 ## Value
 
 `NULL` returned invisibly
+
+## Details
+
+If `calendars` is a single calendar (`JD3_CALENDAR` object), it will be
+named `cal` by default. If `calendars` is a list of calendars
+(`JD3_CALENDAR` object). Then they all must be named. Else, a error is
+risen.
 
 ## Examples
 
@@ -45,5 +57,6 @@ BE <- national_calendar(list(
 calendar_path <- tempfile(pattern = "calendar", fileext = ".xml")
 
 write_calendars(BE, file = calendar_path)
+#> The calendar will be renamed `cal`.
 write_calendars(list(BEL_cal = BE), file = calendar_path)
 ```
