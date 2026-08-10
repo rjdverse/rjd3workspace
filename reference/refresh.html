@@ -83,16 +83,19 @@
 <dt id="arg-period-start-end">period, start, end<a class="anchor" aria-label="anchor" href="#arg-period-start-end"></a></dt>
 <dd><p>additional parameters used to specify the span
 When <code>policy = "Outliers"</code> or <code>policy = "Outliers_StochasticComponent"</code>
-<code>period</code>: numeric, number of observations in a year (12, 4...), compulsory,
-if mis-specified or missing, re-estimation with refreshed specification won't work.
-<code>end</code> has to be specified as the date from which outliers will be re-identified</p></dd>
+<code>period</code>: numeric, number of observations in a year (12, 4...),
+compulsory, if mis-specified or missing, re-estimation with refreshed
+specification won't work.
+<code>end</code> has to be specified as the date from which outliers will be
+re-identified</p></dd>
 
 
 <dt id="arg-info">info<a class="anchor" aria-label="anchor" href="#arg-info"></a></dt>
-<dd><p>indication on how data should be refreshed
-<code>All</code>: data and metadata will be refreshed (default)
-<code>Data</code>: data will be refreshed, not metadata
-<code>None</code>: nor data neither metadata will be refreshed, to be used for updating specifications only.</p></dd>
+<dd><p>indication on how data should be refreshed</p><ul><li><p><code>All</code>: data and metadata will be refreshed (default)</p></li>
+<li><p><code>Data</code>: data will be refreshed, not metadata</p></li>
+<li><p><code>None</code>: nor data neither metadata will be refreshed, to be used for
+updating specifications only.</p></li>
+</ul></dd>
 
 
 <dt id="arg-jws-jsap">jws, jsap<a class="anchor" aria-label="anchor" href="#arg-jws-jsap"></a></dt>
@@ -105,11 +108,12 @@ if mis-specified or missing, re-estimation with refreshed specification won't wo
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>A particular selection of parameters to be kept fixed or re-estimated is called a
-revision policy.
+    <p>A particular selection of parameters to be kept fixed or re-estimated is
+called a revision policy.
 Workspace has to be computed before refresh
-When refreshing data, empty your cache by restarting your R session, before refreshing,
-otherwise the specification will be refreshed but the new data will not be taken into account.</p>
+When refreshing data, empty your cache by restarting your R session, before
+refreshing, otherwise the specification will be refreshed but the new data
+will not be taken into account.</p>
 <p>Available refresh policies are:</p><ol><li><p><strong>Fixed</strong>: applying the current pre-adjustment reg-arima model
 and replacing forecasts by new raw data points;
 X11 (or SEATS) and Benchmarking part parameters are untouched.</p></li>
@@ -133,7 +137,8 @@ model orders (p,d,q)(P,D,Q) can also be re-identified;
 X11 (or SEATS) and Benchmarking part parameters are untouched.</p></li>
 <li><p><strong>Complete</strong>: All the parameters are re-identified and
 re-estimated, unless constrained in the reference spec.
-X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.</p></li>
+X11 (or SEATS) and Benchmarking part parameters are entirely reset to values
+in the reference specification.</p></li>
 </ol></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
@@ -145,13 +150,15 @@ X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in 
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Load workspace</span></span></span>
-<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test_refresh.xml"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"workspaces"</span>, <span class="st">"workspace_test_refresh.xml"</span>,</span></span>
+<span class="r-in"><span>                    package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">jws</span> <span class="op">&lt;-</span> <span class="fu"><a href="jws_open.html">jws_open</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="txt_update_path.html">txt_update_path</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    jws <span class="op">=</span> <span class="va">jws</span>,</span></span>
-<span class="r-in"><span>    new_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"IPI_nace4.csv"</span>, package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    new_path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"IPI_nace4.csv"</span>,</span></span>
+<span class="r-in"><span>                           package <span class="op">=</span> <span class="st">"rjd3workspace"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="jws_compute.html">jws_compute</a></span><span class="op">(</span><span class="va">jws</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>

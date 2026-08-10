@@ -6,7 +6,7 @@ workspace..
 ## Usage
 
 ``` r
-add_variables(jws, group, name, y, overwrite = FALSE)
+add_variables(jws, ...)
 ```
 
 ## Arguments
@@ -15,24 +15,22 @@ add_variables(jws, group, name, y, overwrite = FALSE)
 
   A JD+ workspace object (Java pointer).
 
-- group:
+- ...:
 
-  A character string indicating the name of the group in which to store
-  the variable.
+  Additional arguments passed to
+  [`rjd3toolkit::complete_modelling_context()`](https://rjdverse.github.io/rjd3toolkit/reference/complete_modelling_context.html)
+  as:
 
-- name:
+  - groupA character string indicating the name of the group in which to
+    store the variable.
 
-  A character string naming the variable.
+  - yA `ts` object (R time series) to be added. Only a single time
+    series can be added at a time.
 
-- y:
+  - nameA character string naming the variable.
 
-  A `ts` object (R time series) to be added. Only a single time series
-  can be added at a time.
-
-- overwrite:
-
-  a Boolean to indicate whether a variable already present should be
-  replaced
+  - overwritea Boolean to indicate whether a variable already present
+    should be replaced
 
 ## Value
 
@@ -64,11 +62,37 @@ to import/export variables.
 ## Examples
 
 ``` r
+# Create a Workspace
+my_ws <- jws_new()
 
-# Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
 # \donttest{
-jws <- jws_open(file)
-add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
+# Add one variable
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = AirPassengers,
+    name = "x1"
+)
+
+# Add 2 named variables
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = list(a = mdeaths, b = ldeaths),
+    name = "DeathMale"
+)
+
+# Add a list of variables (or a MTS)
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = rjd3toolkit::ABS
+)
+#> Replaced forbidden character(s) in 22 name(s).
+add_variables(
+    jws = my_ws,
+    group = "reg1",
+    y = Seatbelts
+)
 # }
 ```

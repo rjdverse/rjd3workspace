@@ -51,6 +51,12 @@
 <div class="section level3">
 <h3 id="unreleased-3-8-0-9000"><a href="https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD" class="external-link">Unreleased</a><a class="anchor" aria-label="anchor" href="#unreleased-3-8-0-9000"></a></h3>
 <div class="section level4">
+<h4 id="changed-3-8-0-9000">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000"></a></h4>
+<ul><li>
+<code>add_variables</code> uses <code>complete_modelling_context</code> from {rjd3toolkit}, corrects wrong names and accepts <code>mts</code>, <code>JD3_TS</code>, <code>JD3_TSCOLLECTION</code> and <code>JD3_DYNAMICTS</code> objects <a href="https://github.com/rjdverse/rjd3toolkit/issues/148" class="external-link">#148</a>
+</li>
+</ul></div>
+<div class="section level4">
 <h4 id="deprecated-3-8-0-9000">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000"></a></h4>
 <ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_jresults()</a></code> is deprecated. Please use function <code><a href="../reference/get-results.html">jsai_jresults()</a></code> instead. <a href="https://github.com/rjdverse/rjd3workspace/issues/88" class="external-link">#88</a>
 </li>
@@ -92,7 +98,7 @@
 <h3 id="id_371---3-8-0-9000">
 <a href="https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...v3.7.1" class="external-link">3.7.1</a> - 2026-04-03<a class="anchor" aria-label="anchor" href="#id_371---3-8-0-9000"></a></h3>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000"></a></h4>
+<h4 id="changed-3-8-0-9000-1">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-1"></a></h4>
 <ul><li>Use <code>get_java_version()</code> instead of <code>.jversion</code>
 </li>
 </ul></div>
@@ -119,7 +125,7 @@
 <ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jws_add()</a></code> is deprecated. Please use function <code><a href="../reference/jws_add.html">jws_add()</a></code> instead.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-1">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-1"></a></h4>
+<h4 id="changed-3-8-0-9000-2">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-2"></a></h4>
 <ul><li>
 <code><a href="../reference/write_calendars.html">write_calendars()</a></code> accepts now multiple calendars <a href="https://github.com/rjdverse/rjd3workspace/issues/95" class="external-link">#95</a>
 </li>
@@ -148,7 +154,7 @@
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_metadata()</a></code> is deprecated. Please use function <code><a href="../reference/get_metadata.html">get_metadata()</a></code> instead.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-2">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-2"></a></h4>
+<h4 id="changed-3-8-0-9000-3">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-3"></a></h4>
 <ul><li>Simplified the modification of path in <code>update_path()</code>
 </li>
 <li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.1" class="external-link">3.5.1</a>
@@ -169,7 +175,7 @@
 <ul><li>New functions to update the raw data path (<code><a href="../reference/spreadsheet_update_path.html">spreadsheet_update_path()</a></code> and <code><a href="../reference/txt_update_path.html">txt_update_path()</a></code>)</li>
 </ul></div>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-3">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-3"></a></h4>
+<h4 id="changed-3-8-0-9000-4">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-4"></a></h4>
 <ul><li>Rename the argument <code>jsa</code> in <code>jsai</code> in <code><a href="../reference/read_sai.html">read_sai()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_results()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_jresults()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_name()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_metadata()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_ts_metadata()</a></code>, <code><a href="../reference/replace_sa_item.html">replace_sa_item()</a></code>, <code><a href="../reference/set_raw_data.html">get_raw_data()</a></code>, <code><a href="../reference/set_ts.html">get_ts()</a></code>, <code><a href="../reference/set_comment.html">get_comment()</a></code> and <code><a href="../reference/set_priority.html">get_priority()</a></code>
 </li>
 <li>Rename the argument <code>ref_jsa</code> in <code>ref_jsai</code> in <code><a href="../reference/set_ts_metadata.html">set_ts_metadata()</a></code>
@@ -259,7 +265,7 @@
 <ul><li>new function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_jresults()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jread_sap()</a></code> and <code><a href="../reference/deprecated-rjd3workspace.html">.jread_workspace()</a></code> to extract the Java object of the results of a SAItem.</li>
 </ul></div>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-4">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-4"></a></h4>
+<h4 id="changed-3-8-0-9000-5">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-5"></a></h4>
 <ul><li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.4" class="external-link">3.2.4</a>
 </li>
 </ul></div>
@@ -268,7 +274,7 @@
 <h3 id="id_323---3-8-0-9000">
 <a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.2...v3.2.3" class="external-link">3.2.3</a> - 2024-07-12<a class="anchor" aria-label="anchor" href="#id_323---3-8-0-9000"></a></h3>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-5">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-5"></a></h4>
+<h4 id="changed-3-8-0-9000-6">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-6"></a></h4>
 <ul><li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.3" class="external-link">3.2.3</a>
 </li>
 </ul></div>
@@ -277,7 +283,7 @@
 <h3 id="id_322---3-8-0-9000">
 <a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.1...v3.2.2" class="external-link">3.2.2</a> - 2024-03-15<a class="anchor" aria-label="anchor" href="#id_322---3-8-0-9000"></a></h3>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-6">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-6"></a></h4>
+<h4 id="changed-3-8-0-9000-7">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-7"></a></h4>
 <ul><li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2" class="external-link">3.2.2</a>
 </li>
 </ul></div>
@@ -286,7 +292,7 @@
 <h3 id="id_321---3-8-0-9000">
 <a href="https://github.com/rjdverse/rjd3workspace/compare/v3.2.0...v3.2.1" class="external-link">3.2.1</a> - 2023-12-12<a class="anchor" aria-label="anchor" href="#id_321---3-8-0-9000"></a></h3>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-7">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-7"></a></h4>
+<h4 id="changed-3-8-0-9000-8">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-8"></a></h4>
 <ul><li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.1" class="external-link">3.2.1</a>
 </li>
 </ul></div>
@@ -295,7 +301,7 @@
 <h3 id="id_320---3-8-0-9000">
 <a href="https://github.com/rjdverse/rjd3workspace/compare/v3.1.0...v3.2.0" class="external-link">3.2.0</a> - 2023-11-24<a class="anchor" aria-label="anchor" href="#id_320---3-8-0-9000"></a></h3>
 <div class="section level4">
-<h4 id="changed-3-8-0-9000-8">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-8"></a></h4>
+<h4 id="changed-3-8-0-9000-9">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-9"></a></h4>
 <ul><li>New JARS related to version <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.0" class="external-link">3.2.0</a>
 </li>
 </ul></div>

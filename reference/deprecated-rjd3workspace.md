@@ -107,9 +107,15 @@ get_point_specification(jsai)
 
 ## Arguments
 
-- jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute,
-  policy, period, start, end, info, modelling_context, jsap_from,
-  jsap_to, selected_sa_items, print_indications, spec:
+- jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute:
+
+  Parameters.
+
+- policy, period, start, end, info, modelling_context, jsap_from:
+
+  Parameters.
+
+- jsap_to, selected_sa_items, print_indications, spec:
 
   Parameters.
 

@@ -43,10 +43,14 @@ jws_refresh(
 
 - info:
 
-  indication on how data should be refreshed `All`: data and metadata
-  will be refreshed (default) `Data`: data will be refreshed, not
-  metadata `None`: nor data neither metadata will be refreshed, to be
-  used for updating specifications only.
+  indication on how data should be refreshed
+
+  - `All`: data and metadata will be refreshed (default)
+
+  - `Data`: data will be refreshed, not metadata
+
+  - `None`: nor data neither metadata will be refreshed, to be used for
+    updating specifications only.
 
 - jws, jsap:
 
@@ -108,13 +112,15 @@ More information on revision policies in JDemetra+ documentation:
 ``` r
 
 # Load workspace
-file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test_refresh.xml",
+                    package = "rjd3workspace")
 
 # \donttest{
 jws <- jws_open(file)
 txt_update_path(
     jws = jws,
-    new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+    new_path = system.file("extdata", "IPI_nace4.csv",
+                           package = "rjd3workspace")
 )
 jws_compute(jws)
 

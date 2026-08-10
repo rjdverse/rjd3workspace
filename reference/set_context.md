@@ -25,19 +25,15 @@ Invisibly `NULL`
 ## Examples
 
 ``` r
-
 library("rjd3toolkit")
-#> 
-#> Attaching package: ‘rjd3toolkit’
-#> The following objects are masked from ‘package:stats’:
-#> 
-#>     aggregate, mad
 
 # French calendar
 french_calendar <- national_calendar(
     days = list(
-        fixed_day(7, 14), # Bastille Day
-        fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+        # Bastille Day
+        fixed_day(7, 14),
+        # End of 2nd WW
+        fixed_day(5, 8, validity = list(start = "1982-05-08")),
         special_day("NEWYEAR"),
         special_day("CHRISTMAS"),
         special_day("MAYDAY"),
@@ -51,7 +47,8 @@ french_calendar <- national_calendar(
 )
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 # \donttest{
 jws <- jws_open(file)
 
