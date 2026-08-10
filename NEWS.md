@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Deprecated
+
+* Function `.jsai_jresults()` is deprecated. Please use function `jsai_jresults()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
+* Function `.jsai_results()` is deprecated. Please use function `jsai_results()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
+
 ### Added
 
 * New `verbose` argument in `write_calendars` and document behavious when the list of calendars is not named [#92](https://github.com/rjdverse/rjd3workspace/issues/92)

@@ -100,14 +100,29 @@ NULL
 #' @rdname deprecated-rjd3workspace
 #' @export
 .jsa_results <- function(jsa, items = NULL) {
-    .Deprecated(".jsai_results")
-    .jsai_results(jsa, items)
+    .Deprecated("jsai_results")
+    jsai_results(jsa, items)
 }
+
+#' @rdname deprecated-rjd3workspace
+#' @export
+.jsai_results <- function(jsa, items = NULL) {
+    .Deprecated("jsai_results")
+    jsai_results(jsa, items)
+}
+
 #' @rdname deprecated-rjd3workspace
 #' @export
 .jsa_jresults <- function(jsa) {
-    .Deprecated(".jsai_jresults")
-    .jsai_jresults(jsa)
+    .Deprecated("jsai_jresults")
+    jsai_jresults(jsa)
+}
+
+#' @rdname deprecated-rjd3workspace
+#' @export
+.jsai_jresults <- function(jsa) {
+    .Deprecated("jsai_jresults")
+    jsai_jresults(jsa)
 }
 
 #' @rdname deprecated-rjd3workspace
@@ -116,6 +131,7 @@ NULL
     .Deprecated("get_metadata")
     get_metadata(jsa, key)
 }
+
 #' @rdname deprecated-rjd3workspace
 #' @export
 .jsai_metadata <- function(jsai, key) {
@@ -129,6 +145,7 @@ NULL
     .Deprecated("get_ts_metadata")
     get_ts_metadata(jsa, key)
 }
+
 #' @rdname deprecated-rjd3workspace
 #' @export
 .jsai_ts_metadata <- function(jsa, key) {
