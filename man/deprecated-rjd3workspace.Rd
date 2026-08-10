@@ -143,7 +143,11 @@ get_domain_specification(jsai)
 get_point_specification(jsai)
 }
 \arguments{
-\item{jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute, policy, period, start, end, info, modelling_context, jsap_from, jsap_to, selected_sa_items, print_indications, spec}{Parameters.}
+\item{jmp, idx, jws, name, jsa, jsai, jsap, items, key, file, compute}{Parameters.}
+
+\item{policy, period, start, end, info, modelling_context, jsap_from}{Parameters.}
+
+\item{jsap_to, selected_sa_items, print_indications, spec}{Parameters.}
 }
 \value{
 The same value as returned by the corresponding non-deprecated function.

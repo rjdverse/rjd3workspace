@@ -20,8 +20,8 @@ Returns a Java object workspace or SA-Processing
 Copy a Workspace or SA-Processing
 }
 \details{
-The copy of a SA-processing will be made in the same workspace. The modelling context of the
-workspace is also copied.
+The copy of a SA-processing will be made in the same workspace. The
+modelling context of the workspace is also copied.
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}

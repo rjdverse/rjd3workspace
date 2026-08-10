@@ -26,15 +26,17 @@ jread_workspace(jws, compute = TRUE)
 list or Java object
 }
 \description{
-Functions reading all SA-Items from a Workspace (\code{read_workspace()}) or a SA-Processing (\code{read_sap()})
-and allowing to access them as R lists.
-Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return corresponding Java objects
+Functions reading all SA-Items from a Workspace (\code{read_workspace()}) or a
+SA-Processing (\code{read_sap()}) and allowing to access them as R lists.
+Whereas functions \code{jread_sap()} and \code{jread_workspace()} only return
+corresponding Java objects
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 

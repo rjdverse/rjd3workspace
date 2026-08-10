@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+
+### Changed
+
+* `add_variables` uses `complete_modelling_context` from {rjd3toolkit}, corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION` and `JD3_DYNAMICTS` objects [#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+
 ### Deprecated
 
 * Function `.jsai_jresults()` is deprecated. Please use function `jsai_jresults()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
