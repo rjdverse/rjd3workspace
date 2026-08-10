@@ -21,6 +21,13 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 #### Fixed
 
+- Relative paths are accepted for
+  [`regarima_read_spec()`](https://rjdverse.github.io/rjd3workspace/reference/regarima_read_spec.md),
+  [`tramo_read_spec()`](https://rjdverse.github.io/rjd3workspace/reference/tramo_read_spec.md),
+  [`tramoseats_read_spec()`](https://rjdverse.github.io/rjd3workspace/reference/tramoseats_read_spec.md)
+  and
+  [`x13_read_spec()`](https://rjdverse.github.io/rjd3workspace/reference/x13_read_spec.md)
+  [\#91](https://github.com/rjdverse/rjd3workspace/issues/91)
 - `save_workspace` generates a warning when a workspace already exists
   and `replace = FALSE` (the default)
   [\#105](https://github.com/rjdverse/rjd3workspace/issues/105)
