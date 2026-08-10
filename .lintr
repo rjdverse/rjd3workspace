@@ -8,6 +8,7 @@ linters: lintr::all_linters(
         commented_code_linter = NULL,
         nonportable_path_linter = NULL,
         implicit_integer_linter = NULL,
+        undesirable_function_linter,
         object_overwrite_linter = NULL
     )
 encoding: "UTF-8"
