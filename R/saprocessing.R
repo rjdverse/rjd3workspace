@@ -217,7 +217,7 @@ add_sa_item.ts <- function(jsap, name, x, spec) {
     } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
         jspec <- rjd3tramoseats::.r2jd_spec_tramoseats(spec)
     } else {
-        stop("wrong type of spec")
+        stop("wrong type of spec", call. = FALSE)
     }
     .jcall(
         jsap,
@@ -246,7 +246,7 @@ add_sa_item.default <- function(jsap, name, x, spec) {
         y <- x$ts
         spec <- x$estimationSpec
     } else {
-        stop("wrong type of spec")
+        stop("wrong type of spec", call. = FALSE)
     }
     add_sa_item.ts(
         jsap = jsap,
@@ -267,7 +267,7 @@ add_sa_item.jobjRef <- function(jsap, name, x, spec) {
             set_name(jsap, name = name, idx = sap_sai_count(jsap))
         }
     } else {
-        stop("x is not SaItem")
+        stop("x is not SaItem", call. = FALSE)
     }
     invisible(TRUE)
 }
@@ -345,7 +345,8 @@ transfer_sa_item <- function(
             "The SA-items ",
             toString(missing_series),
             " are missing from the first SA Processing. ",
-            "The replacement wasn't performed."
+            "The replacement wasn't performed.",
+            call. = FALSE
         )
     }
 
@@ -354,7 +355,8 @@ transfer_sa_item <- function(
         if (length(index_from) > 1L) {
             stop(
                 "Several SA-items from first SAProcessing have the same name : ",
-                serie_name
+                serie_name,
+                call. = FALSE
             )
         }
         jsai1 <- jsap_sai(jsap_from, idx = index_from)
@@ -363,7 +365,8 @@ transfer_sa_item <- function(
         if (length(index_to) > 1L) {
             stop(
                 "Several SA-items from second SA Processing have the same name : ",
-                serie_name
+                serie_name,
+                call. = FALSE
             )
         } else if (length(index_to) == 0L) {
             add_sa_item(jsap = jsap_to, name = serie_name, x = jsai1)
@@ -425,7 +428,7 @@ set_specification <- function(jsap, idx, spec) {
     } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
         jspec <- rjd3tramoseats::.r2jd_spec_tramoseats(spec)
     } else {
-        stop("wrong type of spec")
+        stop("wrong type of spec", call. = FALSE)
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
     jsai <- jsap_sai(jsap, idx = idx)
@@ -446,7 +449,7 @@ set_reference_specification <- function(jsap, idx, spec) {
     } else if (inherits(spec, "JD3_TRAMOSEATS_SPEC")) {
         jspec <- rjd3tramoseats::.r2jd_spec_tramoseats(spec)
     } else {
-        stop("wrong type of spec")
+        stop("wrong type of spec", call. = FALSE)
     }
     jspec <- .jcast(jspec, "jdplus/sa/base/api/SaSpecification")
     jsai <- jsap_sai(jsap, idx = idx)
@@ -519,8 +522,11 @@ get_estimation_specification <- function(jsai) {
 #' @rdname get-specification
 #' @export
 get_result_specification <- function(jsai) {
-    jestimation <- jsai |>
-        .jcall("Ljdplus/sa/base/api/SaEstimation;", "getEstimation")
+    jestimation <- rJava::.jcall(
+        obj = jsai,
+        returnSig = "Ljdplus/sa/base/api/SaEstimation;",
+        method = "getEstimation"
+    )
 
     if (is.null(jestimation) || is.jnull(jestimation)) {
         return(NULL)

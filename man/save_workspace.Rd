@@ -4,21 +4,25 @@
 \alias{save_workspace}
 \title{Save Workspace}
 \usage{
-save_workspace(jws, file, replace = FALSE)
+save_workspace(jws, file, replace = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{jws}{Workspace object to export.}
 
 \item{file}{path where to export the 'JDemetra+' Workspace (.xml file).}
 
-\item{replace}{boolean indicating if the Workspace should be replaced if it already exists.}
+\item{replace}{boolean indicating if the Workspace should be replaced if it
+already exists.}
+
+\item{verbose}{Boolean indicating whether to print additional information.
+Default is \code{TRUE}.}
 }
 \value{
 A boolean indicating if the saving was successful.
 }
 \description{
-Function allowing to write a workspace as a collection of xml files readable by JDemetra+ Graphical
-User Interface.
+Function allowing to write a workspace as a collection of xml files readable
+by JDemetra+ Graphical User Interface.
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}

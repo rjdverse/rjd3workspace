@@ -1,6 +1,8 @@
 #' @title Deprecated functions
 #'
-#' @param jmp,idx,jws,name,jsa,jsai,jsap,items,key,file,compute,policy,period,start,end,info,modelling_context,jsap_from,jsap_to,selected_sa_items,print_indications,spec Parameters.
+#' @param jmp,idx,jws,name,jsa,jsai,jsap,items,key,file,compute Parameters.
+#' @param policy,period,start,end,info,modelling_context,jsap_from Parameters.
+#' @param jsap_to,selected_sa_items,print_indications,spec Parameters.
 #'
 #' @returns
 #' The same value as returned by the corresponding non-deprecated function.

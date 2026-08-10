@@ -13,7 +13,8 @@ NULL
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -29,13 +30,16 @@ NULL
 #'
 #'
 #'
-#' @details A SA-item contains more information than just the results of an estimation.
+#' @details
+#' A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
 #' returns a list of 5 objects:
 #' - `ts`: raw time series.
-#' - `referenceSpec`: initial specification. Reference when refreshing and relaxing constraints.
+#' - `referenceSpec`: initial specification. Reference when refreshing and
+#'   relaxing constraints.
 #' - `estimationSpec`: specification used for the current estimation.
-#' - `resultSpec`: specification containing all parameters stemming from `estimationSpec` (fully identified model).
+#' - `resultSpec`: specification containing all parameters stemming from
+#'   `estimationSpec` (fully identified model).
 #' - `results`: results of the estimation.
 #'
 #' @export
@@ -171,7 +175,8 @@ sai_name <- function(jsai) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
