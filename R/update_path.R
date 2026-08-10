@@ -100,7 +100,7 @@ spreadsheet_update_path <- function(
     idx_sap = NULL,
     idx_sai = NULL
 ) {
-    new_path <- normalizePath(new_path, mustWork = TRUE)
+    new_path <- full_path(new_path)
     check_information(jws = jws, idx_sap, idx_sai)
 
     idx_sap <- unique(idx_sap)
@@ -166,7 +166,7 @@ spreadsheet_update_path <- function(
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-    new_path <- normalizePath(new_path, mustWork = TRUE)
+    new_path <- full_path(new_path)
     check_information(jws = jws, idx_sap, idx_sai)
 
     idx_sap <- unique(idx_sap)
