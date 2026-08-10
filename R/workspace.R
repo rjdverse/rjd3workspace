@@ -747,7 +747,7 @@ add_calendar <- function(jws, name, calendar) {
 #' add_variables(
 #'     jws = my_ws,
 #'     group = "reg1",
-#'     y = Seatsbelts
+#'     y = Seatbelts
 #' )
 #' }
 #'
