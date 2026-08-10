@@ -10,6 +10,19 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD)
 
+#### Deprecated
+
+- Function
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  is deprecated. Please use function
+  [`jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  instead. [\#88](https://github.com/rjdverse/rjd3workspace/issues/88)
+- Function
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  is deprecated. Please use function
+  [`jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  instead. [\#88](https://github.com/rjdverse/rjd3workspace/issues/88)
+
 #### Added
 
 - New `verbose` argument in `write_calendars` and document behavious
@@ -182,8 +195,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Rename the argument `jsa` in `jsai` in
   [`read_sai()`](https://rjdverse.github.io/rjd3workspace/reference/read_sai.md),
-  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md),
-  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md),
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
   [`.jsai_name()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
   [`.jsai_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
   [`.jsai_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md),
@@ -256,12 +269,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Function
   [`.jsa_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   is deprecated. Please use function
-  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   instead.
 - Function
   [`.jsa_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   is deprecated. Please use function
-  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   instead.
 - Function
   [`.jsa_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)

@@ -110,17 +110,6 @@ Functions to extract, read SA-Items and set specifications
   : Extract a SA-Processing or a SA-Item
 - [`read_sai()`](https://rjdverse.github.io/rjd3workspace/reference/read_sai.md)
   : Read an SA-item
-- [`get_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
-  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
-  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
-  : Extract results from a SA-item
-- [`set_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
-  [`set_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
-  : Set Specification in a Sa-Item
-- [`get_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  [`get_result_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
-  : Get Specification in a Sa-Item
 - [`.jmp_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsap_sa_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsap_sai_count()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
@@ -135,7 +124,9 @@ Functions to extract, read SA-Items and set specifications
   [`.jmp_load()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_read()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsai_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
@@ -159,6 +150,17 @@ Functions to extract, read SA-Items and set specifications
   [`get_domain_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`get_point_specification()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   : Deprecated functions
+- [`get_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  [`jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/get-results.md)
+  : Extract results from a SA-item
+- [`set_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
+  [`set_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
+  : Set Specification in a Sa-Item
+- [`get_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_estimation_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  [`get_result_specification()`](https://rjdverse.github.io/rjd3workspace/reference/get-specification.md)
+  : Get Specification in a Sa-Item
 - [`.jd2r_spec()`](https://rjdverse.github.io/rjd3workspace/reference/dot-jd2r_spec.md)
   : Converts a jspec to a spec
 
@@ -245,7 +247,9 @@ Use new version
   [`.jmp_load()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_read()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_results()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
+  [`.jsai_jresults()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsai_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)
   [`.jsa_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/deprecated-rjd3workspace.md)

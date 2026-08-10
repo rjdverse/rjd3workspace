@@ -51,6 +51,13 @@
 <div class="section level3">
 <h3 id="unreleased-3-8-0-9000"><a href="https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD" class="external-link">Unreleased</a><a class="anchor" aria-label="anchor" href="#unreleased-3-8-0-9000"></a></h3>
 <div class="section level4">
+<h4 id="deprecated-3-8-0-9000">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000"></a></h4>
+<ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_jresults()</a></code> is deprecated. Please use function <code><a href="../reference/get-results.html">jsai_jresults()</a></code> instead. <a href="https://github.com/rjdverse/rjd3workspace/issues/88" class="external-link">#88</a>
+</li>
+<li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_results()</a></code> is deprecated. Please use function <code><a href="../reference/get-results.html">jsai_results()</a></code> instead. <a href="https://github.com/rjdverse/rjd3workspace/issues/88" class="external-link">#88</a>
+</li>
+</ul></div>
+<div class="section level4">
 <h4 id="added-3-8-0-9000">Added<a class="anchor" aria-label="anchor" href="#added-3-8-0-9000"></a></h4>
 <ul><li>New <code>verbose</code> argument in <code>write_calendars</code> and document behavious when the list of calendars is not named <a href="https://github.com/rjdverse/rjd3workspace/issues/92" class="external-link">#92</a>
 </li>
@@ -108,7 +115,7 @@
 </li>
 </ul></div>
 <div class="section level4">
-<h4 id="deprecated-3-8-0-9000">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000"></a></h4>
+<h4 id="deprecated-3-8-0-9000-1">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000-1"></a></h4>
 <ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jws_add()</a></code> is deprecated. Please use function <code><a href="../reference/jws_add.html">jws_add()</a></code> instead.</li>
 </ul></div>
 <div class="section level4">
@@ -129,7 +136,7 @@
 <li>New functions have deprecated old functions (<code><a href="../reference/get_metadata.html">get_metadata()</a></code>, <code><a href="../reference/get_metadata.html">get_ts_metadata()</a></code>, <code><a href="../reference/transfer_sa_item.html">transfer_sa_item()</a></code>)</li>
 </ul></div>
 <div class="section level4">
-<h4 id="deprecated-3-8-0-9000-1">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000-1"></a></h4>
+<h4 id="deprecated-3-8-0-9000-2">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000-2"></a></h4>
 <ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jmp_sa_count()</a></code> is deprecated. Please use function <code><a href="../reference/ws_sap_count.html">sap_sai_count()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_sa_count()</a></code> is deprecated. Please use function <code><a href="../reference/ws_sap_count.html">sap_sai_count()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jmp_name()</a></code> is deprecated. Please use function <code><a href="../reference/sap_name.html">sap_name()</a></code> instead.</li>
@@ -163,7 +170,7 @@
 </ul></div>
 <div class="section level4">
 <h4 id="changed-3-8-0-9000-3">Changed<a class="anchor" aria-label="anchor" href="#changed-3-8-0-9000-3"></a></h4>
-<ul><li>Rename the argument <code>jsa</code> in <code>jsai</code> in <code><a href="../reference/read_sai.html">read_sai()</a></code>, <code><a href="../reference/get-results.html">.jsai_results()</a></code>, <code><a href="../reference/get-results.html">.jsai_jresults()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_name()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_metadata()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_ts_metadata()</a></code>, <code><a href="../reference/replace_sa_item.html">replace_sa_item()</a></code>, <code><a href="../reference/set_raw_data.html">get_raw_data()</a></code>, <code><a href="../reference/set_ts.html">get_ts()</a></code>, <code><a href="../reference/set_comment.html">get_comment()</a></code> and <code><a href="../reference/set_priority.html">get_priority()</a></code>
+<ul><li>Rename the argument <code>jsa</code> in <code>jsai</code> in <code><a href="../reference/read_sai.html">read_sai()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_results()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_jresults()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_name()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_metadata()</a></code>, <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_ts_metadata()</a></code>, <code><a href="../reference/replace_sa_item.html">replace_sa_item()</a></code>, <code><a href="../reference/set_raw_data.html">get_raw_data()</a></code>, <code><a href="../reference/set_ts.html">get_ts()</a></code>, <code><a href="../reference/set_comment.html">get_comment()</a></code> and <code><a href="../reference/set_priority.html">get_priority()</a></code>
 </li>
 <li>Rename the argument <code>ref_jsa</code> in <code>ref_jsai</code> in <code><a href="../reference/set_ts_metadata.html">set_ts_metadata()</a></code>
 </li>
@@ -171,7 +178,7 @@
 </li>
 </ul></div>
 <div class="section level4">
-<h4 id="deprecated-3-8-0-9000-2">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000-2"></a></h4>
+<h4 id="deprecated-3-8-0-9000-3">Deprecated<a class="anchor" aria-label="anchor" href="#deprecated-3-8-0-9000-3"></a></h4>
 <ul><li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jws_open()</a></code> is deprecated. Please use function <code><a href="../reference/jws_open.html">jws_open()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_name()</a></code> is deprecated. Please use function <code><a href="../reference/sap_name.html">sap_name()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsap_sai()</a></code> is deprecated. Please use function <code><a href="../reference/jws_sap.html">jsap_sai()</a></code> instead.</li>
@@ -183,8 +190,8 @@
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jws_sap_new()</a></code> is deprecated. Please use function <code><a href="../reference/jws_new.html">jws_sap_new()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jmp_load()</a></code> is deprecated. Please use function <code><a href="../reference/read_workspace.html">read_sap()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_read()</a></code> is deprecated. Please use function <code><a href="../reference/read_sai.html">read_sai()</a></code> instead.</li>
-<li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_results()</a></code> is deprecated. Please use function <code><a href="../reference/get-results.html">.jsai_results()</a></code> instead.</li>
-<li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_jresults()</a></code> is deprecated. Please use function <code><a href="../reference/get-results.html">.jsai_jresults()</a></code> instead.</li>
+<li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_results()</a></code> is deprecated. Please use function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_results()</a></code> instead.</li>
+<li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_jresults()</a></code> is deprecated. Please use function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_jresults()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_metadata()</a></code> is deprecated. Please use function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_metadata()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jsa_ts_metadata()</a></code> is deprecated. Please use function <code><a href="../reference/deprecated-rjd3workspace.html">.jsai_ts_metadata()</a></code> instead.</li>
 <li>Function <code><a href="../reference/deprecated-rjd3workspace.html">.jread_workspace()</a></code> is deprecated. Please use function <code><a href="../reference/read_workspace.html">jread_workspace()</a></code> instead.</li>

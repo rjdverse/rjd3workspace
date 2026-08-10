@@ -33,7 +33,11 @@ Deprecated functions
 
 .jsa_results(jsa, items = NULL)
 
+.jsai_results(jsa, items = NULL)
+
 .jsa_jresults(jsa)
+
+.jsai_jresults(jsa)
 
 .jsa_metadata(jsa, key)
 
