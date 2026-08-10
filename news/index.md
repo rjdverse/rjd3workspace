@@ -10,6 +10,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/3.8.0...HEAD)
 
+#### Fixed
+
+- `save_workspace` generates a warning when a workspace already exists
+  and `replace = FALSE` (the default)
+  [\#105](https://github.com/rjdverse/rjd3workspace/issues/105)
+
 ### [3.8.0](https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...3.8.0) - 2026-07-17
 
 #### Fixed

@@ -6,7 +6,7 @@ readable by JDemetra+ Graphical User Interface.
 ## Usage
 
 ``` r
-save_workspace(jws, file, replace = FALSE)
+save_workspace(jws, file, replace = FALSE, verbose = TRUE)
 ```
 
 ## Arguments
@@ -24,6 +24,11 @@ save_workspace(jws, file, replace = FALSE)
   boolean indicating if the Workspace should be replaced if it already
   exists.
 
+- verbose:
+
+  Boolean indicating whether to print additional information. Default is
+  `TRUE`.
+
 ## Value
 
 A boolean indicating if the saving was successful.
@@ -39,5 +44,7 @@ y <- rjd3toolkit::ABS$X0.2.09.10.M
 # \donttest{
 add_sa_item(jsap1, name = "serie_1", x = y, rjd3x13::x13_spec())
 save_workspace(jws, file.path(dir, "workspace.xml"))
+#> Warning: A workspace already exists. To overwrite it, use the argument `replace = TRUE`.
+#> [1] FALSE
 # }
 ```
