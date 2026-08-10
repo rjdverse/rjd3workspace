@@ -51,7 +51,7 @@ my_ws <- jws_new()
 \donttest{
 # Add one variable
 add_variables(
-    jws = jws,
+    jws = my_ws,
     group = "reg1",
     y = AirPassengers,
     name = "x1"
