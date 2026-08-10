@@ -74,7 +74,7 @@ add_variables(
 add_variables(
     jws = my_ws,
     group = "reg1",
-    y = Seatsbelts
+    y = Seatbelts
 )
 }
 \dontshow{\}) # examplesIf}
