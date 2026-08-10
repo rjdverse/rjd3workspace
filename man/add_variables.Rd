@@ -69,7 +69,7 @@ add_variables(
 add_variables(
     jws = my_ws,
     group = "reg1",
-    y = ABS
+    y = rjd3toolkit::ABS
 )
 add_variables(
     jws = my_ws,
