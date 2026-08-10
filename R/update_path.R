@@ -36,7 +36,7 @@
 #'
 check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
     if (!is.null(idx_sap) && max(idx_sap) > ws_sap_count(jws)) {
-        stop("The SAP n\u00b0", max(idx_sap), "doesn't exist")
+        stop("The SAP n\u00b0", max(idx_sap), "doesn't exist", call. = FALSE)
     } else if (is.null(idx_sap)) {
         idx_sap <- seq_len(ws_sap_count(jws))
     }
@@ -49,7 +49,8 @@ check_information <- function(jws, idx_sap = NULL, idx_sai = NULL) {
                 "The SAI n\u00b0",
                 max(idx_sai),
                 " doesn't exist in the SAP n\u00b0",
-                id_sap
+                id_sap,
+                call. = FALSE
             )
         }
     }
@@ -99,7 +100,7 @@ spreadsheet_update_path <- function(
     idx_sap = NULL,
     idx_sai = NULL
 ) {
-    new_path <- normalizePath(new_path, mustWork = TRUE)
+    new_path <- full_path(new_path)
     check_information(jws = jws, idx_sap, idx_sai)
 
     idx_sap <- unique(idx_sap)
@@ -165,7 +166,7 @@ spreadsheet_update_path <- function(
 #'
 #' @export
 txt_update_path <- function(jws, new_path, idx_sap = NULL, idx_sai = NULL) {
-    new_path <- normalizePath(new_path, mustWork = TRUE)
+    new_path <- full_path(new_path)
     check_information(jws = jws, idx_sap, idx_sai)
 
     idx_sap <- unique(idx_sap)
