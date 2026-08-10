@@ -60,6 +60,7 @@ new_context <- modelling_context(
     calendars = list(FR = french_calendar),
     variables = list(a = AirPassengers)
 )
+#> Replaced 1 duplicated or missing name(s).
 
 # Set the context
 set_context(jws, new_context)

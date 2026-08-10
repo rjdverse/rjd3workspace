@@ -1,10 +1,10 @@
 # {rjd3workspace}
 
-[![R-CMD-check](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yaml)
-[![lint](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yaml)
+[![R-CMD-check](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/R-CMD-check.yml)
+[![lint](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/lint.yml)
 
 [![GH Pages
-built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yaml)
+built](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yml/badge.svg)](https://github.com/rjdverse/rjd3workspace/actions/workflows/pkgdown.yml)
 
 **{rjd3workspace}** contains various functions to wrangle JDemetra+ v3.x
 workspaces (create, read, add/remove SA-items..).
@@ -158,4 +158,4 @@ should be added or updated.
 
 The code of this project is licensed under the [European Union Public
 Licence
-(EUPL)](https://interoperable-europe.ec.europa.eu:443/collection/eupl/eupl-text-eupl-12).
+(EUPL)](https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12).
