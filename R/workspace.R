@@ -761,4 +761,3 @@ add_variables <- function(jws, ...) {
     set_context(jws, modelling_context = context)
     return(invisible(NULL))
 }
-
