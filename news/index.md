@@ -51,9 +51,6 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `save_workspace` generates a warning when a workspace already exists
   and `replace = FALSE` (the default)
   [\#105](https://github.com/rjdverse/rjd3workspace/issues/105)
-- [`set_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
-  doesn’t change the SAI name
-  [\#55](https://github.com/rjdverse/rjd3workspace/issues/55)
 
 ### [3.8.0](https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...v3.8.0) - 2026-07-17
 
@@ -220,6 +217,12 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   [`set_ts_metadata()`](https://rjdverse.github.io/rjd3workspace/reference/set_ts_metadata.md)
 - New JARS related to version
   [3.5.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.0)
+
+#### Fixed
+
+- [`set_reference_specification()`](https://rjdverse.github.io/rjd3workspace/reference/set_specification.md)
+  doesn’t change the SAI name
+  [\#55](https://github.com/rjdverse/rjd3workspace/issues/55)
 
 #### Deprecated
 
