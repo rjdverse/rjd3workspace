@@ -112,28 +112,38 @@ export(ws_sap_count)
 export(x13_read_spec)
 export(x13_write_spec)
 import(rjd3toolkit)
-importFrom(methods,new)
-importFrom(methods,setClass)
-importFrom(rJava,.jaddClassPath)
-importFrom(rJava,.jarray)
-importFrom(rJava,.jcall)
-importFrom(rJava,.jcast)
-importFrom(rJava,.jcastToArray)
-importFrom(rJava,.jclass)
-importFrom(rJava,.jevalArray)
-importFrom(rJava,.jinstanceof)
-importFrom(rJava,.jnew)
-importFrom(rJava,.jnull)
-importFrom(rJava,.jpackage)
-importFrom(rJava,is.jnull)
-importFrom(rjd3jars,check_java_version)
-importFrom(rjd3jars,reload_dictionaries)
-importFrom(rjd3jars,reload_safactories)
-importFrom(rjd3jars,reload_tsproviders)
+importFrom(methods,
+  new,
+  setClass
+)
+importFrom(rJava,
+  .jaddClassPath,
+  .jarray,
+  .jcall,
+  .jcast,
+  .jcastToArray,
+  .jclass,
+  .jevalArray,
+  .jinstanceof,
+  .jnew,
+  .jnull,
+  .jpackage,
+  is.jnull
+)
+importFrom(rjd3jars,
+  check_java_version,
+  reload_dictionaries,
+  reload_safactories,
+  reload_tsproviders
+)
 importFrom(rjd3providers,spreadsheet_name)
 importFrom(rjd3toolkit,dictionary)
-importFrom(rjd3tramoseats,.jd2r_spec_tramoseats)
-importFrom(rjd3tramoseats,tramoseats_dictionary)
-importFrom(rjd3x13,.jd2r_spec_x13)
-importFrom(rjd3x13,x13_dictionary)
+importFrom(rjd3tramoseats,
+  .jd2r_spec_tramoseats,
+  tramoseats_dictionary
+)
+importFrom(rjd3x13,
+  .jd2r_spec_x13,
+  x13_dictionary
+)
 importFrom(tools,file_ext)

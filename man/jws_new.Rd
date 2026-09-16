@@ -26,9 +26,10 @@ added to a workspace, it will be valid for all its SA-Processings.
 }
 \details{
 A modelling context is a list of variables to be used as external regressors
-in modelling processes (Reg-Arima or Tramo) or calendars to be used to generate calendar regressors.
-It can be created with \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}} function or retrieved from another
-workspace (\code{(set_context)})
+in modelling processes (Reg-Arima or Tramo) or calendars to be used to
+generate calendar regressors.
+It can be created with \code{\link[rjd3toolkit:modelling_context]{rjd3toolkit::modelling_context()}} function or
+retrieved from another workspace (\code{(set_context)})
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
