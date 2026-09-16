@@ -59,8 +59,8 @@ read_sai <- function(jsai) {
 #'
 #' @description
 #' `get_results()` extracts the results of a SA-item.
-#' `.jsai_results()` extracts specific output of the model of the SA-item.
-#' `.jsai_jresults()` extracts the Java object of the results of a SA-item.
+#' `jsai_results()` extracts specific output of the model of the SA-item.
+#' `jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
 #' @inheritParams read_sai
 #' @param items vector of characters containing the variables to extract.

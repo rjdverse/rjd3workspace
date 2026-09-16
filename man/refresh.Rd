@@ -33,15 +33,16 @@ jws_refresh(
 When \code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}
 \code{period}: numeric, number of observations in a year (12, 4...),
 compulsory, if mis-specified or missing, re-estimation with refreshed
-specification won't work. \code{end} has to be specified as the date from
-which outliers will be re-identified}
+specification won't work.
+\code{end} has to be specified as the date from which outliers will be
+re-identified}
 
 \item{info}{indication on how data should be refreshed
 \itemize{
 \item \code{All}: data and metadata will be refreshed (default)
 \item \code{Data}: data will be refreshed, not metadata
-\item \code{None}: nor data neither metadata will be refreshed, to be used for updating
-specifications only.
+\item \code{None}: nor data neither metadata will be refreshed, to be used for
+updating specifications only.
 }}
 
 \item{jws, jsap}{Java Workspace or SA-Processing}

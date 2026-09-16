@@ -25,6 +25,6 @@ List with all the results of the adjustment.
 }
 \description{
 \code{get_results()} extracts the results of a SA-item.
-\code{.jsai_results()} extracts specific output of the model of the SA-item.
-\code{.jsai_jresults()} extracts the Java object of the results of a SA-item.
+\code{jsai_results()} extracts specific output of the model of the SA-item.
+\code{jsai_jresults()} extracts the Java object of the results of a SA-item.
 }

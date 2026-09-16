@@ -7,6 +7,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Changed
+
+* `add_variables` uses `complete_modelling_context` from {rjd3toolkit}, corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION` and `JD3_DYNAMICTS` objects [#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+- Updated JARS from jdplus-main to [3.9.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.9.0)
+
 ### Deprecated
 
 * Function `.jsai_jresults()` is deprecated. Please use function `jsai_jresults()` instead. [#88](https://github.com/rjdverse/rjd3workspace/issues/88)
@@ -21,7 +26,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * Relative paths are accepted for `regarima_read_spec()`, `tramo_read_spec()`, `tramoseats_read_spec()` and `x13_read_spec()` [#91](https://github.com/rjdverse/rjd3workspace/issues/91)
 * `save_workspace` generates a warning when a workspace already exists and `replace = FALSE` (the default)  [#105](https://github.com/rjdverse/rjd3workspace/issues/105)
-
 
 ## [3.8.0] - 2026-07-17
 
@@ -102,6 +106,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 * Rename the argument `jsa` in `jsai` in `read_sai()`, `.jsai_results()`, `.jsai_jresults()`, `.jsai_name()`, `.jsai_metadata()`, `.jsai_ts_metadata()`, `replace_sa_item()`, `get_raw_data()`, `get_ts()`, `get_comment()` and  `get_priority()`
 * Rename the argument `ref_jsa` in `ref_jsai` in `set_ts_metadata()`
 * New JARS related to version [3.5.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.5.0)
+
+### Fixed
+
+* `set_reference_specification()` doesn't change the SAI name [#55](https://github.com/rjdverse/rjd3workspace/issues/55)
 
 ### Deprecated
 

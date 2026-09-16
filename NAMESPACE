@@ -137,7 +137,10 @@ importFrom(rjd3jars,
   reload_tsproviders
 )
 importFrom(rjd3providers,spreadsheet_name)
-importFrom(rjd3toolkit,dictionary)
+importFrom(rjd3toolkit,
+  complete_modelling_context,
+  dictionary
+)
 importFrom(rjd3tramoseats,
   .jd2r_spec_tramoseats,
   tramoseats_dictionary

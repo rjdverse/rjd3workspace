@@ -14,14 +14,16 @@ By default a dialog box opens.}
 a Javaworkspace
 }
 \description{
-\code{jws_open()} opens an existing Workspace (as a Java pointer) and \code{jws_compute()} computes it (allowing
-to extract all the SA-Items as Java objects).
+\code{jws_open()} opens an existing Workspace (as a Java pointer) and
+\code{jws_compute()} computes it (allowing to extract all the SA-Items as Java
+objects).
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 

@@ -18,14 +18,16 @@ jws_sap(jws, idx)
 Returns a Javaobject SA-Processing or SA-Item.
 }
 \description{
-Functions allowing to extract a SA-Processing from a Workspace using its order number (index) and a SA-Item from a
-SA-Processing its order number (index). The original object is unaltered.
+Functions allowing to extract a SA-Processing from a Workspace using its
+order number (index) and a SA-Item from a SA-Processing its order number
+(index). The original object is unaltered.
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 

@@ -19,7 +19,6 @@ Set Context of a Workspace
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
-
 library("rjd3toolkit")
 
 # French calendar
@@ -42,7 +41,8 @@ french_calendar <- national_calendar(
 )
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 

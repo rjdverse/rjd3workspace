@@ -114,7 +114,7 @@ jread_sap <- function(jsap) {
         return(NULL)
     }
     all <- lapply(seq_len(n), function(i) {
-        .jsai_jresults(jsap_sai(jsap, i))
+        jsai_jresults(jsap_sai(jsap, i))
     })
     names <- lapply(seq_len(n), function(i) {
         sai_name(jsap_sai(jsap, i))
