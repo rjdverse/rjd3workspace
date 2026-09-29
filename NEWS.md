@@ -7,9 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [3.9.0] - 2026-09-29
+
 ### Changed
 
 * `add_variables` uses `complete_modelling_context` from {rjd3toolkit}, corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION` and `JD3_DYNAMICTS` objects [#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+
 - Updated JARS from jdplus-main to [3.9.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.9.0)
 
 ### Deprecated
@@ -198,7 +201,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 * New JARS related to version [3.1.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.1.0)
 
-[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD
+[Unreleased]: https://github.com/rjdverse/rjd3workspace/compare/v3.9.0...HEAD
+[3.9.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...v3.9.0
 [3.8.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.7.1...v3.8.0
 [3.7.1]: https://github.com/rjdverse/rjd3workspace/compare/v3.6.0...v3.7.1
 [3.6.0]: https://github.com/rjdverse/rjd3workspace/compare/v3.5.1...v3.6.0
