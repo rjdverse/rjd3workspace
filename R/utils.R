@@ -1,4 +1,5 @@
-#' @importFrom rJava .jpackage .jcall .jnull .jarray .jevalArray .jcast .jcastToArray .jinstanceof is.jnull .jnew .jclass
+#' @importFrom rJava .jpackage .jcall .jnull .jarray .jevalArray .jcast
+#' @importFrom rJava .jcastToArray .jinstanceof is.jnull .jnew .jclass
 #' @import rjd3toolkit
 NULL
 
@@ -22,6 +23,7 @@ NULL
 #' str(my_spec)
 #' @export
 tramo_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
         returnSig = "Ljdplus/tramoseats/base/api/tramo/TramoSpec;",
@@ -89,6 +91,7 @@ tramo_write_spec <- function(spec, file) {
 #' str(my_spec)
 #' @export
 tramoseats_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/tramoseats/base/workspace/Utility",
         returnSig = "Ljdplus/tramoseats/base/api/tramoseats/TramoSeatsSpec;",
@@ -157,6 +160,7 @@ tramoseats_write_spec <- function(spec, file) {
 #'
 #' @export
 regarima_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         "jdplus/x13/base/workspace/Utility",
         "Ljdplus/x13/base/api/regarima/RegArimaSpec;",
@@ -224,6 +228,7 @@ regarima_write_spec <- function(spec, file) {
 #' str(my_spec)
 #' @export
 x13_read_spec <- function(file) {
+    file <- full_path(file)
     jspec <- .jcall(
         obj = "jdplus/x13/base/workspace/Utility",
         returnSig = "Ljdplus/x13/base/api/x13/X13Spec;",
@@ -305,17 +310,26 @@ read_calendars <- function(file) {
     return(rjd3toolkit::.jd2r_calendars(jspec))
 }
 
-#' Write a Calendar file
+#' @title Write a Calendar file
 #'
 #' @description
 #' The calendar file is a xml file like the one JDemetra+ would write when
 #' defining a calendar in the Graphical User Interface.
 #' Calendars can be defined with `rjd3toolkit::national_calendar`
 #'
-#' @param calendars list of calendars or a `JD3_CALENDAR` object
+#' @param calendars named list of calendars or a `JD3_CALENDAR` object
 #' @param file xml format
+#' @param verbose Boolean indicating whether to print additional information.
+#'   Default is `TRUE`.
 #'
 #' @returns \code{NULL} returned invisibly
+#'
+#' @details
+#' If `calendars` is a single calendar (`JD3_CALENDAR` object), it will be
+#' named `cal` by default.
+#' If `calendars` is a list of calendars (`JD3_CALENDAR` object). Then they all
+#' must be named. Else, a error is risen.
+#'
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #' library("rjd3toolkit")
 #' BE <- national_calendar(list(
@@ -336,8 +350,11 @@ read_calendars <- function(file) {
 #' write_calendars(BE, file = calendar_path)
 #' write_calendars(list(BEL_cal = BE), file = calendar_path)
 #' @export
-write_calendars <- function(calendars, file) {
+write_calendars <- function(calendars, file, verbose = TRUE) {
     if (inherits(calendars, "JD3_CALENDAR")) {
+        if (verbose) {
+            message("The calendar will be renamed `cal`.")
+        }
         calendars <- list(cal = calendars)
     } else if (
         !(is.list(calendars) &&
@@ -346,7 +363,9 @@ write_calendars <- function(calendars, file) {
             all(nzchar(names(calendars))))
     ) {
         stop(
-            "calendars must be a `JD3_CALENDAR` or a named list of `JD3_CALENDAR` objects"
+            "calendars must be a `JD3_CALENDAR`",
+            " or a named list of `JD3_CALENDAR` objects",
+            call. = FALSE
         )
     }
     jcal <- rjd3toolkit::.r2jd_calendars(calendars)
@@ -357,6 +376,7 @@ write_calendars <- function(calendars, file) {
         jcal,
         as.character(file)
     )
+    return(invisible(NULL))
 }
 
 #' @title Read auxiliary regressors file

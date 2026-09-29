@@ -21,9 +21,11 @@ Full information is extracted with the \code{read_sai()} function that
 returns a list of 5 objects:
 \itemize{
 \item \code{ts}: raw time series.
-\item \code{referenceSpec}: initial specification. Reference when refreshing and relaxing constraints.
+\item \code{referenceSpec}: initial specification. Reference when refreshing and
+relaxing constraints.
 \item \code{estimationSpec}: specification used for the current estimation.
-\item \code{resultSpec}: specification containing all parameters stemming from \code{estimationSpec} (fully identified model).
+\item \code{resultSpec}: specification containing all parameters stemming from
+\code{estimationSpec} (fully identified model).
 \item \code{results}: results of the estimation.
 }
 }
@@ -31,7 +33,8 @@ returns a list of 5 objects:
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load a Workspace
-file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test.xml",
+                    package = "rjd3workspace")
 \donttest{
 jws <- jws_open(file)
 

@@ -13,7 +13,8 @@ NULL
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'
@@ -29,13 +30,16 @@ NULL
 #'
 #'
 #'
-#' @details A SA-item contains more information than just the results of an estimation.
+#' @details
+#' A SA-item contains more information than just the results of an estimation.
 #' Full information is extracted with the `read_sai()` function that
 #' returns a list of 5 objects:
 #' - `ts`: raw time series.
-#' - `referenceSpec`: initial specification. Reference when refreshing and relaxing constraints.
+#' - `referenceSpec`: initial specification. Reference when refreshing and
+#'   relaxing constraints.
 #' - `estimationSpec`: specification used for the current estimation.
-#' - `resultSpec`: specification containing all parameters stemming from `estimationSpec` (fully identified model).
+#' - `resultSpec`: specification containing all parameters stemming from
+#'   `estimationSpec` (fully identified model).
 #' - `results`: results of the estimation.
 #'
 #' @export
@@ -55,8 +59,8 @@ read_sai <- function(jsai) {
 #'
 #' @description
 #' `get_results()` extracts the results of a SA-item.
-#' `.jsai_results()` extracts specific output of the model of the SA-item.
-#' `.jsai_jresults()` extracts the Java object of the results of a SA-item.
+#' `jsai_results()` extracts specific output of the model of the SA-item.
+#' `jsai_jresults()` extracts the Java object of the results of a SA-item.
 #'
 #' @inheritParams read_sai
 #' @param items vector of characters containing the variables to extract.
@@ -107,7 +111,7 @@ get_results <- function(jsai) {
 
 #' @rdname get-results
 #' @export
-.jsai_results <- function(jsai, items = NULL) {
+jsai_results <- function(jsai, items = NULL) {
     jestimation <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaEstimation;",
@@ -133,7 +137,7 @@ get_results <- function(jsai) {
 
 #' @rdname get-results
 #' @export
-.jsai_jresults <- function(jsai) {
+jsai_jresults <- function(jsai) {
     jestimation <- .jcall(
         jsai,
         "Ljdplus/sa/base/api/SaEstimation;",
@@ -171,7 +175,8 @@ sai_name <- function(jsai) {
 #' @examplesIf rjd3jars::check_java_version(silent = TRUE)
 #'
 #' # Load a Workspace
-#' file <- system.file("workspaces", "workspace_test.xml", package = "rjd3workspace")
+#' file <- system.file("workspaces", "workspace_test.xml",
+#'                     package = "rjd3workspace")
 #' \donttest{
 #' jws <- jws_open(file)
 #'

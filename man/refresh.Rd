@@ -31,14 +31,19 @@ jws_refresh(
 
 \item{period, start, end}{additional parameters used to specify the span
 When \code{policy = "Outliers"} or \code{policy = "Outliers_StochasticComponent"}
-\code{period}: numeric, number of observations in a year (12, 4...), compulsory,
-if mis-specified or missing, re-estimation with refreshed specification won't work.
-\code{end} has to be specified as the date from which outliers will be re-identified}
+\code{period}: numeric, number of observations in a year (12, 4...),
+compulsory, if mis-specified or missing, re-estimation with refreshed
+specification won't work.
+\code{end} has to be specified as the date from which outliers will be
+re-identified}
 
 \item{info}{indication on how data should be refreshed
-\code{All}: data and metadata will be refreshed (default)
-\code{Data}: data will be refreshed, not metadata
-\code{None}: nor data neither metadata will be refreshed, to be used for updating specifications only.}
+\itemize{
+\item \code{All}: data and metadata will be refreshed (default)
+\item \code{Data}: data will be refreshed, not metadata
+\item \code{None}: nor data neither metadata will be refreshed, to be used for
+updating specifications only.
+}}
 
 \item{jws, jsap}{Java Workspace or SA-Processing}
 }
@@ -49,11 +54,12 @@ refreshed workspace or SAP
 Refresh a Workspace or SA-Processing
 }
 \details{
-A particular selection of parameters to be kept fixed or re-estimated is called a
-revision policy.
+A particular selection of parameters to be kept fixed or re-estimated is
+called a revision policy.
 Workspace has to be computed before refresh
-When refreshing data, empty your cache by restarting your R session, before refreshing,
-otherwise the specification will be refreshed but the new data will not be taken into account.
+When refreshing data, empty your cache by restarting your R session, before
+refreshing, otherwise the specification will be refreshed but the new data
+will not be taken into account.
 
 Available refresh policies are:
 \enumerate{
@@ -80,20 +86,23 @@ model orders (p,d,q)(P,D,Q) can also be re-identified;
 X11 (or SEATS) and Benchmarking part parameters are untouched.
 \item \strong{Complete}: All the parameters are re-identified and
 re-estimated, unless constrained in the reference spec.
-X11 (or SEATS) and Benchmarking part parameters are entirely reset to values in the reference specification.
+X11 (or SEATS) and Benchmarking part parameters are entirely reset to values
+in the reference specification.
 }
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}
 
 # Load workspace
-file <- system.file("workspaces", "workspace_test_refresh.xml", package = "rjd3workspace")
+file <- system.file("workspaces", "workspace_test_refresh.xml",
+                    package = "rjd3workspace")
 
 \donttest{
 jws <- jws_open(file)
 txt_update_path(
     jws = jws,
-    new_path = system.file("extdata", "IPI_nace4.csv", package = "rjd3workspace")
+    new_path = system.file("extdata", "IPI_nace4.csv",
+                           package = "rjd3workspace")
 )
 jws_compute(jws)
 

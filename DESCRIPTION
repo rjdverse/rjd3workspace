@@ -1,18 +1,20 @@
 Type: Package
 Package: rjd3workspace
 Title: Wrangling 'JDemetra+ 3.x' Workspaces
-Version: 3.8.0
+Version: 3.9.0
 Authors@R: c(
     person("Jean", "Palate", , "palatejean@gmail.com", role = "aut"),
     person("Alain", "Quartier-la-Tente", , "alain.quartier@yahoo.fr", role = "aut",
            comment = c(ORCID = "0000-0001-7890-3857")),
     person("Tanguy", "Barthelemy", , "timeserieswithjdemetraandr@gmail.com", role = c("aut", "cre", "art")),
-    person("Anna", "Smyk", , "anna.smyk@insee.fr", role = "aut")
+    person("Anna", "Smyk", , "anna.smyk@insee.fr", role = "aut"),
+    person("Eulalie", "Delaune", , "eulalie.delaune-virrion@insee.fr", role = "aut")
   )
-Description: R Interface to 'JDemetra+ 3.x'(<https://github.com/jdemetra>).  
-    It offers several functions to manipulate 'JDemetra+' workspaces, which 
-    can be read by the software and can store several seasonal adjusted series 
-    along with user-defined calendars or regression variables.
+Description: R Interface to 'JDemetra+
+    3.x'(<https://github.com/jdemetra>).  It offers several functions to
+    manipulate 'JDemetra+' workspaces, which can be read by the software
+    and can store several seasonal adjusted series along with user-defined
+    calendars or regression variables.
 License: EUPL
 URL: https://github.com/rjdverse/rjd3workspace,
     https://rjdverse.github.io/rjd3workspace/
@@ -20,21 +22,23 @@ BugReports: https://github.com/rjdverse/rjd3workspace/issues
 Depends:
     R (>= 4.1.0)
 Imports:
+    methods,
     rJava (>= 1.0-6),
-    rjd3jars(>= 0.0.4),
-    rjd3toolkit (>= 3.8.0),
-    rjd3providers (>= 3.8.0),
-    rjd3tramoseats (>= 3.8.0),
-    rjd3x13 (>= 3.8.0),
+    rjd3jars (>= 0.0.6),
+    rjd3providers (>= 3.9.0),
+    rjd3toolkit (>= 3.9.0),
+    rjd3tramoseats (>= 3.9.0),
+    rjd3x13 (>= 3.9.0),
     tools,
-    utils, 
-    methods
+    utils
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
 SystemRequirements: Java (>= 21)
 Collate: 
     'deprecated.R'
@@ -45,5 +49,3 @@ Collate:
     'update_path.R'
     'workspace.R'
     'zzz.R'
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 8.0.0

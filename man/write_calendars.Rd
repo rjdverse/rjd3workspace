@@ -4,12 +4,15 @@
 \alias{write_calendars}
 \title{Write a Calendar file}
 \usage{
-write_calendars(calendars, file)
+write_calendars(calendars, file, verbose = TRUE)
 }
 \arguments{
-\item{calendars}{list of calendars or a \code{JD3_CALENDAR} object}
+\item{calendars}{named list of calendars or a \code{JD3_CALENDAR} object}
 
 \item{file}{xml format}
+
+\item{verbose}{Boolean indicating whether to print additional information.
+Default is \code{TRUE}.}
 }
 \value{
 \code{NULL} returned invisibly
@@ -18,6 +21,12 @@ write_calendars(calendars, file)
 The calendar file is a xml file like the one JDemetra+ would write when
 defining a calendar in the Graphical User Interface.
 Calendars can be defined with \code{rjd3toolkit::national_calendar}
+}
+\details{
+If \code{calendars} is a single calendar (\code{JD3_CALENDAR} object), it will be
+named \code{cal} by default.
+If \code{calendars} is a list of calendars (\code{JD3_CALENDAR} object). Then they all
+must be named. Else, a error is risen.
 }
 \examples{
 \dontshow{if (rjd3jars::check_java_version(silent = TRUE)) withAutoprint(\{ # examplesIf}

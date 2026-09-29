@@ -3,15 +3,15 @@
 \name{get-results}
 \alias{get-results}
 \alias{get_results}
-\alias{.jsai_results}
-\alias{.jsai_jresults}
+\alias{jsai_results}
+\alias{jsai_jresults}
 \title{Extract results from a SA-item}
 \usage{
 get_results(jsai)
 
-.jsai_results(jsai, items = NULL)
+jsai_results(jsai, items = NULL)
 
-.jsai_jresults(jsai)
+jsai_jresults(jsai)
 }
 \arguments{
 \item{jsai}{Java SA-item object.}
@@ -25,6 +25,6 @@ List with all the results of the adjustment.
 }
 \description{
 \code{get_results()} extracts the results of a SA-item.
-\code{.jsai_results()} extracts specific output of the model of the SA-item.
-\code{.jsai_jresults()} extracts the Java object of the results of a SA-item.
+\code{jsai_results()} extracts specific output of the model of the SA-item.
+\code{jsai_jresults()} extracts the Java object of the results of a SA-item.
 }
