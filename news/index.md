@@ -8,7 +8,9 @@ The format is based on [Keep a
 Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...HEAD)
+### [Unreleased](https://github.com/rjdverse/rjd3workspace/compare/v3.9.0...HEAD)
+
+### [3.9.0](https://github.com/rjdverse/rjd3workspace/compare/v3.8.0...v3.9.0) - 2026-09-29
 
 #### Changed
 
@@ -16,6 +18,7 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION`
   and `JD3_DYNAMICTS` objects
   [\#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+
 - Updated JARS from jdplus-main to
   [3.9.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.9.0)
 

@@ -16,7 +16,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/develop/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/rjdverse/rjd3workspace/blob/v3.9.0/DESCRIPTION)
 
 Palate J, Quartier-la-Tente A, Barthelemy T, Smyk A, Delaune E (2026).
 *rjd3workspace: Wrangling 'JDemetra+ 3.x' Workspaces*. R package version
