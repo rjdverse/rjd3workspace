@@ -21,16 +21,24 @@ add_variables(jws, ...)
   [`rjd3toolkit::complete_modelling_context()`](https://rjdverse.github.io/rjd3toolkit/reference/complete_modelling_context.html)
   as:
 
-  - groupA character string indicating the name of the group in which to
-    store the variable.
+  group
 
-  - yA `ts` object (R time series) to be added. Only a single time
-    series can be added at a time.
+  :   A character string indicating the name of the group in which to
+      store the variable.
 
-  - nameA character string naming the variable.
+  y
 
-  - overwritea Boolean to indicate whether a variable already present
-    should be replaced
+  :   A `ts` object (R time series) to be added. Only a single time
+      series can be added at a time.
+
+  name
+
+  :   A character string naming the variable.
+
+  overwrite
+
+  :   a Boolean to indicate whether a variable already present should be
+      replaced
 
 ## Value
 

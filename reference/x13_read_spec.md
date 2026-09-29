@@ -30,7 +30,7 @@ class(my_spec)
 str(my_spec)
 #> List of 3
 #>  $ regarima    :List of 7
-#>   ..$ basic     :List of 3
+#>   ..$ basic     :List of 4
 #>   .. ..$ span            :List of 5
 #>   .. .. ..$ type: chr "ALL"
 #>   .. .. ..$ d0  : NULL
@@ -40,6 +40,7 @@ str(my_spec)
 #>   .. .. ..- attr(*, "class")= chr "JD3_SPAN"
 #>   .. ..$ preprocessing   : logi TRUE
 #>   .. ..$ preliminaryCheck: logi TRUE
+#>   .. ..$ frequency       : int 0
 #>   ..$ transform :List of 4
 #>   .. ..$ fn      : chr "AUTO"
 #>   .. ..$ adjust  : chr "NONE"

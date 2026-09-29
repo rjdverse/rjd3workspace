@@ -1,6 +1,6 @@
 # Changelog
 
-## rjd3workspace 3.8.0.9000
+## rjd3workspace 3.9.0
 
 All notable changes to this project will be documented in this file.
 
@@ -16,6 +16,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   corrects wrong names and accepts `mts`, `JD3_TS`, `JD3_TSCOLLECTION`
   and `JD3_DYNAMICTS` objects
   [\#148](https://github.com/rjdverse/rjd3toolkit/issues/148)
+- Updated JARS from jdplus-main to
+  [3.9.0](https://github.com/jdemetra/jdplus-main/releases/tag/v3.9.0)
 
 #### Deprecated
 
