@@ -686,7 +686,7 @@ add_calendar <- function(jws, name, calendar) {
 #' @param ... Other argument
 #' @param ... Additional arguments passed to
 #'   [rjd3toolkit::complete_modelling_context()] as:
-#'   \itemize{
+#'   \describe{
 #'     \item{group}{A character string indicating the name of the group in
 #'       which to store the variable.}
 #'     \item{y}{A \code{ts} object (R time series) to be added. Only a single

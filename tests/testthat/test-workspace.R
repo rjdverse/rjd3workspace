@@ -1,4 +1,5 @@
 test_that("add_variables works", {
+    skip_if_not(rjd3jars::check_java_version())
     jws <- jws_new()
     add_variables(jws = jws, group = "reg1", y = AirPassengers, name = "x1")
     ctx <- get_context(jws)
@@ -9,6 +10,7 @@ test_that("add_variables works", {
 })
 
 test_that("save_workspace works", {
+    skip_if_not(rjd3jars::check_java_version())
     path_ws <- tempfile(fileext = ".xml")
 
     jws <- jws_new()
