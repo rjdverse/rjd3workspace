@@ -1,4 +1,5 @@
 test_that("write_calendars works", {
+    skip_if_not(rjd3jars::check_java_version())
     BE <- rjd3toolkit::national_calendar(list(
         rjd3toolkit::fixed_day(7, 21),
         rjd3toolkit::special_day("NEWYEAR"),

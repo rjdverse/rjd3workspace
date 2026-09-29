@@ -1,3 +1,10 @@
+## Submission - 2026-09-29
+
+### R CMD check results
+
+0 errors | 0 warnings | 1 note
+
+
 ## Re-Submission - 2026-07-16
 
 * changed the example of read_calendars to \donttest
